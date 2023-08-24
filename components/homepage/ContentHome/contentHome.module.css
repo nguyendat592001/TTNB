@@ -1,0 +1,65 @@
+.content__story {
+    border-radius: 8px;
+}
+
+.content__story {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 22px;
+    border-radius: 8px;
+
+}
+
+.add__story {
+    border-radius: 8px;
+}
+
+.btnAdd__story {
+    width: 156px;
+    height: 65px;
+    background-color: white;
+}
+
+.imageAdd__story {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.btnAdd__story {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.imageAdd {
+    position: relative;
+    bottom: 50%;
+}
+
+.slide__story {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.imageNext {
+    position: relative;
+    top: 100%;
+}
+
+.slide__story {
+    display: flex;
+    overflow: hidden;
+}
+
+.story {
+    flex: 0 0 180px;
+    margin-right: 10px;
+}
+
+.rotate180 {
+    transform: rotate(180deg);
+    position: relative;
+    top: 100%;
+}

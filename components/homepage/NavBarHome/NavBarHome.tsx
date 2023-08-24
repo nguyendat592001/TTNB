@@ -1,13 +1,13 @@
 import React from 'react';
 import { Menu, Image } from 'antd';
-import menuItemsHome from './menuDataHome';
+import { menuItemsHome } from '../menuDataHome';
 import styles from './navbarHome.module.css';
 
 
 export default function NavbarHome(): JSX.Element {
     return (
         <>
-            <Menu className={`${styles.MenuUser} MenuUser`}>
+            <Menu className={`${styles.MenuUserHome} MenuUserHome`}>
                 {menuItemsHome.map((item, index) => (
                     <React.Fragment key={item.key}>
                         <Menu.Item

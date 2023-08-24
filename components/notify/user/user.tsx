@@ -1,4 +1,4 @@
-import { CaretDownOutlined, UserOutlined, SettingOutlined, LogoutOutlined, RightOutlined } from "@ant-design/icons";
+import { CaretDownOutlined, RightOutlined } from "@ant-design/icons";
 import { Dropdown, Image, Menu } from "antd";
 import React from "react";
 import styles from './user.module.css';

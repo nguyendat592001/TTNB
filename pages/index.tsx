@@ -1,4 +1,6 @@
-import NavbarHome from "@/components/navbar/NavBarHome/NavBarHome";
+import ContactHome from "@/components/homepage/ContactHome/contact";
+import ContentHome from "@/components/homepage/ContentHome/contentHome";
+import NavbarHome from "@/components/homepage/NavBarHome/NavBarHome";
 import { Col, Row } from "antd";
 import Head from "next/head";
 
@@ -12,18 +14,16 @@ export default function Home() {
                 <link rel="shortcut icon" href="./next.svg" />
             </Head>
             <div className="navbarHome">
-                <div className='{styles.container}'>
-                    <Row gutter={48} className='{styles.row}'>
-                        <Col span={6} >
+                <div className='container'>
+                    <Row className='row'>
+                        <Col span={6} className='navbarHome' >
                             <NavbarHome />
                         </Col>
-                        <Col span={11} className='{styles.colSearch}' >
-                            <div className='{styles.search}'>
-
-                            </div>
+                        <Col span={12} className='content' >
+                            <ContentHome />
                         </Col>
-                        <Col span={6} offset={1} >
-
+                        <Col span={6} offset={0} className='Contact' >
+                            <ContactHome />
                         </Col>
                     </Row>
                 </div>
