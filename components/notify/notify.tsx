@@ -1,6 +1,6 @@
 import styles from './notify.module.css';
 import { Badge, Image, Popover } from 'antd';
-import User from './user';
+import User from './user/user';
 import Ring from './ring/ring';
 
 

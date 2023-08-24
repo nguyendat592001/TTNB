@@ -15,9 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <Provider store={store}>
             <Layouts>
-
-                <Component {...pageProps} />
-
+                <div style={{ flexGrow: 1, paddingTop: '78px' }}>
+                    <Component {...pageProps} />
+                </div>
             </Layouts>
         </Provider>
     );

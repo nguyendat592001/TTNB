@@ -1,9 +1,10 @@
 @import "./common/_index.scss";
 @import "./responsive.scss";
 @import "./customAntd/index.scss";
+
 :root {
     --colorTheme: #4c5bd4;
-    --selectHover:#5897fb
+    --selectHover: #5897fb
 }
 
 * {
@@ -20,19 +21,27 @@ body {
     font-family: Roboto;
     text-rendering: optimizeSpeed;
 }
+
 a {
     text-decoration: none;
     color: inherit;
-  }
+}
 
 ::-webkit-scrollbar-thumb {
     background-color: #4c5bd4 !important;
 }
+
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
 }
+
 ::-webkit-scrollbar-track {
     border-radius: 10px;
     background-color: #e4e4e4;
+}
+
+.MenuUser.ant-dropdown-menu {
+    margin-top: 17px;
+    width: 280px;
 }
