@@ -1,6 +1,5 @@
 import { CaretDownOutlined, SearchOutlined } from "@ant-design/icons";
 import { Badge, Image, Col, Input, Row, Popover, ConfigProvider, } from "antd";
-import Navbar from "../navbar/navbar";
 import Notify from "../notify/notify";
 
 import styles from './header.module.css';

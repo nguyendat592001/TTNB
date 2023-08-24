@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
 
+import Header from './header/Header';
+
 
 import styles from './layout.module.css';
 import Header from './header/Header';
@@ -10,6 +12,7 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
+
    const router = useRouter();
    const [isCompanyUrl, setIsCompanyUrl] = useState(false)
  
@@ -28,6 +31,7 @@ if(router.pathname.includes("/login")){
             <div className="body">
                 <div className="header">
                     {isCompanyUrl ? null : <Header></Header>}
+
                 </div>
                 <div className="col-12">
                     {children}
