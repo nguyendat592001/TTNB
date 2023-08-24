@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import Header from './header/header';
-import Navbar from './navbar/navbar';
+import Header from './header/Header';
 
 import styles from './layout.module.css';
 interface LayoutProps {
@@ -9,12 +8,12 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
     return (
-        <div className="main">
+        <div className={styles.main}>
             {/* <div className="nav">
                 <Navbar />
             </div> */}
-            <div className="body">
-                <div className="header">
+            <div className={styles.body}>
+                <div className={styles.header}>
                     <Header />
                 </div>
                 <div className="col-12">
