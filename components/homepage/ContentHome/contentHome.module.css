@@ -45,7 +45,7 @@
 
 .imageNext {
     position: relative;
-    top: 100%;
+    top: 160%;
 }
 
 .slide__story {
@@ -61,5 +61,33 @@
 .rotate180 {
     transform: rotate(180deg);
     position: relative;
-    top: 100%;
+    top: 160%;
+}
+
+.userDetails {
+    margin-bottom: 8px;
+}
+
+.avatar {
+    border-radius: 50%;
+    margin-right: 8px;
+    z-index: 1;
+    border: 3px solid #4C5BD4;
+    position: relative;
+    bottom: 420%;
+    left: 22%;
+}
+
+.username {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    top: -50px;
+    right:22%;
+}
+.image__story{
+    width: 156px !important;
+    height:220px !important;
+    border-radius: 8px;
 }

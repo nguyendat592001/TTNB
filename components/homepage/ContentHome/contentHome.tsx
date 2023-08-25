@@ -5,12 +5,37 @@ import React, { useState } from 'react'
 import styles from './contentHome.module.css'
 
 const slidesData = [
-    { src: '/img/c.png', alt: 'Slide 1' },
-    { src: '/img/img-header/mes.png', alt: 'Slide 2' },
-    { src: '/img/app_add.png', alt: 'Slide 3' },
-    { src: '/img/img-header/ring.png', alt: 'Slide 1' },
-    { src: '/img/img-header/ep_post_hide_bv.svg', alt: 'Slide 2' },
-    { src: '/img/c.png', alt: 'Slide 3' },
+    {
+        name: 'Slide 1',
+        src: '/img/c.png',
+        alt: 'Slide 1',
+
+    },
+    {
+        name: 'Slide 2',
+        src: '/img/img-header/mes.png',
+        alt: 'Slide 2'
+    },
+    {
+        name: 'Slide 3',
+        src: '/img/app_add.png',
+        alt: 'Slide 3'
+    },
+    {
+        name: 'Slide 4',
+        src: '/img/img-header/ring.png',
+        alt: 'Slide 1'
+    },
+    {
+        name: 'Slide 5',
+        src: '/img/img-header/ep_post_hide_bv.svg',
+        alt: 'Slide 2'
+    },
+    {
+        name: 'Slide 6',
+        src: '/img/c.png',
+        alt: 'Slide 3'
+    },
 ];
 export default function ContentHome(): JSX.Element {
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -70,14 +95,25 @@ export default function ContentHome(): JSX.Element {
                             )}
                             {slidesData.slice(currentSlideIndex, currentSlideIndex + 3).map((slide, index) => (
                                 <div key={index} className={`${styles.story}`}>
-                                    <Image
-                                        src={slide.src}
-                                        alt={slide.alt}
-                                        width={180}
-                                        height={180}
-                                        preview={false}
-                                        className={styles.imageAdd__story}
-                                    />
+                                    <div className={styles.userDetails}>
+
+                                        <Image
+                                            src={slide.src}
+                                            alt={slide.alt}
+                                            preview={false}
+                                            className={styles.image__story}
+                                        />
+                                        <Image
+                                            src={slide.src}
+                                            alt={`${slide.name}'s Avatar`}
+                                            width={50}
+                                            height={50}
+                                            preview={false}
+                                            className={styles.avatar}
+                                        />
+                                        <span className={styles.username}>{slide.name}</span>
+                                    </div>
+
                                 </div>
                             ))}
                             {currentSlideIndex + 3 < slidesData.length && (
