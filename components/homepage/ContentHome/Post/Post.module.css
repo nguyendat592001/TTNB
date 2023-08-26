@@ -1,0 +1,146 @@
+.post {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.post__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post__header__left {
+    display: flex;
+    width: 100%;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.post__header__left__info {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.post__header__left__info__time {
+    display: flex;
+}
+
+.info__time {
+    margin-right: 10px;
+}
+
+.post__header__left__info__author_name {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.post__header__left__info__author_name a {
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.post_at_bold {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.post__content__text {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.post__content__image {
+    margin-top: 15px;
+}
+
+.post__reaction {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.post__reaction__count_like {
+    display: flex;
+}
+
+.post__reaction__count_like__text {
+    margin-left: 6px;
+}
+
+.post__reaction__count_comment {
+    margin-right: 6px;
+}
+
+.sum__comment {
+    display: flex;
+    align-items: center;
+}
+
+.post__footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.post__footer__left,
+.post__footer__middle,
+.post__footer__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post__footer__left__text,
+.post__footer__middle__text,
+.post__footer__right__text {
+    margin-left: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.divider {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 1px;
+    background-color: #CCCCCC;
+
+}
+
+.post__comment {
+    display: flex;
+    padding-left: 10px;
+    margin-top: 15px;
+}
+
+.comment__avatar {
+    border-radius: 50%;
+}
+
+.post__comment__input {
+    display: flex;
+    width: 100%;
+    border-radius: 40px;
+    background-color: #F2F2F2;
+    margin-left: 15px;
+}
+
+.comment__input {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    height: 44px;
+}

@@ -25,8 +25,8 @@ export default function Layout({ children }: LayoutProps) {
             {/* <div className="nav">
                 <Navbar />
             </div> */}
-            <div className="body">
-                <div className="header">
+            <div className={styles.body}>
+                <div className={styles.header}>
                     {isCompanyUrl ? null : <Header />}
 
                 </div>

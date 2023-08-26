@@ -1,18 +1,19 @@
 import { Menu } from "antd";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from './header.module.css';
-import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8, Icon9 } from "./iconheader";
+import styles from './sidebar.module.css';
+import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8, Icon9 } from "../iconheader";
 
 export default function SideBar(): JSX.Element {
     const pathname = usePathname();
     return (
-        <div className={styles.MenuSidebar}>
+        <div className={`${styles.MenuSidebar} MenuSidebar`}>
             <Menu
                 mode="inline"
                 id="NavMenu"
                 defaultSelectedKeys={["1"]}
                 theme="dark"
+                className="MenuSidebar"
                 items={[
                     {
                         label: (

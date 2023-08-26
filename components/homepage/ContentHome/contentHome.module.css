@@ -1,3 +1,8 @@
+.container {
+    padding-right: 75px;
+    padding-left: 55px;
+}
+
 .content__story {
     border-radius: 8px;
 }
@@ -54,7 +59,6 @@
 }
 
 .story {
-    flex: 0 0 180px;
     margin-right: 10px;
 }
 
@@ -84,10 +88,11 @@
     font-weight: 500;
     position: relative;
     top: -50px;
-    right:22%;
+    right: 22%;
 }
-.image__story{
+
+.image__story {
     width: 156px !important;
-    height:220px !important;
+    height: 220px !important;
     border-radius: 8px;
 }

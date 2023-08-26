@@ -3,14 +3,14 @@ import { Badge, Image, Col, Input, Row, Popover, ConfigProvider, } from "antd";
 import Notify from "../notify/notify";
 
 import styles from './header.module.css';
-import SideBar from "./sidebar";
+import SideBar from "./sidebar/sidebar";
 
 export default function Header(): JSX.Element {
     return (
         <>
             <div className={styles.container}>
                 <Row gutter={48} className={styles.row}>
-                    <Col span={6} >
+                    <Col span={6} className={`${styles.Sidebar} SideBar`} >
                         <ConfigProvider
                             theme={{
                                 components: {
@@ -28,7 +28,7 @@ export default function Header(): JSX.Element {
                                     <SideBar />
                                 }
                                 placement="bottomLeft"
-                                className={styles.popover}
+                                className={`${styles.popover} PopoverSidebar`}
                                 trigger="click"
                                 arrow={false}
                             >

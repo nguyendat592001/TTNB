@@ -19,7 +19,7 @@ export default function Home() {
                         <Col span={6} className='navbarHome' >
                             <NavbarHome />
                         </Col>
-                        <Col span={12} className='content' >
+                        <Col span={12} offset={0} className='content' >
                             <ContentHome />
                         </Col>
                         <Col span={6} offset={0} className='Contact' >

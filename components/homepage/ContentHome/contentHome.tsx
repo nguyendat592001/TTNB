@@ -2,7 +2,9 @@
 import { PlusCircleFilled, RightCircleFilled } from '@ant-design/icons'
 import { Image } from 'antd'
 import React, { useState } from 'react'
+import AddPost from './AddPost/AddPost';
 import styles from './contentHome.module.css'
+import Post from './Post/Post';
 
 const slidesData = [
     {
@@ -13,22 +15,22 @@ const slidesData = [
     },
     {
         name: 'Slide 2',
-        src: '/img/img-header/mes.png',
+        src: '/img/c.png',
         alt: 'Slide 2'
     },
     {
         name: 'Slide 3',
-        src: '/img/app_add.png',
+        src: '/img/c.png',
         alt: 'Slide 3'
     },
     {
         name: 'Slide 4',
-        src: '/img/img-header/ring.png',
+        src: '/img/c.png',
         alt: 'Slide 1'
     },
     {
         name: 'Slide 5',
-        src: '/img/img-header/ep_post_hide_bv.svg',
+        src: '/img/c.png',
         alt: 'Slide 2'
     },
     {
@@ -129,8 +131,12 @@ export default function ContentHome(): JSX.Element {
                             )}
                         </div>
                     </div>
-                    <div className={styles.content__post}>
-
+                    <div className={styles.content__addPost}>
+                        <AddPost />
+                    </div>
+                    <div className={styles.content__Post}>
+                        <Post />
+                        <Post />
                     </div>
                 </div>
             </div>
