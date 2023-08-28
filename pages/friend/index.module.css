@@ -8,7 +8,7 @@
    position: fixed;
    height: 100vh;
    width: 20%;
-   margin-top: -78px;
+   top: 12%;
 }
 .left_all {
    display: flex;
@@ -79,6 +79,7 @@
    float: right;
    background-color: #f7f8fc;
    margin-right: -2.5%;
+   padding-top: 30px;
 }
 
 .search {
