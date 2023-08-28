@@ -2,6 +2,7 @@
 @import "./responsive.scss";
 @import "./customAntd/index.scss";
 @import "./thuc/index.css";
+@import "./dat/index.scss";
 :root {
     --colorTheme: #4c5bd4;
     --selectHover: #5897fb
@@ -42,59 +43,7 @@ a {
     background-color: #e4e4e4;
 }
 
-.MenuUser.ant-dropdown-menu {
-    margin-top: 17px;
-    width: 280px;
-}
-
-.MenuUserHome.ant-menu {
+::-webkit-scrollbar-track-piece {
     border-radius: 10px;
-    height: 100vh;
-    position: relative;
-    background-color: white;
-    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 100px;
-    width: 380px;
-
-    .ant-menu-item {
-        padding: 0px 24px;
-        height: 50px;
-        line-height: 50px;
-        font-size: 16px;
-        font-weight: 500;
-        width: 365px;
-        border-radius: 8px;
-
-        &:hover {
-            background-color: rgba($color: #000000, $alpha: .1) !important;
-        }
-
-        .ant-menu-title-content {
-            color: #000000;
-        }
-    }
-}
-.ant-popover .ant-popover-inner{
-    padding: 0;
-    // position: fixed;sử lý lỗi khi scroll mất popover
-    // .ant-menu-item {
-    //     padding: 0px 24px;
-    //     height: 50px;
-    //     font-weight: 500;
-    //     border-radius: 8px;
-
-    //     &:hover {
-    //         background-color: rgba($color: #000000, $alpha: .1) !important;
-    //         width: 97%;
-    //     }
-
-    //     .ant-menu-title-content {
-    //         color: #fff;
-    //     }
-    // }
-}
-.ant-menu-item:hover, .ant-menu-submenu-inline:hover{
-    width: 97%;
-    border-radius: 8px;
+    background-color: #e4e4e4;
 }

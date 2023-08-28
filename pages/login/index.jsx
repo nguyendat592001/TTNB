@@ -1,14 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./index.module.css";
 import { Image } from "antd";
+import { Popover, ConfigProvider } from "antd";
 import Footer from "./footer/Footer";
+import Menunav from "./menu";
+
 const BeforeLogin = () => {
+   const [open, setOpen] = useState(false);
+   const hide = () => {
+      setOpen(false);
+   };
+   const handleOpenChange = (newOpen) => {
+      setOpen(newOpen);
+   };
    return (
       <>
          <div>
             <div className={styles.header}>
                <div className={styles.header_content}>
-                  <div>
+                  <div className={styles.header_respon}>
+                     <div className={styles.config}>
+                        <ConfigProvider
+                           theme={{
+                              components: {
+                                 Menu: {
+                                    darkItemBg: "#4c5bd4",
+                                    darkItemHoverBg: "#2e3994",
+                                    darkItemSelectedBg: "#2e3994",
+                                    darkSubMenuItemBg: "#4c5bd4",
+                                 },
+                              },
+                           }}>
+                           <Popover content={<Menunav />} className={`thuc_popover`} trigger="click" arrow={false}>
+                              <Image alt="/" src={"/img/before_login/menu.png"} preview={false} />
+                           </Popover>
+                        </ConfigProvider>
+                     </div>
                      <Image alt="/" src={"/img/before_login/log_hdnav.png"} preview={false} />
                   </div>
                   <div className={styles.login}>
@@ -33,6 +60,18 @@ const BeforeLogin = () => {
                         <Image alt="/" src={"/img/before_login/dl_app_pc2.png"} preview={false} />
                         <Image alt="/" src={"/img/before_login/dl_app_pc1.png"} preview={false} />
                      </div>
+                     <div className={styles.contact}>
+                        <div className={styles.dk}>
+                           <a href="https://quanlychung.timviec365.vn/lua-chon-dang-ky.html" rel="nofollow" className={styles.support}>
+                              Liên hệ hỗ trợ
+                           </a>
+                        </div>
+                        <div className={styles.ht}>
+                           <a rel="nofollow" href="https://quanlychung.timviec365.vn/lua-chon-dang-ky.html" className={styles.sign}>
+                              Đăng ký ngay
+                           </a>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
@@ -52,7 +91,7 @@ const BeforeLogin = () => {
                         <Image alt="/" src={"/img/before_login/tinhnang2_1520.png"} preview={false} />
                      </div>
                      <p className={styles.content_blog_p}>Truyền thông đa chiều trong nội bộ doanh nghiệp</p>
-                     <p className={styles.content_blog_p2}>
+                     <p className={styles.content_blog_p22}>
                         Tương tác đa chiều giữa Nhân viên - cấp quản lý - nhân viên góp phần quan trọng trong công tác truyền tải thông tin, gắn kết nhân viên đồng lòng với mục tiêu chung
                      </p>
                   </div>
@@ -120,7 +159,7 @@ const BeforeLogin = () => {
                         </div>
                      </div>
                   </div>
-                  <div className={styles.content3_img}>
+                  <div className={styles.content3_img_center}>
                      <div className={styles.border}>
                         <div className={styles.img}>
                            <Image alt="/" src={"/img/before_login/img_lll3.png"} preview={false} />
@@ -155,6 +194,7 @@ const BeforeLogin = () => {
             <div className={styles.video_container}>
                <div className={styles.video}>
                   <div className={styles.video_left}>
+                     <h2 className={styles.video_h2_none}>Video hướng dẫn sử dụng phần mềm</h2>
                      <iframe
                         className={styles.video_hd}
                         src="https://www.youtube.com/embed/UssNzo6m1p8"
@@ -224,6 +264,12 @@ const BeforeLogin = () => {
                   <div className={styles.ceo_info}>
                      <p className={styles.ceo_name}>TRƯƠNG VĂN TRẮC</p>
                      <p className={styles.com}>CEO - Tổng giám đốc Công ty Cổ phần Thanh toán Hưng Hà</p>
+                  </div>
+                  <div className={styles.ceo_none}>
+                     <p className={styles.ceo_none_p}>
+                        Hãy chấp nhận những gì định mệnh gắn cho bạn, hãy yêu cái nghề mà định mệnh cho bạn làm việc và hãy cố gắng hoàn thành nó với tất cả tấm chân tình{" "}
+                     </p>
+                     <p className={styles.ceo_none_p}>(CEO - Tổng giám đốc Công ty cổ phần thanh toán Hưng Hà - Trương Văn Trắc)</p>
                   </div>
                </div>
             </div>

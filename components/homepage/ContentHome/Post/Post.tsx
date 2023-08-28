@@ -1,10 +1,48 @@
 
 import OptionPost from '@/components/common/Popover/OptionPost';
 import { ConfigProvider, Divider, Image, Input, Popover } from 'antd';
+import { useState } from 'react';
 
 import styles from './Post.module.css';
 
+interface Comment {
+    avatar: string;
+    name: string;
+    content: string;
+    timestamp: string;
+    day: string;
+}
+
 function Post() {
+
+    const [newComment, setNewComment] = useState('');
+    const [showIcons, setShowIcons] = useState(true);
+    const [comments, setComments] = useState<Comment[]>([]);
+    const [showComments, setShowComments] = useState(false);
+
+    function handleCommentClick() {
+        setShowComments(!showComments);
+    }
+
+    function handleSubmitComment() {
+        if (newComment.trim() !== '') {
+            const comment: Comment = {
+                avatar: '/img/c.png',
+                name: 'Nguyễn Thế Đạt',
+                content: newComment,
+                timestamp: '12:34 PM',
+                day: '28/08/2023',
+
+            };
+            addComment(comment);
+            setNewComment('');
+        }
+    }
+
+    function addComment(comment: Comment) {
+        setComments(prevComments => [...prevComments, comment]);
+    }
+
     return (
 
         <div className={styles.post}>
@@ -128,7 +166,7 @@ function Post() {
                         <p>Thích</p>
                     </div>
                 </div>
-                <div className={styles.post__footer__middle}>
+                <div className={styles.post__footer__middle} onClick={handleCommentClick}>
                     <div className={styles.post__footer__middle__icon}>
                         <Image
                             src='/img/img-home/ep_post_cmt.svg'
@@ -171,30 +209,79 @@ function Post() {
                 </div>
                 <div className={styles.post__comment__input}>
                     <Input
+                        value={newComment}
+                        onChange={e => {
+                            setNewComment(e.target.value);
+                            setShowIcons(false);
+                        }
+                        }
+                        onKeyDown={e => {
+                            if (e.key === 'Enter') {
+                                handleSubmitComment();
+                            }
+                        }}
                         placeholder='Viết bình luận...'
                         bordered={false}
                         className={styles.comment__input}
                         suffix={
-                            <>
+                            showIcons ? (
+                                <>
+                                    <Image
+                                        src='/img/img-home/ep_post_icon_feel.svg'
+                                        alt='icon'
+                                        width={25}
+                                        height={25}
+                                        preview={false}
+                                    />
+                                    <Image
+                                        src='/img/img-home/ep_post_write_img.svg'
+                                        alt='icon'
+                                        width={25}
+                                        height={25}
+                                        preview={false}
+                                    />
+                                </>
+                            ) : (
                                 <Image
-                                    src='/img/img-home/ep_post_icon_feel.svg'
+                                    src='/img/img-home/v_gui_comment.svg'
                                     alt='icon'
                                     width={25}
                                     height={25}
                                     preview={false}
+                                    onClick={handleSubmitComment}
                                 />
-                                <Image
-                                    src='/img/img-home/ep_post_write_img.svg'
-                                    alt='icon'
-                                    width={25}
-                                    height={25}
-                                    preview={false}
-                                />
-                            </>
+                            )
                         }
                     />
                 </div>
             </div>
+            {showComments && (
+                <div className={styles.comments}>
+                    {comments.map((comment, index) => (
+                        <div key={index} className={styles.comment}>
+                            <div className={styles.comment__avatar_user}>
+                                <Image
+                                    src={comment.avatar}
+                                    width={40}
+                                    height={40}
+                                    preview={false}
+                                    className={styles.comment__avatar_user_img}
+                                    alt='avatar' />
+                            </div>
+                            <div className={styles.comment__content}>
+                                <div className={styles.comment__content_info}>
+                                    <p className={styles.comment__name}>{comment.name}</p>
+                                    <p className={styles.comment__text}>{comment.content}</p>
+                                </div>
+                                <div className={styles.comment__content_reaction}>
+                                    <p className={styles.comment__day}>{comment.day}</p>
+                                    <p className={styles.comment__timestamp}>{comment.timestamp}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
 
 

@@ -144,3 +144,47 @@
     font-weight: 400;
     height: 44px;
 }
+
+.comment__avatar_user_img {
+    border-radius: 50%;
+}
+
+.comment {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 9px;
+    margin-right: 16px;
+}
+
+.comment__content {
+    width: 100%;
+}
+
+.comment__content_info {
+    margin-left: 15px;
+    padding: 10px 15px;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    width: 100%;
+    line-height: 20px;
+}
+
+.comment__name {
+    color: #474747;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.comment__text {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.comment__content_reaction {
+    display: flex;
+    margin-left: 16px;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
