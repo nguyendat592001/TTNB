@@ -1,0 +1,35 @@
+.ant-popover .ant-popover-inner {
+   background-color: unset !important;
+   box-shadow: unset !important;
+   padding: 0px !important;
+}
+.ant-card.ant-card-bordered.thuc_card.friend_card__pil0S,
+.ant-card.ant-card-bordered.thuc_card.allFriend_card__QIBvw,
+.ant-card.ant-card-bordered.thuc_card.suggest_card__bEEls,
+.ant-card.ant-card-bordered.thuc_card.addFiend_card__jy9zR {
+   width: 22% !important;
+}
+.ant-modal.thuc_unf.allFriend_modal_unf__1Ln2g .ant-modal-header,
+.ant-modal.thuc_block.allFriend_modal_block__P5NOd .ant-modal-header,
+.ant-modal.thuc_modaladdFiend_modal__KVWkq .ant-modal-header {
+   background: #4c5bd4;
+   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+   border-radius: 8px 8px 0px 0px;
+   height: 47px;
+   display: flex;
+   align-items: center;
+   padding-left: 15px;
+}
+.ant-modal.thuc_unf.allFriend_modal_unf__1Ln2g .ant-modal-close-x,
+.ant-modal.thuc_unf.allFriend_modal_unf__1Ln2g .ant-modal-title,
+.ant-modal.thuc_block.allFriend_modal_block__P5NOd .ant-modal-close-x,
+.ant-modal.thuc_block.allFriend_modal_block__P5NOd .ant-modal-title,
+.ant-modal.thuc_modaladdFiend_modal__KVWkq .ant-modal-close-x,
+.ant-modal.thuc_modaladdFiend_modal__KVWkq .ant-modal-title {
+   color: #fff;
+}
+.ant-modal.thuc_unf.allFriend_modal_unf__1Ln2g .ant-modal-content,
+.ant-modal.thuc_block.allFriend_modal_block__P5NOd .ant-modal-content,
+.ant-modal.thuc_modaladdFiend_modal__KVWkq .ant-modal-content {
+   padding: unset !important;
+}
