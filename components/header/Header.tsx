@@ -28,7 +28,7 @@ export default function Header(): JSX.Element {
                                     <SideBar />
                                 }
                                 placement="bottomLeft"
-                                className={`${styles.popover} PopoverSidebar`}
+                                className={`${styles.PopoverSidebar} PopoverSidebar`}
                                 trigger="click"
                                 arrow={false}
                             >
