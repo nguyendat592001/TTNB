@@ -28,14 +28,16 @@ const menuItems = [
 function OptionPost() {
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.MenuOptionPost} MenuOptionPost`}>
             <ConfigProvider
                 theme={{
                     components: {
                         Menu: {
                             darkItemSelectedBg: '#ccc',
                             darkItemHoverBg: '#ccc',
-                            darkItemBg: 'white'
+                            darkItemBg: 'white',
+                            darkItemColor: 'black',
+                            groupTitleColor: 'black',
                         },
                     },
                 }}

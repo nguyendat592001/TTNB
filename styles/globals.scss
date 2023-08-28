@@ -77,19 +77,24 @@ a {
 }
 .ant-popover .ant-popover-inner{
     padding: 0;
-    .ant-menu-item {
-        padding: 0px 24px;
-        height: 50px;
-        font-weight: 500;
-        border-radius: 8px;
+    // position: fixed;sử lý lỗi khi scroll mất popover
+    // .ant-menu-item {
+    //     padding: 0px 24px;
+    //     height: 50px;
+    //     font-weight: 500;
+    //     border-radius: 8px;
 
-        &:hover {
-            background-color: rgba($color: #000000, $alpha: .1) !important;
-            width: 97%;
-        }
+    //     &:hover {
+    //         background-color: rgba($color: #000000, $alpha: .1) !important;
+    //         width: 97%;
+    //     }
 
-        .ant-menu-title-content {
-            color: #fff;
-        }
-    }
+    //     .ant-menu-title-content {
+    //         color: #fff;
+    //     }
+    // }
+}
+.ant-menu-item:hover, .ant-menu-submenu-inline:hover{
+    width: 97%;
+    border-radius: 8px;
 }
