@@ -13,7 +13,7 @@ export default function SideBar(): JSX.Element {
                 id="NavMenu"
                 defaultSelectedKeys={["1"]}
                 theme="dark"
-                className="ItemMenuSidebar"
+                className={`${styles.ItemMenuSidebar} ItemMenuSidebar`}
                 items={[
                     {
                         label: (

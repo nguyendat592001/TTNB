@@ -53,3 +53,81 @@
         }
     }
 }
+
+.ItemMenuSidebar.ant-menu {
+    border-radius: 8px;
+
+    .ant-menu-item {
+        margin: 10px 4px;
+    }
+}
+
+.menuSortPopover.ant-menu {
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+
+    .ant-menu-item {
+        &:hover {
+            background-color: rgba($color: #000000, $alpha: .1) !important;
+            color: #000000 !important;
+            width: 92% !important;
+        }
+    }
+}
+
+
+
+
+
+/* --------------- Modal ------------------ */
+
+/* Modal Add Post */
+.modal__tag .ant-modal-content,
+.modal__addPost .ant-modal-content {
+    padding: 0px;
+
+    a {
+        color: #000000;
+    }
+
+    Button {
+        transition: none;
+
+        &:hover {
+            border: transparent;
+            color: #ffffff !important;
+        }
+    }
+
+    .ant-modal-close {
+        color: #ffffff;
+    }
+
+    .ant-modal-header {
+        background-color: #4c5bd4;
+        width: 100%;
+        height: 50px;
+        margin: 0;
+
+        .ant-modal-title {
+            color: white;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            margin: 0px 20px;
+        }
+
+    }
+
+    .ant-modal-body {
+        padding: 15px 20px 5px 20px;
+    }
+}
+
+/* Modal Tag */
+
+.modal__tag .ant-input-affix-wrapper {
+    &:hover {
+        border: 1px solid #ccc !important;
+    }
+}

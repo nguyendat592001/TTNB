@@ -1,5 +1,6 @@
 import { CaretDownOutlined, RightOutlined } from "@ant-design/icons";
 import { Dropdown, Image, Menu } from "antd";
+import { relative } from "path";
 import React from "react";
 import styles from './user.module.css';
 
@@ -138,6 +139,9 @@ export default function User(): JSX.Element {
                     style={{
                         fontSize: '25px',
                         color: '#999999',
+                        position: 'relative',
+                        top: '8px',
+                        left: '2px'
                     }} rev={undefined} />
             </div>
         </Dropdown>

@@ -1,7 +1,26 @@
+import ModalAddPost from '@/components/common/Modal/AddPost/ModalAddPost';
+import ModalTag from '@/components/common/Modal/Tag/ModalTag';
 import { Divider, Image, Input } from 'antd';
+import { useState } from 'react';
 import styles from './AddPost.module.css';
 
 function AddPost() {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isTagModalOpen, setIsTagModalOpen] = useState(false);
+
+    const handleInputClick = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleTagClick = () => {
+        setIsTagModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <>
             <div style={{ marginTop: '-25px' }}>
@@ -23,12 +42,13 @@ function AddPost() {
                                 placeholder="Bạn đang nghĩ gì?"
                                 bordered={false}
                                 size="large"
+                                onClick={handleInputClick}
                             />
                         </div>
                     </div>
                     <Divider className={styles.divider} />
                     <div className={styles.addPost__body}>
-                        <div className={styles.addPost__body_item} >
+                        <div className={`${styles.addPost__body_item} ${styles.addPost__upload} `} >
                             <Image
                                 src='/img/img-home/nv_upload_file.svg'
                                 alt='avatar'
@@ -39,7 +59,7 @@ function AddPost() {
                             />
                             <span className={styles.addPost__body_title}>Ảnh/video/tệp</span>
                         </div>
-                        <div className={styles.addPost__body_item}>
+                        <div className={`${styles.addPost__body_item} ${styles.addPost__tag} `} onClick={handleTagClick}>
                             <Image
                                 src='/img/img-home/nv_post_feel_user_tag.svg'
                                 alt='avatar'
@@ -50,7 +70,7 @@ function AddPost() {
                             />
                             <span className={styles.addPost__body_title} >Nhắc tên thành viên</span>
                         </div>
-                        <div className={styles.addPost__body_item}>
+                        <div className={`${styles.addPost__body_item} ${styles.addPost__activities} `}>
                             <Image
                                 src='/img/img-home/nv_icon_post_footer_active.svg'
                                 alt='avatar'
@@ -64,6 +84,8 @@ function AddPost() {
                     </div>
                 </div>
             </div>
+            <ModalAddPost isOpen={isModalOpen} onClose={handleModalClose} />
+            <ModalTag isOpen={isTagModalOpen} onClose={() => setIsTagModalOpen(false)} />
         </>
     );
 }
