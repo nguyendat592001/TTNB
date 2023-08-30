@@ -3,64 +3,13 @@ import { ConfigProvider, Dropdown, Menu, Image } from "antd";
 
 import styles from "./OptionPost.module.css";
 
-const menuItems = [
-    {
-        key: 'save',
-        icon: <Image
-            src='/img/img-OptionPost/ep_post_save.svg'
-            alt='icon'
-            width={20}
-            height={20}
-            preview={false}
-        />,
-        text: 'Lưu bài viết',
-    },
-    {
-        key: 'disableNotifications',
-        icon: <Image
-            src='/img/img-OptionPost/ep_post_turn_off_notify.svg'
-            alt='icon'
-            width={20}
-            height={20}
-            preview={false}
-        />,
-        text: 'Tắt thông báo',
-    },
-    {
-        key: 'turnOnNotific',
-        icon: <Image
-            src='/img/img-OptionPost/nv_who_can_comment.png'
-            alt='icon'
-            width={20}
-            height={20}
-            preview={false}
-        />,
-        text: 'Ai có thể bình luận về bài viết của bạn',
-    },
-    {
-        key: 'editPost',
-        icon: <Image
-            src='/img/img-OptionPost/chinh-sua.svg'
-            alt='icon'
-            width={20}
-            height={20}
-            preview={false}
-        />,
-        text: 'Chỉnh sửa bài viết',
-    },
-    {
-        key: 'editViewObject',
-        icon: <Image
-            src='/img/img-home/regime/regime1.svg'
-            alt='icon'
-            width={20}
-            height={20}
-            preview={false}
-        />,
-        text: 'Chỉnh sửa đối tượng xem bài viết',
-    },
-];
-function OptionPost() {
+type MenuItem = {
+    key: string;
+    icon: JSX.Element;
+    text: string;
+};
+
+function OptionPost({ menuItems }: { menuItems: MenuItem[] }) {
 
     return (
         <div className={`${styles.MenuOptionPost} MenuOptionPost`}>

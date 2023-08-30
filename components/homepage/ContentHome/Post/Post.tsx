@@ -1,9 +1,12 @@
+import { Divider, Image, Menu, Popover } from 'antd';
+import { SetStateAction, useState } from 'react';
+import { DownOutlined } from '@ant-design/icons';
 
 import OptionPost from '@/components/common/Popover/OptionPost';
-import { ConfigProvider, Divider, Image, Input, Popover } from 'antd';
-import { useState } from 'react';
-
+import PostComment from './PostComment/PostComment';
 import styles from './Post.module.css';
+import { menuOptionPost, menuOptionSharePost } from './dataPost'
+import ReactionIcons from './ReactionIcons/ReactionIcons ';
 
 interface Comment {
     avatar: string;
@@ -11,31 +14,51 @@ interface Comment {
     content: string;
     timestamp: string;
     day: string;
+
 }
+
+const menu = (
+    <Menu className={`${styles.menu__sort_popover} menuSortPopover `}>
+        <Menu.Item key="1">Mới nhất</Menu.Item>
+        <Menu.Item key="2">Cũ nhất</Menu.Item>
+    </Menu>
+);
+
+
 
 function Post() {
 
-    const [newComment, setNewComment] = useState('');
-    const [showIcons, setShowIcons] = useState(true);
     const [comments, setComments] = useState<Comment[]>([]);
     const [showComments, setShowComments] = useState(false);
+    const [selectedImage, setSelectedImage] = useState('/img/img-home/ep_post_active_like.svg');
+    const [selectedReplyIndex, setSelectedReplyIndex] = useState(-1);
+    const [likeCount, setLikeCount] = useState(1);
+
+    function handleReplyClick(index: number) {
+        setSelectedReplyIndex(index === selectedReplyIndex ? -1 : index);
+    }
+
+    function handleImageClick(newImage: SetStateAction<string>) {
+        if (newImage !== selectedImage) {
+            setSelectedImage(newImage);
+            setLikeCount(likeCount + 1);
+        }
+    }
 
     function handleCommentClick() {
         setShowComments(!showComments);
     }
 
-    function handleSubmitComment() {
-        if (newComment.trim() !== '') {
-            const comment: Comment = {
+    function handleSubmitComment(comment: string) {
+        if (comment.trim() !== '') {
+            const newComment: Comment = {
                 avatar: '/img/c.png',
                 name: 'Nguyễn Thế Đạt',
-                content: newComment,
+                content: comment,
                 timestamp: '12:34 PM',
                 day: '28/08/2023',
-
             };
-            addComment(comment);
-            setNewComment('');
+            addComment(newComment);
         }
     }
 
@@ -91,7 +114,7 @@ function Post() {
 
                         <Popover
                             placement="bottomRight"
-                            content={<OptionPost />}
+                            content={<OptionPost menuItems={menuOptionPost} />}
                             trigger="click"
                             arrow={false}
                         >
@@ -119,18 +142,17 @@ function Post() {
                     />
                 </div>
             </div>
-            <div className={styles.post__reaction}>
+            <div className={styles.post__count_reaction}>
                 <div className={styles.post__reaction__count_like}>
                     <Image
-                        src='/img/img-home/reaction/reaction_1.svg'
+                        src={selectedImage}
                         alt='icon'
                         width={25}
                         height={25}
                         preview={false}
                     />
                     <p className={styles.post__reaction__count_like__text}>
-                        1.000
-                        <span> Lượt thích </span>
+                        {likeCount} Người
                     </p>
 
                 </div>
@@ -150,22 +172,14 @@ function Post() {
                     </div>
                 </div>
             </div>
+
             <Divider className={styles.divider} />
+
             <div className={styles.post__footer}>
-                <div className={styles.post__footer__left}>
-                    <div className={styles.post__footer__left__icon}>
-                        <Image
-                            src='/img/img-home/ep_post_active_like.svg'
-                            alt='icon'
-                            width={28}
-                            height={28}
-                            preview={false}
-                        />
-                    </div>
-                    <div className={styles.post__footer__left__text}>
-                        <p>Thích</p>
-                    </div>
-                </div>
+                <ReactionIcons
+                    selectedImage={selectedImage}
+                    onSelectImage={handleImageClick}
+                />
                 <div className={styles.post__footer__middle} onClick={handleCommentClick}>
                     <div className={styles.post__footer__middle__icon}>
                         <Image
@@ -180,83 +194,51 @@ function Post() {
                         <p>Bình luận</p>
                     </div>
                 </div>
-                <div className={styles.post__footer__right}>
-                    <div className={styles.post__footer__right__icon}>
-                        <Image
-                            src='/img/img-home/ep_post_share.svg'
-                            alt='icon'
-                            width={28}
-                            height={28}
-                            preview={false}
-                        />
+
+                <Popover
+                    placement="bottomRight"
+                    content={<OptionPost menuItems={menuOptionSharePost} />}
+                    trigger="click"
+                    arrow={false}
+                >
+                    <div className={styles.post__footer__right}>
+                        <div className={styles.post__footer__right__icon}>
+                            <Image
+                                src='/img/img-home/ep_post_share.svg'
+                                alt='icon'
+                                width={28}
+                                height={28}
+                                preview={false}
+                            />
+                        </div>
+                        <div className={styles.post__footer__right__text}>
+                            <p>Chia sẻ</p>
+                        </div>
                     </div>
-                    <div className={styles.post__footer__right__text}>
-                        <p>Chia sẻ</p>
-                    </div>
-                </div>
+                </Popover>
             </div>
+
             <Divider className={styles.divider} />
-            <div className={styles.post__comment}>
-                <div className={styles.post__comment__avatar}>
-                    <Image
-                        src='/img/c.png'
-                        alt='icon'
-                        width={40}
-                        height={40}
-                        preview={false}
-                        className={styles.comment__avatar}
-                    />
-                </div>
-                <div className={styles.post__comment__input}>
-                    <Input
-                        value={newComment}
-                        onChange={e => {
-                            setNewComment(e.target.value);
-                            setShowIcons(false);
-                        }
-                        }
-                        onKeyDown={e => {
-                            if (e.key === 'Enter') {
-                                handleSubmitComment();
-                            }
-                        }}
-                        placeholder='Viết bình luận...'
-                        bordered={false}
-                        className={styles.comment__input}
-                        suffix={
-                            showIcons ? (
-                                <>
-                                    <Image
-                                        src='/img/img-home/ep_post_icon_feel.svg'
-                                        alt='icon'
-                                        width={25}
-                                        height={25}
-                                        preview={false}
-                                    />
-                                    <Image
-                                        src='/img/img-home/ep_post_write_img.svg'
-                                        alt='icon'
-                                        width={25}
-                                        height={25}
-                                        preview={false}
-                                    />
-                                </>
-                            ) : (
-                                <Image
-                                    src='/img/img-home/v_gui_comment.svg'
-                                    alt='icon'
-                                    width={25}
-                                    height={25}
-                                    preview={false}
-                                    onClick={handleSubmitComment}
-                                />
-                            )
-                        }
-                    />
-                </div>
-            </div>
+
+            <PostComment onSubmitComment={handleSubmitComment} />
             {showComments && (
                 <div className={styles.comments}>
+                    <Popover
+                        content={menu}
+                        trigger="click"
+                        arrow={false}
+                        placement="bottomRight"
+                    >
+                        <div className={styles.post__comment_sort}>
+                            Mới nhất
+                            <span>
+                                <DownOutlined
+                                    rev={undefined}
+                                    className={styles.post__comment_sort_icon}
+                                />
+                            </span>
+                        </div>
+                    </Popover>
                     {comments.map((comment, index) => (
                         <div key={index} className={styles.comment}>
                             <div className={styles.comment__avatar_user}>
@@ -274,17 +256,30 @@ function Post() {
                                     <p className={styles.comment__text}>{comment.content}</p>
                                 </div>
                                 <div className={styles.comment__content_reaction}>
+                                    <p className={styles.comment__cxuc}>Thích</p>
+                                    <p
+                                        className={styles.comment__reply}
+                                        onClick={() => handleReplyClick(index)}
+                                    >
+                                        Trả lời
+                                    </p>
+
                                     <p className={styles.comment__day}>{comment.day}</p>
+                                    <p>lúc</p>
                                     <p className={styles.comment__timestamp}>{comment.timestamp}</p>
                                 </div>
+                                {selectedReplyIndex === index && (
+                                    <PostComment
+                                        onSubmitComment={handleSubmitComment}
+                                        parentId={index}
+                                    />
+                                )}
                             </div>
                         </div>
                     ))}
                 </div>
             )}
         </div>
-
-
     );
 }
 

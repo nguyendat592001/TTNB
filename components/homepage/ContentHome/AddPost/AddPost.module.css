@@ -8,11 +8,14 @@
 .addPost__header {
     display: flex;
     align-items: center;
-    padding: 10px;
 }
 
 .avatar {
     border-radius: 50%;
+}
+
+.addPost__header__left {
+    cursor: pointer;
 }
 
 .addPost__header__right {
@@ -23,10 +26,16 @@
     background-color: #f2f2f2;
 }
 
+.divider {
+    height: 1px;
+    background-color: #a1a1a1;
+    margin: 16px 0;
+}
+
 .input {
     border-radius: 22px;
     background-color: #f2f2f2;
-    height: 45px;
+    cursor: pointer;
 }
 
 .addPost__body {
@@ -44,6 +53,5 @@
 }
 
 .addPost__body_title {
-    margin-left: 14px;
-    font-size: 18px;
+    margin-left: 8px;
 }
