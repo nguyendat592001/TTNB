@@ -1,11 +1,3 @@
-// ----------------------------SuccessResultModal------------------------------------
-.SuccessResultModal {
-    .ant-modal-content {
-        width: 400px;
-        height: 265px;
-        border-radius: 10px;
-    }
-}
 // --------------------------ConfigActionModal--------------------------------------
 .ConfigActionModal {
     .ant-modal-content {
@@ -13,62 +5,14 @@
         height: 265px;
         border-radius: 10px;
     }
+
     .ant-btn-default {
         border: 1px solid #4c5bd4;
         color: #4c5bd4;
-    }
-}
-// ------------------------LogoutModal----------------------------------------
-.LogoutModal {
-    .ant-modal-content {
-        width: 435px;
-        height: 345px;
-        border-radius: 10px;
     }
 }
 
 //-------------------------NotifyMessage---------------------------------------
 .ant-popover-inner {
     padding: 0 !important;
-}
-// .ant-tabs .ant-tabs-tab {
-//   font-size: inherit !important;
-// }
-// .ant-tabs .ant-tabs-tab {
-//   padding-top: 5px;
-//   padding-bottom: 8px;
-// }
-#NotifyMessage {
-    width: 360px;
-    height: 478px;
-    position: relative;
-    .groupButton {
-        position: absolute;
-        right: 14px;
-        top: 14px;
-    }
-    .iconGroupButton > svg {
-      width: 18px;
-      height: 18px;
-    }
-    .border-bottom-ul {
-      border-bottom: 1px solid #ccc;
-    }
-    li:hover {
-      background-color: #ccc;
-      cursor: pointer;
-    }
-    .ant-tabs-tab {
-        padding-left: 14px;
-        padding-top: 14px;
-        padding-bottom: 8px;
-        font-size: 16px;
-        line-height: 20px;
-    }
-    .ant-tabs-nav::before {
-      border-bottom: 1px solid #999999;
-    }
-    .ant-popover-inner {
-        padding: 0;
-    }
 }

@@ -1,10 +1,12 @@
-
 .ant-tabs-nav::before {
   border-bottom: none !important;
 }
-.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
-  color: #fff !important;
-}.ant-tabs-nav{
+
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #fff;
+}
+
+.ant-tabs-nav {
   font-weight: bold;
   color: #fff;
 }

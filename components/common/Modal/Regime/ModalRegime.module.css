@@ -1,3 +1,48 @@
+.modalRegime__content_mainTitle {
+    color: #474747;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.modalRegime__content_subTitle {
+    color: #666666;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.modalRegime__content_listItem_item {
+    display: flex;
+    align-items: center;
+    color: #666666;
+    width: 100%;
+    text-align: left;
+    padding: 8px 0;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.itemTitle {
+    margin-left: 12px;
+    font-weight: 400;
+    color: #666666;
+    flex: 1;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #999999;
+    font-weight: 400;
+}
+
+
+/* FriendExcept */
+.modal__title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
 .search {
     display: flex;
     align-items: center;
@@ -89,4 +134,37 @@
 .selected__item__active {
     background-color: #ccc;
     margin-right: 4px;
+}
+
+.modal__footer {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.modal__btn {
+    flex: 1;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4C5BD4;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.modal__btn__active {
+    background-color: #4C5BD4;
+    color: #fff;
+    width: 50%;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
 }
