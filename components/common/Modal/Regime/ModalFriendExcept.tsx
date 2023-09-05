@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Button, Image, Input } from 'antd';
-import styles from './ModalTag.module.css';
+import styles from './ModalRegime.module.css';
 import { SearchOutlined } from '@ant-design/icons';
 
 interface Friend {
@@ -9,7 +9,7 @@ interface Friend {
     imageUrl: string;
 }
 
-interface ModalTagProps {
+interface FriendExceptProps {
     isOpen: boolean;
     onClose: () => void;
 }
@@ -28,9 +28,7 @@ const friendsData: Friend[] = [
     { id: 12, name: 'Nguyễn Thế Đạt 11', imageUrl: '/img/c.png' },
     { id: 13, name: 'Nguyễn Thế Đạt 12', imageUrl: '/img/c.png' },
 ];
-
-const ModalTag: React.FC<ModalTagProps> = ({ isOpen, onClose }) => {
-
+const ModalFriendExcept: React.FC<FriendExceptProps> = ({ isOpen, onClose }) => {
     const [selectedFriends, setSelectedFriends] = useState<Friend[]>([]);
     const [searchText, setSearchText] = useState<string>('');
 
@@ -56,12 +54,14 @@ const ModalTag: React.FC<ModalTagProps> = ({ isOpen, onClose }) => {
         onClose();
     };
     return (
+
         <Modal
-            title="Gắn thẻ bạn bè"
+
+            title="Bạn bè ngoại trừ"
             open={isOpen}
-            onCancel={handleModalClose}
+            onCancel={onClose}
             footer={null}
-            className={`${styles.modal} modal__tag`}
+            className={`${styles.ModalFriendExcept} ModalFriendExcept`}
         >
             <div className={styles.modal__container} >
                 <div className={styles.modal__body}>
@@ -77,15 +77,12 @@ const ModalTag: React.FC<ModalTagProps> = ({ isOpen, onClose }) => {
                                 value={searchText}
                                 onChange={(e) => setSearchText(e.target.value)}
                             />
-                            <span
-                                className={styles.btn__submit}
-                                onClick={handleModalClose}
-                            >
-                                Xong
-                            </span>
                         </div>
 
                         <div className={styles.modal__list}>
+                            <p
+                                className={styles.modal__title}
+                            >Bạn bè</p>
                             {filteredFriends.map(friend => (
                                 <div
                                     key={friend.id}
@@ -108,7 +105,7 @@ const ModalTag: React.FC<ModalTagProps> = ({ isOpen, onClose }) => {
                         </div>
 
                         <div className={styles.selected}>
-                            <div className={styles.selected__title}>Đã gắn thẻ</div>
+                            <div className={styles.selected__title}>Những bạn không nhìn thấy bài viết</div>
                             {selectedFriends.map(friend => (
                                 <div key={friend.id} className={styles.selected__item}>
                                     <Image
@@ -136,8 +133,12 @@ const ModalTag: React.FC<ModalTagProps> = ({ isOpen, onClose }) => {
                     </div>
                 </div>
             </div>
+            <div className={styles.modal__footer}>
+                <Button className={styles.modal__btn} onClick={handleModalClose}>Hủy</Button>
+                <Button className={styles.modal__btn__active}>Lưu</Button>
+            </div>
         </Modal>
     );
 }
 
-export default ModalTag;
+export default ModalFriendExcept;

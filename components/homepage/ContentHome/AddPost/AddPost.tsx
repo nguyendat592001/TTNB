@@ -1,4 +1,5 @@
 import ModalAddPost from '@/components/common/Modal/AddPost/ModalAddPost';
+import ModalEmotions from '@/components/common/Modal/Emotions/ModalEmotions';
 import ModalTag from '@/components/common/Modal/Tag/ModalTag';
 import { Divider, Image, Input } from 'antd';
 import { useState } from 'react';
@@ -8,6 +9,7 @@ function AddPost() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isTagModalOpen, setIsTagModalOpen] = useState(false);
+    const [isEmotionsModalOpen, setIsEmotionsModalOpen] = useState(false);
 
     const handleInputClick = () => {
         setIsModalOpen(true);
@@ -20,7 +22,9 @@ function AddPost() {
     const handleModalClose = () => {
         setIsModalOpen(false);
     };
-
+    const handleEmotionsClick = () => {
+        setIsEmotionsModalOpen(true);
+    };
     return (
         <>
             <div style={{ marginTop: '-25px' }}>
@@ -70,7 +74,10 @@ function AddPost() {
                             />
                             <span className={styles.addPost__body_title} >Nhắc tên thành viên</span>
                         </div>
-                        <div className={`${styles.addPost__body_item} ${styles.addPost__activities} `}>
+                        <div
+                            className={`${styles.addPost__body_item} ${styles.addPost__activities} `}
+                            onClick={handleEmotionsClick}
+                        >
                             <Image
                                 src='/img/img-home/nv_icon_post_footer_active.svg'
                                 alt='avatar'
@@ -84,8 +91,16 @@ function AddPost() {
                     </div>
                 </div>
             </div>
-            <ModalAddPost isOpen={isModalOpen} onClose={handleModalClose} />
-            <ModalTag isOpen={isTagModalOpen} onClose={() => setIsTagModalOpen(false)} />
+            <ModalAddPost
+                isOpen={isModalOpen}
+                onClose={handleModalClose} />
+            <ModalTag
+                isOpen={isTagModalOpen}
+                onClose={() => setIsTagModalOpen(false)} />
+            <ModalEmotions
+                isOpen={isEmotionsModalOpen}
+                onClose={() => setIsEmotionsModalOpen(false)}
+            />
         </>
     );
 }

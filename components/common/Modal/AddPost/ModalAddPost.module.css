@@ -11,9 +11,10 @@
     width: 100%;
     padding-left: 10px;
     line-height: 24px;
+    cursor: pointer;
 }
 
-.modal__body__right_icon {
+.modal__body__right_regime {
     display: flex;
     gap: 5px;
 }

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Modal, Button, Image, Input } from 'antd';
 import styles from './ModalAddPost.module.css';
 import ModalUploadFile from '../UploadFile/UploadFile';
+import ModalLocation from '../Location/ModalLocation';
+import ModalRegime from '../Regime/ModalRegime';
 
 interface ModalAddPostProps {
     isOpen: boolean;
@@ -9,11 +11,14 @@ interface ModalAddPostProps {
 }
 
 const ModalAddPost: React.FC<ModalAddPostProps> = ({ isOpen, onClose }) => {
-    const [isUploadFileVisible, setIsUploadFileVisible] = useState(false);
+    const [isUploadFileOpen, setIsUploadFileOpen] = useState(false);
+    const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+    const [isRegimeModalOpen, setIsRegimeModalOpen] = useState(false);
+
     return (
         <Modal
             title="Đăng tin mới"
-            visible={isOpen}
+            open={isOpen}
             onCancel={onClose}
             footer={null}
             centered
@@ -34,7 +39,12 @@ const ModalAddPost: React.FC<ModalAddPostProps> = ({ isOpen, onClose }) => {
                     </div>
                     <div className={styles.modal__body__right}>
                         <a href="/">Nguyễn Thế Đạt</a>
-                        <div className={styles.modal__body__right_icon}>
+                        <div
+                            className={styles.modal__body__right_regime}
+                            onClick={() => {
+                                setIsRegimeModalOpen(true);
+                            }}
+                        >
                             <Image
                                 src='/img/img-home/regime/regime1.svg'
                                 alt=''
@@ -61,7 +71,7 @@ const ModalAddPost: React.FC<ModalAddPostProps> = ({ isOpen, onClose }) => {
                         size="large"
                         className={styles.modal__input__content}
                     />
-                    {isOpen && <ModalUploadFile isUploadFileVisible={isUploadFileVisible} />}
+                    {isOpen && <ModalUploadFile isUploadFileVisible={isUploadFileOpen} />}
                 </div>
                 <div className={styles.modal__footer}>
                     <div className={styles.modal__footer__left}>
@@ -76,7 +86,7 @@ const ModalAddPost: React.FC<ModalAddPostProps> = ({ isOpen, onClose }) => {
                             preview={false}
                             className={`${styles.modal__footer__right__img} ${styles.modal__uploadFile}`}
                             onClick={() => {
-                                setIsUploadFileVisible(!isUploadFileVisible);
+                                setIsUploadFileOpen(!isUploadFileOpen);
                             }}
                         />
                         <Image
@@ -102,9 +112,22 @@ const ModalAddPost: React.FC<ModalAddPostProps> = ({ isOpen, onClose }) => {
                             height={26}
                             preview={false}
                             className={`${styles.modal__footer__right__img} ${styles.modal__location} `}
+                            onClick={() => { setIsLocationModalOpen(!isLocationModalOpen); }}
                         />
                     </div>
                 </div>
+                {isLocationModalOpen && (
+                    <ModalLocation
+                        isOpen={isLocationModalOpen}
+                        onClose={() => setIsLocationModalOpen(false)}
+                    />
+                )}
+                {isRegimeModalOpen && (
+                    <ModalRegime
+                        isOpen={isRegimeModalOpen}
+                        onClose={() => setIsRegimeModalOpen(false)}
+                    />
+                )}
                 <div className={styles.modal__footer__right__btn} >
                     <Button
                         className={styles.modal__btn}

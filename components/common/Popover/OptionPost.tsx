@@ -1,5 +1,4 @@
-import { EditOutlined, SaveOutlined } from "@ant-design/icons";
-import { ConfigProvider, Dropdown, Menu, Image } from "antd";
+import { ConfigProvider, Menu } from "antd";
 
 import styles from "./OptionPost.module.css";
 

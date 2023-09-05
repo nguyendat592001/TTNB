@@ -1,4 +1,4 @@
-import { Divider, Image, Menu, Popover } from 'antd';
+import { Divider, Image, Menu, Popover, Tooltip } from 'antd';
 import { SetStateAction, useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 
@@ -65,7 +65,18 @@ function Post() {
     function addComment(comment: Comment) {
         setComments(prevComments => [...prevComments, comment]);
     }
-
+    const content = (
+        <div className={styles.contentPopover}>
+            <p className={styles.contentPopover__title}>Thích</p>
+            <div className={styles.listUser}>
+                <div className={styles.listUser__item}>
+                    <p className={styles.listUser__item__name}>Nguyễn Thế Đạt</p>
+                    <p className={styles.listUser__item__name}>Nguyễn Thế Đạt</p>
+                    <p className={styles.listUser__item__name}>Nguyễn Thế Đạt</p>
+                </div>
+            </div>
+        </div>
+    );
     return (
 
         <div className={styles.post}>
@@ -97,14 +108,22 @@ function Post() {
 
                         <div className={styles.post__header__left__info__time}>
                             <p className={styles.info__time} >2 giờ trước</p>
-                            <Image
-                                src='/img/img-home/regime/regime1.svg'
-                                alt=''
-                                width={20}
-                                height={20}
-                                preview={false}
-                                className={styles.iconRegime}
-                            />
+                            <div className={styles.info__regime}>
+                                <Tooltip
+                                    title="Công khai"
+                                    placement="bottom"
+                                    arrow={false}
+                                >
+                                    <Image
+                                        src='/img/img-home/regime/regime1.svg'
+                                        alt=''
+                                        width={20}
+                                        height={20}
+                                        preview={false}
+                                        className={styles.iconRegime}
+                                    />
+                                </Tooltip>
+                            </div>
                         </div>
 
                     </div>
@@ -144,31 +163,62 @@ function Post() {
             </div>
             <div className={styles.post__count_reaction}>
                 <div className={styles.post__reaction__count_like}>
-                    <Image
-                        src={selectedImage}
-                        alt='icon'
-                        width={25}
-                        height={25}
-                        preview={false}
-                    />
-                    <p className={styles.post__reaction__count_like__text}>
-                        {likeCount} Người
-                    </p>
+                    <Popover
+                        placement="bottomLeft"
+                        content={content}
+                        trigger="hover"
+                        arrow={false}
 
+                    >
+                        <Image
+                            src={selectedImage}
+                            alt='icon'
+                            width={25}
+                            height={25}
+                            preview={false}
+                        />
+                    </Popover>
+                    <Popover
+                        placement="bottomLeft"
+                        content={content}
+                        trigger="hover"
+                        arrow={false}
+
+                    >
+                        <p className={styles.post__reaction__count_like__text}>
+                            {likeCount} Người
+                        </p>
+                    </Popover>
                 </div>
                 <div className={styles.sum__comment}>
                     <div className={styles.post__reaction__count_comment}>
-                        <span className={styles.post__reaction__count_comment}>
-                            1.000
-                            <span> Bình luận </span>
-                        </span>
+                        <Popover
+                            placement="bottomLeft"
+                            content={content}
+                            trigger="hover"
+                            arrow={false}
+
+                        >
+                            <span className={styles.post__reaction__count_comment}>
+                                1.000
+                                <span> Bình luận </span>
+                            </span>
+                        </Popover>
                     </div>
 
                     <div className={styles.post__reaction__count_share}>
-                        <span className={styles.post__reaction__count_share__text}>
-                            1.000
-                            <span> Lượt chia sẻ </span>
-                        </span>
+                        <Popover
+                            placement="bottomLeft"
+                            content={content}
+                            trigger="hover"
+                            arrow={false}
+
+                        >
+                            <span className={styles.post__reaction__count_share__text}>
+                                1.000
+                                <span> Lượt chia sẻ </span>
+                            </span>
+                        </Popover>
                     </div>
                 </div>
             </div>
