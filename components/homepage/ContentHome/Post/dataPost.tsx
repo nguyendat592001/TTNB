@@ -21,7 +21,7 @@ export const menuOptionPost = [
         text: 'Lưu bài viết',
     },
     {
-        key: 'disableNotifications',
+        key: 'notifications',
         icon: <Image
             src='/img/img-OptionPost/ep_post_turn_off_notify.svg'
             alt='icon'
@@ -32,7 +32,7 @@ export const menuOptionPost = [
         text: 'Tắt thông báo',
     },
     {
-        key: 'turnOnNotific',
+        key: 'comment',
         icon: <Image
             src='/img/img-OptionPost/nv_who_can_comment.png'
             alt='icon'
@@ -54,7 +54,7 @@ export const menuOptionPost = [
         text: 'Chỉnh sửa bài viết',
     },
     {
-        key: 'editViewObject',
+        key: 'editView',
         icon: <Image
             src='/img/img-home/regime/regime1.svg'
             alt='icon'

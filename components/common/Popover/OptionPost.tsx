@@ -8,8 +8,16 @@ type MenuItem = {
     text: string;
 };
 
-function OptionPost({ menuItems }: { menuItems: MenuItem[] }) {
+interface OptionPostProps {
+    menuItems: MenuItem[];
+    onMenuItemClick: (key: string) => void;
+}
 
+function OptionPost({ menuItems, onMenuItemClick }: OptionPostProps) {
+
+    const handleMenuItemClick = (item: MenuItem) => {
+        onMenuItemClick(item.key);
+    };
     return (
         <div className={`${styles.MenuOptionPost} MenuOptionPost`}>
             <ConfigProvider
@@ -30,7 +38,7 @@ function OptionPost({ menuItems }: { menuItems: MenuItem[] }) {
                     className={`${styles.menuOption} menuOption`}
                 >
                     {menuItems.map(item => (
-                        <Menu.Item key={item.key} icon={item.icon}>
+                        <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuItemClick(item)}>
                             <span className={styles.menuText}>{item.text}</span>
                         </Menu.Item>
                     ))}
