@@ -1,12 +1,21 @@
-import { Divider, Image, Menu, Popover, Tooltip } from 'antd';
+import { Alert, Divider, Image, Menu, message, Popover, Tooltip } from 'antd';
 import { SetStateAction, useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 
-import OptionPost from '@/components/common/Popover/OptionPost';
-import PostComment from './PostComment/PostComment';
 import styles from './Post.module.css';
-import { menuOptionPost, menuOptionSharePost } from './dataPost'
+import PostComment from './PostComment/PostComment';
 import ReactionIcons from './ReactionIcons/ReactionIcons ';
+import OptionPost from '@/components/common/Popover/OptionPost';
+import { menuOptionPost, menuOptionSharePost } from './dataPost';
+import ModalShareOnTime from '@/components/common/Modal/Share/ShareOnTime/ModalShareOnTime';
+import ModalShareOnChat from '@/components/common/Modal/Share/ShareOnChat/ModalShareOnChat';
+import ModalShareOnGroup from '@/components/common/Modal/Share/ShareOnGroup/ModalShareOnGroup';
+import ModalShareOnPage from '@/components/common/Modal/Share/ShareOnPage/ModalShareOnPage';
+import ModalSave from '@/components/common/Modal/OptionPost/Save/ModalSave';
+import ModalNotify from '@/components/common/Modal/OptionPost/ModalNotify/ModalNotify';
+import ModalComment from '@/components/common/Modal/OptionPost/ModalComment/ModalComment';
+import ModalEditPost from '@/components/common/Modal/OptionPost/ModalEditPost/ModalEditPost';
+import ModalEditView from '@/components/common/Modal/OptionPost/EditView/ModalEditView';
 
 interface Comment {
     avatar: string;
@@ -24,7 +33,17 @@ const menu = (
     </Menu>
 );
 
+const MODAL_SHARE_NOW = 'shareNow';
+const MODAL_SHARE_ON_TIME = 'shareOnTime';
+const MODAL_SHARE_ON_CHAT = 'shareOnChat';
+const MODAL_SHARE_ON_GROUP = 'shareOnGroup';
+const MODAL_SHARE_ON_PAGE = 'shareOnPage';
 
+const MODAL_OPTION_POST_SAVE = 'save';
+const MODAL_OPTION_POST_NOTIFY = 'notifications';
+const MODAL_OPTION_POST_COMMENT = 'comment';
+const MODAL_OPTION_POST_EDIT = 'editPost';
+const MODAL_OPTION_POST_EDIT_VIEW = 'editView';
 
 function Post() {
 
@@ -33,6 +52,10 @@ function Post() {
     const [selectedImage, setSelectedImage] = useState('/img/img-home/ep_post_active_like.svg');
     const [selectedReplyIndex, setSelectedReplyIndex] = useState(-1);
     const [likeCount, setLikeCount] = useState(1);
+    const [selectedModal, setSelectedModal] = useState<string | null>(null);
+    const [isSharePopoverOpen, setIsSharePopoverOpen] = useState(false);
+    const [isOptionPopoverOpen, setIsOptionPopoverOpen] = useState(false);
+    const [isModalShareOTOpen, setIsModalShareOTOpen] = useState(false);
 
     function handleReplyClick(index: number) {
         setSelectedReplyIndex(index === selectedReplyIndex ? -1 : index);
@@ -70,13 +93,53 @@ function Post() {
             <p className={styles.contentPopover__title}>Thích</p>
             <div className={styles.listUser}>
                 <div className={styles.listUser__item}>
-                    <p className={styles.listUser__item__name}>Nguyễn Thế Đạt</p>
-                    <p className={styles.listUser__item__name}>Nguyễn Thế Đạt</p>
-                    <p className={styles.listUser__item__name}>Nguyễn Thế Đạt</p>
+                    <a href='/' className={styles.listUser__item__name}>Nguyễn Thế Đạt</a>
+                    <a href='/' className={styles.listUser__item__name}>Nguyễn Thế Đạt</a>
+                    <a href='/' className={styles.listUser__item__name}>Nguyễn Thế Đạt</a>
                 </div>
             </div>
         </div>
     );
+
+    const handlePopoverItemClick = (modal: string) => {
+        if (modal === MODAL_SHARE_NOW) {
+            message.success('Chia sẻ thành công');
+        } else {
+            setSelectedModal(modal);
+        }
+        setIsSharePopoverOpen(false);
+        setIsOptionPopoverOpen(false);
+    };
+
+    const closeSelectedModal = () => {
+        setSelectedModal(null);
+    };
+
+    const renderModal = () => {
+        switch (selectedModal) {
+            case MODAL_SHARE_ON_TIME:
+                return <ModalShareOnTime selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
+            case MODAL_SHARE_ON_CHAT:
+                return <ModalShareOnChat selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
+            case MODAL_SHARE_ON_GROUP:
+                return <ModalShareOnGroup selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
+            case MODAL_SHARE_ON_PAGE:
+                return <ModalShareOnPage selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
+            case MODAL_OPTION_POST_SAVE:
+                return <ModalSave selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
+            case MODAL_OPTION_POST_NOTIFY:
+                return <ModalNotify selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
+            case MODAL_OPTION_POST_COMMENT:
+                return <ModalComment selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
+            case MODAL_OPTION_POST_EDIT:
+                return <ModalEditPost selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
+            case MODAL_OPTION_POST_EDIT_VIEW:
+                return <ModalEditView selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
+            default:
+                return null;
+        }
+    };
+
     return (
 
         <div className={styles.post}>
@@ -133,9 +196,15 @@ function Post() {
 
                         <Popover
                             placement="bottomRight"
-                            content={<OptionPost menuItems={menuOptionPost} />}
+                            content={<OptionPost
+                                menuItems={menuOptionPost}
+                                onMenuItemClick={handlePopoverItemClick}
+                            />
+                            }
                             trigger="click"
                             arrow={false}
+                            open={isOptionPopoverOpen}
+                            onOpenChange={(open) => setIsOptionPopoverOpen(open)}
                         >
                             <Image
                                 src='/img/img-header/ep_post_more.svg'
@@ -143,6 +212,7 @@ function Post() {
                                 width={20}
                                 height={20}
                                 preview={false}
+                                onClick={() => setIsOptionPopoverOpen(!isOptionPopoverOpen)}
                             />
 
                         </Popover>
@@ -247,9 +317,15 @@ function Post() {
 
                 <Popover
                     placement="bottomRight"
-                    content={<OptionPost menuItems={menuOptionSharePost} />}
+                    content={<OptionPost
+                        menuItems={menuOptionSharePost}
+                        onMenuItemClick={handlePopoverItemClick}
+                    />
+                    }
                     trigger="click"
                     arrow={false}
+                    open={isSharePopoverOpen}
+                    onOpenChange={(open) => setIsSharePopoverOpen(open)}
                 >
                     <div className={styles.post__footer__right}>
                         <div className={styles.post__footer__right__icon}>
@@ -259,6 +335,7 @@ function Post() {
                                 width={28}
                                 height={28}
                                 preview={false}
+                                onClick={() => setIsSharePopoverOpen(!isSharePopoverOpen)}
                             />
                         </div>
                         <div className={styles.post__footer__right__text}>
@@ -267,7 +344,7 @@ function Post() {
                     </div>
                 </Popover>
             </div>
-
+            {renderModal()}
             <Divider className={styles.divider} />
 
             <PostComment onSubmitComment={handleSubmitComment} />
