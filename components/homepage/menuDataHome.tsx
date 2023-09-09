@@ -10,7 +10,7 @@ export const menuItemsHome = [
         key: "2",
         icon: "/img/img-header/user/ep_icon_friend.svg",
         label: "Bạn bè",
-        link: "/",
+        link: "/friend",
     },
     {
         key: "3",

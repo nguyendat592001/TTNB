@@ -28,7 +28,7 @@ function Emotion(): JSX.Element {
             <div className={styles.container}>
                 <div className={`${styles.searchEmotion} searchEmotion`}>
                     <Input
-                        placeholder='Nhập tên bạn bè'
+                        placeholder='Nhập tên cảm xúc'
                         className={styles.modal__input}
                         bordered={false}
                         suffix={

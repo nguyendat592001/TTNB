@@ -3,8 +3,8 @@ import styles from './ring.module.css';
 export default function Ring(): JSX.Element {
     return (
         <>
-            <div className={styles.container} >
-                <div className={styles.header}>
+            <div className={`${styles.container} container_ring`} >
+                <div className={`${styles.header} header_ring`}>
                     <div className={styles.title}>
                         <h3>Thông báo</h3>
                         <Popover
