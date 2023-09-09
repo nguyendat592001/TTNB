@@ -8,6 +8,7 @@
 .post__header {
     display: flex;
     justify-content: space-between;
+    gap: 8px;
 }
 
 .post__header__left {
@@ -22,7 +23,7 @@
 }
 
 .post__header__left__info {
-    margin-left: 15px;
+    margin-left: 12px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -201,4 +202,52 @@
     align-items: center;
     flex-direction: column;
     gap: 4px;
+}
+
+/* hiddenpost */
+
+.postHidden {
+    display: flex;
+    justify-content: space-between;
+}
+
+.postHidden__container {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.postHidden__content {
+    display: flex;
+    gap: 16px;
+}
+
+.postHidden__content__text_title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.postHidden__content__text_desc {
+    font-size: 16px;
+    color: #666666;
+    font-weight: 400;
+}
+
+.postHidden__content__img {
+    cursor: pointer;
+}
+
+.postHidden__btn {
+    border: 1px solid #4C5BD4 !important;
+    color: #4C5BD4;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 10px !important;
+    width: 125px;
+}
+
+.postHidden__btn:hover {
+    color: #4C5BD4 !important;
 }

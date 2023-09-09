@@ -28,7 +28,7 @@ function Activity() {
             <div className={styles.container}>
                 <div className={`${styles.searchActivity} searchActivity`}>
                     <Input
-                        placeholder='Nhập tên bạn bè'
+                        placeholder='Nhập tên hoạt động'
                         className={styles.modal__input}
                         bordered={false}
                         suffix={

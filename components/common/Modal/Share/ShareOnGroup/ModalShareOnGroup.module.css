@@ -15,7 +15,7 @@
 }
 
 .ModalShareOnGroup__recent {
-    max-height: 250px;
+    max-height: 200px;
     overflow-y: scroll;
     margin-bottom: 10px;
 }
@@ -28,6 +28,10 @@
     cursor: pointer;
     justify-content: space-between;
 
+}
+
+.ModalShareOnGroup__recent__item:last-child {
+    border-bottom: none;
 }
 
 .recent__item_Info {

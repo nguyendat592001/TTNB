@@ -1,3 +1,4 @@
+/* menu user*/
 .MenuUser.ant-dropdown-menu {
     margin-top: 17px;
     width: 280px;
@@ -259,4 +260,52 @@
     .ant-modal-body {
         padding: 15px 20px 5px 20px;
     }
+}
+
+/* collection__btnCreate */
+
+.collection__btnCreate {
+    border: 1px solid #cccccc !important;
+
+    &:hover {
+        color: #ffffff !important;
+    }
+}
+
+/* ModalTurnOnNotify */
+
+.ModalTurnOnNotify .ant-modal-content {
+    padding: 0px;
+    width: 85%;
+
+    button {
+        color: #000000;
+        border: 1px solid #4c5bd4;
+        width: 135px;
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    .ant-modal-header {
+        background-color: #4c5bd4;
+        width: 100%;
+        height: 50px;
+        margin: 0;
+
+        .ant-modal-title {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin: 0px 20px;
+        }
+
+    }
+
+    .ant-modal-body {
+        padding: 15px 20px 5px 20px;
+    }
+
 }
