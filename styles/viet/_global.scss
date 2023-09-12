@@ -1,0 +1,44 @@
+// Center nav block
+.center_tab_block .ant-tabs-nav-list {
+
+    .ant-tabs-tab {
+        color: #474747;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 4px 8px;
+    }
+
+    .ant-tabs-tab-active {
+        .ant-tabs-tab-btn {
+            color: #4c5bd4;
+        }
+    }
+
+}
+.ant-tabs .ant-tabs-extra-content{
+    margin-right: 15px;
+}
+.center_tab_block{
+    .ant-tabs .ant-tabs-tabpane{
+        padding-top: 20px;
+        background: #f7f8fc;
+    }
+}
+.anh .ant-divider-horizontal{
+    margin: 5px 0;
+}
+.active {
+    color: #4C5BD4;
+    background: #EAECFA;
+    border-radius: 8px;
+}
+//modal address
+.friend_tabs {
+        .ant-tabs {
+            // padding-top: 20px;
+            background:white;
+            .ant-tabs-tabpane {
+                background-color: white;
+            }
+    }
+}
