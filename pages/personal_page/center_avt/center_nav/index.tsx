@@ -2,10 +2,13 @@ import React from "react";
 import { Divider, Tabs } from "antd";
 import type { TabsProps } from "antd";
 import styles from "../index.module.scss";
-import Dot from "../../../../components/Dropdown/dot_tabs_block";
+import Dot from "../../components/Dropdown/dot_tabs_block";
 import Post from "../../per_body/posts";
 import Intro from "../../per_body/Introduce/Intro";
 import Friend from "../../TabsFriend/FriendHome";
+import TabsImage from "../../TabsImage/TabsImage";
+import Video from "@/pages/personal_page/components/Video/Video";
+import TabsGr from "../../TabsGroup/TabsGr";
 const operations = <Dot />;
 
 const onChange = (key: string) => {
@@ -31,17 +34,17 @@ const items: TabsProps["items"] = [
   {
     key: "4",
     label: "Ảnh",
-    children: "Content of Tab Pane 4",
+    children: <TabsImage />,
   },
   {
     key: "5",
     label: "Video",
-    children: "Content of Tab Pane 5",
+    children: <Video />,
   },
   {
     key: "6",
     label: "Nhóm",
-    children: "Content of Tab Pane 6",
+    children: <TabsGr />,
   },
 ];
 
