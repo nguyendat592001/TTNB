@@ -11,7 +11,7 @@ export default function User(): JSX.Element {
             icon: "/img/c.png",
             label: "Nguyễn Thế Đạt",
             isFirstImage: true,
-            link: "/",
+            link: "/personal_page/center_avt",
         },
         {
             key: "2",

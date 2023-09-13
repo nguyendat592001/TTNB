@@ -27,7 +27,7 @@ function AddPost() {
     };
     return (
         <>
-            <div style={{ marginTop: '-25px' }}>
+            <div className={styles.posts}>
                 <div className={styles.addPost}>
                     <div className={styles.addPost__header}>
                         <div className={styles.addPost__header__left}>

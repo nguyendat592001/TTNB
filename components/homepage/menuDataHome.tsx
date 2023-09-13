@@ -4,7 +4,7 @@ export const menuItemsHome = [
         icon: "/img/c.png",
         label: "Nguyễn Thế Đạt",
         isFirstImage: true,
-        link: "/",
+        link: "/personal_page",
     },
     {
         key: "2",

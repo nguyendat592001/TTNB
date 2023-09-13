@@ -1,0 +1,85 @@
+.opmodal {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #4c5bd4;
+    font-size: 16px;
+    
+}
+.modal_body{
+    padding: 2px 20px;
+}
+.company{
+    margin-bottom: 15px;
+}
+.company input{
+    border: 1px solid #CCCCCC;
+    height: 37px;
+    border-radius: 3px;
+    padding-left: 12px;
+    width: 100%;
+    color: #333;
+    font-family: Roboto, sans-serif!important;
+    font-size: 16px;
+    line-height: 24px;
+}
+.company input:focus{
+    outline: none;
+}
+.title{
+    color: black;
+    font-size: 16px;
+    margin: 10px 0;
+    font-weight: 500;
+}
+.add input{
+    border: 1px solid #CCCCCC;
+    height: 37px;
+    border-radius: 3px;
+    padding-left: 12px;
+    width: 100%;
+    color: #333;
+    font-family: Roboto, sans-serif!important;
+    font-size: 16px;
+    line-height: 24px;
+}
+.add input:focus{
+    outline: none;
+}
+.red_dot{
+    color: red;
+}
+.btn__btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    gap: 30px;
+}
+.btn{
+    width: 200px;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    font-size: 17px;
+}
+.huy{
+    border: 1px solid #4c5bd4;
+    background: white;
+    color: #4c5bd4;
+}
+.ok{
+    background: #4c5bd4;
+    color: white;
+
+}
+.serfdom {
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 16px;
+    margin: 10px 0;
+    gap: 10px;
+
+    font-weight: 500;
+}
