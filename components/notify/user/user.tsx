@@ -1,5 +1,5 @@
 import { CaretDownOutlined, RightOutlined } from "@ant-design/icons";
-import { Dropdown, Image, Menu } from "antd";
+import { Dropdown, Image, Menu, Popover } from "antd";
 import { relative } from "path";
 import React from "react";
 import styles from './user.module.css';
@@ -125,7 +125,13 @@ export default function User(): JSX.Element {
 
     );
     return (
-        <Dropdown overlay={userMenu} placement="bottomLeft" trigger={['click']}>
+        <Dropdown
+            overlay={userMenu}
+            placement="bottomRight"
+            trigger={['click']}
+            autoAdjustOverflow={false}
+            className={styles.userDropdown}
+        >
             <div className={styles.userDropdownTrigger}>
                 <Image
                     src="/img/c.png"
@@ -142,7 +148,10 @@ export default function User(): JSX.Element {
                         position: 'relative',
                         top: '8px',
                         left: '2px'
-                    }} rev={undefined} />
+                    }}
+                    rev={undefined}
+                    className={styles.caretDown}
+                />
             </div>
         </Dropdown>
     );

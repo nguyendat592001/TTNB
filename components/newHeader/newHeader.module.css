@@ -1,0 +1,27 @@
+.container,
+.row {
+    height: 78px;
+}
+
+.container {
+    background-color: #fff;
+}
+
+.Sidebar {
+    display: flex;
+    align-items: center;
+}
+
+.btnMenu {
+    margin: 0 !important;
+}
+
+/* responsive */
+/* mobile & tablet */
+@media (max-width: 1023px) {}
+
+/* tablet */
+@media (min-width: 740px) and (max-width: 1023px) {}
+
+/* mobile */
+@media (max-width: 739px) {}

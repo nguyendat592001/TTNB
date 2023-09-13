@@ -1,18 +1,25 @@
-import styles from './notify.module.css';
+import React from 'react'
 import { Badge, ConfigProvider, Image, Popover } from 'antd';
-import User from './user/user';
-import Ring from './ring/ring';
+import styles from './newNotify.module.css';
+import Ring from '@/components/notify/ring/ring';
+import NewUser from '../newUser/newUser';
 
-
-export default function Notify(): JSX.Element {
+export default function NewNotify() {
     return (
         <>
             <div className={styles.notify}>
                 <div
                     className={styles.mess}
                 >
-                    <Badge count={5} size='small'>
+                    <Badge count={6} size='small'>
                         <Image src="/img/img-header/mes.png" alt="" preview={false} />
+                    </Badge>
+                </div>
+                <div
+                    className={styles.remind}
+                >
+                    <Badge count={9} size='small'>
+                        <Image src="/img/img-header/chamthan.png" alt="" preview={false} />
                     </Badge>
                 </div>
                 <div className={`${styles.popover_notify_ring} popover_notify_ring`}>
@@ -44,7 +51,7 @@ export default function Notify(): JSX.Element {
                 <div
                     className={styles.user}
                 >
-                    <User />
+                    <NewUser />
                 </div>
 
             </div>

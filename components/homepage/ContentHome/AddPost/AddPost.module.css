@@ -55,3 +55,14 @@
 .addPost__body_title {
     margin-left: 8px;
 }
+
+@media (max-width: 768px) {
+    .addPost__body {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .addPost__body_item {
+        font-size: 14px;
+    }
+}

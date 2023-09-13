@@ -1,14 +1,14 @@
 
 import { PlusCircleFilled, RightCircleFilled } from '@ant-design/icons'
 import { Image } from 'antd'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AddPost from './AddPost/AddPost';
 import styles from './contentHome.module.css'
 import Post from './Post/Post';
 
 const slidesData = [
     {
-        name: 'Slide 1',
+        name: 'Slide 1Slide 1Slide 1Slide 1Slide 1Slide 1Slide 1s',
         src: '/img/c.png',
         alt: 'Slide 1',
 
@@ -41,6 +41,27 @@ const slidesData = [
 ];
 export default function ContentHome(): JSX.Element {
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    const [slidesToShow, setSlidesToShow] = useState(3);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const windowWidth = window.innerWidth;
+            if (windowWidth >= 1024) {
+                setSlidesToShow(4);
+            } else if (windowWidth >= 768) {
+                setSlidesToShow(3);
+            } else {
+                setSlidesToShow(2);
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const onNextSlideClick = () => {
         const nextIndex = currentSlideIndex + 1;
@@ -95,7 +116,8 @@ export default function ContentHome(): JSX.Element {
                                     onClick={onPrevSlideClick}
                                 />
                             )}
-                            {slidesData.slice(currentSlideIndex, currentSlideIndex + 3).map((slide, index) => (
+
+                            {slidesData.slice(currentSlideIndex, currentSlideIndex + slidesToShow).map((slide, index) => (
                                 <div key={index} className={`${styles.story}`}>
                                     <div className={styles.userDetails}>
 
@@ -105,20 +127,22 @@ export default function ContentHome(): JSX.Element {
                                             preview={false}
                                             className={styles.image__story}
                                         />
-                                        <Image
-                                            src={slide.src}
-                                            alt={`${slide.name}'s Avatar`}
-                                            width={50}
-                                            height={50}
-                                            preview={false}
-                                            className={styles.avatar}
-                                        />
-                                        <span className={styles.username}>{slide.name}</span>
+                                        <div className={styles.info}>
+                                            <Image
+                                                src={slide.src}
+                                                alt={`${slide.name} Avatar`}
+                                                width={50}
+                                                height={50}
+                                                preview={false}
+                                                className={styles.avatar}
+                                            />
+                                            <p className={styles.username}>{slide.name}</p>
+                                        </div>
                                     </div>
 
                                 </div>
                             ))}
-                            {currentSlideIndex + 3 < slidesData.length && (
+                            {currentSlideIndex + slidesToShow < slidesData.length && (
                                 <Image
                                     src='/img/img-home/chat_story_next.svg'
                                     alt=''
