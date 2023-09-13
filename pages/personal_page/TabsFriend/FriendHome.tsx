@@ -4,10 +4,10 @@ import styles from "./FriendHome.module.scss";
 import { ConfigProvider } from "antd";
 import { Tabs } from "antd";
 import type { TabsProps } from "antd";
-import Allfriend from "@/components/AllFriend/allfriend";
-import { fr } from "@/components/AllFriend/fr";
-import Follower from "@/components/Follower/follower";
-import Following from "@/components/Following/Following";
+import Allfriend from "@/pages/personal_page/components/AllFriend/allfriend";
+import { fr } from "@/pages/personal_page/components/AllFriend/fr";
+import Follower from "@/pages/personal_page/components/Follower/follower";
+import Following from "@/pages/personal_page/components/Following/Following";
 
 export default function FriendHome() {
   const onChange = (key: string) => {};
