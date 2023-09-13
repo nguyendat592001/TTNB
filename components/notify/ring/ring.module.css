@@ -1,5 +1,5 @@
 .container {
-    margin-top: 24px;
+    margin-top: 20px;
     width: 360px;
 }
 
@@ -91,4 +91,20 @@
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 426px) {
+    .container {
+        width: 426px;
+    }
+
+    .header {
+        border-radius: 0px
+    }
+}
+
+@media (max-width: 376px) {
+    .container {
+        width: 376px;
+    }
 }

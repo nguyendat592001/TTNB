@@ -1,7 +1,13 @@
 /* menu user*/
 .MenuUser.ant-dropdown-menu {
     margin-top: 17px;
-    width: 280px;
+    width: 300px;
+}
+
+.MenuNewUser.ant-dropdown-menu {
+    margin-top: 17px;
+    width: 300px;
+    height: 100%;
 }
 
 .MenuUserHome.ant-menu {
@@ -12,7 +18,7 @@
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 100px;
-    width: 380px;
+    width: 24%;
 
     .ant-menu-item {
         padding: 0px 24px;
@@ -20,7 +26,6 @@
         line-height: 50px;
         font-size: 16px;
         font-weight: 500;
-        width: 365px;
         border-radius: 8px;
 
         &:hover {

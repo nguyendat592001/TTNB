@@ -39,8 +39,8 @@ export const menuItemsHome = [
     {
         key: "7",
         icon: "/img/img-header/user/ep_info_kn.svg",
-        label: "Sự kiện",
-        link: "/",
+        label: "Kỷ niệm",
+        link: "/kyniem",
     },
 ];
 

@@ -7,7 +7,7 @@ import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8, Icon9 } from ".
 export default function SideBar(): JSX.Element {
     const pathname = usePathname();
     return (
-        <div className={`${styles.MenuSidebar} MenuSidebar`}>
+        <div className={`${styles.MenuSidebar} ${styles.fixedMenu} MenuSidebar`}>
             <Menu
                 mode="inline"
                 id="NavMenu"

@@ -328,6 +328,7 @@ function Post() {
                                     alt='icon'
                                 />
                             </div>
+                            {/* <PostVideo /> */}
                         </div>
                         <div className={styles.post__count_reaction}>
                             <div className={styles.post__reaction__count_like}>

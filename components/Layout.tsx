@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 
 import styles from './layout.module.css';
 import Header from './header/Header';
+import HeaderNew from './newHeader/newHeader';
 interface LayoutProps {
     children: ReactNode;
 }
@@ -20,15 +21,24 @@ export default function Layout({ children }: LayoutProps) {
             setIsCompanyUrl(false)
         }
     }, [router.pathname])
+
+    const renderHeader = () => {
+        if (isCompanyUrl) {
+            return null;
+        } else {
+            const pagesWithNewHeader = ['/sukien', '/b', '/c', '/d', '/e'];
+            if (pagesWithNewHeader.includes(router.pathname)) {
+                return <HeaderNew />;
+            } else {
+                return <Header />;
+            }
+        }
+    };
     return (
         <div className="main">
-            {/* <div className="nav">
-                <Navbar />
-            </div> */}
             <div className={styles.body}>
                 <div className={styles.header}>
-                    {isCompanyUrl ? null : <Header />}
-
+                    {renderHeader()}
                 </div>
                 <div className="col-12">
                     {children}

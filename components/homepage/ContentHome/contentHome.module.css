@@ -1,6 +1,6 @@
 .container {
-    padding-right: 75px;
-    padding-left: 55px;
+    padding-right: 50px;
+    padding-left: 30px;
 }
 
 .content__story {
@@ -12,7 +12,6 @@
     justify-content: flex-start;
     margin-top: 22px;
     border-radius: 8px;
-
 }
 
 .add__story {
@@ -44,7 +43,7 @@
 
 .slide__story {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 100%;
 }
 
@@ -59,7 +58,11 @@
 }
 
 .story {
-    margin-right: 10px;
+    margin: 0px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .rotate180 {
@@ -69,26 +72,35 @@
 }
 
 .userDetails {
-    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
 .avatar {
     border-radius: 50%;
-    margin-right: 8px;
+    margin: 0 4px;
     z-index: 1;
     border: 3px solid #4C5BD4;
     position: relative;
-    bottom: 420%;
-    left: 22%;
+    bottom: 208px;
+    left: 8px;
+}
+
+.info {
+    display: flex;
 }
 
 .username {
     color: white;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     position: relative;
-    top: -50px;
-    right: 22%;
+    bottom: 30px;
+    right: 38px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 55px;
 }
 
 .image__story {
@@ -96,4 +108,35 @@
     height: 220px !important;
     border-radius: 8px;
     object-fit: cover;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .container {
+        padding: 0;
+    }
+
+    .username {
+        width: 100px;
+    }
+}
+
+@media (max-width: 426px) {
+    .container {
+        padding: 0;
+    }
+
+    .content__story {
+        margin-bottom: 0px;
+    }
+
+    .add__story,
+    .btnAdd__story {
+        width: 120px;
+    }
+
+    .imageAdd__story {
+        width: 120px !important;
+        height: 156px !important;
+        object-fit: cover;
+    }
 }

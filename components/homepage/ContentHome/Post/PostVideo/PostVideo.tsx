@@ -25,10 +25,11 @@ function PostVideo() {
             <div className={`${styles.post__content__video} ${styles.post__content__video_container}`}>
                 <video
                     ref={videoRef}
-                    width="640"
+                    width="100%"
                     height="270"
                     controls
                     onClick={handleVideoClick}
+                    className={styles.video}
                 >
                     <source src="/video/video1.mp4" type="video/mp4" />
                 </video>

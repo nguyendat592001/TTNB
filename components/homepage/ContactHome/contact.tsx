@@ -8,8 +8,8 @@ export default function ContactHome(): JSX.Element {
 
     return (
         <div className={styles.container}>
-            <div className={
-                `${styles.contact} contact`}
+            <div className=
+                {`${styles.contact} contact`}
             >
                 <div className={styles.title}>
                     <p>Người liên hệ</p>

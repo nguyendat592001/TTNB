@@ -251,3 +251,9 @@
 .postHidden__btn:hover {
     color: #4C5BD4 !important;
 }
+
+@media (max-width: 426px) {
+    .post {
+        padding: 12px;
+    }
+}
