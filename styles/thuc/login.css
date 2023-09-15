@@ -1,17 +1,11 @@
-.ant-popover .ant-popover-inner {
+.thuc_popover.ant-popover .ant-popover-inner {
    background-color: unset !important;
    box-shadow: unset !important;
    padding: 0px !important;
 }
-.ant-card.ant-card-bordered.thuc_card.friend_card__pil0S,
-.ant-card.ant-card-bordered.thuc_card.allFriend_card__QIBvw,
-.ant-card.ant-card-bordered.thuc_card.suggest_card__bEEls,
-.ant-card.ant-card-bordered.thuc_card.addFiend_card__jy9zR {
-   width: 22% !important;
-}
-.ant-modal.thuc_unf.allFriend_modal_unf__1Ln2g .ant-modal-header,
-.ant-modal.thuc_block.allFriend_modal_block__P5NOd .ant-modal-header,
-.ant-modal.thuc_modaladdFiend_modal__KVWkq .ant-modal-header {
+.thuc_unf.ant-modal .ant-modal-header,
+.thuc_block.ant-modal .ant-modal-header,
+.thuc_modal.ant-modal .ant-modal-header {
    background: #4c5bd4;
    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
    border-radius: 8px 8px 0px 0px;
@@ -20,16 +14,23 @@
    align-items: center;
    padding-left: 15px;
 }
-.ant-modal.thuc_unf.allFriend_modal_unf__1Ln2g .ant-modal-close-x,
-.ant-modal.thuc_unf.allFriend_modal_unf__1Ln2g .ant-modal-title,
-.ant-modal.thuc_block.allFriend_modal_block__P5NOd .ant-modal-close-x,
-.ant-modal.thuc_block.allFriend_modal_block__P5NOd .ant-modal-title,
-.ant-modal.thuc_modaladdFiend_modal__KVWkq .ant-modal-close-x,
-.ant-modal.thuc_modaladdFiend_modal__KVWkq .ant-modal-title {
+.thuc_unf.ant-modal .ant-modal-close-x,
+.thuc_unf.ant-modal .ant-modal-title,
+.thuc_block.ant-modal .ant-modal-close-x,
+.thuc_block.ant-modal .ant-modal-title,
+.thuc_modal.ant-modal .ant-modal-close-x,
+.thuc_modal.ant-modal .ant-modal-title {
    color: #fff;
 }
-.ant-modal.thuc_unf.allFriend_modal_unf__1Ln2g .ant-modal-content,
-.ant-modal.thuc_block.allFriend_modal_block__P5NOd .ant-modal-content,
-.ant-modal.thuc_modaladdFiend_modal__KVWkq .ant-modal-content {
+.thuc_unf.ant-modal .ant-modal-content,
+.thuc_block.ant-modal .ant-modal-content,
+.thuc_modal.ant-modal .ant-modal-content {
    padding: unset !important;
+}
+ul.ant-dropdown-menu.ant-dropdown-menu-root.ant-dropdown-menu-vertical.ant-dropdown-menu-light {
+   width: 350px;
+}
+img.ant-image-img.allFriend_drop_img__PlrRR {
+   width: 25px !important;
+   height: 25px;
 }
