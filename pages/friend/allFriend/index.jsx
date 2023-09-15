@@ -17,17 +17,12 @@ const AddFriend = () => {
          friend: "666 bạn chung",
       },
       {
-         img: "/img/before_login/img3.jpg",
-         name: "Thức Đẹp Trai",
-         friend: "666 bạn chung",
-      },
-      {
          img: "/img/before_login/img.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
       },
       {
-         img: "/img/before_login/img3.jpg",
+         img: "/img/before_login/img2.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
       },
@@ -42,7 +37,12 @@ const AddFriend = () => {
          friend: "666 bạn chung",
       },
       {
-         img: "/img/before_login/img3.jpg",
+         img: "/img/before_login/img.jpg",
+         name: "Thức Đẹp Trai",
+         friend: "666 bạn chung",
+      },
+      {
+         img: "/img/before_login/img2.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
       },
@@ -53,24 +53,33 @@ const AddFriend = () => {
       {
          key: "1",
          name: "Nhắn tin",
+         img: "/img/before_login/mess.svg",
       },
       {
          key: "2",
          name: "Bỏ theo dõi",
+         img: "/img/before_login/unfl.svg",
+         subtitle: "Dừng xem bài viết nhưng vẫn là bạn bè",
       },
       {
          key: "3",
          name: "Chặn",
+         img: "/img/before_login/block.svg",
+         subtitle: "Bạn bè sẽ không thể nhìn thấy bạn hoặc liên hệ với bạn trên Truyền thông văn hóa",
       },
       {
          key: "4",
          name: "Hủy kết bạn",
+         img: "/img/before_login/huy.svg",
+         subtitle: "Xóa bạn bè khỏi danh sách bạn bè",
       },
    ];
+   const [isOnClick, setIsOnClick] = useState(false);
    const handleDropdownClick = (key) => {
       if (key === "1") {
       }
       if (key === "2") {
+         hanleFollow();
       }
       if (key === "3") {
          showModalBlock();
@@ -79,6 +88,7 @@ const AddFriend = () => {
          showModalUnFriend();
       }
    };
+   const hanleFollow = () => {};
    const [isModalBlockOpen, setIsModalBlockOpen] = useState(false);
    const handleBlockCancel = () => {
       setIsModalBlockOpen(false);
@@ -95,6 +105,25 @@ const AddFriend = () => {
    const showModalUnFriend = () => {
       setIsModalUnFriendOpen(true);
    };
+   const menuDrop = (
+      <Menu onClick={({ key }) => handleDropdownClick(key)}>
+         {items.map((item) => (
+            <>
+               <Menu.Item key={item.key}>
+                  <>
+                     <div className={styles.menu_drop}>
+                        <Image alt="/" src={item.img} preview={false} className={styles.drop_img} />
+                        <div className={styles.menu_flex}>
+                           <div>{item.name}</div>
+                           <div className={styles.menu_subtitle}>{item.subtitle}</div>
+                        </div>
+                     </div>
+                  </>
+               </Menu.Item>
+            </>
+         ))}
+      </Menu>
+   );
    return (
       <>
          <div className={styles.container}>
@@ -143,6 +172,22 @@ const AddFriend = () => {
                      }
                   />
                </div>
+               <div className={styles.right_none}>
+                  <div className={styles.right_btn}>
+                     <button className={styles.right_btn1} onClick={() => router.push("/friend")}>
+                        Tổng quan
+                     </button>
+                     <button className={styles.right_btn2} onClick={() => router.push("/friend/addFiend")}>
+                        Lời mời kết bạn
+                     </button>
+                     <button className={styles.right_btn3} onClick={() => router.push("/friend/suggest")}>
+                        Gợi ý
+                     </button>
+                     <button className={styles.right_btn4} onClick={() => router.push("/friend/allFriend")}>
+                        Tất cả bạn bè
+                     </button>
+                  </div>
+               </div>
                <div className={styles.add_friend}>
                   <p className={styles.add_p}>Tất cả bạn bè(1234 người bạn)</p>
                </div>
@@ -152,21 +197,12 @@ const AddFriend = () => {
                         <Card
                            className={`thuc_card ${styles.card}`}
                            style={{
-                              width: 300,
+                              width: 280,
                            }}>
-                           <Image alt="/" src={item.img} width={268} height={250} preview={false} />
+                           <Image alt="/" src={item.img} height={250} preview={false} />
                            <div className={styles.drop}>
                               <p className={styles.name}>{item.name}</p>
-                              <Dropdown
-                                 overlay={
-                                    <Menu onClick={({ key }) => handleDropdownClick(key)}>
-                                       {items.map((item) => (
-                                          <Menu.Item key={item.key}>{item.name}</Menu.Item>
-                                       ))}
-                                    </Menu>
-                                 }
-                                 trigger={["click"]}
-                                 placement="bottomRight">
+                              <Dropdown overlay={menuDrop} className={`thuc_drop ${styles.thuc_drop}`} trigger={["click"]} placement="bottomRight">
                                  <a onClick={(e) => e.preventDefault()}>
                                     <Space>
                                        <Image alt="/" src={"/img/before_login/more.svg"} width={15} height={18} preview={false} />
@@ -193,7 +229,7 @@ const AddFriend = () => {
                         <li>Thêm bạn làm bạn bè</li>
                      </ul>
                      <p className={styles.block_p3}>Nếu các bạn là bạn bè, việc chặn Thức Đẹp Trai cũng sẽ hủy kết bạn với anh ấy.</p>
-                     <p>Nếu bạn chỉ muốn giới hạn nội dung mình chia sẻ với Thức Đẹp Trai hoặc ẩn bớt nội dung về cô ấy hơn trên Truyền thông văn hóa, bạn có thể giảm tương tác với anh ấy.</p>
+                     <p>Nếu bạn chỉ muốn giới hạn nội dung mình chia sẻ với Thức Đẹp Trai hoặc ẩn bớt nội dung về anh ấy hơn trên Truyền thông văn hóa, bạn có thể giảm tương tác với anh ấy.</p>
                   </div>
                   <div className={styles.modal_block_btn}>
                      <Button onClick={handleBlockCancel} className={styles.btn_block_cancer}>

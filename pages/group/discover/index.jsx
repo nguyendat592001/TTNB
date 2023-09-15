@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./index.module.css";
-import { Image, Input, Card } from "antd";
+import { Image, Input, Card, Modal, Button } from "antd";
 import { useRouter } from "next/router";
 import { TeamOutlined, UserSwitchOutlined, UserAddOutlined, UserOutlined, SearchOutlined } from "@ant-design/icons";
-
-const App = () => {
+const AddFriend = () => {
    const router = useRouter();
-
    const data = [
       {
          img: "/img/before_login/img.jpg",
@@ -19,6 +17,21 @@ const App = () => {
          friend: "666 bạn chung",
       },
       {
+         img: "/img/before_login/img3.jpg",
+         name: "Thức Đẹp Trai",
+         friend: "666 bạn chung",
+      },
+      {
+         img: "/img/before_login/img.jpg",
+         name: "Thức Đẹp Trai",
+         friend: "666 bạn chung",
+      },
+      {
+         img: "/img/before_login/img3.jpg",
+         name: "Thức Đẹp Trai",
+         friend: "666 bạn chung",
+      },
+      {
          img: "/img/before_login/img.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
@@ -29,26 +42,21 @@ const App = () => {
          friend: "666 bạn chung",
       },
       {
-         img: "/img/before_login/img2.jpg",
-         name: "Thức Đẹp Trai",
-         friend: "666 bạn chung",
-      },
-      {
-         img: "/img/before_login/img.jpg",
-         name: "Thức Đẹp Trai",
-         friend: "666 bạn chung",
-      },
-      {
-         img: "/img/before_login/img2.jpg",
-         name: "Thức Đẹp Trai",
-         friend: "666 bạn chung",
-      },
-      {
-         img: "/img/before_login/img.jpg",
+         img: "/img/before_login/img3.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
       },
    ];
+
+   // xóa
+   const [isModalOpen, setIsModaOpen] = useState(false);
+   const handleCancel = () => {
+      setIsModaOpen(false);
+   };
+
+   const showModalOpen = () => {
+      setIsModaOpen(true);
+   };
    return (
       <>
          <div className={styles.container}>
@@ -97,29 +105,13 @@ const App = () => {
                      }
                   />
                </div>
-               <div className={styles.right_none}>
-                  <div className={styles.right_btn}>
-                     <button className={styles.right_btn1} onClick={() => router.push("/friend")}>
-                        Tổng quan
-                     </button>
-                     <button className={styles.right_btn2} onClick={() => router.push("/friend/addFiend")}>
-                        Lời mời kết bạn
-                     </button>
-                     <button className={styles.right_btn3} onClick={() => router.push("/friend/suggest")}>
-                        Gợi ý
-                     </button>
-                     <button className={styles.right_btn4} onClick={() => router.push("/friend/allFriend")}>
-                        Tất cả bạn bè
-                     </button>
-                  </div>
-               </div>
                <div className={styles.add_friend}>
                   <div>
-                     <p className={styles.add_p}>Lời mời kết bạn</p>
+                     <p className={styles.add_p}>Lời mời kết bạn(22 lời mời kết bạn)</p>
                   </div>
                   <div>
-                     <button className={styles.add_btn} onClick={() => router.push("/friend/addFiend")}>
-                        Xem tất cả
+                     <button className={styles.add_btn} onClick={showModalOpen}>
+                        Xem lời mời đã gửi
                      </button>
                   </div>
                </div>
@@ -129,9 +121,9 @@ const App = () => {
                         <Card
                            className={`thuc_card ${styles.card}`}
                            style={{
-                              width: 280,
+                              width: 300,
                            }}>
-                           <Image alt="/" src={item.img} height={250} preview={false} />
+                           <Image alt="/" src={item.img} width={268} height={250} preview={false} />
                            <p className={styles.name}>{item.name}</p>
                            <p className={styles.friend}>{item.friend}</p>
                            <div className={styles.friend_btn}>
@@ -142,39 +134,59 @@ const App = () => {
                      );
                   })}
                </div>
-               <div className={styles.add_friend}>
-                  <div>
-                     <p className={styles.add_p}>Những người bạn có thể biết</p>
-                  </div>
-                  <div>
-                     <button className={styles.add_btn} onClick={() => router.push("/friend/suggest")}>
-                        Xem tất cả
-                     </button>
-                  </div>
-               </div>
-               <div className={styles.all_card}>
-                  {data.map((item) => {
-                     return (
-                        <Card
-                           className={`thuc_card ${styles.card}`}
-                           style={{
-                              width: 280,
-                           }}>
-                           <Image alt="/" src={item.img} height={250} preview={false} />
-                           <p className={styles.name}>{item.name}</p>
-                           <p className={styles.friend}>{item.friend}</p>
-                           <div className={styles.friend_btn}>
-                              <button className={styles.btn_acp}>Thêm bạn bè</button>
-                              <button className={styles.btn_delete}>Gỡ bỏ</button>
-                           </div>
-                        </Card>
-                     );
-                  })}
-               </div>
             </div>
+         </div>
+         <div>
+            <Modal className={`thuc_modal${styles.modal}`} title="Lời mời đã gửi" open={isModalOpen} onCancel={handleCancel} footer={null}>
+               <div className={styles.modal_body}>
+                  <p className={styles.p_modal}>68 lời mời đã gửi</p>
+                  <div className={styles.modal_container}>
+                     <div className={styles.modal_content}>
+                        <div>
+                           <Image alt="/" src={"/img/before_login/img.jpg"} style={{ borderRadius: "50%" }} width={50} height={50} preview={false} />
+                        </div>
+                        <div className={styles.modal_p}>
+                           <p className={styles.name_modal}>Thức Đẹp Trai</p>
+                           <p>888 bạn chung</p>
+                        </div>
+                     </div>
+                     <div>
+                        <Button className={styles.modal_btn}>Hủy yêu cầu</Button>
+                     </div>
+                  </div>
+                  <div className={styles.modal_container}>
+                     <div className={styles.modal_content}>
+                        <div>
+                           <Image alt="/" src={"/img/before_login/img2.jpg"} style={{ borderRadius: "50%" }} width={50} height={50} preview={false} />
+                        </div>
+                        <div className={styles.modal_p}>
+                           <p className={styles.name_modal}>Thức Đẹp Trai</p>
+                           <p>888 bạn chung</p>
+                        </div>
+                     </div>
+                     <div>
+                        <Button className={styles.modal_btn}>Hủy yêu cầu</Button>
+                     </div>
+                  </div>
+                  <div className={styles.modal_container}>
+                     <div className={styles.modal_content}>
+                        <div>
+                           <Image alt="/" src={"/img/before_login/img3.jpg"} style={{ borderRadius: "50%" }} width={50} height={50} preview={false} />
+                        </div>
+                        <div className={styles.modal_p}>
+                           <p className={styles.name_modal}>Thức Đẹp Trai</p>
+                           <p>888 bạn chung</p>
+                        </div>
+                     </div>
+                     <div>
+                        <Button className={styles.modal_btn}>Hủy yêu cầu</Button>
+                     </div>
+                  </div>
+               </div>
+            </Modal>
          </div>
       </>
    );
 };
 
-export default App;
+export default AddFriend;

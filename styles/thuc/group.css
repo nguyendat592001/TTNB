@@ -1,0 +1,26 @@
+.thuc_pin.ant-modal .ant-modal-header,
+.thuc_notification.ant-modal .ant-modal-header {
+   background: #4c5bd4;
+   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+   border-radius: 8px 8px 0px 0px;
+   height: 47px;
+   display: flex;
+   align-items: center;
+   padding-left: 15px;
+}
+.thuc_pin.ant-modal .ant-modal-content,
+.thuc_notification.ant-modal .ant-modal-content {
+   padding: unset !important;
+}
+.thuc_pin.ant-modal .ant-modal-close-x,
+.thuc_pin.ant-modal .ant-modal-title,
+.thuc_notification.ant-modal .ant-modal-close-x,
+.thuc_notification.ant-modal .ant-modal-title {
+   color: #fff;
+}
+.thuc_popover_group.ant-popover .ant-popover-inner {
+   padding: 20px !important;
+}
+.thuc_btn {
+   width: 200px !important;
+}

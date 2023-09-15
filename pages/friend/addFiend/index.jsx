@@ -17,17 +17,12 @@ const AddFriend = () => {
          friend: "666 bạn chung",
       },
       {
-         img: "/img/before_login/img3.jpg",
-         name: "Thức Đẹp Trai",
-         friend: "666 bạn chung",
-      },
-      {
          img: "/img/before_login/img.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
       },
       {
-         img: "/img/before_login/img3.jpg",
+         img: "/img/before_login/img2.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
       },
@@ -42,7 +37,12 @@ const AddFriend = () => {
          friend: "666 bạn chung",
       },
       {
-         img: "/img/before_login/img3.jpg",
+         img: "/img/before_login/img.jpg",
+         name: "Thức Đẹp Trai",
+         friend: "666 bạn chung",
+      },
+      {
+         img: "/img/before_login/img2.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
       },
@@ -105,6 +105,22 @@ const AddFriend = () => {
                      }
                   />
                </div>
+               <div className={styles.right_none}>
+                  <div className={styles.right_btn}>
+                     <button className={styles.right_btn1} onClick={() => router.push("/friend")}>
+                        Tổng quan
+                     </button>
+                     <button className={styles.right_btn2} onClick={() => router.push("/friend/addFiend")}>
+                        Lời mời kết bạn
+                     </button>
+                     <button className={styles.right_btn3} onClick={() => router.push("/friend/suggest")}>
+                        Gợi ý
+                     </button>
+                     <button className={styles.right_btn4} onClick={() => router.push("/friend/allFriend")}>
+                        Tất cả bạn bè
+                     </button>
+                  </div>
+               </div>
                <div className={styles.add_friend}>
                   <div>
                      <p className={styles.add_p}>Lời mời kết bạn(22 lời mời kết bạn)</p>
@@ -121,9 +137,9 @@ const AddFriend = () => {
                         <Card
                            className={`thuc_card ${styles.card}`}
                            style={{
-                              width: 300,
+                              width: 280,
                            }}>
-                           <Image alt="/" src={item.img} width={268} height={250} preview={false} />
+                           <Image alt="/" src={item.img} height={250} preview={false} />
                            <p className={styles.name}>{item.name}</p>
                            <p className={styles.friend}>{item.friend}</p>
                            <div className={styles.friend_btn}>
@@ -137,7 +153,7 @@ const AddFriend = () => {
             </div>
          </div>
          <div>
-            <Modal className={`thuc_modal${styles.modal}`} title="Lời mời đã gửi" open={isModalOpen} onCancel={handleCancel} footer={null}>
+            <Modal className={`thuc_modal ${styles.modal}`} title="Lời mời đã gửi" open={isModalOpen} onCancel={handleCancel} footer={null}>
                <div className={styles.modal_body}>
                   <p className={styles.p_modal}>68 lời mời đã gửi</p>
                   <div className={styles.modal_container}>
