@@ -51,3 +51,10 @@
     white-space: nowrap;
     width: 110px;
 }
+
+@media (max-width: 426px) {
+    .userName {
+        display: none;
+    }
+
+}

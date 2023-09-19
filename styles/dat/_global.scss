@@ -4,6 +4,7 @@
     width: 300px;
 }
 
+
 .MenuNewUser.ant-dropdown-menu {
     margin-top: 17px;
     width: 300px;
@@ -58,8 +59,72 @@
     }
 }
 
+.flex-container {
+    display: flex;
+}
+
+@media (max-width: 1024px) {
+    .nav .MenuSidebar {
+        .ant-menu {
+            width: 100px;
+
+            .ant-menu-item {
+                padding-left: 28px !important;
+
+                .ant-menu-title-content {
+                    display: none;
+                }
+            }
+        }
+
+    }
+
+    .flex-container {
+
+        .navbar {
+            width: 14%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .flex-container {
+
+        .navbar {
+            width: 17%;
+        }
+    }
+
+    .contentRight {
+        .ant-menu-item {
+            width: 212px !important;
+        }
+    }
+}
+
+@media (max-width: 426px) {
+    .flex-container {
+        .navbar {
+            width: 0;
+        }
+
+        .nav {
+            display: none;
+        }
+    }
+
+    .contentRight {
+        .ant-menu-item {
+            width: 100% !important;
+            height: 45px !important;
+            padding: 10px 28% !important;
+        }
+    }
+}
+
 .ItemMenuSidebar.ant-menu {
     border-radius: 8px;
+    color: #fff;
 
     .ant-menu-item {
         margin: 10px 4px;
@@ -309,6 +374,33 @@
 
     .ant-modal-body {
         padding: 15px 20px 5px 20px;
+    }
+
+}
+
+/* TableEvent */
+
+.TableEvent .ant-table-thead>tr>th {
+    background-color: white;
+}
+
+.contentRight {
+
+    .ant-menu-item {
+        padding: 18px 25%;
+        display: flex;
+        align-items: center;
+        background: #4c5bd4;
+        color: #fff;
+        width: 330px;
+        height: 60px;
+        margin: 0;
+        border-radius: 0 !important;
+
+        &:hover {
+            background-color: #2e3994 !important;
+            color: #fff !important;
+        }
     }
 
 }

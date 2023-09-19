@@ -7,7 +7,7 @@ import {
     MenuUnfoldOutlined,
     PieChartOutlined,
 } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import { ConfigProvider, MenuProps } from 'antd';
 import { Button, Menu } from 'antd'
 import React, { useState } from 'react'
 import styles from './newSidebar.module.css'
@@ -33,7 +33,6 @@ function getItem(
 
 interface NewSidebarProps {
     collapsed: boolean;
-    toggleCollapsed: () => void;
 }
 
 const items: MenuItem[] = [
@@ -49,30 +48,34 @@ const items: MenuItem[] = [
     getItem('Option 10', '10', <MailOutlined rev={undefined} />),
 ];
 
-const NewSidebar: React.FC<NewSidebarProps> = ({ collapsed, toggleCollapsed }) => {
+const NewSidebar: React.FC<NewSidebarProps> = ({ collapsed }) => {
 
     return (
         <>
-            <div style={{ width: 256 }}>
-
-                <Button
-                    type="primary"
-                    onClick={toggleCollapsed}
-                    style={{ marginBottom: 16 }}
-                    className={styles.btnMenu}
-                >
-                    {collapsed ? <MenuUnfoldOutlined rev={undefined} /> : <MenuFoldOutlined rev={undefined} />}
-                </Button>
-
-                <Menu
-                    defaultSelectedKeys={['1']}
-                    defaultOpenKeys={['sub1']}
-                    mode="inline"
-                    theme="dark"
-                    inlineCollapsed={collapsed}
-                    items={items}
-                />
-            </div>
+            <ConfigProvider
+                theme={{
+                    components: {
+                        Menu: {
+                            darkItemBg: "#4c5bd4",
+                            darkItemHoverBg: "#2e3994",
+                            darkItemSelectedBg: "#2e3994",
+                            darkSubMenuItemBg: "#4c5bd4",
+                        },
+                    },
+                }}
+            >
+                <div className={`new-sidebar ${collapsed ? 'collapsedSidebarMini' : 'collapsedSidebar'}`}>
+                    <Menu
+                        defaultSelectedKeys={['1']}
+                        defaultOpenKeys={['sub1']}
+                        mode="inline"
+                        theme="dark"
+                        inlineCollapsed={collapsed}
+                        items={items}
+                        className={styles.menu}
+                    />
+                </div>
+            </ConfigProvider>
         </>
     )
 }

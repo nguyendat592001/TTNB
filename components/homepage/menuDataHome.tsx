@@ -22,13 +22,13 @@ export const menuItemsHome = [
         key: "4",
         icon: "/img/img-header/user/ep_icon_save.svg",
         label: "Đã lưu",
-        link: "/",
+        link: "/daluu",
     },
     {
         key: "5",
         icon: "/img/img-header/user/ep_info_event.svg",
         label: "Sự kiện",
-        link: "/",
+        link: "/sukien",
     },
     {
         key: "6",
