@@ -138,9 +138,9 @@ const App = () => {
       setIsModalNewOpen(true);
    };
    //popover
-   const text = <span>Cài đặt nhóm</span>;
+   const text = <span style={{ paddingLeft: "20px" }}>Cài đặt nhóm</span>;
    const content = (
-      <div>
+      <div style={{ padding: "0px 20px 20px 20px" }}>
          <p className={styles.modal_p}>
             Bạn có thể quản lý cách nhận thông báo về
             <br /> thông tin mới của Nhóm.
