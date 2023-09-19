@@ -24,3 +24,33 @@
 .thuc_btn {
    width: 200px !important;
 }
+.btn_cancer {
+   width: 164px;
+   height: 36px;
+   border: 1px solid #4c5bd4;
+   font-weight: 700;
+   background-color: #fff !important;
+   color: #4c5bd4;
+}
+.btn_ok {
+   width: 164px;
+   height: 36px;
+   background: #4c5bd4;
+   color: #fff;
+
+   font-weight: 700;
+}
+.thuc_btn_full {
+   width: 100% !important;
+   color: #4c5bd4;
+   background: #d6d9f5;
+}
+.thuc_input {
+   width: 90% !important;
+}
+.thuc_space .ant-space-item {
+   width: 100%;
+}
+.thuc_icon {
+   width: 10%;
+}
