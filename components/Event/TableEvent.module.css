@@ -1,0 +1,14 @@
+.nguoitao,
+.tensukien {
+    font-size: 16px;
+    font-weight: 600;
+    color: #474747;
+}
+
+.chucvu,
+.thoigian {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #666;
+}
