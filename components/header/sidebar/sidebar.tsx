@@ -106,7 +106,7 @@ export default function SideBar(): JSX.Element {
                             label: (
                                 <Link
                                     className={styles.MenuItem}
-                                    href=''
+                                    href='/caidat'
                                 >
                                     cài đặt
                                 </Link>
