@@ -29,7 +29,7 @@ export default function Layout({ children }: LayoutProps) {
         if (isCompanyUrl) {
             return null;
         } else {
-            const pagesWithNewHeader = ['/sukien', '/b', '/c', '/d', '/e'];
+            const pagesWithNewHeader = ['/sukien', '/caidat', '/c', '/d', '/e'];
             if (pagesWithNewHeader.includes(router.pathname)) {
                 return <NewHeader collapsed={false} />;
             } else {
@@ -38,7 +38,7 @@ export default function Layout({ children }: LayoutProps) {
         }
     };
     const renderNavbar = () => {
-        const pagesWithNewSidebar = ['/sukien', '/b', '/c', '/d', '/e'];
+        const pagesWithNewSidebar = ['/sukien', '/caidat', '/c', '/d', '/e'];
 
         if (pagesWithNewSidebar.includes(router.pathname)) {
             return <Sidebar />;

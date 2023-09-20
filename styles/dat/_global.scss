@@ -42,6 +42,7 @@
 .ant-popover .ant-popover-inner {
     padding: 0;
 }
+
 .ant-menu-item:hover,
 .ant-menu-submenu-inline:hover {
     width: 97%;
@@ -404,4 +405,10 @@
         }
     }
 
+}
+
+/* cai dat */
+
+.abc .ant-tabs-tab {
+    background-color: red;
 }
