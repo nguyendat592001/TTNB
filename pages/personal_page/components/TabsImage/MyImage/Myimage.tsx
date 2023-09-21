@@ -1,9 +1,56 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../TabsImage.module.scss";
-import { fr } from "@/pages/personal_page/components/AllFriend/fr";
+
 import type { MenuProps } from "antd";
 import { Dropdown } from "antd";
+const fr = [
+  {
+    id: 1,
+    imgAvt: "/img/c.png",
+    name: "Nguyễn Hoàng",
+  },
+  {
+    id: 2,
+    imgAvt: "/img/c.png",
+    name: "Đạt",
+  },
+  {
+    id: 3,
+    imgAvt: "/img/c.png",
+    name: "Nguyễn Hoàng",
+  },
+  {
+    id: 4,
+    imgAvt: "/img/c.png",
+    name: "Nguyễn Hoàng",
+  },
+  {
+    id: 5,
+    imgAvt: "/img/c.png",
+    name: "Nguyễn Hoàng",
+  },
+  {
+    id: 6,
+    imgAvt: "/img/c.png",
+    name: "Nguyễn Hoàng",
+  },
+  {
+    id: 7,
+    imgAvt: "/img/c.png",
+    name: "Nguyễn Hoàng",
+  },
+  {
+    id: 8,
+    imgAvt: "/img/c.png",
+    name: "Nguyễn Hoàng",
+  },
+  {
+    id: 9,
+    imgAvt: "/img/c.png",
+    name: "Nguyễn Hoàng",
+  },
+];
 
 export default function Myimage() {
   const items: MenuProps["items"] = [

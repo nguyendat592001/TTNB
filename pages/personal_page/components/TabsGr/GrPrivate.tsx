@@ -1,8 +1,28 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./tabsGr.module.scss";
-import { gr } from "./data";
+
 import DotDrop from "./Dotdrop";
+const gr = [
+  {
+    id: 1,
+    imgSrc: "/img/c.png",
+    nameGr: "abcxyz",
+    quantity: "13",
+  },
+  {
+    id: 2,
+    imgSrc: "/img/c.png",
+    nameGr: "abcxyz",
+    quantity: "13",
+  },
+  {
+    id: 3,
+    imgSrc: "/img/c.png",
+    nameGr: "abcxyz",
+    quantity: "13",
+  },
+];
 
 export default function GrPrivate(): JSX.Element {
   return (

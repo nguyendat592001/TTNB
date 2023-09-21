@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import Image from "antd";
+import { Image } from "antd";
 export default function Footer() {
   const elementRefs = useRef([]);
   const seeNvAllClickHandlerRef = useRef(null);
