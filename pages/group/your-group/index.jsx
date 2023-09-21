@@ -208,7 +208,7 @@ const App = () => {
                            };
 
                            return (
-                              <div className={styles.fr}>
+                              <div key={id} className={styles.fr}>
                                  <div className={styles.fr_img}>
                                     <Image alt="/" src={item.img} style={{ borderRadius: "50%" }} width={50} height={50} preview={false} />
                                     <p className={styles.fr_name}>{item.name}</p>
@@ -234,7 +234,7 @@ const App = () => {
                                     setCheckedItems((prevSelectedItems) => prevSelectedItems.filter((id) => id !== itemId));
                                  };
                                  return (
-                                    <div className={styles.fr_seclected}>
+                                    <div key={id} className={styles.fr_seclected}>
                                        <Image alt="/" src={selectedItem.img} style={{ borderRadius: "50%" }} width={30} height={30} preview={false} />
                                        <p key={selectedItem.id} className={styles.selectedName}>
                                           {selectedItem.name}

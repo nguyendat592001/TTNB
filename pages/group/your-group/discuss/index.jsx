@@ -17,6 +17,7 @@ import ModalNotify from "@/components/common/Modal/OptionPost/ModalNotify/ModalN
 import ModalComment from "@/components/common/Modal/OptionPost/ModalComment/ModalComment";
 import ModalEditPost from "@/components/common/Modal/OptionPost/ModalEditPost/ModalEditPost";
 import ModalRegime from "@/components/common/Modal/Regime/ModalRegime";
+import Link from "next/link";
 
 const menu = (
    <Menu className={`${styles.menu__sort_popover} menuSortPopover `}>
@@ -83,15 +84,15 @@ const Discuss = () => {
          <p className={styles.contentPopover__title}>Thích</p>
          <div className={styles.listUser}>
             <div className={styles.listUser__item}>
-               <a href="/" className={styles.listUser__item__name}>
+               <Link href="/" className={styles.listUser__item__name}>
                   Nguyễn Hoàng Việt
-               </a>
-               <a href="/" className={styles.listUser__item__name}>
+               </Link>
+               <Link href="/" className={styles.listUser__item__name}>
                   Nguyễn Thế Đạt
-               </a>
-               <a href="/" className={styles.listUser__item__name}>
+               </Link>
+               <Link href="/" className={styles.listUser__item__name}>
                   Thức Đẹp Trai
-               </a>
+               </Link>
             </div>
          </div>
       </div>
@@ -286,7 +287,7 @@ const Discuss = () => {
                            </div>
                            {dataPin.map((item) => {
                               return (
-                                 <div className={styles.pin_if}>
+                                 <div key={id} className={styles.pin_if}>
                                     <div className={styles.content}>
                                        <div className={styles.introduce_flex}>
                                           <Image alt="/" src={item.avatar} width={50} height={50} style={{ borderRadius: "50%" }} preview={false} />
@@ -323,11 +324,11 @@ const Discuss = () => {
                                           </div>
                                           <div className={styles.post__header__left__info}>
                                              <div className={styles.post__header__left__info__author_name}>
-                                                <a href="/">{item.name} </a>
+                                                <Link href="/">{item.name} </Link>
                                                 <span className={styles.post_fell}>{item.feel}</span>
                                                 <span className={styles.post_with}>
                                                    {item.withs}
-                                                   <a href="/"> {item.friend} </a>
+                                                   <Link href="/"> {item.friend} </Link>
                                                 </span>
                                                 <span className={styles.post_at}>
                                                    {item.at}

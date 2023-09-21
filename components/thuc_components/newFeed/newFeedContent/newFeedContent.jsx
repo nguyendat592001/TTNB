@@ -6,6 +6,7 @@ import ModalLocation from "../../../common/Modal/Location/ModalLocation";
 import Opinion from "../opinion/opinion";
 import Emotions from "../../../common/Modal/Emotions/ModalEmotions";
 import Tags from "../tag/tag";
+import Link from "next/link";
 const NewFeedContent = ({ isOpen, onClose }) => {
    const [isUploadFileOpen, setIsUploadFileOpen] = useState(false);
    const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
@@ -29,7 +30,7 @@ const NewFeedContent = ({ isOpen, onClose }) => {
                      <Image src="/img//group/mu1.jpg" alt="avatar" width={50} height={50} preview={false} className={styles.modalAvatar} />
                   </div>
                   <div className={styles.modal__body__right}>
-                     <a href="/">Thức Đẹp Trai</a>
+                     <Link href="/">Thức Đẹp Trai</Link>
                      <div className={styles.modal__body__right_regime}>
                         <Image alt="/" src="/img/group/view.png" preview={false} />
                         <p>Fan MU Việt Nam</p>

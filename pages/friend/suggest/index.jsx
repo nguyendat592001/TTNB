@@ -116,9 +116,9 @@ const AddFriend = () => {
                   <p className={styles.add_p}>Những người bạn có thể biết</p>
                </div>
                <div className={styles.all_card}>
-                  {data.map((item) => {
+                  {data.map((item,key) => {
                      return (
-                        <Card
+                        <Card key={key}
                            className={`thuc_card ${styles.card}`}
                            style={{
                               width: 280,

@@ -16,6 +16,7 @@ import ModalNotify from "@/components/common/Modal/OptionPost/ModalNotify/ModalN
 import ModalComment from "@/components/common/Modal/OptionPost/ModalComment/ModalComment";
 import ModalEditPost from "@/components/common/Modal/OptionPost/ModalEditPost/ModalEditPost";
 import ModalRegime from "@/components/common/Modal/Regime/ModalRegime";
+import Link from "next/link";
 
 const menu = (
    <Menu className={`${styles.menu__sort_popover} menuSortPopover `}>
@@ -82,15 +83,15 @@ const Status = () => {
          <p className={styles.contentPopover__title}>Thích</p>
          <div className={styles.listUser}>
             <div className={styles.listUser__item}>
-               <a href="/" className={styles.listUser__item__name}>
+               <Link href="/" className={styles.listUser__item__name}>
                   Nguyễn Hoàng Việt
-               </a>
-               <a href="/" className={styles.listUser__item__name}>
+               </Link>
+               <Link href="/" className={styles.listUser__item__name}>
                   Nguyễn Thế Đạt
-               </a>
-               <a href="/" className={styles.listUser__item__name}>
+               </Link>
+               <Link href="/" className={styles.listUser__item__name}>
                   Thức Đẹp Trai
-               </a>
+               </Link>
             </div>
          </div>
       </div>
@@ -159,11 +160,11 @@ const Status = () => {
                   </div>
                   <div className={styles.post__header__left__info}>
                      <div className={styles.post__header__left__info__author_name}>
-                        <a href="/">Thức Đẹp Trai </a>
+                        <Link href="/">Thức Đẹp Trai </Link>
                         <span className={styles.post_fell}> đang cảm thấy vô cùng lo lắng </span>
                         <span className={styles.post_with}>
                            cùng với
-                           <a href="/"> Nguyễn Thế Đạt </a>
+                           <Link href="/"> Nguyễn Thế Đạt </Link>
                         </span>
                         <span className={styles.post_at}>
                            tại
