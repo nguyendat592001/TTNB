@@ -4,8 +4,9 @@ import Image from "next/image";
 import styles from "./index.module.scss";
 import Link from "next/link";
 import NavBlock from "./center_nav";
-import CoverImage from "./center_nav/Modal/cover_image";
+import CoverImage from "@/components/headerperson/UpdateImageWall";
 import EditPerPages from "@/components/common/Modal/EditPerPages/EditPages";
+import Avatar from "@/components/headerperson/Avatar";
 
 interface FriendExceptProps {
   isOpen: boolean;
@@ -14,6 +15,7 @@ interface FriendExceptProps {
 const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
   const router = useRouter();
   const [eidtImageWall, setEidtImageWall] = useState(false);
+  const [avatar, setAvatar] = useState(false);
 
   return (
     <div>
@@ -48,7 +50,11 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
         <div className={styles.center_avt_footer}>
           <div className={styles.center_avt_info}>
             <Image width={192} height={192} alt="anh-loi" src={"/img/c.png"} />
-            <p>
+            <p
+              onClick={() => {
+                setAvatar(true);
+              }}
+            >
               <Image
                 width={30}
                 height={30}
@@ -56,6 +62,14 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                 src={"/img/nv_camera.svg"}
               />
             </p>
+            {avatar && (
+              <Avatar
+                isOpen={avatar}
+                onClose={() => {
+                  setAvatar(false);
+                }}
+              />
+            )}
           </div>
           <div className={styles.center_avt_info_detail}>
             <p className={styles.center_avt_name}>

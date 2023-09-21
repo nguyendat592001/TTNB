@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./address.module.css";
 import Serfdom from "../Serfdom/Serfdom";
 
-const App: React.FC = () => {
+export default function AddressWork(): JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -21,15 +21,17 @@ const App: React.FC = () => {
 
   return (
     <>
-      <p onClick={showModal} className={styles.opmodal}>
-        <Image
-          width={24}
-          height={25}
-          alt="anh-loi"
-          src={"/img/nv_add-circle_blue.svg"}
-        />
-        Thêm nơi làm việc
-      </p>
+      <div className={styles.overview}>
+        <p onClick={showModal} className={styles.opmodal}>
+          <Image
+            width={24}
+            height={25}
+            alt="anh-loi"
+            src={"/img/nv_add-circle_blue.svg"}
+          />
+          Thêm nơi làm việc
+        </p>
+      </div>
 
       <ConfigProvider
         theme={{
@@ -91,6 +93,4 @@ const App: React.FC = () => {
       </ConfigProvider>
     </>
   );
-};
-
-export default App;
+}

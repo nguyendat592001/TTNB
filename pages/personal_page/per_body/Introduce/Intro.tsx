@@ -2,11 +2,32 @@ import React, { useState } from "react";
 import styles from "./intro.module.scss";
 import Image from "next/image";
 import AddressWork from "@/components/common/Modal/AddressWork/address";
+import GrPrivate from "../../components/TabsGr/GrPrivate";
+import InfoBasic from "./InfoBasic";
 
 export default function Intro() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [renderedComponent, setRenderedComponent] =
+    useState<React.ReactNode | null>(null);
   const handlePClick = (index: any) => {
     setActiveIndex(index);
+    switch (index) {
+      case 0:
+        setRenderedComponent(<AddressWork />);
+        break;
+      case 1:
+        setRenderedComponent(<InfoBasic />);
+        break;
+      case 2:
+        setRenderedComponent(<AddressWork />);
+        break;
+      case 3:
+        setRenderedComponent(<AddressWork />);
+        break;
+      default:
+        setRenderedComponent(null);
+        break;
+    }
   };
 
   const isPActive = (index: any) => {
@@ -45,9 +66,7 @@ export default function Intro() {
           </section>
         </div>
 
-        <div className={styles.overview}>
-          <AddressWork />
-        </div>
+        <div>{renderedComponent}</div>
       </div>
     </>
   );

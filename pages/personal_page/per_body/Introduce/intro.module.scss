@@ -15,6 +15,7 @@
             font-size: 16px;
             margin: 0 0 5px;
             padding: 5px 10px;
+            cursor: pointer;
         }
                 
         .intro__gt {
@@ -26,15 +27,16 @@
           
         }
     }
-    .overview{
-            width: 812px;
-            height: 66px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background-color: #fff;
-            margin-left: 20px;
-            border-radius: 6px;
-    }
+   
+}
+.overview{
+    width: 812px;
+    
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    margin-left: 20px;
+    border-radius: 6px;
 }

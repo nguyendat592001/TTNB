@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import type { MenuProps } from "antd";
 import { Dropdown, Space } from "antd";
-import Searchpers from "@/pages/personal_page/center_avt/center_nav/Modal/search_personal";
+import Searchpers from "@/components/headerperson/search_personal";
 const items: MenuProps["items"] = [
   {
     label: <Searchpers />,
@@ -10,9 +10,11 @@ const items: MenuProps["items"] = [
   },
   {
     label: (
-      <div style={{display:"flex", alignItems:"center",padding:"5px 10px"}}>
+      <div
+        style={{ display: "flex", alignItems: "center", padding: "5px 10px" }}
+      >
         <Image
-        style={{marginRight:10}}
+          style={{ marginRight: 10 }}
           width={20}
           height={21}
           alt="search"
@@ -25,9 +27,11 @@ const items: MenuProps["items"] = [
   },
   {
     label: (
-      <div style={{display:"flex", alignItems:"center",padding:"5px 10px"}}>
+      <div
+        style={{ display: "flex", alignItems: "center", padding: "5px 10px" }}
+      >
         <Image
-        style={{marginRight:10}}
+          style={{ marginRight: 10 }}
           width={20}
           height={21}
           alt="search"
@@ -40,9 +44,11 @@ const items: MenuProps["items"] = [
   },
   {
     label: (
-      <div style={{display:"flex", alignItems:"center", padding:"5px 10px"}}>
+      <div
+        style={{ display: "flex", alignItems: "center", padding: "5px 10px" }}
+      >
         <Image
-        style={{marginRight:10}}
+          style={{ marginRight: 10 }}
           width={20}
           height={21}
           alt="search"
