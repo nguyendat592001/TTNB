@@ -153,7 +153,7 @@ const Discuss = () => {
 
    const dataStatus = [
       {
-         id: "1",
+         id: 1,
          avatar: "/img/group/mu1.jpg",
          name: "Thức Đẹp Trai",
          feel: "Đang cảm thấy lo lắng",
@@ -166,7 +166,7 @@ const Discuss = () => {
          time: "2 ngày trước",
       },
       {
-         id: "2",
+         id: 2,
          avatar: "/img/group/mu1.jpg",
          name: "Thức Đẹp Trai",
          feel: "Đang cảm thấy vô cùng đau đầu",
@@ -179,7 +179,7 @@ const Discuss = () => {
          time: "5 ngày trước",
       },
       {
-         id: "3",
+         id: 3,
          avatar: "/img/group/mu1.jpg",
          name: "Thức Đẹp Trai",
          feel: "",
@@ -192,7 +192,7 @@ const Discuss = () => {
          time: "6 ngày trước",
       },
       {
-         id: "4",
+         id: 4,
          avatar: "/img/group/mu1.jpg",
          name: "Thức Đẹp Trai",
          feel: "Đang cảm thấy lo lắng",
@@ -285,9 +285,9 @@ const Discuss = () => {
                               <p>Nêu bật những điều đáng chú ý nhất trong nhóm</p>
                               <p>Nêu bật những điều đáng chú ý nhất trong nhóm ở một nơi thuận tiện mà bạn có thể ghim bài viết</p>
                            </div>
-                           {dataPin.map((item) => {
+                           {dataPin.map((item,index) => {
                               return (
-                                 <div key={id} className={styles.pin_if}>
+                                 <div key={index} className={styles.pin_if}>
                                     <div className={styles.content}>
                                        <div className={styles.introduce_flex}>
                                           <Image alt="/" src={item.avatar} width={50} height={50} style={{ borderRadius: "50%" }} preview={false} />

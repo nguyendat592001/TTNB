@@ -1,4 +1,5 @@
-import styles from "./leftNav.module.css";
+import React from "react";
+import styles from "./leftnav.module.css";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Image, Menu } from "antd";
 import { useRouter } from "next/router";

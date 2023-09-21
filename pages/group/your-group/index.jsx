@@ -89,22 +89,22 @@ const App = () => {
    //data invited
    const data = [
       {
-         id: "1",
+         id: 1,
          img: "/img/group/mu1.jpg",
          name: "Thức Đẹp Trai",
       },
       {
-         id: "2",
+         id: 2,
          img: "/img/group/mu2.jpg",
          name: "Thức Đẹp Trai",
       },
       {
-         id: "3",
+         id: 3,
          img: "/img/group/mu3.jpg",
          name: "Thức Đẹp Trai",
       },
       {
-         id: "4",
+         id: 4,
          img: "/img/group/mu4.jpg",
          name: "Thức Đẹp Trai",
       },
@@ -198,8 +198,8 @@ const App = () => {
                      </div>
                      <div className={styles.banner_fr}>
                         <p className={styles.fr_p}>Bạn bè</p>
-                        {data.map((item) => {
-                           const handleCheckboxChange = (itemId) => {
+                        {data.map((item,index) => {
+                           const handleCheckboxChange = (itemId,) => {
                               if (checkedItems.includes(itemId)) {
                                  setCheckedItems((prevCheckedItems) => prevCheckedItems.filter((id) => id !== itemId));
                               } else {
@@ -208,7 +208,7 @@ const App = () => {
                            };
 
                            return (
-                              <div key={id} className={styles.fr}>
+                              <div key={index} className={styles.fr}>
                                  <div className={styles.fr_img}>
                                     <Image alt="/" src={item.img} style={{ borderRadius: "50%" }} width={50} height={50} preview={false} />
                                     <p className={styles.fr_name}>{item.name}</p>
@@ -228,13 +228,13 @@ const App = () => {
                         <div className={styles.border}>
                            <p>Đã chọn {checkedItems.length} người</p>
                            <div className={styles.border_item}>
-                              {checkedItems.map((itemId) => {
+                              {checkedItems.map((itemId,index) => {
                                  const selectedItem = data.find((item) => item.id === itemId);
                                  const handleCheckboxCancer = () => {
                                     setCheckedItems((prevSelectedItems) => prevSelectedItems.filter((id) => id !== itemId));
                                  };
                                  return (
-                                    <div key={id} className={styles.fr_seclected}>
+                                    <div key={index} className={styles.fr_seclected}>
                                        <Image alt="/" src={selectedItem.img} style={{ borderRadius: "50%" }} width={30} height={30} preview={false} />
                                        <p key={selectedItem.id} className={styles.selectedName}>
                                           {selectedItem.name}
