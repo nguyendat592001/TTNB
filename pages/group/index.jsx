@@ -274,9 +274,9 @@ const App = () => {
                   </div>
                   <div className={styles.all_scroll}>
                      <div className={styles.scroll}>
-                        {dataListGroup.map((item) => {
+                        {dataListGroup.map((item,key) => {
                            return (
-                              <div className={styles.scroll_content}>
+                              <div key={key} className={styles.scroll_content}>
                                  <Image alt="/" src={item.avatar} preview={false} />
                                  <div>
                                     <h3>{item.name}</h3>

@@ -9,8 +9,8 @@ export default function Follower() {
 
   return (
     <div className={styles.grid_fr}>
-      {fr.map((allfr) => (
-        <div className={styles.grid}>
+      {fr.map((allfr, index) => (
+        <div key={index} className={styles.grid}>
           <div className={styles.allfr} key={allfr.id}>
             <Image
               className={styles.allfr_img}

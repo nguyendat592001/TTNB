@@ -124,9 +124,9 @@ const App = () => {
                   </div>
                </div>
                <div className={styles.all_card}>
-                  {data.map((item) => {
+                  {data.map((item,key) => {
                      return (
-                        <Card
+                        <Card key={key}
                            className={`thuc_card ${styles.card}`}
                            style={{
                               width: 280,
@@ -153,9 +153,9 @@ const App = () => {
                   </div>
                </div>
                <div className={styles.all_card}>
-                  {data.map((item) => {
+                  {data.map((item,key) => {
                      return (
-                        <Card
+                        <Card key={key}
                            className={`thuc_card ${styles.card}`}
                            style={{
                               width: 280,
