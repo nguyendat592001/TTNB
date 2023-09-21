@@ -7,7 +7,7 @@ interface Update {
   onClose: () => void;
   coverImageSrc: string | null;
 }
-const App = ({ isOpen, onClose, coverImageSrc }: Update) => {
+const UpdateAvatar = ({ isOpen, onClose, coverImageSrc }: Update) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleOk = () => {
     setIsModalOpen(false);
@@ -22,7 +22,7 @@ const App = ({ isOpen, onClose, coverImageSrc }: Update) => {
   return (
     <>
       <Modal open={isOpen} onOk={handleOk} onCancel={onClose} footer={null}>
-        <h2 className={styles.title}>Cập nhật ảnh bìa</h2>
+        <h2 className={styles.title}>Cập nhật ảnh đại diện</h2>
         <textarea className={styles.text_mota} placeholder="Mô tả" />
         <Image
           className={styles.img_anhbia}
@@ -50,4 +50,4 @@ const App = ({ isOpen, onClose, coverImageSrc }: Update) => {
   );
 };
 
-export default App;
+export default UpdateAvatar;

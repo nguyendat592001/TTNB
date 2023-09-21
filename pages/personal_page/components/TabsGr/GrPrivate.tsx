@@ -4,7 +4,7 @@ import styles from "./tabsGr.module.scss";
 import { gr } from "./data";
 import DotDrop from "./Dotdrop";
 
-export default function GrPrivate() {
+export default function GrPrivate(): JSX.Element {
   return (
     <div className={styles.grid_gr}>
       {gr.map((grs) => (

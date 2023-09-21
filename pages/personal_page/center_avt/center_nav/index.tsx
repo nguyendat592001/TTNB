@@ -1,7 +1,6 @@
 import React from "react";
 import { Divider, Tabs } from "antd";
 import type { TabsProps } from "antd";
-import styles from "../index.module.scss";
 import Dot from "../../components/Dropdown/dot_tabs_block";
 import Post from "../../per_body/posts";
 import Intro from "../../per_body/Introduce/Intro";
@@ -12,7 +11,7 @@ import TabsGr from "../../TabsGroup/TabsGr";
 const operations = <Dot />;
 
 const onChange = (key: string) => {
-  console.log(key);
+  // console.log(key);
 };
 
 const items: TabsProps["items"] = [

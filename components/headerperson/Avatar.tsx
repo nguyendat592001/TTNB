@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Button, Modal, Upload, UploadProps, message } from "antd";
+import { Modal } from "antd";
 import styles from "./modal.module.css";
 import Image from "next/image";
 import Update from "@/components/common/Modal/UpdateCoverImage/Update";
+import UploadFile from "../Btn/UploadFile";
+import UpdateAvatar from "../common/Modal/UpdateCoverImage/UpdateAvatar";
 
 interface FriendExceptProps {
   isOpen: boolean;
@@ -15,10 +17,10 @@ export default function Avatar({
 }: FriendExceptProps): JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [coverImageSrc, onUpdateAvatarImage] = useState("/img/c.png");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [update, setUpdate] = useState(false);
   const handleImageUpdateAndSave = (newImageSrc: any) => {
     onUpdateAvatarImage(newImageSrc);
-
     onClose();
   };
 
@@ -74,14 +76,11 @@ export default function Avatar({
         onCancel={onClose}
         footer={null}
       >
-        <label htmlFor="file-upload" className={styles.customUploadButton}>
-          Tải ảnh lên
-        </label>
-        <input
-          type="file"
-          id="file-upload"
-          style={{ display: "none" }}
-          onChange={handleFileUpload}
+        <UploadFile
+          isOpen={false}
+          onClose={function (): void {
+            throw new Error("Function not implemented.");
+          }}
         />
 
         <p className={styles.anh_updated}>Ảnh đã tải lên</p>
@@ -99,7 +98,13 @@ export default function Avatar({
             </div>
           ))}
         </div>
-        {update && <Update isOpen={update} onClose={() => setUpdate(false)} />}
+        {update && (
+          <UpdateAvatar
+            isOpen={update}
+            onClose={() => setUpdate(false)}
+            coverImageSrc={selectedImage}
+          />
+        )}
       </Modal>
     </>
   );

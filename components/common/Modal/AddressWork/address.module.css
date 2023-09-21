@@ -83,3 +83,14 @@
 
     font-weight: 500;
 }
+.overview{
+    width: 812px;
+    height: 66px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    margin-left: 20px;
+    border-radius: 6px;
+}
