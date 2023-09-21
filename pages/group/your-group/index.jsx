@@ -145,6 +145,7 @@ const App = () => {
             style={{
                cursor: "pointer",
                marginRight: "10px",
+               transform: "rotate(90deg)",
             }}
          />
       </Popover>
