@@ -1,0 +1,31 @@
+.ngonngucontainer {
+    border-bottom: 1px solid rgba(71, 71, 71, .24);
+}
+
+.sectionngonngu,
+.sectiontheme {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px 20px 30px;
+}
+
+.ngonnguTitle,
+.themeTitle {
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 180px;
+    font-size: 16px;
+}
+
+.ngonnguRadioGroup {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    margin-right: 20px;
+}
+
+.themes {
+    display: flex;
+    margin-right: 20px;
+}
