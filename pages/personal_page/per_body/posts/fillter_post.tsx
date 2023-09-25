@@ -1,14 +1,16 @@
 import React from "react";
 import styles from "../index.module.css";
 import Image from "next/image";
+import Fillter from "@/components/viet_components/fillter/Fillter";
+import Article_management from "@/components/viet_components/Article_management/Article_management";
 export default function FillterPosat() {
   return (
     <>
       <div className={styles.fillter}>
         <span className={styles.filter_post_title}> Bài viết</span>
-        <div className={styles.btn_post} > 
-          <button className={`${styles.filter_post_btn} ${styles.btn_filter_post}`}><Image width={24} height={24} alt='' src={"/img/nv_setting-4.svg"} />Bộ lọc</button>
-          <button className={`${styles.filter_post_btn} ${styles.btn_manager_post}`}><Image width={24} height={24} alt='' src={"/img/nv_setting-2.svg"}/>Quản lý bài viết</button>
+        <div className={styles.btn_post}>
+          <Fillter />
+          <Article_management />
         </div>
       </div>
     </>

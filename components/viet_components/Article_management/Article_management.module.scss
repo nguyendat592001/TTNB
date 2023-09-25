@@ -1,0 +1,76 @@
+.filter_post_btn {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 24px;
+    color: #474747;
+    padding: 8px 10px;
+    border: none;
+    background: #F7F8FC;
+    border-radius: 5px;
+    gap: 10px;
+}
+
+.quanly {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #474747;
+    }
+}
+
+.allpost {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        flex: 1;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #474747;
+    }
+
+    ;
+
+    .allpost_input {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        font-weight: 500;
+
+    }
+}
+
+.list_post {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+    column-gap: 5px;
+    padding: 5px;
+    overflow-y: scroll;
+    max-height: 100vh;
+    padding: 10px 0;
+
+    .info_post {
+        display: flex;
+        gap:5px;
+        img{
+            border-radius: 50%;
+        }
+        .info_post_post {
+           
+        }
+    }
+
+}
+
+.list_post::-webkit-scrollbar {
+    display: none;
+}
