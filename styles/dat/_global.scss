@@ -409,6 +409,48 @@
 
 /* cai dat */
 
-.abc .ant-tabs-tab {
-    background-color: red;
+.settingContainer {
+    .ant-tabs-nav {
+        margin: 0px;
+    }
+}
+
+/* Modal Setting */
+
+.modalDelete .ant-modal-content {
+    padding: 0px;
+
+    Button {
+        background-color: white;
+        font-weight: 600;
+    }
+}
+
+/* Modal logout */
+.modal-log-out .ant-modal-content {
+    padding: 0px;
+}
+
+/* tableStaff */
+
+.tableStaff {
+    .ant-table-thead>tr>th {
+        background-color: #e4e4e4 !important;
+        font-weight: 500;
+    }
+
+    .ant-table-tbody {
+        background-color: #fff;
+    }
+
+    .ant-table-cell-row-hover {
+        background-color: white !important;
+    }
+}
+
+/* searchInputStaff */
+.searchInputStaff {
+    .ant-input {
+        background-color: white;
+    }
 }
