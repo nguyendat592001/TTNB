@@ -12,9 +12,9 @@
    box-shadow: 2px 2px 12px 0px #00000026;
    position: fixed;
    height: calc(100vh - 78px);
+   overflow: auto;
    width: 24%;
    top: 12%;
-   overflow: auto;
    float: left;
    padding-left: 5px;
    padding-right: 5px;

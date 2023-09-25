@@ -5,7 +5,12 @@ import { useRouter } from "next/router";
 import { CameraOutlined, CloseOutlined } from "@ant-design/icons";
 import LeftNav from "../../../components/thuc_components/left-nav-group/leftNav";
 import OptionPost from "../../../components/common/Popover/OptionPost";
-import Discuss from "./discuss";
+import Discuss from "./home/discuss";
+import Member from "./home/member";
+import PinStatus from "./home/pin-status";
+import VideoHd from "./home/videohd";
+import Colection from "./home/colection";
+import File from "./home/file";
 const App = () => {
    const router = useRouter();
    //tabs
@@ -19,27 +24,27 @@ const App = () => {
       {
          key: "2",
          label: "Bài viết đã ghim",
-         children: "Content of Tab Pane 2",
+         children: <PinStatus />,
       },
       {
          key: "3",
          label: "Video",
-         children: "Content of Tab Pane 3",
+         children: <VideoHd />,
       },
       {
          key: "4",
          label: "Thành viên",
-         children: "Content of Tab Pane 4",
+         children: <Member />,
       },
       {
          key: "5",
          label: "File phương tiện",
-         children: "Content of Tab Pane 5",
+         children: <Colection />,
       },
       {
          key: "6",
          label: "File",
-         children: "Content of Tab Pane 6",
+         children: <File />,
       },
    ];
    //data chi tiết
@@ -198,8 +203,8 @@ const App = () => {
                      </div>
                      <div className={styles.banner_fr}>
                         <p className={styles.fr_p}>Bạn bè</p>
-                        {data.map((item,index) => {
-                           const handleCheckboxChange = (itemId,) => {
+                        {data.map((item, index) => {
+                           const handleCheckboxChange = (itemId) => {
                               if (checkedItems.includes(itemId)) {
                                  setCheckedItems((prevCheckedItems) => prevCheckedItems.filter((id) => id !== itemId));
                               } else {
@@ -228,7 +233,7 @@ const App = () => {
                         <div className={styles.border}>
                            <p>Đã chọn {checkedItems.length} người</p>
                            <div className={styles.border_item}>
-                              {checkedItems.map((itemId,index) => {
+                              {checkedItems.map((itemId, index) => {
                                  const selectedItem = data.find((item) => item.id === itemId);
                                  const handleCheckboxCancer = () => {
                                     setCheckedItems((prevSelectedItems) => prevSelectedItems.filter((id) => id !== itemId));

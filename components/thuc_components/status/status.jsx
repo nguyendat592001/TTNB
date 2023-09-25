@@ -1,7 +1,6 @@
 import { Divider, Image, Menu, message, Popover, Tooltip } from "antd";
-import { useState } from "react";
+import { useState, useRef, useContext } from "react";
 import { DownOutlined } from "@ant-design/icons";
-
 import styles from "./status.module.css";
 import PostComment from "../../../components/homepage/ContentHome/Post/PostComment/PostComment";
 import ReactionIcons from "../../../components/homepage/ContentHome/Post/ReactionIcons/ReactionIcons ";
@@ -17,6 +16,7 @@ import ModalComment from "@/components/common/Modal/OptionPost/ModalComment/Moda
 import ModalEditPost from "@/components/common/Modal/OptionPost/ModalEditPost/ModalEditPost";
 import ModalRegime from "@/components/common/Modal/Regime/ModalRegime";
 import Link from "next/link";
+import { StatusCOntext } from "../../../components/context/statusContext";
 
 const menu = (
    <Menu className={`${styles.menu__sort_popover} menuSortPopover `}>
@@ -46,6 +46,7 @@ const Status = () => {
    const [isSharePopoverOpen, setIsSharePopoverOpen] = useState(false);
    const [isOptionPopoverOpen, setIsOptionPopoverOpen] = useState(false);
    const [isFirstClick, setIsFirstClick] = useState(false);
+   const { dataStatusContext, setDataStatusContext } = useContext(StatusCOntext);
 
    function handleReplyClick(index) {
       setSelectedReplyIndex(index === selectedReplyIndex ? -1 : index);
@@ -150,173 +151,292 @@ const Status = () => {
       }
    };
 
-   return (
-      <div className={styles.post}>
-         <>
-            <div className={styles.post__header}>
-               <div className={styles.post__header__left}>
-                  <div className={styles.post__header__left__avatar}>
-                     <Image src="/img/group/mu1.jpg" alt="avatar" width={40} height={40} preview={false} className={styles.avatar} />
-                  </div>
-                  <div className={styles.post__header__left__info}>
-                     <div className={styles.post__header__left__info__author_name}>
-                        <Link href="/">Thức Đẹp Trai </Link>
-                        <span className={styles.post_fell}> đang cảm thấy vô cùng lo lắng </span>
-                        <span className={styles.post_with}>
-                           cùng với
-                           <Link href="/"> Nguyễn Thế Đạt </Link>
-                        </span>
-                        <span className={styles.post_at}>
-                           tại
-                           <span className={styles.post_at_bold}> Lô 6, KĐT Định Công - Hoàng Mai - Hà Nội </span>
-                        </span>
-                     </div>
+   // const dataStatus = [
+   //    {
+   //       id: 1,
+   //       avatar: "/img/group/mu1.jpg",
+   //       name: "Thức Đẹp Trai",
+   //       feel: "Đang cảm thấy lo lắng",
+   //       withs: "cùng với",
+   //       friend: "Nguyễn Thế Đạt",
+   //       address: "Lô 6, KĐT Định Công - Hoàng Mai - Hà Nội",
+   //       content: "Win rồi ",
+   //       collection: "/img/group/tq5.jpg",
+   //       at: "tại",
+   //       time: "2 ngày trước",
+   //       videoSrc: "",
+   //    },
+   //    {
+   //       id: 2,
+   //       avatar: "/img/group/mu1.jpg",
+   //       name: "Thức Đẹp Trai",
+   //       feel: "Đang cảm thấy vô cùng đau đầu",
+   //       withs: "",
+   //       friend: "",
+   //       address: "",
+   //       content: "ok",
+   //       collection: "/img/group/tq5.jpg",
+   //       at: "",
+   //       time: "5 ngày trước",
+   //       videoSrc: "/img/group/ta_xua.mp4",
+   //    },
+   //    {
+   //       id: 3,
+   //       avatar: "/img/group/mu1.jpg",
+   //       name: "Thức Đẹp Trai",
+   //       feel: "",
+   //       withs: "",
+   //       friend: "",
+   //       address: "",
+   //       content: "Một ngày đẹp trời",
+   //       collection: "/img/group/tq5.jpg",
+   //       at: "",
+   //       time: "6 ngày trước",
+   //       videoSrc: "",
+   //    },
+   //    {
+   //       id: 4,
+   //       avatar: "/img/group/mu1.jpg",
+   //       name: "Thức Đẹp Trai",
+   //       feel: "Đang cảm thấy lo lắng",
+   //       withs: "",
+   //       friend: "",
+   //       address: "Lô 6, KĐT Định Công - Hoàng Mai - Hà Nội",
+   //       content: " Chill",
+   //       collection: "",
+   //       at: "tại",
+   //       time: "9 ngày trước",
+   //       videoSrc: "/img/group/ta_xua.mp4",
+   //    },
+   // ];
 
-                     <div className={styles.post__header__left__info__time}>
-                        <p className={styles.info__time}>2 giờ trước</p>
-                        <div className={styles.info__regime}>
-                           <Tooltip title="Công khai" placement="bottom" arrow={false}>
-                              <Image src="/img/img-home/regime/regime1.svg" alt="" width={20} height={20} preview={false} className={styles.iconRegime} />
-                           </Tooltip>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div className={styles.post__header__right}>
-                  <div className={styles.post__header__right__icon}>
-                     <Popover
-                        placement="bottomRight"
-                        content={<OptionPost menuItems={menuOptionPost} onMenuItemClick={handlePopoverItemClick} />}
-                        trigger="click"
-                        arrow={false}
-                        open={isOptionPopoverOpen}
-                        onOpenChange={(open) => setIsOptionPopoverOpen(open)}>
-                        <Image
-                           src="/img/img-header/ep_post_more.svg"
-                           alt="icon"
-                           width={20}
-                           height={20}
-                           preview={false}
-                           onClick={() => setIsOptionPopoverOpen(!isOptionPopoverOpen)}
-                           style={{
-                              cursor: "pointer",
-                              marginRight: "10px",
-                           }}
-                        />
-                     </Popover>
-                  </div>
-               </div>
-            </div>
-            <div className={styles.post__content}>
-               <div className={styles.post__content__text}>
-                  <p>Chết đến nơi rồi!!!</p>
-               </div>
+   const videoRef = useRef(null);
+
+   const handleVideoClick = () => {
+      if (videoRef.current) {
+         const promise = videoRef.current.requestFullscreen();
+
+         promise
+            .then(() => videoRef.current?.play())
+            .catch((error) => {
+               console.log("Error attempting to enable fullscreen:", error);
+            });
+      }
+   };
+   const checkColection = (item) => {
+      const checkImg = item.collection;
+      if (checkImg === null || checkImg === undefined || checkImg === "") {
+         return null;
+      } else {
+         return (
+            <>
                <div className={styles.post__content__image}>
-                  <Image src="/img/group/tq5.jpg" alt="icon" />
+                  <Image src={item.collection} alt="icon" />
                </div>
-               {/* <PostVideo /> */}
-            </div>
-            <div className={styles.post__count_reaction}>
-               <div className={styles.post__reaction__count_like}>
-                  <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
-                     <Image src={selectedImage} alt="icon" width={25} height={25} preview={false} />
-                  </Popover>
-                  <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
-                     <p className={styles.post__reaction__count_like__text}>{likeCount} Người</p>
-                  </Popover>
+            </>
+         );
+      }
+   };
+   const checkVideo = (item) => {
+      const checkVideo = item.videoSrc;
+      if (checkVideo === null || checkVideo === undefined || checkVideo === "") {
+         return null;
+      } else {
+         return (
+            <>
+               <div className={`${styles.post__content__video} ${styles.post__content__video_container}`}>
+                  <video ref={videoRef} width="100%" height="270" controls onClick={handleVideoClick} className={styles.video}>
+                     <source src={item.videoSrc} type="video/mp4" />
+                  </video>
                </div>
-               <div className={styles.sum__comment}>
-                  <div className={styles.post__reaction__count_comment}>
-                     <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
-                        <span className={styles.post__reaction__count_comment}>
-                           1.000
-                           <span> Bình luận </span>
-                        </span>
-                     </Popover>
-                  </div>
+            </>
+         );
+      }
+   };
+   return (
+      <div className={styles.all_status}>
+         {dataStatusContext?.map((item, index) => {
+            return (
+               <div className={styles.status} key={item.id}>
+                  <div className={styles.post}>
+                     <>
+                        <div className={styles.post__header}>
+                           <div className={styles.post__header__left}>
+                              <div className={styles.post__header__left__avatar}>
+                                 <Image src={item.avatar} alt="avatar" width={40} height={40} preview={false} className={styles.avatar} />
+                              </div>
+                              <div className={styles.post__header__left__info}>
+                                 <div className={styles.post__header__left__info__author_name}>
+                                    <Link href="/">{item.name} </Link>
+                                    <span className={styles.post_fell}>{item.feel}</span>
+                                    <span className={styles.post_with}>
+                                       {item.withs}
+                                       <Link href="/"> {item.friend} </Link>
+                                    </span>
+                                    <span className={styles.post_at}>
+                                       {item.at}
+                                       <span className={styles.post_at_bold}>{item.address}</span>
+                                    </span>
+                                 </div>
 
-                  <div className={styles.post__reaction__count_share}>
-                     <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
-                        <span className={styles.post__reaction__count_share__text}>
-                           1.000
-                           <span> Lượt chia sẻ </span>
-                        </span>
-                     </Popover>
-                  </div>
-               </div>
-            </div>
-
-            <Divider className={styles.divider} />
-
-            <div className={styles.post__footer}>
-               <ReactionIcons selectedImage={selectedImage} onSelectImage={handleImageClick} />
-               <div className={styles.post__footer__middle} onClick={handleCommentClick}>
-                  <div className={styles.post__footer__middle__icon}>
-                     <Image src="/img/img-home/ep_post_cmt.svg" alt="icon" width={25} height={25} preview={false} />
-                  </div>
-                  <div className={styles.post__footer__middle__text}>
-                     <p>Bình luận</p>
-                  </div>
-               </div>
-
-               <Popover
-                  placement="bottomRight"
-                  content={<OptionPost menuItems={menuOptionSharePost} onMenuItemClick={handlePopoverItemClick} />}
-                  trigger="click"
-                  arrow={false}
-                  open={isSharePopoverOpen}
-                  onOpenChange={(open) => setIsSharePopoverOpen(open)}>
-                  <div className={styles.post__footer__right}>
-                     <div className={styles.post__footer__right__icon}>
-                        <Image src="/img/img-home/ep_post_share.svg" alt="icon" width={28} height={28} preview={false} onClick={() => setIsSharePopoverOpen(!isSharePopoverOpen)} />
-                     </div>
-                     <div className={styles.post__footer__right__text}>
-                        <p>Chia sẻ</p>
-                     </div>
-                  </div>
-               </Popover>
-            </div>
-            {renderModal()}
-            <Divider className={styles.divider} />
-
-            <PostComment onSubmitComment={handleSubmitComment} />
-            {showComments && (
-               <div className={styles.comments}>
-                  <Popover content={menu} trigger="click" arrow={false} placement="bottomRight">
-                     <div className={styles.post__comment_sort}>
-                        Mới nhất
-                        <span>
-                           <DownOutlined rev={undefined} className={styles.post__comment_sort_icon} />
-                        </span>
-                     </div>
-                  </Popover>
-                  {comments.map((comment, index) => (
-                     <div key={index} className={styles.comment}>
-                        <div className={styles.comment__avatar_user}>
-                           <Image src={comment.avatar} width={40} height={40} preview={false} className={styles.comment__avatar_user_img} alt="avatar" />
-                        </div>
-                        <div className={styles.comment__content}>
-                           <div className={styles.comment__content_info}>
-                              <p className={styles.comment__name}>{comment.name}</p>
-                              <p className={styles.comment__text}>{comment.content}</p>
+                                 <div className={styles.post__header__left__info__time}>
+                                    <p className={styles.info__time}>{item.time}</p>
+                                    <div className={styles.info__regime}>
+                                       <Tooltip title="Công khai" placement="bottom" arrow={false}>
+                                          <Image src="/img/img-home/regime/regime1.svg" alt="" width={20} height={20} preview={false} className={styles.iconRegime} />
+                                       </Tooltip>
+                                    </div>
+                                 </div>
+                              </div>
                            </div>
-                           <div className={styles.comment__content_reaction}>
-                              <p className={styles.comment__cxuc}>Thích</p>
-                              <p className={styles.comment__reply} onClick={() => handleReplyClick(index)}>
-                                 Trả lời
-                              </p>
-
-                              <p className={styles.comment__day}>{comment.day}</p>
-                              <p>lúc</p>
-                              <p className={styles.comment__timestamp}>{comment.timestamp}</p>
+                           <div className={styles.post__header__right}>
+                              <div className={styles.post__header__right__icon}>
+                                 <Popover
+                                    placement="bottomRight"
+                                    content={<OptionPost menuItems={menuOptionPost} onMenuItemClick={() => handlePopoverItemClick("", index)} />}
+                                    trigger="click"
+                                    arrow={false}
+                                    open={isOptionPopoverOpen[index]}
+                                    onOpenChange={(open) => {
+                                       if (!isOptionPopoverOpen[index]) {
+                                          const newArr = Array(isOptionPopoverOpen.length).fill(false);
+                                          newArr[index] = true;
+                                          setIsOptionPopoverOpen(newArr);
+                                          console.log(isOptionPopoverOpen);
+                                       } else {
+                                          setIsOptionPopoverOpen(Array(isOptionPopoverOpen.length).fill(false));
+                                       }
+                                    }}>
+                                    <Image
+                                       src="/img/img-header/ep_post_more.svg"
+                                       alt="icon"
+                                       width={20}
+                                       height={20}
+                                       preview={false}
+                                       // onClick={() => setIsOptionPopoverOpen(!isOptionPopoverOpen)}
+                                       style={{
+                                          cursor: "pointer",
+                                          marginRight: "10px",
+                                       }}
+                                    />
+                                 </Popover>
+                              </div>
                            </div>
-                           {selectedReplyIndex === index && <PostComment onSubmitComment={handleSubmitComment} parentId={index} />}
                         </div>
-                     </div>
-                  ))}
+                        <div className={styles.post__content}>
+                           <div className={styles.post__content__text}>
+                              <p>{item.content}</p>
+                           </div>
+                           <div className={styles.collection_fl}>
+                              {checkColection(item)}
+                              {checkVideo(item)}
+                           </div>
+                        </div>
+                        <div className={styles.post__count_reaction}>
+                           <div className={styles.post__reaction__count_like}>
+                              <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
+                                 <Image src={selectedImage} alt="icon" width={25} height={25} preview={false} />
+                              </Popover>
+                              <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
+                                 <p className={styles.post__reaction__count_like__text}>{likeCount} Người</p>
+                              </Popover>
+                           </div>
+                           <div className={styles.sum__comment}>
+                              <div className={styles.post__reaction__count_comment}>
+                                 <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
+                                    <span className={styles.post__reaction__count_comment}>
+                                       1.000
+                                       <span> Bình luận </span>
+                                    </span>
+                                 </Popover>
+                              </div>
+
+                              <div className={styles.post__reaction__count_share}>
+                                 <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
+                                    <span className={styles.post__reaction__count_share__text}>
+                                       1.000
+                                       <span> Lượt chia sẻ </span>
+                                    </span>
+                                 </Popover>
+                              </div>
+                           </div>
+                        </div>
+
+                        <Divider className={styles.divider} />
+
+                        <div className={styles.post__footer}>
+                           <ReactionIcons selectedImage={selectedImage} onSelectImage={handleImageClick} />
+                           <div className={styles.post__footer__middle} onClick={handleCommentClick}>
+                              <div className={styles.post__footer__middle__icon}>
+                                 <Image src="/img/img-home/ep_post_cmt.svg" alt="icon" width={25} height={25} preview={false} />
+                              </div>
+                              <div className={styles.post__footer__middle__text}>
+                                 <p>Bình luận</p>
+                              </div>
+                           </div>
+
+                           <Popover
+                              placement="bottomRight"
+                              content={<OptionPost menuItems={menuOptionSharePost} onMenuItemClick={handlePopoverItemClick} />}
+                              trigger="click"
+                              arrow={false}
+                              open={isSharePopoverOpen}
+                              onOpenChange={(open) => setIsSharePopoverOpen(open)}>
+                              <div className={styles.post__footer__right}>
+                                 <div className={styles.post__footer__right__icon}>
+                                    <Image src="/img/img-home/ep_post_share.svg" alt="icon" width={28} height={28} preview={false} onClick={() => setIsSharePopoverOpen(!isSharePopoverOpen)} />
+                                 </div>
+                                 <div className={styles.post__footer__right__text}>
+                                    <p>Chia sẻ</p>
+                                 </div>
+                              </div>
+                           </Popover>
+                        </div>
+                        {renderModal()}
+                        <Divider className={styles.divider} />
+
+                        <PostComment onSubmitComment={handleSubmitComment} />
+                        {showComments && (
+                           <div className={styles.comments}>
+                              <Popover content={menu} trigger="click" arrow={false} placement="bottomRight">
+                                 <div className={styles.post__comment_sort}>
+                                    Mới nhất
+                                    <span>
+                                       <DownOutlined rev={undefined} className={styles.post__comment_sort_icon} />
+                                    </span>
+                                 </div>
+                              </Popover>
+                              {comments.map((comment, index) => (
+                                 <div key={index} className={styles.comment}>
+                                    <div className={styles.comment__avatar_user}>
+                                       <Image src={comment.avatar} width={40} height={40} preview={false} className={styles.comment__avatar_user_img} alt="avatar" />
+                                    </div>
+                                    <div className={styles.comment__content}>
+                                       <div className={styles.comment__content_info}>
+                                          <p className={styles.comment__name}>{comment.name}</p>
+                                          <p className={styles.comment__text}>{comment.content}</p>
+                                       </div>
+                                       <div className={styles.comment__content_reaction}>
+                                          <p className={styles.comment__cxuc}>Thích</p>
+                                          <p className={styles.comment__reply} onClick={() => handleReplyClick(index)}>
+                                             Trả lời
+                                          </p>
+
+                                          <p className={styles.comment__day}>{comment.day}</p>
+                                          <p>lúc</p>
+                                          <p className={styles.comment__timestamp}>{comment.timestamp}</p>
+                                       </div>
+                                       {selectedReplyIndex === index && <PostComment onSubmitComment={handleSubmitComment} parentId={index} />}
+                                    </div>
+                                 </div>
+                              ))}
+                           </div>
+                        )}
+                     </>
+                  </div>
                </div>
-            )}
-         </>
+            );
+         })}
       </div>
    );
 };

@@ -7,48 +7,6 @@ import { AppstoreAddOutlined, DesktopOutlined, SearchOutlined, RightOutlined } f
 const App = () => {
    const router = useRouter();
 
-   const data = [
-      {
-         img: "/img/group/mu1.jpg",
-         name: "Fan MU Việt Nam",
-         friend: "1 triệu thành viên",
-      },
-      {
-         img: "/img/group/mu2.jpg",
-         name: "Fan MU Việt Nam",
-         friend: "1 triệu thành viên",
-      },
-      {
-         img: "/img/group/mu3.jpg",
-         name: "Fan MU Việt Nam",
-         friend: "1 triệu thành viên",
-      },
-      {
-         img: "/img/group/mu4.jpg",
-         name: "Fan MU Việt Nam",
-         friend: "1 triệu thành viên",
-      },
-      {
-         img: "/img/group/mu1.jpg",
-         name: "Fan MU Việt Nam",
-         friend: "1 triệu thành viên",
-      },
-      {
-         img: "/img/group/mu2.jpg",
-         name: "Fan MU Việt Nam",
-         friend: "1 triệu thành viên",
-      },
-      {
-         img: "/img/group/mu3.jpg",
-         name: "Fan MU Việt Nam",
-         friend: "1 triệu thành viên",
-      },
-      {
-         img: "/img/group/mu4.jpg",
-         name: "Fan MU Việt Nam",
-         friend: "1 triệu thành viên",
-      },
-   ];
    const handleChange = (value) => {
       console.log(`selected ${value}`);
    };
@@ -274,7 +232,7 @@ const App = () => {
                   </div>
                   <div className={styles.all_scroll}>
                      <div className={styles.scroll}>
-                        {dataListGroup.map((item,key) => {
+                        {dataListGroup.map((item, key) => {
                            return (
                               <div key={key} className={styles.scroll_content}>
                                  <Image alt="/" src={item.avatar} preview={false} />

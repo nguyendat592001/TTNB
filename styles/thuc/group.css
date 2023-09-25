@@ -48,9 +48,39 @@
 .thuc_input {
    width: 90% !important;
 }
+.thuc_input_search {
+   padding: 12.5px 15px 12.5px 49px;
+   border-radius: 35px;
+   background: #f7f8fc;
+}
+.thuc_input_full {
+   width: 100%;
+   border-radius: 35px;
+   padding: 12px 15px;
+   background: #f7f8fc;
+}
 .thuc_space .ant-space-item {
    width: 100%;
 }
 .thuc_icon {
    width: 10%;
+}
+.thuc_input_checkbox {
+   width: 5%;
+}
+.thuc_input_space {
+   width: 78%;
+}
+.thuc_table .ant-spin-nested-loading .ant-spin-container .ant-table .ant-table-container .ant-table-content > table .ant-table-thead > tr .ant-table-cell {
+   position: relative;
+   color: white;
+   font-weight: 500;
+   text-align: start;
+   background: #4c5bd4;
+   border-bottom: 1px solid #f0f0f0;
+   height: 45px;
+}
+.thuc_table th.ant-table-cell:before,
+.thuc_table td.ant-table-cell:before {
+   background-color: unset !important;
 }

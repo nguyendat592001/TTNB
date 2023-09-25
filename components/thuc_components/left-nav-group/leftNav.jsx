@@ -29,7 +29,7 @@ const LeftNav = () => {
                   </div>
                   <p className={styles.left_p3}>Trang chủ cộng đồng</p>
                </div>
-               <div className={styles.left_content}>
+               <div className={styles.left_content} onClick={() => router.push("/group/your-group/overview")}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln2.png"} />
                   </div>
@@ -38,7 +38,7 @@ const LeftNav = () => {
             </div>
             <div className={styles.left_allcontent2}>
                <p className={styles.p_qt}>Công cụ quản trị</p>
-               <div className={styles.left_content} onClick={() => router.push("/group")}>
+               <div className={styles.left_content} onClick={() => router.push("/group/your-group/add-member")}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln3.png"} />
                   </div>
@@ -47,7 +47,7 @@ const LeftNav = () => {
                      <p>10 yêu cầu mới ngày hôm nay</p>
                   </div>
                </div>
-               <div className={styles.left_content} onClick={() => router.push("/group/discover")}>
+               <div className={styles.left_content} onClick={() => router.push("/group/your-group/question")}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln4.png"} />
                   </div>

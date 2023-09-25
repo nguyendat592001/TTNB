@@ -24,7 +24,6 @@ const NewFeed = () => {
       setIsOpinionOpen(true);
       setIsModalOpen(true);
    };
-
    return (
       <>
          <div className={styles.posts}>
