@@ -7,6 +7,7 @@ import Opinion from "../opinion/opinion";
 import Emotions from "../../../common/Modal/Emotions/ModalEmotions";
 import Tags from "../tag/tag";
 import Link from "next/link";
+import Time from "./time";
 const NewFeedContent = ({ isOpen, onClose }) => {
    const [isUploadFileOpen, setIsUploadFileOpen] = useState(false);
    const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
@@ -14,12 +15,6 @@ const NewFeedContent = ({ isOpen, onClose }) => {
    const [isOpinionOpen, setIsOpinionOpen] = useState(false);
    const [isTagOpen, setIsTagOpen] = useState(false);
    const [isEmotionsOpen, setIsEmotionsOpen] = useState(false);
-   const showCalender = () => {
-      setIsCalenderOpen(true);
-   };
-   const calenderCancer = () => {
-      setIsCalenderOpen(false);
-   };
 
    return (
       <>
@@ -108,16 +103,22 @@ const NewFeedContent = ({ isOpen, onClose }) => {
                </div>
                {isLocationModalOpen && <ModalLocation isOpen={isLocationModalOpen} onClose={() => setIsLocationModalOpen(false)} />}
                {isTagOpen && <Tags isOpen={isTagOpen} onClose={() => setIsTagOpen(false)} />}
+
                {isEmotionsOpen && <Emotions isOpen={isEmotionsOpen} onClose={() => setIsEmotionsOpen(false)} />}
                <div className={styles.modal__footer__right__btn}>
                   <Button className={styles.modal__btn}>Đăng</Button>
-                  <div className={styles.img} onClick={showCalender}>
+                  <div
+                     className={styles.img}
+                     onClick={() => {
+                        setIsCalenderOpen(!isCalenderOpen);
+                     }}>
                      <Image alt="/" src="/img/group/calender.svg" preview={false} />
                   </div>
+                  {isCalenderOpen && <Time isOpen={isCalenderOpen} onClose={() => setIsCalenderOpen(false)} />}
                </div>
             </div>
          </Modal>
-         <Modal title="Lịch đăng bài" open={isCalenderOpen} onCancel={calenderCancer} footer={null} className={`${styles.modal} thuc_modal`}>
+         {/* <Modal title="Lịch đăng bài" open={isCalenderOpen} onCancel={calenderCancer} footer={null} className={`${styles.modal} thuc_modal`}>
             <div className={styles.modal_container}>
                <p>Chọn ngày và giờ trong tương lai mà bạn muốn đăng bài viết của mình.</p>
                <div className={styles.modal_calender}>
@@ -126,7 +127,7 @@ const NewFeedContent = ({ isOpen, onClose }) => {
                </div>
                <Button className={`thuc_btn_full`}>Lưu lịch đăng</Button>
             </div>
-         </Modal>
+         </Modal> */}
       </>
    );
 };
