@@ -68,6 +68,7 @@
 .thuc_input_checkbox {
    width: 5%;
 }
+
 .thuc_input_space {
    width: 78%;
 }
@@ -83,4 +84,28 @@
 .thuc_table th.ant-table-cell:before,
 .thuc_table td.ant-table-cell:before {
    background-color: unset !important;
+}
+.thuc_btn_question_edit {
+   font-weight: 700;
+   background: #d6d9f5;
+   border-radius: 8px;
+
+   height: 44px;
+   color: #4c5bd4;
+   width: 48%;
+}
+.thuc_btn_question_delete {
+   font-weight: 700;
+   background: #d9d9d9;
+   border-radius: 8px;
+   height: 44px;
+   width: 48%;
+}
+.thuc_btn_delete {
+   background: #f2f2f2;
+   color: #ff3333;
+}
+.drop_img {
+   width: 25px !important;
+   height: 25px !important;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./index.module.css";
-import { Modal, Image, Form, Button, Select, Input, Space } from "antd";
+import { Modal, Image, Form, Button, Select, Input, Space, Switch } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import { MinusCircleOutlined } from "@ant-design/icons";
 const Question = () => {
@@ -15,21 +15,17 @@ const Question = () => {
       console.log("Received values of form:", values);
    };
    const [selectedOption, setSelectedOption] = useState("Câu trả lời tự do");
-   const [isFormOpen, setIsFormOpen] = useState(false);
    const [isCheckboxOpen, setIsCheckboxOpen] = useState(false);
    const [isRadioOpen, setIsRadioOpen] = useState(false);
    const handleCheckboxOpen = () => {
-      setIsFormOpen(true);
       setIsCheckboxOpen(true);
       setIsRadioOpen(false);
    };
    const handleRadioOpen = () => {
-      setIsFormOpen(true);
       setIsCheckboxOpen(false);
       setIsRadioOpen(true);
    };
    const handleClose = () => {
-      setIsFormOpen(false);
       setIsCheckboxOpen(false);
       setIsRadioOpen(false);
    };
@@ -45,7 +41,7 @@ const Question = () => {
          handleClose();
       }
    };
-
+   const [reverse, setReverse] = useState(true);
    return (
       <>
          <div className={styles.container}>
@@ -60,6 +56,71 @@ const Question = () => {
                   <Button className={`btn_ok`} onClick={showModalNew}>
                      Thêm câu hỏi
                   </Button>
+               </div>
+               <div className={styles.content}>
+                  <div>
+                     <p>Câu hỏi</p>
+                     <h3>abc</h3>
+                  </div>
+                  <textarea placeholder="Viết câu trả lời" name="" id="" cols="10" rows="5" className={styles.textarea}></textarea>
+                  <div className={styles.content_btn}>
+                     <Button className={`thuc_btn_question_edit`}>Chỉnh sửa</Button>
+                     <Button className={`thuc_btn_question_delete`}>Xóa</Button>
+                  </div>
+               </div>
+               <div className={styles.content}>
+                  <div>
+                     <p>Câu hỏi</p>
+                     <h3>Thức đẹp trai</h3>
+                  </div>
+                  <div className={styles.content_input}>
+                     <Input className={`thuc_input_checkbox`} type="checkbox"></Input>
+                     <p> Chính xác</p>
+                  </div>
+
+                  <div className={styles.content_btn}>
+                     <Button className={`thuc_btn_question_edit`}>Chỉnh sửa</Button>
+                     <Button className={`thuc_btn_question_delete`}>Xóa</Button>
+                  </div>
+               </div>
+               <div className={styles.content}>
+                  <div>
+                     <p>Câu hỏi</p>
+                     <h3>Thức đẹp trai</h3>
+                  </div>
+                  <div className={styles.content_input}>
+                     <Input className={`thuc_input_checkbox`} type="radio"></Input>
+                     <p> Chính xác</p>
+                  </div>
+
+                  <div className={styles.content_btn}>
+                     <Button className={`thuc_btn_question_edit`}>Chỉnh sửa</Button>
+                     <Button className={`thuc_btn_question_delete`}>Xóa</Button>
+                  </div>
+               </div>
+               <div className={styles.bottom}>
+                  <h3>Quy tắc nhóm</h3>
+                  <div className={styles.bottom_flex}>
+                     <p>Yêu cầu mọi người đồng ý với quy tắc nhóm.</p>
+                     <Switch size="small" checked={reverse} onChange={setReverse} />
+                  </div>
+               </div>
+               <div className={styles.impty}>
+                  <div className={styles.right_error}>
+                     <Image alt="/" src={"/img/group/error.svg"} preview={false} />
+                     <h3>Câu hỏi chọn thành viên</h3>
+                     <p>Đặt tối đa 3 câu hỏi chọn thành viên cho người muốn tham gia nhóm. Chỉ quản trị viên và người kiểm duyệt mới xem được câu trả lời.</p>
+                     <Button className={`btn_ok`} onClick={showModalNew}>
+                        Thêm câu hỏi
+                     </Button>
+                  </div>
+                  <div>
+                     <h3>Quy tắc nhóm</h3>
+                     <div className={styles.bottom_flex}>
+                        <p>Yêu cầu mọi người đồng ý với quy tắc nhóm.</p>
+                        <Switch size="small" checked={reverse} onChange={setReverse} />
+                     </div>
+                  </div>
                </div>
             </div>
             <div>
@@ -88,7 +149,7 @@ const Question = () => {
                      />
 
                      <textarea placeholder="Câu hỏi" name="" id="" cols="10" rows="5" className={styles.textarea}></textarea>
-                     {isFormOpen && (
+                     {isCheckboxOpen && (
                         <Form
                            className={`thuc_form`}
                            onFinish={onFinish}
@@ -109,8 +170,45 @@ const Question = () => {
                                           }}
                                           align="baseline">
                                           <div className={styles.space_item}>
-                                             {isCheckboxOpen && <Input className={`thuc_input_checkbox`} type="checkbox"></Input>}
-                                             {isRadioOpen && <Input className={`thuc_input_checkbox`} type="radio"></Input>}
+                                             <Input className={`thuc_input_checkbox`} type="checkbox"></Input>
+
+                                             <Input className={`thuc_input_space`} placeholder="Nhập lựa chọn"></Input>
+                                             <MinusCircleOutlined onClick={() => remove(name)} className={`thuc_icon`} />
+                                          </div>
+                                       </Space>
+                                    ))}
+                                    <div className={styles.uploadFileItemIcon}>
+                                       <Button className={`thuc_btn_full`} onClick={() => add()}>
+                                          + Thêm lựa chọn
+                                       </Button>
+                                    </div>
+                                 </>
+                              )}
+                           </Form.List>
+                        </Form>
+                     )}
+                     {isRadioOpen && (
+                        <Form
+                           className={`thuc_form`}
+                           onFinish={onFinish}
+                           style={{
+                              width: "100%",
+                           }}
+                           autoComplete="off">
+                           <Form.List name="users">
+                              {(fields, { add, remove }) => (
+                                 <>
+                                    {fields.map(({ key, name, ...restField }) => (
+                                       <Space
+                                          className={`thuc_space`}
+                                          key={key}
+                                          style={{
+                                             display: "flex",
+                                             marginBottom: 8,
+                                          }}
+                                          align="baseline">
+                                          <div className={styles.space_item}>
+                                             <Input className={`thuc_input_checkbox`} type="radio"></Input>
                                              <Input className={`thuc_input_space`} placeholder="Nhập lựa chọn"></Input>
                                              <MinusCircleOutlined onClick={() => remove(name)} className={`thuc_icon`} />
                                           </div>
