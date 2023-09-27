@@ -53,7 +53,7 @@ const ModalThongBao: React.FC<ThongBaoKyNiemProps> = ({ isOpen, onClose }) => {
                                 theme={{
                                     components: {
                                         Radio: {
-                                            radioSize: 20,
+                                            radioSize: 50,
                                             dotSize: 10,
                                         },
                                     },

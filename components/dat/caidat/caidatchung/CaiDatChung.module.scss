@@ -29,3 +29,32 @@
     display: flex;
     margin-right: 20px;
 }
+
+@media (max-width: 426px) {
+
+    .ngonnguTitle,
+    .themeTitle {
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 140px;
+        display: flex;
+        align-items: center;
+    }
+
+    .ngonnguRadioGroup {
+        margin-right: 0px;
+    }
+
+    .sectionngonngu,
+    .sectiontheme {
+        padding: 15px 8px
+    }
+}
+
+@media (max-width: 280px) {
+
+    .sectionngonngu,
+    .sectiontheme {
+        padding: 15px 4px
+    }
+}
