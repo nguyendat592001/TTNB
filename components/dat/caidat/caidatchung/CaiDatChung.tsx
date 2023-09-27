@@ -3,7 +3,7 @@ import { Checkbox, Divider, Radio, RadioChangeEvent } from 'antd';
 import React, { useState } from 'react'
 import styles from './CaiDatChung.module.scss';
 
-export default function CaiDatChung() {
+const CaiDatChung: React.FC = () => {
 
     const [selectedTheme, setSelectedTheme] = useState<"theme1" | "theme2">("theme1");
 
@@ -107,4 +107,8 @@ export default function CaiDatChung() {
             </div>
         </>
     )
+
+
 }
+
+export default CaiDatChung

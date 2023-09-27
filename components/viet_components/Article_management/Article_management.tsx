@@ -149,6 +149,7 @@ export default function Article_management() {
                 <div className={styles.info_post_post}>
                   <p>Acing the worlds 2nd* most popular Management Mastes</p>
                   <p style={{ display: "flex", textAlign: "center", gap: 5 }}>
+
                     25 Tháng 9
                     <Image
                       width={20}

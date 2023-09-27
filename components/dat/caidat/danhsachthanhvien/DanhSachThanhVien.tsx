@@ -1,6 +1,6 @@
 import { SearchOutlined } from '@ant-design/icons'
 import { ConfigProvider, Input, Table } from 'antd'
-import { ColumnsType } from 'antd/es/table';
+import { ColumnsType } from 'antd/lib/table';
 import React, { useState } from 'react'
 
 interface DataType {
@@ -15,7 +15,7 @@ interface DataType {
 }
 
 import styles from './DanhSachThanhVien.module.scss'
-export default function DanhSachThanhVien() {
+const DanhSachThanhVien: React.FC = () => {
 
     const columns: ColumnsType<DataType> = [
         {
@@ -141,3 +141,6 @@ export default function DanhSachThanhVien() {
         </>
     )
 }
+
+
+export default DanhSachThanhVien
