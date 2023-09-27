@@ -70,7 +70,7 @@ export default function Fillter() {
             <span>Người đăng:</span>
             <Select
               defaultValue="Bất kỳ ai"
-              style={{ width: 120 }}
+              style={{ width: 250 }}
               options={[
                 { value: "Bất kỳ ai", label: "Bất kỳ ai" },
                 { value: "Bạn", label: "Bạn" },
@@ -82,7 +82,7 @@ export default function Fillter() {
             <span>Quyền riêng tư:</span>
             <Select
               defaultValue="Tất cả bài viết"
-              style={{ width: 120 }}
+              style={{ width: 250 }}
               options={[
                 { value: "Tất cả bài viết", label: "Tất cả bài viết" },
                 { value: "Công khai", label: "Công khai" },
@@ -95,7 +95,7 @@ export default function Fillter() {
             <span>Bài viết được gắn thẻ:</span>
             <Select
               defaultValue="Tất cả bài viết"
-              style={{ width: 120 }}
+              style={{ width: 250 }}
               options={[
                 { value: "Tất cả bài viết", label: "Tất cả bài viết" },
                 {

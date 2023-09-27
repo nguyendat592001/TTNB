@@ -63,11 +63,23 @@
 }
 
 }
-// .option{
-//     display: flex;
-//     justify-content: flex-start;
-//     .ant-select{
-//         display: flex;
-//         justify-content:center;
-//     }
-// }
+.search_personal{
+    .ant-input-affix-wrapper >input.ant-input{
+        padding: 8px;
+        font-size: 17px;
+    }
+    .ant-input-affix-wrapper .ant-input-suffix{
+        font-size: 24px;
+        color: #808080;
+        cursor: pointer;
+    }
+}
+.img_search_per{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    img{
+        border-radius: 50%;
+       
+    }
+}
