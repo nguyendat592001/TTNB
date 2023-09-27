@@ -53,13 +53,13 @@ const LeftNav = () => {
                   </div>
                   <p className={styles.left_p3}>Câu hỏi chọn thành viên</p>
                </div>
-               <div className={styles.left_content} onClick={() => router.push("/group/discover")}>
+               <div className={styles.left_content} onClick={() => router.push("/group/your-group/posts-waiting")}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln5.png"} />
                   </div>
                   <p className={styles.left_p3}>Bài viết đang chờ</p>
                </div>
-               <div className={styles.left_content} onClick={() => router.push("/group/discover")}>
+               <div className={styles.left_content} onClick={() => router.push("/group/your-group/posts-calender")}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln6.png"} />
                   </div>
