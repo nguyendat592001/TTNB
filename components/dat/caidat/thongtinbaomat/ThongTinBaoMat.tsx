@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Checkbox, Image } from "antd";
 import styles from "./ThongTinBaoMat.module.scss";
-import ModalLogOut from '@/components/common/Modal/LogOut/ModalLogOut';
+import ModalLogOut from '@/components/common/Modal/common/LogOut/ModalLogOut';
 
 export default function ThongTinBaoMat() {
 

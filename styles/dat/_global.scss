@@ -65,6 +65,15 @@
     display: flex;
 }
 
+@media (max-width: 1440px) {
+    .settingContainer {
+
+        .ant-tabs-nav {
+            width: 1170px !important;
+        }
+    }
+}
+
 @media (max-width: 1024px) {
     .nav .MenuSidebar {
         .ant-menu {
@@ -81,10 +90,31 @@
 
     }
 
-    .flex-container {
-
+    .SideBarSetting .flex-container {
         .navbar {
             width: 14%;
+        }
+    }
+
+    .SideBarSetting .MenuSidebar {
+        .ant-menu {
+            width: 100px;
+
+            .ant-menu-item {
+                padding-left: 28px !important;
+
+                .ant-menu-title-content {
+                    display: none;
+                }
+            }
+        }
+
+    }
+
+    .settingContainer {
+
+        .ant-tabs-nav {
+            width: 930px !important;
         }
     }
 }
@@ -101,6 +131,17 @@
         .ant-menu-item {
             width: 212px !important;
         }
+    }
+
+    .settingContainer {
+
+        .ant-tabs-nav {
+            width: 670px !important;
+        }
+    }
+
+    .tableStaff {
+        width: 75% !important;
     }
 }
 
@@ -121,6 +162,69 @@
             height: 45px !important;
             padding: 10px 28% !important;
         }
+    }
+
+    .SideBarSetting {
+        display: none;
+    }
+
+    .settingContainer {
+
+        .ant-tabs-nav {
+            width: 420px !important;
+        }
+    }
+
+    .tableStaff {
+        width: 48% !important;
+    }
+
+    .tableGroup {
+        width: 71% !important;
+    }
+}
+
+@media (max-width: 376px) {
+    .settingContainer {
+
+        .ant-tabs-nav {
+            width: 370px !important;
+        }
+    }
+
+    .tableStaff {
+        width: 41% !important;
+    }
+
+    .tableGroup {
+        width: 62% !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .tableStaff {
+        width: 35% !important;
+    }
+
+    .tableGroup {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 280px) {
+    .settingContainer {
+
+        .ant-tabs-nav {
+            width: 280px !important;
+        }
+
+        .ant-tabs-content-holder {
+            width: 280px !important;
+        }
+    }
+
+    .tableStaff {
+        width: 100% !important;
     }
 }
 
@@ -410,8 +514,13 @@
 /* cai dat */
 
 .settingContainer {
+    .ant-tabs {
+        box-shadow: 0 2px 5px 3px rgba(0, 0, 0, .1);
+    }
+
     .ant-tabs-nav {
         margin: 0px;
+        width: 1250px;
     }
 }
 
@@ -434,7 +543,26 @@
 /* tableStaff */
 
 .tableStaff {
+    width: 100%;
+
     .ant-table-thead>tr>th {
+        background-color: #e4e4e4 !important;
+        font-weight: 500;
+    }
+
+    .ant-table-tbody {
+        background-color: #fff;
+    }
+
+    .ant-table-cell-row-hover {
+        background-color: white !important;
+    }
+
+}
+
+/* tableGroup */
+.tableGroup {
+    .ant-table-thead>tr {
         background-color: #e4e4e4 !important;
         font-weight: 500;
     }
@@ -448,9 +576,68 @@
     }
 }
 
+
 /* searchInputStaff */
 .searchInputStaff {
     .ant-input {
         background-color: white;
+    }
+}
+
+/* Modal delete */
+
+.modal-delete .ant-modal-content {
+    padding: 0px;
+
+    .ant-modal-header {
+        background-color: #4c5bd4;
+        width: 100%;
+        height: 50px;
+        margin: 0;
+
+        .ant-modal-title {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin: 0px 20px;
+        }
+
+    }
+}
+
+.modalAddGroup {
+    .ant-select-selector {
+        background-color: #fff !important;
+    }
+
+    .ant-modal-content {
+        padding: 0px;
+
+        .ant-modal-header {
+            background-color: #4c5bd4;
+            width: 100%;
+            height: 50px;
+            margin: 0;
+
+            .ant-modal-title {
+                color: white;
+                display: flex;
+                align-items: center;
+                height: 100%;
+                margin: 0px 20px;
+                font-weight: 700;
+            }
+
+        }
+
+        .ant-modal-body {
+            padding: 0px 20px 5px 20px;
+        }
+
+        .ant-modal-close {
+            color: #ffffff;
+        }
     }
 }

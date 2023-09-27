@@ -360,6 +360,7 @@ export default function NhatKyHoatDong() {
                 backgroundColor: "white",
                 borderRadius: "10px",
             }}
+            className={styles.activity}
         >
             <div
                 style={{

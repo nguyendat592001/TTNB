@@ -8,6 +8,7 @@ import ThongTinBaoMat from '@/components/dat/caidat/thongtinbaomat/ThongTinBaoMa
 import NhatKyHoatDong from '@/components/dat/caidat/nhatkyhoatdong/NhatKyHoatDong';
 import DanhSachThanhVien from '@/components/dat/caidat/danhsachthanhvien/DanhSachThanhVien';
 import NhomThaoLuan from '@/components/dat/caidat/nhomthaoluan/NhomThaoLuan';
+import SideBar from '@/components/header/sidebar/sidebar';
 
 const onChange = (key: string) => {
     console.log(key);
@@ -43,21 +44,20 @@ const items: TabsProps['items'] = [
 
 const App: React.FC = () =>
     <div className={`${styles.settingContainer} settingContainer`}>
-        <ConfigProvider
-            theme={{
-                token: {
-                    colorBgContainer: '#ccc',
-                },
-            }}
-        >
+        <div className={styles.containerSidebar}>
+            <div
+                className={`${styles.SideBarSetting} SideBarSetting`}
+            >
+                <SideBar />
+            </div>
+        </div>
+        <div className={styles.containerTabs}>
             <Tabs
-                defaultActiveKey="5"
+                defaultActiveKey="1"
                 items={items}
                 onChange={onChange}
-                size="large"
-                tabBarGutter={120}
-                centered={true}
+                className={styles.tabs}
             />
-        </ConfigProvider>
+        </div>
     </div>
 export default App;

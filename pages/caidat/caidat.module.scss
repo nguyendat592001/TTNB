@@ -2,5 +2,10 @@
     box-shadow: 0 2px 5px 3px rgba(0, 0, 0, .1);
     border-radius: 6px;
     background: #fff;
-    margin: 20px 36px 0px 0px;
+    width: 100%;
+    display: flex;
 }
+
+@media (max-width: 1024px) {}
+
+@media (max-width: 768px) {}

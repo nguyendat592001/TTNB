@@ -113,7 +113,9 @@ export default function DanhSachThanhVien() {
     };
     return (
         <>
-            <div>
+            <div style={{
+                width: '100%',
+            }}>
                 <div className={`${styles.searchContainer}`}>
                     <Input
                         placeholder="Tìm kiếm thành viên"
@@ -125,24 +127,15 @@ export default function DanhSachThanhVien() {
                     />
                 </div>
                 <div className={`${styles.tableContainer} tableStaff`}>
-                    {filteredData.length === 0 ? (
-                        <p
-                            style={{
-                                textAlign: 'center',
-                                padding: '20px 0',
-                                borderTop: '1px solid #e8e8e8',
-                                fontStyle: 'italic',
-                                fontWeight: 600,
-                            }}
-                        > Không có kết quả </p>
-                    ) : (
-                        <Table
-                            columns={columns}
-                            dataSource={filteredData}
-                            pagination={false}
-                            scroll={{ x: 'max-content' }}
-                        />
-                    )}
+
+                    <Table
+                        columns={columns}
+                        dataSource={filteredData}
+                        pagination={false}
+                        scroll={{
+                            x: 'max-content',
+                        }}
+                    />
                 </div>
             </div>
         </>

@@ -12,3 +12,39 @@
     line-height: 19px;
     background-color: #fff;
 }
+
+@media (max-width: 1024px) {
+    .searchContainer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .searchContainer {
+        width: 75%;
+    }
+}
+
+@media (max-width: 426px) {
+    .searchContainer {
+        width: 49%;
+    }
+}
+
+@media (max-width: 376px) {
+    .searchContainer {
+        width: 43%;
+    }
+}
+
+@media (max-width: 320px) {
+    .searchContainer {
+        width: 37%;
+    }
+}
+
+@media (max-width: 280px) {
+    .searchContainer {
+        width: 100%;
+    }
+}

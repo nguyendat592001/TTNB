@@ -65,3 +65,25 @@
     font-size: 16px;
     line-height: 19px;
 }
+
+@media (max-width: 320px) {
+    .companyAvatar {
+        margin-left: 0px !important;
+    }
+}
+
+@media (max-width: 280px) {
+    .companyAvatar {
+        margin-right: 4px !important;
+    }
+
+    .noidangnhap__content,
+    .setting__content {
+        padding: 12px 30px 30px 20px;
+    }
+
+    .noidangnhap__title,
+    .setting__title {
+        padding-left: 20px;
+    }
+}
