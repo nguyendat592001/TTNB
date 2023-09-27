@@ -1,8 +1,8 @@
 import ModalDeLete from '@/components/common/Modal/common/Delete/ModalDeLete';
 import { SearchOutlined, UploadOutlined } from '@ant-design/icons'
 import { Button, Form, Image, Input, Select, Table, Upload, UploadFile } from 'antd'
-import Modal from 'antd/es/modal/Modal';
-import { ColumnsType } from 'antd/es/table';
+import Modal from 'antd/lib/modal/Modal';
+import { ColumnsType } from 'antd/lib/table';
 import React, { useEffect, useState } from 'react'
 
 import styles from './NhomThaoLuan.module.scss'
@@ -16,7 +16,7 @@ interface DataType {
     cheDo: string;
 }
 
-export default function NhomThaoLuan() {
+const NhomThaoLuan: React.FC = () => {
 
     const columns: ColumnsType<DataType> = [
         {
@@ -473,3 +473,5 @@ export default function NhomThaoLuan() {
         </>
     )
 }
+
+export default NhomThaoLuan

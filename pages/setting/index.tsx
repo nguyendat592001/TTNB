@@ -1,13 +1,13 @@
-import React from 'react';
-import { ConfigProvider, Tabs } from 'antd';
-import type { TabsProps } from 'antd';
 
-import styles from './caidat.module.scss';
+import React from 'react';
+import { Tabs, TabsProps } from 'antd';
 import CaiDatChung from '@/components/dat/caidat/caidatchung/CaiDatChung';
 import ThongTinBaoMat from '@/components/dat/caidat/thongtinbaomat/ThongTinBaoMat';
 import NhatKyHoatDong from '@/components/dat/caidat/nhatkyhoatdong/NhatKyHoatDong';
 import DanhSachThanhVien from '@/components/dat/caidat/danhsachthanhvien/DanhSachThanhVien';
 import NhomThaoLuan from '@/components/dat/caidat/nhomthaoluan/NhomThaoLuan';
+
+import styles from './index.module.scss';
 import SideBar from '@/components/header/sidebar/sidebar';
 
 const onChange = (key: string) => {
@@ -42,22 +42,26 @@ const items: TabsProps['items'] = [
     }
 ];
 
-const App: React.FC = () =>
-    <div className={`${styles.settingContainer} settingContainer`}>
-        <div className={styles.containerSidebar}>
-            <div
-                className={`${styles.SideBarSetting} SideBarSetting`}
-            >
-                <SideBar />
+const App: React.FC = () => {
+    return (
+        <div className={`${styles.settingContainer} settingContainer`}>
+            <div className={styles.containerSidebar}>
+                <div
+                    className={`${styles.SideBarSetting} SideBarSetting`}
+                >
+                    <SideBar />
+                </div>
+            </div>
+            <div className={styles.containerTabs}>
+                <Tabs
+                    defaultActiveKey="1"
+                    items={items}
+                    onChange={onChange}
+                    className={styles.tabs}
+                />
             </div>
         </div>
-        <div className={styles.containerTabs}>
-            <Tabs
-                defaultActiveKey="1"
-                items={items}
-                onChange={onChange}
-                className={styles.tabs}
-            />
-        </div>
-    </div>
+    )
+}
+
 export default App;

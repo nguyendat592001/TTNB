@@ -17,7 +17,7 @@ interface ActivityDay {
     label: string;
     data: ActivityItem[];
 }
-export default function NhatKyHoatDong() {
+const NhatKyHoatDong: React.FC = () => {
 
     const [activityData, setActivityData] = useState([
         {
@@ -403,3 +403,5 @@ export default function NhatKyHoatDong() {
         </div>
     );
 };
+
+export default NhatKyHoatDong;

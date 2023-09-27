@@ -3,7 +3,7 @@ import { Checkbox, Image } from "antd";
 import styles from "./ThongTinBaoMat.module.scss";
 import ModalLogOut from '@/components/common/Modal/common/LogOut/ModalLogOut';
 
-export default function ThongTinBaoMat() {
+const ThongTinBaoMat: React.FC = () => {
 
     const [openModalLogOut, setOpenModalLogOut] = useState(false);
 
@@ -159,3 +159,5 @@ export default function ThongTinBaoMat() {
         </>
     );
 }
+
+export default ThongTinBaoMat

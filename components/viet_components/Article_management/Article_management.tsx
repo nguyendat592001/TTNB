@@ -118,7 +118,7 @@ export default function Article_management() {
                   preview={false}
                 />
                 <div className={styles.info_post_post}>
-                  <p>Acing the world’s 2nd* most popular Management Master's</p>
+                  <p>Acing the worlds 2nd* most popular Management Masters</p>
                   <p>
                     25 Tháng 9
                     <Image alt="anh-loi" src="/img/earth.svg" preview={false} />
