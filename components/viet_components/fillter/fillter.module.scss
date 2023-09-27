@@ -11,6 +11,7 @@
     background: #F7F8FC;
     border-radius: 5px;
     gap:10px;
+    cursor: pointer;
 }
 
 .tuto{
@@ -56,6 +57,7 @@
         color:#4c5bd4;
         font-size: 16px;
         font-weight: 600;
+        cursor: pointer;
     }
     .ok{
         border: 1px solid #4c5bd4;
@@ -63,5 +65,6 @@
        color: #fff;
         font-size: 16px;
         font-weight: 600; 
+        cursor: pointer;
     }
 }
