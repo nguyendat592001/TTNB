@@ -1,0 +1,22 @@
+.itemDelete {
+    margin-bottom: 20px;
+    padding: 20px;
+
+    &:hover {
+        background-color: #f5f5f5;
+    }
+}
+
+.listItem {
+    list-style: none;
+}
+
+.time {
+    gap: 10px;
+}
+
+.checkboxDelete {
+    margin-right: 20px;
+    width: 20px;
+    height: 20px;
+}
