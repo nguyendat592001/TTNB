@@ -3,21 +3,14 @@ import styles from "./index.module.css";
 import { Modal, Image, Dropdown, Button, Select, Input, Space, Menu } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import Time from "../../../../components/thuc_components/newFeed/newFeedContent/time";
+import NewFeedContent from "../../../../components/thuc_components/newFeed/newFeedContent/newFeedContent";
 const PostWaiting = () => {
-   const [isModalNotificationOpen, setIsModalNotificationOpen] = useState(false);
-   const showModalNotification = () => {
-      setIsModalNotificationOpen(true);
+   const [isModalOpen, setIsModalOpen] = useState(false);
+   const handleInputClick = () => {
+      setIsModalOpen(true);
    };
-   const handleNotificationCancel = () => {
-      setIsModalNotificationOpen(false);
-   };
-
-   const [isModalRefuseOpen, setIsModalRefuseOpen] = useState(false);
-   const showModalRefuse = () => {
-      setIsModalRefuseOpen(true);
-   };
-   const handleRefuseCancel = () => {
-      setIsModalRefuseOpen(false);
+   const handleModalClose = () => {
+      setIsModalOpen(false);
    };
 
    const [isCalenderOpen, setIsCalenderOpen] = useState(false);
@@ -27,21 +20,19 @@ const PostWaiting = () => {
    const handleTimeCancel = () => {
       setIsCalenderOpen(false);
    };
-   const handleChange = (value) => {
-      console.log(value);
-   };
    const items = [
       {
          key: "1",
-         label: "Bật thông báo",
+         label: "Chỉnh sửa bài viết",
+      },
+      {
+         key: "2",
+         label: "Xóa bài viết",
       },
    ];
    const handleDropdownClick = (key) => {
       if (key === "1") {
-         showModalNotification();
-      }
-      if (key === "2") {
-         showModalRefuse();
+         handleInputClick();
       }
    };
    const dataContent = [
@@ -130,7 +121,20 @@ const PostWaiting = () => {
                                  <p>{item.time}</p>
                               </div>
                            </div>
-                           <Image alt="" src="/img/group/more2.svg" preview={false} />
+                           <Dropdown
+                              overlay={
+                                 <Menu onClick={({ key }) => handleDropdownClick(key)}>
+                                    {items.map((item) => (
+                                       <Menu.Item key={item.key}>{item.label}</Menu.Item>
+                                    ))}
+                                 </Menu>
+                              }
+                              placement="bottomRight"
+                              trigger="click">
+                              <div>
+                                 <Image alt="" src="/img/group/more.svg" preview={false} />
+                              </div>
+                           </Dropdown>
                         </div>
                         <div className={styles.colection}>
                            <p> {item.text}</p>
@@ -147,36 +151,8 @@ const PostWaiting = () => {
                   );
                })}
             </div>
-            <div>
-               <Modal className={`thuc_modal ${styles.thuc_pin}`} title="Bật thông báo cho bài viết" open={isModalNotificationOpen} onCancel={handleNotificationCancel} footer={null}>
-                  <div className={styles.modal_container}>
-                     <h3>Bạn có muốn nhận thông báo cho bài viết này?</h3>
-                     <p>Tất cả các thay đổi mà bài viết cập nhật sẽ được gửi tới thông báo của bạn</p>
-                     <div className={styles.btn}>
-                        <Button className={`btn_cancer`} onClick={handleNotificationCancel}>
-                           Hủy
-                        </Button>
-                        <Button className={`btn_ok`}>Bật thông báo</Button>
-                     </div>
-                  </div>
-               </Modal>
-            </div>
-            <div>
-               <Modal className={`thuc_modal ${styles.thuc_pin}`} title="Từ chối kềm theo ý kiến đóng góp" open={isModalRefuseOpen} onCancel={handleRefuseCancel} footer={null}>
-                  <div className={styles.modal_container2}>
-                     <h3>Lý do từ chối</h3>
-                     <p>Ý kiến này sẽ được chia sẻ với Nguyễn Thế Đạt sau khi bạn từ chối yêu cầu của họ. Họ sẽ không thấy tên hoặc thông tin cá nhân khác của bạn.</p>
-                     <textarea name="" id="" cols="10" rows="5" placeholder="Đóng góp ý kiến" className={styles.textarea}></textarea>
-                     <div className={styles.btn}>
-                        <Button className={`btn_cancer`} onClick={handleRefuseCancel}>
-                           Hủy
-                        </Button>
-                        <Button className={`btn_ok`}>Xác nhận</Button>
-                     </div>
-                  </div>
-               </Modal>
-            </div>
             <Time isOpen={isCalenderOpen} onClose={handleTimeCancel} />
+            <NewFeedContent isOpen={isModalOpen} onClose={handleModalClose} />
          </div>
       </>
    );

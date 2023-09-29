@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "setting/index.js", "setting/index.js", "auth/auth.tsx", "pages/setup/index.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "setting/index.js", "setting/index.js", "auth/auth.tsx", "pages/setup/index.jsx", "pages/caidat/index.jsx"],
   "exclude": ["node_modules"]
 }

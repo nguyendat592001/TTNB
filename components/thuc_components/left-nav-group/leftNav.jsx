@@ -65,13 +65,13 @@ const LeftNav = () => {
                   </div>
                   <p className={styles.left_p3}>Bài viết đã lên lịch</p>
                </div>
-               <div className={styles.left_content} onClick={() => router.push("/group/discover")}>
+               <div className={styles.left_content} onClick={() => router.push("/group/your-group/rule")}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln7.png"} />
                   </div>
                   <p className={styles.left_p3}>Quy tắc nhóm</p>
                </div>
-               <div className={styles.left_content} onClick={() => router.push("/group/discover")}>
+               <div className={styles.left_content} onClick={() => router.push("/group/your-group/report")}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln8.png"} />
                   </div>
@@ -80,7 +80,7 @@ const LeftNav = () => {
                      <p>0 tin mới ngày hôm nay</p>
                   </div>
                </div>
-               <div className={styles.left_content} onClick={() => router.push("/group/discover")}>
+               <div className={styles.left_content} onClick={() => router.push("/group/your-group/setup")}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln9.png"} />
                   </div>
@@ -92,13 +92,13 @@ const LeftNav = () => {
             </div>
             <div className={styles.left_allcontent}>
                <p className={styles.p_qt}>Thông tin chi tiết</p>
-               <div className={styles.left_content} onClick={() => router.push("/group")}>
+               <div className={styles.left_content} onClick={() => router.push("/group/your-group/growth")}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln10.png"} />
                   </div>
                   <p className={styles.left_p3}>Mức độ tăng trưởng</p>
                </div>
-               <div className={styles.left_content} onClick={() => router.push("/group/discover")}>
+               <div className={styles.left_content} onClick={() => router.push("/group/your-group/interact")}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln11.png"} />
                   </div>

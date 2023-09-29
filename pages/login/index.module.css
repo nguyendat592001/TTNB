@@ -601,3 +601,14 @@
       margin-top: 8px;
    }
 }
+@media (max-width: 550px) {
+   .content3_p {
+      font-size: 14px;
+   }
+   .content3_h1 {
+      font-size: 28px;
+   }
+   .content4_h2 {
+      font-size: 28px;
+   }
+}

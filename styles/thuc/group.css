@@ -109,3 +109,9 @@
    width: 25px !important;
    height: 25px !important;
 }
+.thuc_btn_green {
+   background: #4c5bd4;
+   color: #fff;
+   border-radius: 20px;
+   width: 100%;
+}

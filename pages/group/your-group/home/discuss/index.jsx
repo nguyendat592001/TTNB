@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./index.module.css";
-import { Button, Image, Input, Dropdown, Divider, Menu, message, Popover, Tooltip } from "antd";
 import NewFeed from "../../../../../components/thuc_components/newFeed/newFeed";
 import Status from "../../../../../components/thuc_components/status/status";
 import Pin from "../../../../../components/thuc_components/pin/pin";
@@ -25,11 +24,13 @@ const Discuss = () => {
                   </div>
                </div>
                <div className={styles.content_bot}>
-                  <div className={styles.introduce}>
-                     <Introduce />
-                  </div>
-                  <div className={styles.introduce}>
-                     <Media />
+                  <div className={styles.content_bot_cl}>
+                     <div className={styles.introduce}>
+                        <Introduce />
+                     </div>
+                     <div className={styles.introduce}>
+                        <Media />
+                     </div>
                   </div>
                </div>
             </div>

@@ -49,7 +49,7 @@ const App: React.FC = () => {
             suffix={<SearchOutlined rev={undefined} />}
           />
         </div>
-        <div className="img_search_per" onClick={()=router.push('/fillter_page')}>
+        <div className="img_search_per" onClick={()=>router.push('/fillter_page')}>
           <Image src={"/img/c.png"} alt={""} width={100} preview={false} />
         </div>
         <div className={styles.question}>
