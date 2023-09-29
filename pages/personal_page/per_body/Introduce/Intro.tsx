@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./intro.module.scss";
-import Image from "next/image";
 import AddressWork from "@/components/common/Modal/AddressWork/address";
-import GrPrivate from "../../components/TabsGr/GrPrivate";
-import InfoBasic from "./InfoBasic";
+import InfoBasic from "../../components/Intro/InfoBasic";
+import Family_and_elationships from "../../components/Intro/family_and_elationships";
+import Details_about_you from "../../components/Intro/details_about_you";
 
 export default function Intro() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -19,16 +19,19 @@ export default function Intro() {
         setRenderedComponent(<InfoBasic />);
         break;
       case 2:
-        setRenderedComponent(<AddressWork />);
+        setRenderedComponent(<Family_and_elationships />);
         break;
       case 3:
-        setRenderedComponent(<AddressWork />);
+        setRenderedComponent(<Details_about_you />);
         break;
       default:
         setRenderedComponent(null);
         break;
     }
   };
+  useEffect(() => {
+    handlePClick(0);
+  }, []);
 
   const isPActive = (index: any) => {
     return index === activeIndex;

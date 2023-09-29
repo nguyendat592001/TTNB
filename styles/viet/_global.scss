@@ -15,71 +15,101 @@
     }
 
 }
-.ant-tabs .ant-tabs-extra-content{
+
+.ant-tabs .ant-tabs-extra-content {
     margin-right: 15px;
 }
-.center_tab_block{
-    .ant-tabs .ant-tabs-tabpane{
+
+.center_tab_block {
+    .ant-tabs .ant-tabs-tabpane {
         padding-top: 20px;
         background: #f7f8fc;
     }
 }
-.anh .ant-divider-horizontal{
+
+.anh .ant-divider-horizontal {
     margin: 5px 0;
 }
+
 .active {
     color: #4C5BD4;
     background: #EAECFA;
     border-radius: 8px;
 }
+
 //modal address
 .friend_tabs {
-        .ant-tabs {
-            // padding-top: 20px;
-            background:white;
-            .ant-tabs-tabpane {
-                background-color: white;
-            }
-    }
-}
-.tabsimage {
-    background-color: white;
     .ant-tabs {
         // padding-top: 20px;
-        background:white;
+        background: white;
+
         .ant-tabs-tabpane {
             background-color: white;
         }
-}
-}
-.tabsGroup{
-    background-color: white;
-    .ant-tabs {
-       
-        background:white;
-        .ant-tabs-tabpane {
-            background-color: white;
-        }
+    }
 }
 
+.tabsimage {
+    background-color: white;
+
+    .ant-tabs {
+        // padding-top: 20px;
+        background: white;
+
+        .ant-tabs-tabpane {
+            background-color: white;
+        }
+    }
 }
-.search_personal{
-    .ant-input-affix-wrapper >input.ant-input{
+
+.tabsGroup {
+    background-color: white;
+
+    .ant-tabs {
+
+        background: white;
+
+        .ant-tabs-tabpane {
+            background-color: white;
+        }
+    }
+
+}
+
+.search_personal {
+    .ant-input-affix-wrapper>input.ant-input {
         padding: 8px;
         font-size: 17px;
     }
-    .ant-input-affix-wrapper .ant-input-suffix{
+
+    .ant-input-affix-wrapper .ant-input-suffix {
         font-size: 24px;
         color: #808080;
         cursor: pointer;
     }
 }
-.img_search_per{
+
+.img_search_per {
     padding-top: 20px;
     display: flex;
     justify-content: center;
-    img{
+
+    img {
         border-radius: 50%;
-       
+
+    }
+}
+
+.search_per_input {
+    .ant-input-affix-wrapper {
+        border-radius: 30px;
+        padding: 10px 15px;
+        font-size: 17px;
+        color: #474747;
+
+        .anticon-search {
+            font-size: 26px;
+            color: #474747;
+        }
     }
 }
