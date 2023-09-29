@@ -8,6 +8,7 @@ import Friend from "../../TabsFriend/FriendHome";
 import TabsImage from "../../TabsImage/TabsImage";
 import Video from "@/pages/personal_page/components/Video/Video";
 import TabsGr from "../../TabsGroup/TabsGr";
+import { Link, useParams } from "react-router-dom";
 const operations = <Dot />;
 
 const onChange = (key: string) => {
