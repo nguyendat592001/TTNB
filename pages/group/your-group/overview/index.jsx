@@ -4,10 +4,11 @@ import { Modal, Image, Dropdown, Button, Menu } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { Line } from "react-chartjs-2";
-
+import { useRouter } from "next/router";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const Overview = () => {
+   const router = useRouter();
    const data = [
       {
          key: "1",
@@ -126,7 +127,9 @@ const Overview = () => {
                      </div>
                   </div>
                </div>
-               <Button className={`thuc_btn_full`}>Xem thông tin chi tiết về lượt tương tác</Button>
+               <Button className={`thuc_btn_full`} onClick={() => router.push("/group/your-group/growth")}>
+                  Xem thông tin chi tiết về lượt tương tác
+               </Button>
             </div>
          </div>
       </>

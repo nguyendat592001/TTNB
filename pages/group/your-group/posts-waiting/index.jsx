@@ -212,9 +212,11 @@ const PostWaiting = () => {
                      <Button className={`thuc_btn_delete`}>Xóa bộ lọc</Button>
                   </div>
                </div>
+
                {dataContent.map((item,index) => {
                   return (
                      <div key={index} className={styles.content}>
+
                         <div className={styles.content_all}>
                            <div className={styles.content_fl}>
                               <input type="checkbox" className={styles.checkbox}></input>
@@ -241,8 +243,8 @@ const PostWaiting = () => {
                               </div>
                            </Dropdown>
                         </div>
-                        <div className={styles.colection} key={item.key}>
-                           <p key={item.key}> {item.text}</p>
+                        <div className={styles.colection}>
+                           <p> {item.text}</p>
                            {checkColection(item)}
                            {checkVideo(item)}
                         </div>
