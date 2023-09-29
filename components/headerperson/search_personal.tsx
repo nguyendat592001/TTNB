@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
   const showModal = () => {
     setIsModalOpen(true);
@@ -19,7 +19,19 @@ const App: React.FC = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  const handleInputChange = (event: any) => {
+    setSearchValue(event.target.value);
+  };
 
+  const handleSearch = () => {
+    router.push(`/personal_page/Search_person/search_per?query=${searchValue}`);
+  };
+
+  const handleKeyPress = (event: any) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
   return (
     <>
       <p
@@ -46,10 +58,13 @@ const App: React.FC = () => {
         <div className="search_personal">
           <Input
             placeholder="Tìm kiếm trong bài viết, ảnh và thẻ của bạn"
-            suffix={<SearchOutlined rev={undefined} />}
+            value={searchValue}
+            onChange={handleInputChange}
+            onClick={handleKeyPress}
+            suffix={<SearchOutlined rev={undefined} onClick={handleSearch} />}
           />
         </div>
-        <div className="img_search_per" onClick={()=router.push('/fillter_page')}>
+        <div className="img_search_per">
           <Image src={"/img/c.png"} alt={""} width={100} preview={false} />
         </div>
         <div className={styles.question}>

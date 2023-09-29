@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./intro.module.scss";
+import styles from "../../per_body/Introduce/intro.module.scss";
 
 export default function InfoBasic() {
   return (
