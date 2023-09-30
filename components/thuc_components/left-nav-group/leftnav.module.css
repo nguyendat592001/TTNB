@@ -33,6 +33,13 @@
 .left_content.active {
    background-color: #dddddd;
 }
+.selectedLink {
+   background-color: #dddddd;
+   color: #4c5bd4;
+}
+.selectedLink .left_icon3 {
+   background-color: #4c5bd4;
+}
 .left_content:hover {
    background-color: #dddddd;
 }

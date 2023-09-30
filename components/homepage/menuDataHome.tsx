@@ -16,7 +16,7 @@ export const menuItemsHome = [
         key: "3",
         icon: "/img/img-header/user/ep_icon_group.svg",
         label: "Nhóm",
-        link: "/",
+        link: "/group",
     },
     {
         key: "4",

@@ -181,6 +181,17 @@
    cursor: pointer;
    margin: auto;
 }
+.btn_cancel {
+   border: none;
+   width: 89%;
+   background: #ccc;
+   height: 36px;
+   border-radius: 10px;
+   color: #474747;
+   font-weight: 700;
+   cursor: pointer;
+   margin: auto;
+}
 .btn_delete {
    border: 1px solid #4c5bd4;
    background: white;

@@ -9,41 +9,49 @@ const App = () => {
 
    const data = [
       {
+         id: "1",
          img: "/img/group/mu1.jpg",
          name: "Fan MU Việt Nam",
          friend: "1 triệu thành viên",
       },
       {
+         id: "2",
          img: "/img/group/mu2.jpg",
          name: "Fan MU Việt Nam",
          friend: "1 triệu thành viên",
       },
       {
+         id: "3",
          img: "/img/group/mu3.jpg",
          name: "Fan MU Việt Nam",
          friend: "1 triệu thành viên",
       },
       {
+         id: "4",
          img: "/img/group/mu4.jpg",
          name: "Fan MU Việt Nam",
          friend: "1 triệu thành viên",
       },
       {
+         id: "5",
          img: "/img/group/mu1.jpg",
          name: "Fan MU Việt Nam",
          friend: "1 triệu thành viên",
       },
       {
+         id: "6",
          img: "/img/group/mu2.jpg",
          name: "Fan MU Việt Nam",
          friend: "1 triệu thành viên",
       },
       {
+         id: "7",
          img: "/img/group/mu3.jpg",
          name: "Fan MU Việt Nam",
          friend: "1 triệu thành viên",
       },
       {
+         id: "8",
          img: "/img/group/mu4.jpg",
          name: "Fan MU Việt Nam",
          friend: "1 triệu thành viên",
@@ -165,6 +173,14 @@ const App = () => {
          </div>
       </div>
    );
+
+   const [buttonStates, setButtonStates] = useState(data.map(() => false));
+
+   const handleButtonClick = (index) => {
+      const newButtonStates = [...buttonStates];
+      newButtonStates[index] = !newButtonStates[index];
+      setButtonStates(newButtonStates);
+   };
    return (
       <>
          <div className={styles.container}>
@@ -241,9 +257,10 @@ const App = () => {
                </div>
 
                <div className={styles.all_card}>
-                  {data.map((item,key) => {
+                  {data.map((item, index) => {
                      return (
-                        <Card key={key}
+                        <Card
+                           key={index}
                            className={`thuc_card ${styles.card}`}
                            style={{
                               width: 280,
@@ -252,7 +269,21 @@ const App = () => {
                            <p className={styles.name}>{item.name}</p>
                            <p className={styles.friend}>{item.friend}</p>
                            <div className={styles.friend_btn}>
-                              <button className={styles.btn_acp}>Tham gia nhóm</button>
+                              <button
+                                 key={index}
+                                 className={buttonStates[index] ? styles.btn_cancel : styles.btn_acp}
+                                 onClick={() => handleButtonClick(index)}
+                                 style={{
+                                    backgroundColor: buttonStates[index] ? "#ccc" : "",
+                                    color: buttonStates[index] ? "#474747" : "",
+                                    height: "36px",
+                                    borderRadius: "10px",
+                                    width: "89%",
+                                    margin: "auto",
+                                    border: "none",
+                                 }}>
+                                 {buttonStates[index] ? "Hủy yêu cầu" : "Tham gia nhóm"}
+                              </button>
                            </div>
                         </Card>
                      );

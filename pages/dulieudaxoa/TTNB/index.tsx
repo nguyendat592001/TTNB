@@ -49,7 +49,7 @@ export default function TTNB() {
 
     const handleSelectAll = () => {
         if (!selectAll) {
-            setSelectedItems(itemsTab.map((item) => item.key));
+           
         } else {
             setSelectedItems([]);
         }
