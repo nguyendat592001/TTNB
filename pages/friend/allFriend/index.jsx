@@ -65,7 +65,12 @@ const AddFriend = () => {
          key: "3",
          name: "Chặn",
          img: "/img/before_login/block.svg",
-         subtitle: "Bạn bè sẽ không thể nhìn thấy bạn hoặc liên hệ với bạn trên Truyền thông văn hóa",
+         subtitle: (
+            <div>
+               Bạn bè sẽ không thể nhìn thấy bạn hoặc liên hệ
+               <br /> với bạn trên Truyền thông văn hóa
+            </div>
+         ),
       },
       {
          key: "4",
@@ -192,9 +197,10 @@ const AddFriend = () => {
                   <p className={styles.add_p}>Tất cả bạn bè(1234 người bạn)</p>
                </div>
                <div className={styles.all_card}>
-                  {data.map((item,key) => {
+                  {data.map((item, key) => {
                      return (
-                        <Card key={key}
+                        <Card
+                           key={key}
                            className={`thuc_card ${styles.card}`}
                            style={{
                               width: 280,

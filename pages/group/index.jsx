@@ -146,6 +146,14 @@ const App = () => {
          </div>
       </div>
    );
+
+   const [buttonStates, setButtonStates] = useState(dataListGroup.map(() => false));
+
+   const handleButtonClick = (index) => {
+      const newButtonStates = [...buttonStates];
+      newButtonStates[index] = !newButtonStates[index];
+      setButtonStates(newButtonStates);
+   };
    return (
       <>
          <div className={styles.container}>
@@ -221,7 +229,9 @@ const App = () => {
                   <Image alt="/" src={"/img/group/error.svg"} preview={false} />
                   <h3>Không có bài viết nào</h3>
                   <p>Hãy tạo nhóm hoặc tham gia nhóm để xem bài viết nhóm.</p>
-                  <button className={styles.btn_err}>Tạo nhóm mới</button>
+                  <button className={styles.btn_err} onClick={showModalNew}>
+                     Tạo nhóm mới
+                  </button>
                </div>
                <div className={styles.right_more}>
                   <div className={styles.more_fl}>
@@ -232,9 +242,9 @@ const App = () => {
                   </div>
                   <div className={styles.all_scroll}>
                      <div className={styles.scroll}>
-                        {dataListGroup.map((item, key) => {
+                        {dataListGroup.map((item, index) => {
                            return (
-                              <div key={key} className={styles.scroll_content}>
+                              <div key={index} className={styles.scroll_content}>
                                  <Image alt="/" src={item.avatar} preview={false} />
                                  <div>
                                     <h3>{item.name}</h3>
@@ -245,7 +255,21 @@ const App = () => {
                                     <p>{item.nameMember} đã tham gia nhóm</p>
                                  </div>
                                  <div className={styles.btn_fl}>
-                                    <button className={styles.more_join}>Tham gia nhóm</button>
+                                    <button
+                                       key={index}
+                                       className={buttonStates[index] ? styles.btn_cancel : styles.btn_acp}
+                                       onClick={() => handleButtonClick(index)}
+                                       style={{
+                                          backgroundColor: buttonStates[index] ? "#ccc" : "",
+                                          color: buttonStates[index] ? "#474747" : "",
+                                          height: "36px",
+                                          borderRadius: "10px",
+                                          width: "75%",
+
+                                          border: "none",
+                                       }}>
+                                       {buttonStates[index] ? "Hủy yêu cầu" : "Tham gia nhóm"}
+                                    </button>
                                     <button className={styles.more_out}>Gỡ</button>
                                  </div>
                               </div>

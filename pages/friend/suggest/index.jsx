@@ -1,53 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./index.module.css";
 import { Image, Input, Card, Button } from "antd";
 import { useRouter } from "next/router";
 import { TeamOutlined, UserSwitchOutlined, UserAddOutlined, UserOutlined, SearchOutlined } from "@ant-design/icons";
 const AddFriend = () => {
    const router = useRouter();
-   const data = [
+   const [data, setData] = useState([
       {
+         id: 1,
          img: "/img/before_login/img.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
+         isHide: true,
+         isBlock: false,
       },
       {
+         id: 2,
          img: "/img/before_login/img2.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
+         isHide: true,
+         isBlock: false,
       },
       {
+         id: 3,
          img: "/img/before_login/img.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
+         isHide: true,
+         isBlock: false,
       },
       {
+         id: 4,
          img: "/img/before_login/img2.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
+         isHide: true,
+         isBlock: false,
       },
       {
+         id: 5,
+         img: "/img/before_login/img2.jpg",
+         name: "Thức Đẹp Trai",
+         friend: "666 bạn chung",
+         isHide: true,
+         isBlock: false,
+      },
+      {
+         id: 6,
          img: "/img/before_login/img.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
+         isHide: true,
+         isBlock: false,
       },
       {
+         id: 7,
          img: "/img/before_login/img2.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
+         isHide: true,
+         isBlock: false,
       },
       {
+         id: 8,
          img: "/img/before_login/img.jpg",
          name: "Thức Đẹp Trai",
          friend: "666 bạn chung",
+         isHide: true,
+         isBlock: false,
       },
-      {
-         img: "/img/before_login/img2.jpg",
-         name: "Thức Đẹp Trai",
-         friend: "666 bạn chung",
-      },
-   ];
+   ]);
+   const handleOk = (index) => {
+      const newData = [...data];
 
+      newData[index].isBlock = true;
+      newData[index].isHide = false;
+      setData(newData);
+   };
+   const handleUnfriend = (index) => {
+      const newData = [...data];
+      newData.splice(index, 1);
+      setData(newData);
+   };
    return (
       <>
          <div className={styles.container}>
@@ -116,9 +151,10 @@ const AddFriend = () => {
                   <p className={styles.add_p}>Những người bạn có thể biết</p>
                </div>
                <div className={styles.all_card}>
-                  {data.map((item,key) => {
+                  {data.map((item, index) => {
                      return (
-                        <Card key={key}
+                        <Card
+                           key={item.id}
                            className={`thuc_card ${styles.card}`}
                            style={{
                               width: 280,
@@ -126,10 +162,21 @@ const AddFriend = () => {
                            <Image alt="/" src={item.img} height={250} preview={false} />
                            <p className={styles.name}>{item.name}</p>
                            <p className={styles.friend}>{item.friend}</p>
-                           <div className={styles.friend_btn}>
-                              <button className={styles.btn_acp}>Thêm bạn bè</button>
-                              <button className={styles.btn_delete}>Gỡ bỏ</button>
-                           </div>
+                           {item.isHide && (
+                              <div className={styles.friend_btn}>
+                                 <button className={styles.btn_acp} onClick={() => handleOk(index)}>
+                                    Thêm bạn bè
+                                 </button>
+                                 <button className={styles.btn_delete} onClick={() => handleUnfriend(index)}>
+                                    Gỡ bỏ
+                                 </button>
+                              </div>
+                           )}
+                           {item.isBlock && (
+                              <div className={styles.friend_p}>
+                                 <p>Đã gửi lời mời kết bạn</p>
+                              </div>
+                           )}
                         </Card>
                      );
                   })}

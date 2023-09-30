@@ -23,6 +23,17 @@
    float: left;
    padding: 30px 20px;
 }
+.right_error {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 20px;
+   background: white;
+   box-shadow: 2px 2px 12px 0px #00000026;
+   padding: 20px;
+   border-radius: 8px;
+}
 .header {
    background: white;
    box-shadow: 2px 2px 12px 0px #00000026;
