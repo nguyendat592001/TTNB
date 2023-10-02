@@ -2,14 +2,10 @@ import React from "react";
 import styles from "./index.module.css";
 import { Image } from "antd";
 import { Popover, ConfigProvider } from "antd";
+
 import Menunav from "./menu";
-import { useRouter } from "next/router";
 
 export default function HeaderLogin() {
-  const router = useRouter();
-  const clickTutorial = () => {
-    router.push("/tutorial");
-  };
   return (
     <div>
       <div className={styles.header}>
@@ -51,7 +47,7 @@ export default function HeaderLogin() {
           <div className={styles.login}>
             <ul className={styles.ul}>
               <li>Trang chủ</li>
-              <li onClick={clickTutorial}>Hướng dẫn</li>
+              <li>Hướng dẫn</li>
               <li>Tin tức</li>
               <li>Chuyển đổi số</li>
             </ul>
