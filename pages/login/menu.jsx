@@ -27,7 +27,7 @@ const Menunav = () => {
                   },
                   {
                      label: (
-                        <Link className={styles.MenuItem} href="/tutorial">
+                        <Link className={styles.MenuItem} href="">
                            Hướng dẫn
                         </Link>
                      ),

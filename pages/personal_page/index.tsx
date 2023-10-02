@@ -2,7 +2,9 @@ import React from "react";
 import Center_avt from "./center_avt";
 import styles from "./personal.module.css";
 import Head from "next/head";
-
+// export const metadata = {
+//   title: "Trang cá nhân",
+// };
 export default function Personal_page() {
   return (
     <>

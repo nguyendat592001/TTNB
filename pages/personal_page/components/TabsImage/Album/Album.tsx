@@ -2,44 +2,18 @@ import React from "react";
 import Image from "next/image";
 import styles from "../TabsImage.module.scss";
 import { Dropdown, MenuProps } from "antd";
-import { useRouter } from "next/router";
-import create_album from "@/pages/create_album";
 
-export default function Edit_album() {
-  const router = useRouter();
-  const handleDownloadAlbum = () => {
-    // Tạo URL tải xuống album
-    const albumDownloadUrl = "/link-to-your-album.zip"; // Thay thế bằng URL thực tế
-
-    // Tạo một thẻ <a> ẩn để khởi động tải xuống
-    const downloadLink = document.createElement("a");
-    downloadLink.href = albumDownloadUrl;
-    downloadLink.download = "your-album.zip"; // Tên tệp khi tải xuống
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
-  };
-  const onClickDelAlbum = () => {
-    if (window.confirm("Bạn có muốn xóa album này không?")) {
-      alert("Xóa album thành công!");
-    }
-  };
-  const onClickEidtAlbum = () => {
-    router.push({
-      pathname: "/create_album/editAlbum",
-    });
-  };
+export default function Album() {
   const items: MenuProps["items"] = [
     {
       label: (
-        <a className={styles.pen} onClick={onClickEidtAlbum}>
+        <a className={styles.pen}>
           {" "}
           <Image
             width={19}
             height={20}
             alt=""
             src={"/img/dat-lam-anh-dai-dien.svg"}
-            style={{ cursor: "pointer" }}
           />
           Chỉnh sửa album
         </a>
@@ -48,11 +22,7 @@ export default function Edit_album() {
     },
     {
       label: (
-        <a
-          className={styles.pen}
-          onClick={handleDownloadAlbum}
-          style={{ cursor: "pointer" }}
-        >
+        <a className={styles.pen}>
           <Image
             width={19}
             height={20}
@@ -67,11 +37,8 @@ export default function Edit_album() {
 
     {
       label: (
-        <a
-          className={styles.pen}
-          onClick={onClickDelAlbum}
-          style={{ cursor: "pointer" }}
-        >
+        <a className={styles.pen}>
+          {" "}
           <Image width={19} height={20} alt="" src={"/img/public_del.svg"} />
           Xóa album
         </a>
@@ -79,42 +46,11 @@ export default function Edit_album() {
       key: "2",
     },
   ];
-  const album = [
-    {
-      id: 1,
-      imgSrc: "/img/c.png",
-      des: "dd",
-      length: "12",
-    },
-    {
-      id: 2,
-      imgSrc: "/img/c.png",
-      des: "dd",
-      length: "12",
-    },
-    {
-      id: 3,
-      imgSrc: "/img/c.png",
-      des: "dd",
-      length: "12",
-    },
-    {
-      id: 4,
-      imgSrc: "/img/c.png",
-      des: "dd",
-      length: "12",
-    },
-  ];
   return (
     <div>
       <div className={styles.album}>
         <div className={styles.album_add}>
-          <div
-            className={styles.album_add__new}
-            onClick={() => {
-              router.push("/create_album");
-            }}
-          >
+          <div className={styles.album_add__new}>
             <Image
               width={24}
               height={25}
@@ -124,34 +60,174 @@ export default function Edit_album() {
             <p>Tạo album</p>
           </div>
           <div className={styles.album_new}>
-            {album.map((albums, index) => (
-              <div key={index}>
-                <div className={styles.album_new_img}>
+            <div>
+              <div className={styles.album_new_img}>
+                <Image
+                  width={218}
+                  height={215}
+                  alt="anh loi"
+                  src={"/img/c.png"}
+                />
+                <Dropdown menu={{ items }} trigger={["click"]}>
                   <Image
-                    width={218}
-                    height={215}
-                    alt="anh loi"
-                    src={albums.imgSrc}
+                    onClick={(e) => e.preventDefault()}
+                    className={styles.album_img_edit}
+                    width={31}
+                    height={30}
+                    alt="pencel"
+                    src={"/img/edit_album.svg"}
                   />
-                  <Dropdown menu={{ items }} trigger={["click"]}>
-                    <Image
-                      style={{ cursor: "pointer" }}
-                      onClick={(e) => e.preventDefault()}
-                      className={styles.album_img_edit}
-                      width={31}
-                      height={30}
-                      alt="pencel"
-                      src={"/img/edit_album.svg"}
-                    />
-                  </Dropdown>
-                </div>
-
-                <div className={styles.data}>
-                  <p>{albums.des}</p>
-                  <span>{albums.length} mục</span>
-                </div>
+                </Dropdown>
               </div>
-            ))}
+              <div className={styles.data}>
+                <p>dd</p>
+                <span>122 mục</span>
+              </div>
+            </div>
+            <div>
+              <div className={styles.album_new_img}>
+                <Image
+                  width={218}
+                  height={215}
+                  alt="anh loi"
+                  src={"/img/c.png"}
+                />
+                <Dropdown menu={{ items }} trigger={["click"]}>
+                  <Image
+                    onClick={(e) => e.preventDefault()}
+                    className={styles.album_img_edit}
+                    width={31}
+                    height={30}
+                    alt="pencel"
+                    src={"/img/edit_album.svg"}
+                  />
+                </Dropdown>
+              </div>
+              <div className={styles.data}>
+                <p>dd</p>
+                <span>122 mục</span>
+              </div>
+            </div>
+            <div>
+              <div className={styles.album_new_img}>
+                <Image
+                  width={218}
+                  height={215}
+                  alt="anh loi"
+                  src={"/img/c.png"}
+                />
+                <Dropdown menu={{ items }} trigger={["click"]}>
+                  <Image
+                    onClick={(e) => e.preventDefault()}
+                    className={styles.album_img_edit}
+                    width={31}
+                    height={30}
+                    alt="pencel"
+                    src={"/img/edit_album.svg"}
+                  />
+                </Dropdown>
+              </div>
+              <div className={styles.data}>
+                <p>dd</p>
+                <span>122 mục</span>
+              </div>
+            </div>
+            <div>
+              <div className={styles.album_new_img}>
+                <Image
+                  width={218}
+                  height={215}
+                  alt="anh loi"
+                  src={"/img/c.png"}
+                />
+                <Dropdown menu={{ items }} trigger={["click"]}>
+                  <Image
+                    onClick={(e) => e.preventDefault()}
+                    className={styles.album_img_edit}
+                    width={31}
+                    height={30}
+                    alt="pencel"
+                    src={"/img/edit_album.svg"}
+                  />
+                </Dropdown>
+              </div>
+              <div className={styles.data}>
+                <p>dd</p>
+                <span>122 mục</span>
+              </div>
+            </div>
+            <div>
+              <div className={styles.album_new_img}>
+                <Image
+                  width={218}
+                  height={215}
+                  alt="anh loi"
+                  src={"/img/c.png"}
+                />
+                <Dropdown menu={{ items }} trigger={["click"]}>
+                  <Image
+                    onClick={(e) => e.preventDefault()}
+                    className={styles.album_img_edit}
+                    width={31}
+                    height={30}
+                    alt="pencel"
+                    src={"/img/edit_album.svg"}
+                  />
+                </Dropdown>
+              </div>
+              <div className={styles.data}>
+                <p>dd</p>
+                <span>122 mục</span>
+              </div>
+            </div>
+            <div>
+              <div className={styles.album_new_img}>
+                <Image
+                  width={218}
+                  height={215}
+                  alt="anh loi"
+                  src={"/img/c.png"}
+                />
+                <Dropdown menu={{ items }} trigger={["click"]}>
+                  <Image
+                    onClick={(e) => e.preventDefault()}
+                    className={styles.album_img_edit}
+                    width={31}
+                    height={30}
+                    alt="pencel"
+                    src={"/img/edit_album.svg"}
+                  />
+                </Dropdown>
+              </div>
+              <div className={styles.data}>
+                <p>dd</p>
+                <span>122 mục</span>
+              </div>
+            </div>
+            <div>
+              <div className={styles.album_new_img}>
+                <Image
+                  width={218}
+                  height={215}
+                  alt="anh loi"
+                  src={"/img/c.png"}
+                />
+                <Dropdown menu={{ items }} trigger={["click"]}>
+                  <Image
+                    onClick={(e) => e.preventDefault()}
+                    className={styles.album_img_edit}
+                    width={31}
+                    height={30}
+                    alt="pencel"
+                    src={"/img/edit_album.svg"}
+                  />
+                </Dropdown>
+              </div>
+              <div className={styles.data}>
+                <p>dd</p>
+                <span>122 mục</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
