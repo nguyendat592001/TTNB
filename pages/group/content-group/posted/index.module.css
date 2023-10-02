@@ -1,0 +1,98 @@
+.container {
+   width: 100%;
+   display: flex;
+}
+.modal_container {
+   padding: 20px;
+}
+.left {
+   background: white;
+   box-shadow: 2px 2px 12px 0px #00000026;
+   float: left;
+   position: fixed;
+   height: calc(100vh - 78px);
+   width: 25%;
+   top: 12%;
+   padding-left: 5px;
+   padding-right: 10px;
+   overflow: auto;
+}
+.left_container {
+   width: 25%;
+   float: left;
+}
+.right {
+   width: 72%;
+   float: left;
+   padding: 20px 0px 20px 20px;
+}
+.right_header {
+   background: white;
+   box-shadow: 2px 2px 12px 0px #00000026;
+   border-radius: 8px;
+   padding: 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.content {
+   margin-top: 30px;
+   background: white;
+   box-shadow: 2px 2px 12px 0px #00000026;
+   padding: 30px;
+   border-radius: 8px;
+}
+.right_error {
+   background: white;
+   box-shadow: 2px 2px 12px 0px #00000026;
+   border-radius: 8px;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.content_all {
+   display: flex;
+   gap: 10px;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+}
+.content_fl {
+   display: flex;
+   gap: 10px;
+   align-items: center;
+}
+.colection {
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+.menu_drop {
+   display: flex;
+   gap: 25px;
+   align-items: center;
+}
+.drop_fl {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+}
+.modal_container {
+   padding: 20px;
+   display: flex;
+   gap: 15px;
+   flex-direction: column;
+   width: 100%;
+   text-align: center;
+}
+
+.btn {
+   display: flex;
+   gap: 20px;
+   justify-content: center;
+   align-items: center;
+}

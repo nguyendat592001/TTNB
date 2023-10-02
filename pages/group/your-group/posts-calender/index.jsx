@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./index.module.css";
 import { Modal, Image, Dropdown, Button, Select, Input, Space, Menu } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
@@ -98,6 +98,21 @@ const PostWaiting = () => {
          );
       }
    };
+
+   const [isHide, setIsHide] = useState(true);
+   const [isBlock, setIsBlock] = useState(false);
+   const showContent = () => {
+      if (dataContent.length > 0) {
+         setIsBlock(true);
+         setIsHide(false);
+      } else {
+         setIsBlock(false);
+         setIsHide(true);
+      }
+   };
+   useEffect(() => {
+      showContent();
+   }, []);
    return (
       <>
          <div className={styles.container}>
@@ -107,49 +122,59 @@ const PostWaiting = () => {
                </div>
             </div>
             <div className={styles.right}>
-               <div className={styles.header}>
-                  <h2>Bài viết đã lên lịch (1)</h2>
-               </div>
-               {dataContent.map((item) => {
-                  return (
-                     <div className={styles.content} key={item.key}>
-                        <div className={styles.content_all}>
-                           <div className={styles.content_fl}>
-                              <Image alt="" src="/img/group/tq5.jpg" width={50} height={50} style={{ borderRadius: "50%" }} preview={false} />
-                              <div>
-                                 <h3>{item.name}</h3>
-                                 <p>{item.time}</p>
+               {isHide && (
+                  <div className={styles.right_error}>
+                     <Image alt="/" src={"/img/group/error.svg"} preview={false} />
+                     <h3>Không có nội dung nào</h3>
+                  </div>
+               )}
+               {isBlock && (
+                  <div>
+                     <div className={styles.header}>
+                        <h2>Bài viết đã lên lịch (1)</h2>
+                     </div>
+                     {dataContent.map((item) => {
+                        return (
+                           <div className={styles.content} key={item.key}>
+                              <div className={styles.content_all}>
+                                 <div className={styles.content_fl}>
+                                    <Image alt="" src="/img/group/tq5.jpg" width={50} height={50} style={{ borderRadius: "50%" }} preview={false} />
+                                    <div>
+                                       <h3>{item.name}</h3>
+                                       <p>{item.time}</p>
+                                    </div>
+                                 </div>
+                                 <Dropdown
+                                    overlay={
+                                       <Menu onClick={({ key }) => handleDropdownClick(key)}>
+                                          {items.map((item) => (
+                                             <Menu.Item key={item.key}>{item.label}</Menu.Item>
+                                          ))}
+                                       </Menu>
+                                    }
+                                    placement="bottomRight"
+                                    trigger="click">
+                                    <div>
+                                       <Image alt="" src="/img/group/more.svg" preview={false} />
+                                    </div>
+                                 </Dropdown>
+                              </div>
+                              <div className={styles.colection}>
+                                 <p> {item.text}</p>
+                                 {checkColection(item)}
+                                 {checkVideo(item)}
+                              </div>
+                              <div className={styles.content_btn}>
+                                 <button className={styles.content_btn_ok} onClick={showModalTime}>
+                                    Đổi lịch
+                                 </button>
+                                 <button className={styles.content_btn_cancer}>Đăng ngay</button>
                               </div>
                            </div>
-                           <Dropdown
-                              overlay={
-                                 <Menu onClick={({ key }) => handleDropdownClick(key)}>
-                                    {items.map((item) => (
-                                       <Menu.Item key={item.key}>{item.label}</Menu.Item>
-                                    ))}
-                                 </Menu>
-                              }
-                              placement="bottomRight"
-                              trigger="click">
-                              <div>
-                                 <Image alt="" src="/img/group/more.svg" preview={false} />
-                              </div>
-                           </Dropdown>
-                        </div>
-                        <div className={styles.colection}>
-                           <p> {item.text}</p>
-                           {checkColection(item)}
-                           {checkVideo(item)}
-                        </div>
-                        <div className={styles.content_btn}>
-                           <button className={styles.content_btn_ok} onClick={showModalTime}>
-                              Đổi lịch
-                           </button>
-                           <button className={styles.content_btn_cancer}>Đăng ngay</button>
-                        </div>
-                     </div>
-                  );
-               })}
+                        );
+                     })}
+                  </div>
+               )}
             </div>
             <Time isOpen={isCalenderOpen} onClose={handleTimeCancel} />
             <NewFeedContent isOpen={isModalOpen} onClose={handleModalClose} />

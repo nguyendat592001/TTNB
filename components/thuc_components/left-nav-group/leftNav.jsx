@@ -12,9 +12,6 @@ const LeftNav = () => {
    };
    useEffect(() => {
       setSelectedLink(router.pathname);
-      if (leftNavRef.current) {
-         leftNavRef.current.scrollIntoView({ behavior: "smooth" });
-      }
    }, [router.pathname]);
    useEffect(() => {
       if (leftNavRef.current) {
@@ -46,13 +43,16 @@ const LeftNav = () => {
                </div>
             </div>
             <div className={styles.left_allcontent}>
-               <div className={`${styles.left_content} ${selectedLink === "/group/your-group" ? styles.selectedLink : ""}`} onClick={() => handleLinkClick("/group/your-group")}>
+               <div className={`${styles.left_content} ${selectedLink === "/group/your-group" ? styles.selectedLink : ""}`} onClick={() => handleLinkClick("/group/your-group")} ref={leftNavRef}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln1.png"} />
                   </div>
                   <p className={styles.left_p3}>Trang chủ cộng đồng</p>
                </div>
-               <div className={`${styles.left_content} ${selectedLink === "/group/your-group/overview" ? styles.selectedLink : ""}`} onClick={() => handleLinkClick("/group/your-group/overview")}>
+               <div
+                  className={`${styles.left_content} ${selectedLink === "/group/your-group/overview" ? styles.selectedLink : ""}`}
+                  onClick={() => handleLinkClick("/group/your-group/overview")}
+                  ref={leftNavRef}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln2.png"} />
                   </div>
@@ -61,7 +61,10 @@ const LeftNav = () => {
             </div>
             <div className={styles.left_allcontent2}>
                <p className={styles.p_qt}>Công cụ quản trị</p>
-               <div className={`${styles.left_content} ${selectedLink === "/group/your-group/add-member" ? styles.selectedLink : ""}`} onClick={() => handleLinkClick("/group/your-group/add-member")}>
+               <div
+                  className={`${styles.left_content} ${selectedLink === "/group/your-group/add-member" ? styles.selectedLink : ""}`}
+                  onClick={() => handleLinkClick("/group/your-group/add-member")}
+                  ref={leftNavRef}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln3.png"} />
                   </div>
@@ -70,7 +73,10 @@ const LeftNav = () => {
                      <p>10 yêu cầu mới ngày hôm nay</p>
                   </div>
                </div>
-               <div className={`${styles.left_content} ${selectedLink === "/group/your-group/question" ? styles.selectedLink : ""}`} onClick={() => handleLinkClick("/group/your-group/question")}>
+               <div
+                  className={`${styles.left_content} ${selectedLink === "/group/your-group/question" ? styles.selectedLink : ""}`}
+                  onClick={() => handleLinkClick("/group/your-group/question")}
+                  ref={leftNavRef}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln4.png"} />
                   </div>
@@ -78,7 +84,8 @@ const LeftNav = () => {
                </div>
                <div
                   className={`${styles.left_content} ${selectedLink === "/group/your-group/posts-waiting" ? styles.selectedLink : ""}`}
-                  onClick={() => handleLinkClick("/group/your-group/posts-waiting")}>
+                  onClick={() => handleLinkClick("/group/your-group/posts-waiting")}
+                  ref={leftNavRef}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln5.png"} />
                   </div>
@@ -86,19 +93,26 @@ const LeftNav = () => {
                </div>
                <div
                   className={`${styles.left_content} ${selectedLink === "/group/your-group/posts-calender" ? styles.selectedLink : ""}`}
-                  onClick={() => handleLinkClick("/group/your-group/posts-calender")}>
+                  onClick={() => handleLinkClick("/group/your-group/posts-calender")}
+                  ref={leftNavRef}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln6.png"} />
                   </div>
                   <p className={styles.left_p3}>Bài viết đã lên lịch</p>
                </div>
-               <div className={`${styles.left_content} ${selectedLink === "/group/your-group/rule" ? styles.selectedLink : ""}`} onClick={() => handleLinkClick("/group/your-group/rule")}>
+               <div
+                  className={`${styles.left_content} ${selectedLink === "/group/your-group/rule" ? styles.selectedLink : ""}`}
+                  onClick={() => handleLinkClick("/group/your-group/rule")}
+                  ref={leftNavRef}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln7.png"} />
                   </div>
                   <p className={styles.left_p3}>Quy tắc nhóm</p>
                </div>
-               <div className={`${styles.left_content} ${selectedLink === "/group/your-group/report" ? styles.selectedLink : ""}`} onClick={() => handleLinkClick("/group/your-group/report")}>
+               <div
+                  className={`${styles.left_content} ${selectedLink === "/group/your-group/report" ? styles.selectedLink : ""}`}
+                  onClick={() => handleLinkClick("/group/your-group/report")}
+                  ref={leftNavRef}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln8.png"} />
                   </div>
@@ -107,7 +121,10 @@ const LeftNav = () => {
                      <p>0 tin mới ngày hôm nay</p>
                   </div>
                </div>
-               <div className={`${styles.left_content} ${selectedLink === "/group/your-group/setup" ? styles.selectedLink : ""}`} onClick={() => handleLinkClick("/group/your-group/setup")}>
+               <div
+                  className={`${styles.left_content} ${selectedLink === "/group/your-group/setup" ? styles.selectedLink : ""}`}
+                  onClick={() => handleLinkClick("/group/your-group/setup")}
+                  ref={leftNavRef}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln9.png"} />
                   </div>
@@ -119,7 +136,10 @@ const LeftNav = () => {
             </div>
             <div className={styles.left_allcontent}>
                <p className={styles.p_qt}>Thông tin chi tiết</p>
-               <div className={`${styles.left_content} ${selectedLink === "/group/your-group/growth" ? styles.selectedLink : ""}`} onClick={() => handleLinkClick("/group/your-group/growth")}>
+               <div
+                  className={`${styles.left_content} ${selectedLink === "/group/your-group/growth" ? styles.selectedLink : ""}`}
+                  onClick={() => handleLinkClick("/group/your-group/growth")}
+                  ref={leftNavRef}>
                   <div className={styles.left_icon3}>
                      <Image alt="/" src={"/img/group/ln10.png"} />
                   </div>
