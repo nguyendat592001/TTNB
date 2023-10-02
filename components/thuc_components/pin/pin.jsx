@@ -74,7 +74,7 @@ const Pin = () => {
                                     </div>
                                  </div>
                               </div>
-                              <Dropdown menu={{ items }} placement="bottomRight" arrow>
+                              <Dropdown menu={{ items }} placement="bottomRight" arrow trigger="click">
                                  <Image alt="/" src="/img/group/dot9.svg" preview={false} />
                               </Dropdown>
                            </div>

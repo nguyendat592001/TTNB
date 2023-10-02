@@ -141,7 +141,7 @@
    border-radius: 10px;
    color: white;
    font-weight: 700;
-
+   cursor: pointer;
    margin: auto;
 }
 .btn_delete {
@@ -153,6 +153,7 @@
    border-radius: 10px;
    height: 36px;
    margin: auto;
+   cursor: pointer;
 }
 .friend_btn {
    display: flex;
@@ -239,6 +240,10 @@
    text-align: center;
    line-height: 36px;
    cursor: pointer;
+}
+.friend_p {
+   text-align: center;
+   padding-top: 30px;
 }
 @media (max-width: 1200px) {
    .left {

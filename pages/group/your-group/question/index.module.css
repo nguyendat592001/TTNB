@@ -52,6 +52,7 @@
 }
 .textarea {
    padding: 10px;
+   outline: unset;
 }
 .space_item {
    display: flex;

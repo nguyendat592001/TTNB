@@ -102,23 +102,66 @@ export default function TTNB() {
     }
   };
 
-  const itemsTab: TabsProps["items"] = [
-    {
-      key: "1",
-      label: <RenderTab1 />,
-      children: <ContentTab1 />,
-    },
-    {
-      key: "2",
-      label: <RenderTab2 />,
-      children: <ContentTab2 />,
-    },
-  ];
-  return (
-    <div className="flex containerTTNB">
-      <div className={`${styles.sidebar}`}>
-        <SideBar />
-      </div>
+
+
+    const handleSelectAll = () => {
+        if (!selectAll) {
+           
+        } else {
+            setSelectedItems([]);
+        }
+        setSelectAll(!selectAll);
+    };
+    const onChange = (key: string) => {
+        setActiveTabs(key);
+    };
+    const RenderTab1 = () => {
+        if (activeTabs === "1") {
+            return (
+                <Image
+                    src="/logo/deleteData/tab1-xanh.svg"
+                    alt="tab1"
+                    width={22}
+                    height={22}
+                    preview={false}
+                />
+            );
+        } else {
+            return (
+                <Image
+                    src="/logo/deleteData/tab1-xam.svg"
+                    alt="tab1"
+                    width={22}
+                    height={22}
+                    preview={false}
+                />
+            );
+        }
+    };
+    const RenderTab2 = () => {
+        if (activeTabs === "2") {
+            return (
+                <Image
+                    src="/logo/deleteData/tab2-xanh.svg"
+                    alt="tab2"
+                    width={22}
+                    height={22}
+                    preview={false}
+                />
+            );
+        } else {
+            return (
+                <Image
+                    src="/logo/deleteData/tab2-xam.svg"
+                    alt="tab2"
+                    width={22}
+                    height={22}
+                    preview={false}
+                />
+            );
+        }
+    };
+
 
       <div className={`${styles.sidebarContent}`}></div>
 
