@@ -5,7 +5,7 @@ import Head from "next/head";
 import NavStory from "./NavStory/navStory";
 export default function Index() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
+  //àadhj
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
