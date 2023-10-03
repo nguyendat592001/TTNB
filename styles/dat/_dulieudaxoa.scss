@@ -6,16 +6,6 @@
 .ttnbModalRestore .ant-modal-content {
     padding: 0px;
 
-    Button {
-        transition: none;
-
-        &:hover {
-            border: transparent;
-            color: #ffffff !important;
-        }
-    }
-
-
     .ant-modal-close {
         color: #ffffff;
     }

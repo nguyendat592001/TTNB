@@ -1,0 +1,81 @@
+.QTTTcontentRight {
+    .ant-menu-item {
+        padding: 18px 25%;
+        display: flex;
+        align-items: center;
+        background: #4c5bd4;
+        color: #fff;
+        width: 430px;
+        height: 60px;
+        margin: 0;
+        border-radius: 0 !important;
+        gap: 10px;
+
+        &:hover {
+            background-color: #2e3994 !important;
+            color: #fff !important;
+        }
+    }
+}
+
+.modalExchangeQuestion .ant-modal-content,
+.modalAddDocument .ant-modal-content,
+.modalEditDocument .ant-modal-content {
+    padding: 0px;
+    width: 100%;
+
+    .ant-modal-close {
+        color: #ffffff;
+    }
+
+    .ant-modal-header {
+        background-color: #4c5bd4;
+        width: 100%;
+        height: 50px;
+        margin: 0;
+
+        .ant-modal-title {
+            color: white;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            margin: 0px 20px;
+        }
+
+    }
+
+    .ant-modal-body {
+        padding: 15px 20px 5px 20px;
+    }
+}
+
+.modalDeleteDocument .ant-modal-content {
+    padding: 0px;
+    width: 100%;
+
+    .ant-modal-close {
+        color: #ffffff;
+    }
+
+    .ant-modal-header {
+        background-color: #4c5bd4;
+        width: 100%;
+        height: 50px;
+        margin: 0;
+
+        .ant-modal-title {
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+    }
+
+    .ant-modal-body {
+        padding: 15px 20px 5px 20px;
+    }
+}

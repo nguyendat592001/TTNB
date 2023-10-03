@@ -70,12 +70,12 @@ export default function SideBar(): JSX.Element {
                             label: (
                                 <Link
                                     className={styles.MenuItem}
-                                    href=''
+                                    href='/quantritrithuc'
                                 >
-                                    Quản lý tri thức
+                                    Quản trị tri thức
                                 </Link>
                             ),
-                            key: "quanlytrithuc",
+                            key: "quantritrithuc",
                             icon: <Icon4 />,
                         },
                         {
@@ -94,7 +94,7 @@ export default function SideBar(): JSX.Element {
                             label: (
                                 <Link
                                     className={styles.MenuItem}
-                                    href=''
+                                    href='/dulieudaxoa'
                                 >
                                     Dữ liệu đã xóa gần đây
                                 </Link>
@@ -106,7 +106,7 @@ export default function SideBar(): JSX.Element {
                             label: (
                                 <Link
                                     className={styles.MenuItem}
-                                    href='/caidat'
+                                    href='/setting'
                                 >
                                     cài đặt
                                 </Link>
