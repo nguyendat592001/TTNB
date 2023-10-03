@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./addstory.module.scss";
-import { Image, Slider, Upload, UploadFile } from "antd";
+import { Image } from "antd";
 import Head from "next/head";
 import NavStory from "./NavStory/navStory";
 export default function Index() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  //àadhj
+  const [text, setText] = useState(false);
+  const [textStory, setTextstory] = useState(false);
+  const [imaget, setImageNone] = useState(true);
+  const [textColorIndex, setTextColor] = useState(0);
+
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -18,6 +22,112 @@ export default function Index() {
       reader.readAsDataURL(file);
     }
   };
+  const onClickOpentextarea = () => {
+    setText(!text);
+  };
+  const onClicktextstory = () => {
+    setTextstory(true);
+    setImageNone(false);
+  };
+
+  const backgroundColors = [
+    "#474747",
+    "#ffffff",
+    "#76b51b",
+    "#2E3994",
+    "#F2C94C",
+    "#FF3333",
+    "#BDBDBD",
+    "#56CCF2",
+    "#F2994A",
+    "#9B51E0",
+    "#E37676",
+    "#BB6BD9",
+    "#4C5BD4",
+    "#E145A2",
+    "#27AE60",
+    "#219653",
+    "#6FCF97",
+    "#2F80ED",
+    "#2D9CDB",
+    "#B05A69",
+    "#FF9DAF",
+  ]; // Danh sách các màu nền
+  const textColorOptions = [
+    "#474747",
+    "#ffffff",
+    "#76b51b",
+    "#2E3994",
+    "#F2C94C",
+    "#FF3333",
+    "#BDBDBD",
+    "#56CCF2",
+    "#F2994A",
+    "#9B51E0",
+    "#E37676",
+    "#BB6BD9",
+    "#4C5BD4",
+    "#E145A2",
+    "#27AE60",
+    "#219653",
+    "#6FCF97",
+    "#2F80ED",
+    "#2D9CDB",
+    "#B05A69",
+    "#FF9DAF",
+  ]; // Danh sách các màu nền
+  const [backgroundIndex, setBackgroundIndex] = useState(0); // Chỉ số của màu nền hiện tại
+  const maxCharacters = 100; // Số ký tự tối đa cho phép
+  // Xử lý khi nút được nhấp để điều chỉnh màu nền
+  const handleBackgroundButtonClick = (index: number) => {
+    setBackgroundIndex(index);
+  };
+
+  // Tạo các nút tương ứng với các màu
+  const colorButtons = backgroundColors.map((color, index) => (
+    <button
+      key={index}
+      onClick={() => handleBackgroundButtonClick(index)}
+      style={{
+        backgroundColor: color,
+        border: backgroundIndex === index ? "3px solid black" : "none",
+      }}
+      className={styles.color_background}
+    ></button>
+  ));
+  const handleColorButtonClick = (index: number) => {
+    // Đặt màu chữ mới dựa trên index của nút màu
+    setTextColor(index);
+  };
+  const colorButtonsText = backgroundColors.map((colors, index) => (
+    <button
+      key={index}
+      onClick={() => handleColorButtonClick(index)}
+      style={{
+        color: colors,
+        backgroundColor: colors,
+        border: textColorIndex === index ? "3px solid black" : "none",
+      }}
+      className={styles.color_background}
+    ></button>
+  ));
+  // Xử lý khi nút thay đổi màu chữ được nhấp
+
+  const textareaStyle = {
+    backgroundColor: backgroundColors[backgroundIndex],
+    color: backgroundColors[textColorIndex],
+  };
+  const textareaStyle2 = {
+    color: backgroundColors[textColorIndex],
+  };
+
+  ///thay đổi nội dung textarea
+  const [textarea1Content, setTextarea1Content] = useState("");
+
+  // Hàm để cập nhật nội dung của textarea 1 từ component con
+  const updateTextarea1Content = (newContent: any) => {
+    setTextarea1Content(newContent);
+  };
 
   return (
     <div className={styles.story}>
@@ -25,57 +135,98 @@ export default function Index() {
         <title>Tạo tin 24h</title>
         <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
       </Head>
-      <NavStory selectedImage={selectedImage} />
-      <div className={`${styles.header} ${selectedImage ? styles.hidden : ""}`}>
-        <label htmlFor="image_story" className={styles.image_story}>
-          <Image
-            width={77}
-            height={77}
-            src={"/img/tao-tin-anh.svg"}
-            alt=""
-            preview={false}
-          />
-
-          <span>Tạo tin ảnh</span>
-          <input
-            type="file"
-            hidden
-            id="image_story"
-            onChange={handleImageChange}
-          />
-        </label>
-        <div className={styles.text_story}>
-          <Image
-            preview={false}
-            width={77}
-            height={77}
-            src={"/img/tao-tin-van-ban.svg"}
-            alt=""
-          />
-          <span>Tạo tin văn bản</span>
-        </div>
-      </div>
-      <div
-        className={`${styles.header} ${styles.edit} ${
-          selectedImage ? "" : styles.hidden
-        }`}
-      >
-        <span>Xem trước</span>
-        <div className={styles.fa_content}>
-          <div className={styles.content}>
-            <div className={styles.image_story2}>
-              {selectedImage && (
+      <div style={{ display: "flex" }}>
+        <NavStory
+          selectedImage={selectedImage}
+          text={onClickOpentextarea}
+          imaget={imaget}
+          colorButtons={colorButtons}
+          colorButtonsText={colorButtonsText}
+          value={textarea1Content}
+          updateTextarea1Content={updateTextarea1Content}
+        />
+        {imaget ? (
+          <div className={styles.cont}>
+            <div
+              className={`${styles.header} ${selectedImage ? styles.hidden : ""}
+        `}
+            >
+              <label htmlFor="image_story" className={styles.image_story}>
                 <Image
-                  width={300}
-                  height={470}
-                  src={selectedImage}
-                  alt="Selected Image"
+                  width={77}
+                  height={77}
+                  src={"/img/tao-tin-anh.svg"}
+                  alt=""
                   preview={false}
                 />
-              )}
+
+                <span>Tạo tin ảnh</span>
+                <input
+                  type="file"
+                  hidden
+                  id="image_story"
+                  onChange={handleImageChange}
+                />
+              </label>
+              <div onClick={onClicktextstory} className={styles.text_story}>
+                <Image
+                  preview={false}
+                  width={77}
+                  height={77}
+                  src={"/img/tao-tin-van-ban.svg"}
+                  alt=""
+                />
+                <span>Tạo tin văn bản</span>
+              </div>
+            </div>
+            <div
+              className={`${styles.header} ${styles.edit} ${
+                selectedImage ? "" : styles.hidden
+              }`}
+            >
+              <span className={styles.watch}>Xem trước</span>
+              <div className={styles.fa_content}>
+                <div className={styles.content}>
+                  <div className={styles.image_story2}>
+                    {selectedImage && (
+                      <Image
+                        width={300}
+                        height={470}
+                        src={selectedImage}
+                        alt="Selected Image"
+                        preview={false}
+                      />
+                    )}
+                    {text ? (
+                      <textarea
+                        style={textareaStyle2}
+                        className={styles.textarea}
+                        placeholder="Nhập văn bản..."
+                      ></textarea>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className={`${styles.header} ${styles.edit} `}>
+            <span className={styles.watch}>Xem trước</span>
+            <div className={styles.fa_content}>
+              <div className={styles.content}>
+                <div className={styles.image_story2}>
+                  <textarea
+                    style={textareaStyle}
+                    value={textarea1Content}
+                    className={styles.textarea2}
+                    placeholder="Nhập văn bản..."
+                    onChange={(e) => setTextarea1Content(e.target.value)}
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

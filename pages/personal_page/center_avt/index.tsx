@@ -101,7 +101,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
             </div>
           </div>
           <div className={styles.center_avt_btn}>
-            <p onClick={onClicknewstory}>
+            <p onClick={onClicknewstory} className={styles.addstory}>
               <Image
                 width={20}
                 height={20}

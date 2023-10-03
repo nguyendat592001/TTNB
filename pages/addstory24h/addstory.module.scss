@@ -1,5 +1,5 @@
 .story {
-    display: flex;
+    // display: flex;
     width: 100%;
     gap: 20px;
 }
@@ -96,7 +96,10 @@
     display: block;
     margin-top: 10px;
     padding: 20px;
-
+    .watch{
+        font-size: 17px;
+        font-weight: 500;
+    }
     .fa_content {
         padding: 20px;
     }
@@ -119,5 +122,62 @@
     img{
       object-fit: cover;
       border-radius: 10px;
+      position: relative;
     }
+    .textarea{
+        border: none;
+        font-size: 30px;
+        position: relative;
+        top: 50%;
+        left: 0%;
+        width: 300px;
+        transform: translateX(-100%);
+        background: none;
+        color: #474747;
+        text-align: center;
+        height: 470px;
+        
+    }
+    .textarea:focus{
+        outline: none;
+    }
+}
+
+.cont{
+    margin-left: 21%;
+    width: 66%;
+    display: flex;
+    justify-content: center;
+}
+.textarea2{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    width: 300px;
+    height: 470px;
+    border-radius:5px ;
+    line-height: 1.5;
+    background-color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+.textarea2:focus{
+    outline:none;
+}
+.color_background{
+    
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    
+}
+
+.nav_content{
+    overflow-y: scroll;
+    height: 400px;
+}
+.nav_content::-webkit-scrollbar{
+    display: none;
 }
