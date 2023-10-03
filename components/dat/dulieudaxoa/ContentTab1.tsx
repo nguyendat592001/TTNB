@@ -1,6 +1,8 @@
 import { Col, Collapse, Image, Row } from 'antd'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './ContentTab.module.scss'
+import { dataForContentCollapse } from './data'
+
 interface DataProps {
     key: string;
     day: number;
@@ -12,12 +14,36 @@ interface DataProps {
     department: string;
 }
 
-const ContentCollapse = (props: { data: DataProps[] }) => {
+interface ContentTab1Props {
+    selectAllItems: boolean;
+    setSelectAllItems: (selectAll: boolean) => void;
+    selectedItemKey: string | null;
+    setSelectedItemKey: (selectedKey: string | null) => void
+}
+
+const ContentCollapse: React.FC<{
+    data: DataProps[];
+    onSelectItem: (itemKey: string) => void;
+    selectedKeys: string[];
+}> = ({ data, onSelectItem, selectedKeys }) => {
+
+    const handleItemClick = (itemKey: string) => {
+        onSelectItem(itemKey);
+    };
+
     return (
         <Row className="mt-20" gutter={[16, 16]}>
-            {props.data.map((data, index) => (
+            {data.map((data, index) => (
                 <Col xs={24} md={8} sm={12} key={index}>
-                    <div className={`${styles.itemDelete} cursor-pointer`}>
+                    <div
+                        className={`${styles.itemDelete} cursor-pointer`}
+                        onClick={() => handleItemClick(data.key)}
+                        style={{
+                            backgroundColor: selectedKeys.includes(data.key)
+                                ? '#ccc'
+                                : 'white',
+                        }}
+                    >
                         <div
                             className='flex flex-align-center'
                             style={{
@@ -40,51 +66,19 @@ const ContentCollapse = (props: { data: DataProps[] }) => {
         </Row>
     );
 };
-const dataForContentCollapse: DataProps[] = [
-    {
-        key: '1',
-        day: 1,
-        month: 9,
-        year: 2023,
-        time: '10:00 AM',
-        name: 'Dat Nguyen',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        department: 'HR',
-    },
-    {
-        key: '4',
-        day: 1,
-        month: 9,
-        year: 2023,
-        time: '10:00 AM',
-        name: 'Dat',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        department: 'HR',
-    },
-    {
-        key: '2',
-        day: 2,
-        month: 9,
-        year: 2023,
-        time: '11:30 AM',
-        name: 'thuc nguyen',
-        description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
-        department: 'Finance',
-    },
-    {
-        key: '3',
-        day: 3,
-        month: 9,
-        year: 2023,
-        time: '12:00 AM',
-        name: 'viet nguyen',
-        description: 'Nullam quis risus eget urna mollis ornare vel eu leo.',
-        department: 'IT',
-    },
-];
 
 
-export default function ContentTab1() {
+const ContentTab1: React.FC<ContentTab1Props> = (props) => {
+    const [selectedItemKeys, setSelectedItemKeys] = useState<string[]>([]);
+    const { selectAllItems, setSelectAllItems } = props;
+
+    useEffect(() => {
+        if (selectAllItems) {
+            setSelectedItemKeys(dataForContentCollapse.map((data) => data.key));
+        } else {
+            setSelectedItemKeys([]);
+        }
+    }, [selectAllItems]);
 
     const groupedData = new Map<string, DataProps[]>();
     dataForContentCollapse.forEach((data) => {
@@ -100,7 +94,19 @@ export default function ContentTab1() {
         return {
             key,
             label: key,
-            children: <ContentCollapse data={dayData} />,
+            children: (
+                <ContentCollapse
+                    data={dayData}
+                    onSelectItem={(itemKey) => setSelectedItemKeys((prevKeys) => {
+                        if (prevKeys.includes(itemKey)) {
+                            return prevKeys.filter((key) => key !== itemKey);
+                        } else {
+                            return [...prevKeys, itemKey];
+                        }
+                    })}
+                    selectedKeys={selectedItemKeys}
+                />
+            ),
         };
     });
 
@@ -120,3 +126,5 @@ export default function ContentTab1() {
         </div>
     );
 }
+
+export default ContentTab1;

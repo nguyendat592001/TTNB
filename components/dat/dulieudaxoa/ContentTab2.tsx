@@ -1,6 +1,8 @@
-import { List, Image } from 'antd';
-import React from 'react';
+import { List, Image, Checkbox } from 'antd';
+import React, { useState } from 'react';
 import styles from './ContentTab.module.scss';
+import { dataForContentCollapse } from './data';
+
 interface DataProps {
     key: string;
     day: number;
@@ -12,32 +14,26 @@ interface DataProps {
     department: string;
 }
 
-const dataForContentCollapse: DataProps[] = [
-    {
-        key: '1',
-        day: 1,
-        month: 9,
-        year: 2023,
-        time: '10:00 AM',
-        name: 'dat123',
-        description: 'alo1234',
-        department: 'vn',
-    },
-    {
-        key: '2',
-        day: 2,
-        month: 9,
-        year: 2023,
-        time: '11:30 AM',
-        name: 'viet123',
-        description:
-            'alo113',
-        department: 'vn',
-    },
-];
+const ContentTab2: React.FC<{
+    selectAllItems: boolean;
+    setSelectAllItems: (selectAll: boolean) => void;
+    selectedItemKey: string | null;
+    setSelectedItemKey: (selectedKey: string | null) => void
 
-export default function ContentTab2() {
-    // Tạo một đối tượng Map để nhóm dữ liệu theo ngày
+}> = ({ selectAllItems, setSelectAllItems }) => {
+    const [selectedItems, setSelectedItems] = useState<string[]>([]);
+
+    const toggleItemSelection = (itemKey: string) => {
+        setSelectedItems((prevSelectedItems) => {
+            if (prevSelectedItems.includes(itemKey)) {
+                return prevSelectedItems.filter((key) => key !== itemKey);
+            } else {
+                return [...prevSelectedItems, itemKey];
+            }
+        });
+    };
+
+
     const groupedData = new Map<string, DataProps[]>();
     dataForContentCollapse.forEach((data) => {
         const key = `${data.day}.${data.month}.${data.year}`;
@@ -55,7 +51,10 @@ export default function ContentTab2() {
     });
 
     const renderItem = (item: { key: string; data: DataProps[] }) => (
-        <List.Item>
+        <List.Item
+            className={`${styles.listItem} ${selectedItems.includes(item.key) ? styles.selectedItem : ''
+                }`}
+        >
             <div>
                 <ul>
                     {item.data.map((data) => (
@@ -74,19 +73,15 @@ export default function ContentTab2() {
                                     alt="avatar"
                                     preview={false}
                                 />
-                                <div
-                                    className='flex'
-                                    style={{
-                                        gap: '200px',
-                                    }}
-                                >
+                                <div className={`${styles.timeDeleteContainer} flex`}>
                                     <div className={`${styles.timeDelete} flex`} >
                                         <p>{`${data.day}.${data.month}.${data.year}`}</p>
                                         <p>{data.time}</p>
                                     </div>
-                                    <input
-                                        type="checkbox"
+                                    <Checkbox
                                         className={`${styles.checkboxDelete}`}
+                                        onChange={() => toggleItemSelection(data.key)}
+                                        checked={selectedItems.includes(data.key)}
                                     />
                                 </div>
                             </div>
@@ -108,3 +103,5 @@ export default function ContentTab2() {
         </div>
     );
 }
+
+export default ContentTab2;

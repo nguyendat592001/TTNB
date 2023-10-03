@@ -1,6 +1,7 @@
 .display-none {
     display: none;
 }
+
 .display-block {
     display: block;
 }
@@ -8,9 +9,11 @@
 .flex {
     display: flex;
 }
+
 .flex-start {
     justify-content: start !important;
 }
+
 .flex-center {
     justify-content: center;
 }
@@ -18,34 +21,44 @@
 .flex-end {
     justify-content: end;
 }
+
 .flex-wrap {
     display: flex;
     flex-wrap: wrap;
 }
+
 .flex-space-between {
     justify-content: space-between;
 }
+
 .flex-space-around {
     justify-content: space-around;
 }
+
 .flex-column {
     flex-direction: column;
 }
+
 .flex-align-center {
     align-items: center;
 }
+
 .flex-align-top {
     align-items: flex-top;
 }
+
 .flex-stretch {
     align-items: stretch;
 }
+
 .flex-grow-1 {
     flex-grow: 1;
 }
+
 .flex-grow-2 {
     flex-grow: 2;
 }
+
 .flex-grow-3 {
     flex-grow: 3;
 }
@@ -56,9 +69,11 @@
 .position-relative {
     position: relative;
 }
+
 .position-absolute {
     position: absolute;
 }
+
 $spaces: (
     0: 0px,
     2: 2px,
@@ -124,36 +139,47 @@ $spaces: (
     300: 300px,
     400:400px,
 );
-@each $name, $value in $spaces {
+
+@each $name,
+$value in $spaces {
     .top-#{$name} {
-        top: $value !important;
+        top: $value  !important;
     }
+
     .bottom-#{$name} {
-        bottom: $value !important;
+        bottom: $value  !important;
     }
+
     .left-#{$name} {
-        left: $value !important;
+        left: $value  !important;
     }
+
     .right-#{$name} {
-        right: $value !important;
+        right: $value  !important;
     }
 }
+
 .text-center {
     text-align: center;
 }
+
 .text-middle {
     vertical-align: middle;
 }
+
 .text-align-right {
     text-align: right;
 }
+
 .text-align-left {
     text-align: left;
 }
+
 .x-center {
     left: 50%;
     transform: translateX(-50%);
 }
+
 .y-center {
     top: 50%;
     transform: translateY(-50%);
@@ -161,8 +187,9 @@ $spaces: (
 
 // misc
 .cursor-pointer {
-    cursor: pointer !important; 
+    cursor: pointer !important;
 }
+
 .cursor-move {
     cursor: move;
 }

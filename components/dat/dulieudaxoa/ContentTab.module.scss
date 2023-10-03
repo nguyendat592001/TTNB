@@ -15,8 +15,14 @@
     gap: 10px;
 }
 
-.checkboxDelete {
-    margin-right: 20px;
-    width: 20px;
-    height: 20px;
+.timeDeleteContainer {
+    gap: 30px;
+}
+
+.timeDelete {
+    gap: 10px;
+}
+
+.selectedItem {
+    background-color: red !important;
 }
