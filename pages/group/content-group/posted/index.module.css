@@ -2,6 +2,9 @@
    width: 100%;
    display: flex;
 }
+.modal_container {
+   padding: 20px;
+}
 .left {
    background: white;
    box-shadow: 2px 2px 12px 0px #00000026;
@@ -21,64 +24,62 @@
 .right {
    width: 72%;
    float: left;
-   padding: 30px 20px;
+   padding: 20px 0px 20px 20px;
 }
-.right_error {
+.right_header {
+   background: white;
+   box-shadow: 2px 2px 12px 0px #00000026;
+   border-radius: 8px;
+   padding: 20px;
    display: flex;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
-   flex-direction: column;
-   gap: 20px;
-   background: white;
-   box-shadow: 2px 2px 12px 0px #00000026;
-   padding: 20px;
-   border-radius: 8px;
-}
-.header {
-   background: white;
-   box-shadow: 2px 2px 12px 0px #00000026;
-   padding: 20px;
-   border-radius: 8px;
-}
-.header_input {
-   padding-top: 20px;
-   padding-bottom: 30px;
 }
 .content {
+   margin-top: 30px;
+   background: white;
+   box-shadow: 2px 2px 12px 0px #00000026;
+   padding: 30px;
+   border-radius: 8px;
+}
+.right_error {
+   background: white;
+   box-shadow: 2px 2px 12px 0px #00000026;
+   border-radius: 8px;
+   padding: 20px;
    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.content_all {
+   display: flex;
+   gap: 10px;
    flex-wrap: wrap;
    justify-content: space-between;
    align-items: center;
-   background: white;
-   box-shadow: 2px 2px 12px 0px #00000026;
-   padding: 20px;
-   border-radius: 8px;
-   margin-top: 30px;
 }
-.content_flex {
+.content_fl {
    display: flex;
-   gap: 15px;
+   gap: 10px;
    align-items: center;
 }
-.btn_ok {
-   padding: 12px 30px;
-   background: #d6d9f5;
-   color: #4c5bd4;
-   border-radius: 8px;
-   font-weight: 700;
-   line-height: 20px;
-   border: none;
-   cursor: pointer;
+.colection {
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+   padding-top: 20px;
+   padding-bottom: 20px;
 }
-.btn_cancer {
-   padding: 12px 30px;
-   background: #d9d9d9;
-   border-radius: 8px;
-   font-weight: 700;
-   line-height: 20px;
-   margin: 0 10px;
-   border: none;
-   cursor: pointer;
+.menu_drop {
+   display: flex;
+   gap: 25px;
+   align-items: center;
+}
+.drop_fl {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
 }
 .modal_container {
    padding: 20px;
@@ -86,13 +87,12 @@
    gap: 15px;
    flex-direction: column;
    width: 100%;
+   text-align: center;
 }
+
 .btn {
    display: flex;
    gap: 20px;
    justify-content: center;
    align-items: center;
-}
-.textarea {
-   padding: 10px;
 }

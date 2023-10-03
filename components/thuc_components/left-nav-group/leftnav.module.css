@@ -28,10 +28,12 @@
    padding-left: 10px;
    align-items: center;
 }
-.left_content_one {
-}
-.left_content.active {
+.selectedLink {
    background-color: #dddddd;
+   color: #4c5bd4;
+}
+.selectedLink .left_icon3 {
+   background-color: #4c5bd4;
 }
 .left_content:hover {
    background-color: #dddddd;
@@ -85,4 +87,7 @@
    margin-bottom: 20px;
    padding-left: 10px;
    padding-top: 15px;
+}
+.your_content {
+   padding: 10px;
 }

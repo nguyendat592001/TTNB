@@ -1,0 +1,39 @@
+.container {
+   width: 100%;
+   display: flex;
+}
+.modal_container {
+   padding: 20px;
+}
+.left {
+   background: white;
+   box-shadow: 2px 2px 12px 0px #00000026;
+   float: left;
+   position: fixed;
+   height: calc(100vh - 78px);
+   width: 25%;
+   top: 12%;
+   padding-left: 5px;
+   padding-right: 10px;
+   overflow: auto;
+}
+.left_container {
+   width: 25%;
+   float: left;
+}
+.right {
+   width: 72%;
+   float: left;
+   padding: 20px 0px 20px 20px;
+}
+
+.right_error {
+   background: white;
+   box-shadow: 2px 2px 12px 0px #00000026;
+   border-radius: 8px;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}

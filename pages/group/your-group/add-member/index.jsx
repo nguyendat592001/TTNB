@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./index.module.css";
 import { Modal, Image, Dropdown, Button, Menu, Input } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
@@ -67,6 +67,22 @@ const AddMember = () => {
       const updatedData = data.filter((item) => item.key !== key);
       setData(updatedData);
    };
+   // ẩn hiện nội dung
+   const [isHide, setIsHide] = useState(true);
+   const [isBlock, setIsBlock] = useState(false);
+   const showContent = () => {
+      if (data.length > 0) {
+         setIsBlock(true);
+         setIsHide(false);
+      } else {
+         setIsBlock(false);
+         setIsHide(true);
+      }
+   };
+   useEffect(() => {
+      showContent();
+   }, []);
+
    return (
       <>
          <div className={styles.container}>
@@ -76,47 +92,58 @@ const AddMember = () => {
                </div>
             </div>
             <div className={styles.right}>
-               <div className={styles.header}>
-                  <h2>Yêu cầu làm thành viên. (10)</h2>
-                  <div className={styles.header_input}>
-                     <Input className={`thuc_input_full`} placeholder="Tìm kiếm theo tên"></Input>
+               {isHide && (
+                  <div className={styles.right_error}>
+                     <Image alt="/" src={"/img/group/error.svg"} preview={false} />
+                     <h3>Không có nội dung nào</h3>
                   </div>
-               </div>
-               {data.map((item) => {
-                  return (
-                     <div className={styles.content} key={item.key}>
-                        <div className={styles.content_flex}>
-                           <Image alt="" src={item.img} preview={false} width={50} height={50} style={{ borderRadius: "50%" }} />
-                           <div>
-                              <h3>{item.name}</h3>
-                              <p>{item.active}</p>
-                           </div>
-                        </div>
-                        <div className={styles.content_flex}>
-                           <button className={styles.btn_ok} onClick={() => handleApproveClickOk(item.key)}>
-                              Phê duyệt
-                           </button>
-                           <button className={styles.btn_cancer} onClick={() => handleApproveClickCancer(item.key)}>
-                              Từ chối
-                           </button>
-                           <Dropdown
-                              overlay={
-                                 <Menu onClick={({ key }) => handleDropdownClick(key)}>
-                                    {items.map((item) => (
-                                       <Menu.Item key={item.key}>{item.label}</Menu.Item>
-                                    ))}
-                                 </Menu>
-                              }
-                              trigger="click"
-                              placement="bottomRight"
-                              arrow>
-                              <Image alt="" src="/img/group/dot11.svg" preview={false} />
-                           </Dropdown>
+               )}
+               {isBlock && (
+                  <div>
+                     <div className={styles.header}>
+                        <h2>Yêu cầu làm thành viên. (10)</h2>
+                        <div className={styles.header_input}>
+                           <Input className={`thuc_input_full`} placeholder="Tìm kiếm theo tên"></Input>
                         </div>
                      </div>
-                  );
-               })}
+                     {data.map((item) => {
+                        return (
+                           <div className={styles.content} key={item.key}>
+                              <div className={styles.content_flex}>
+                                 <Image alt="" src={item.img} preview={false} width={50} height={50} style={{ borderRadius: "50%" }} />
+                                 <div>
+                                    <h3>{item.name}</h3>
+                                    <p>{item.active}</p>
+                                 </div>
+                              </div>
+                              <div className={styles.content_flex}>
+                                 <button className={styles.btn_ok} onClick={() => handleApproveClickOk(item.key)}>
+                                    Phê duyệt
+                                 </button>
+                                 <button className={styles.btn_cancer} onClick={() => handleApproveClickCancer(item.key)}>
+                                    Từ chối
+                                 </button>
+                                 <Dropdown
+                                    overlay={
+                                       <Menu onClick={({ key }) => handleDropdownClick(key)}>
+                                          {items.map((item) => (
+                                             <Menu.Item key={item.key}>{item.label}</Menu.Item>
+                                          ))}
+                                       </Menu>
+                                    }
+                                    trigger="click"
+                                    placement="bottomRight"
+                                    arrow>
+                                    <Image alt="" src="/img/group/dot11.svg" preview={false} />
+                                 </Dropdown>
+                              </div>
+                           </div>
+                        );
+                     })}
+                  </div>
+               )}
             </div>
+
             <div>
                <Modal className={`thuc_modal ${styles.thuc_pin}`} title="Từ chối kềm theo ý kiến đóng góp" open={isModalRefuseOpen} onCancel={handleRefuseCancel} footer={null}>
                   <div className={styles.modal_container}>
