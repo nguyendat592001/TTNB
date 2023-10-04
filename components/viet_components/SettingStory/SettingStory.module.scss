@@ -6,11 +6,26 @@
     font-weight: 500;
 }
 .btn{
-    padding: 5px 10px;
+    button{
+        padding:  10px;
+        background-color: #4c5bd4;
+        border: none;
+        border-radius: 20px;
+        color: #fff;
+    }
+    padding: 10px;
+    display: flex;
+    justify-content: center;
 }
 .OnOff{
     display: flex;
     justify-content: space-between;
+    .btn{
+        background-color: #4c5bd4;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+    }
 }
 .name{
     display: flex;

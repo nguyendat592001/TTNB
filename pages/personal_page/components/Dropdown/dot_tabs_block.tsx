@@ -53,6 +53,9 @@ const App = () => {
       label: (
         <div
           style={{ display: "flex", alignItems: "center", padding: "5px 10px" }}
+          onClick={() => {
+            router.push("/personal_page/SettingPer");
+          }}
         >
           <Image
             style={{ marginRight: 10 }}

@@ -16,9 +16,11 @@ export default function Install_news_archive() {
             bạn. Chỉ có bạn mới xem được kho lưu trữ tin của mình.
           </span>
         </p>
-        <button className={styles.btn} onClick={onClickStorage}>
-          {storage ? "Tắt kho tin lưu trữ" : "Bật kho tin lưu trữ"}
-        </button>
+        <div className={styles.btn}>
+          <button onClick={onClickStorage}>
+            {storage ? "Tắt kho tin lưu trữ" : "Bật kho tin lưu trữ"}
+          </button>
+        </div>
       </div>
     </div>
   );

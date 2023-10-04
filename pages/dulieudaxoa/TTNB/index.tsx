@@ -117,9 +117,6 @@ export default function TTNB() {
                   <Button block onClick={showRestoreModal}>
                     Khôi phục
                   </Button>
-                  <Button block onClick={showRestoreModal}>
-                    Khôi phục
-                  </Button>
                 </div>
               )}
 

@@ -1,0 +1,38 @@
+.modal_content {
+
+    .span {
+        display: block;
+        color: #474747;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        font-size: 15px;
+        color: #474747;
+    }
+    .btn_Name{
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+        button{
+            border-radius: 50px;
+            width: 150px;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .huy{
+            border: 1px solid  #4C5BD4;
+            background: var(--white, #FFF);
+        }
+        .luu{
+            background: #4C5BD4;
+            color: #FFF;
+            border: 1px solid  #4C5BD4;
+        }
+    }
+}
