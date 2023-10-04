@@ -24,7 +24,6 @@ export default function EditStory() {
     setBio(newText);
     // Đếm số ký tự và hiển thị nó
     const charCount = newText.length;
-    console.log("Số ký tự:", charCount);
   };
   return (
     <div>
