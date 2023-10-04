@@ -5,6 +5,7 @@ import ExchangeQuestionModal from '@/components/dat/Modal/quantritrithuc/Exchang
 import SideBar from '@/components/header/sidebar/sidebar';
 import { SearchOutlined } from '@ant-design/icons'
 import { Input, Menu, Image, Button, Popover } from 'antd'
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 
 import styles from './index.module.scss'
@@ -53,6 +54,7 @@ interface SelectOptions {
 
 }
 export default function QTTT() {
+    const router = useRouter();
     const [subMenuOpen, setSubMenuOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(SelectOptions[0]);
     const [isModalAddDocumentOpen, setIsModalAddDocumentOpen] = useState(false);
@@ -101,17 +103,32 @@ export default function QTTT() {
     const handleMenuClick = (option: any) => {
         setSelectedOption(option);
         setSubMenuOpen(false);
+
+        if (option.key === '1') {
+            router.push('/quantritrithuc/wiki');
+        }
+        if (option.key === '2') {
+            router.push('/quantritrithuc/traodoicauhoi');
+        }
+        if (option.key === '3') {
+            router.push('/quantritrithuc/cauhoicuatoi');
+        }
     };
 
     const remainingOptions = SelectOptions.filter(option => option.key !== selectedOption.key);
 
+    const handleDownloadFile = (fileUrl: string) => {
+        window.open(fileUrl, '_blank');
+    };
     const content = (
         <div className={
             `${styles.popoverListItem} popoverListItem`
         }>
             <div className={
                 `${styles.popoverItem} popoverItem flex`
-            }>
+            }
+                onClick={() => handleDownloadFile('/path/to/your/file.pdf')}//đường dẫn file pdf để tải xuống
+            >
                 <Image
                     src='/img/QTTT/option1.png'
                     alt='anh1'
@@ -192,14 +209,14 @@ export default function QTTT() {
                         >
                             <div>
                                 <div
-                                    className={styles.selectedOption}
+                                    className={`${styles.selectedOption} cursor-pointer`}
                                 >
                                     <Image
                                         src={selectedOption.img}
                                         alt={selectedOption.value}
                                         preview={false}
                                     />
-                                    <span className={styles.optionText}>{selectedOption.value}</span>
+                                    <span className={`${styles.optionText} cursor-pointer`}>{selectedOption.value}</span>
                                 </div>
                                 <Menu
                                     style={{ display: subMenuOpen ? 'block' : 'none' }}

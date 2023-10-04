@@ -1,0 +1,193 @@
+.sidebar {
+    position: fixed;
+}
+
+.subSidebar {
+    width: 25%;
+}
+
+.WikiContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.WikiContentHeader {
+    gap: 40px;
+    width: 100%;
+}
+
+.WikiSearchInput {
+    margin-top: 30px;
+    width: 55%;
+}
+
+.contentRightContainer {
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.searchInput {
+    border: 1px solid #d9d9d9;
+    border-radius: 16px;
+    padding: 10px 20px;
+    width: 100%;
+
+    &hover {
+        border: 1px solid #d9d9d9 !important;
+        border-radius: 16px !important;
+    }
+}
+
+.selectedOption {
+    width: 100%;
+    padding: 18px 25%;
+    display: flex;
+    align-items: center;
+    background: #4c5bd4;
+    border: 1px solid #4c5bd4;
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, .1);
+    border-radius: 6px;
+    color: #fff;
+    gap: 20px;
+}
+
+.WikicontentRight {
+    position: fixed;
+    width: 430px;
+}
+
+.themtailieuButton {
+    padding: 18px 25%;
+    display: flex;
+    align-items: center;
+    border: 1px solid #4c5bd4;
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, .1);
+    border-radius: 6px;
+    color: #fff;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.themtailieuButtonText {
+    color: #4c5bd4;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.WikiButtonAdd {
+    padding-right: 10%;
+}
+
+.themtailieuButton {
+    height: 48px !important;
+    width: 22% !important;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px !important;
+}
+
+.WikiContentBodyListItem {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+    margin-right: 14px;
+}
+
+.WikiContentBodyItem {
+    width: calc(100% / 4 - 20px);
+    box-shadow: 0 2px 5px 3px rgb(0 0 0 / 10%);
+    border-radius: 6px;
+}
+
+.WikiContentBodyItemImg {
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+}
+
+.WikiContentBodyItemInfo {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.WikiBoldText {
+    color: #474747;
+    font-weight: 500;
+    max-width: 240px;
+    word-break: break-word;
+}
+
+.WikiDowloadFile {
+    color: #4C5BD4;
+    word-break: break-word;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.popoverItem {
+    gap: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #ccc;
+        border-radius: 4px;
+    }
+}
+
+.popoverListItem {
+    border-radius: 6px;
+}
+
+.popoverItemText {
+    font-size: 16px;
+    line-height: 19px;
+    color: #474747;
+    font-weight: 500;
+}
+
+.modalAddDocumentContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modalAddDocumentContentItem {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modalAddDocumentContentButton {
+    padding-bottom: 40px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modalAddDocumentContentButtonCancel {
+    color: #4c5bd4;
+    background: #fff;
+    border: 1px solid #4c5bd4;
+    border-radius: 50px !important;
+    text-align: center;
+    font-weight: 700;
+    padding: 0 80px !important;
+}
+
+.modalAddDocumentContentButtonCreate {
+    background: #4c5bd4;
+    color: #fff;
+    border: 1px solid #4c5bd4;
+    border-radius: 50px !important;
+    text-align: center;
+    font-weight: 700;
+    padding: 0 80px !important;
+}
