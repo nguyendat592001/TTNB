@@ -16,6 +16,9 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
   const router = useRouter();
   const [eidtImageWall, setEidtImageWall] = useState(false);
   const [avatar, setAvatar] = useState(false);
+  const onClicknewstory = () => {
+    router.push("/addstory24h");
+  };
 
   return (
     <div>
@@ -98,19 +101,6 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
             </div>
           </div>
           <div className={styles.center_avt_btn}>
-<<<<<<< HEAD
-            <Link href="/">
-              <p>
-                <Image
-                  width={20}
-                  height={20}
-                  alt="cin"
-                  src={"/img/nv_add-circle.svg"}
-                />
-                Thêm vào tin
-              </p>
-            </Link>
-=======
             <p onClick={onClicknewstory} className={styles.addstory}>
               <Image
                 width={20}
@@ -121,7 +111,6 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
               Thêm vào tin
             </p>
 
->>>>>>> 4e893d1b0ca130fa5686d7793c5e275d6942d91d
             <EditPerPages
               isOpen={false}
               onClose={function (): void {
