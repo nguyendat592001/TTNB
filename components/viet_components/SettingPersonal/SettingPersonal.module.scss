@@ -1,0 +1,43 @@
+//CDC
+.cdc {
+    background-color: #fff;
+    margin-top: 30px;
+    padding: 20px;
+
+    .contact {
+        display: flex;
+
+        padding: 10px 0;
+
+        .lienhe {
+            width: 33%;
+            color: #474747;
+
+            font-size: 16px;
+
+            font-weight: 500;
+
+        }
+
+        .info {
+            display: flex;
+            width: 33%;
+            color: #474747;
+
+            font-size: 16px;
+
+            font-weight: 500;
+
+        }
+
+        .set {
+            width: 33%;
+            display: flex;
+            justify-content: flex-end;
+            cursor: pointer;
+            color:  #4C5BD4;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}

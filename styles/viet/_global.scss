@@ -113,3 +113,20 @@
         }
     }
 }
+.tabSetting
+{
+    overflow-y: hidden;
+    .ant-tabs-nav .ant-tabs-nav-list{
+        background: #fff;
+        min-height: calc(100vh - 78px);
+    }
+    .tabpane{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: 500;
+    
+    }
+}
+

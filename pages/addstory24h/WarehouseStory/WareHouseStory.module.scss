@@ -8,6 +8,17 @@
         position: fixed;
         background-color: #fff;
         min-height: 100vh;
+        .khotin{
+            font-size: 17px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .nhatki{
+            font-size: 17px;
+            font-weight: 500;
+            padding: 10px 0;
+            cursor: pointer;
+        }
     }
 
     .content {
@@ -52,4 +63,7 @@
     color:white;
     display: flex;
     align-items: center;
+}
+.activeTab{
+    background: #cf2a2a;
 }
