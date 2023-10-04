@@ -18,6 +18,26 @@
     }
 }
 
+.TDCHcontentRight {
+    .ant-menu-item {
+        padding: 18px 25%;
+        display: flex;
+        align-items: center;
+        background: #4c5bd4;
+        color: #fff;
+        width: 400px;
+        height: 60px;
+        margin: 0;
+        border-radius: 0 !important;
+        gap: 10px;
+
+        &:hover {
+            background-color: #2e3994 !important;
+            color: #fff !important;
+        }
+    }
+}
+
 .modalExchangeQuestion .ant-modal-content,
 .modalAddDocument .ant-modal-content,
 .modalEditDocument .ant-modal-content {
