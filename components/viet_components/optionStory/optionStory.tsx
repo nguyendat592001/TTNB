@@ -3,6 +3,7 @@ import { Image } from "antd";
 import styles from "./optionStory.module.scss";
 export default function OptionStory(props: any): JSX.Element {
   const { text } = props;
+  // jhgjhgj
 
   return (
     <div>
