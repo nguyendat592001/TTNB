@@ -2,152 +2,92 @@ import SideBar from "@/components/header/sidebar/sidebar";
 import React, { useState } from "react";
 import { Button, Image, Input, Modal, Tabs } from "antd";
 import type { TabsProps } from "antd";
-
-import styles from './index.module.scss'
-import { LeftOutlined, SearchOutlined } from '@ant-design/icons';
-import ContentTab1 from '@/components/dat/dulieudaxoa/ContentTab1';
-import ContentTab2 from '@/components/dat/dulieudaxoa/ContentTab2';
-import { useRouter } from 'next/router';
-import { SelectedItemsProvider } from '@/components/dat/dulieudaxoa/Context';
-
+import styles from "./index.module.scss";
+import { LeftOutlined, SearchOutlined } from "@ant-design/icons";
+import ContentTab1 from "@/components/dat/dulieudaxoa/ContentTab1";
+import ContentTab2 from "@/components/dat/dulieudaxoa/ContentTab2";
+import { useRouter } from "next/router";
+import { SelectedItemsProvider } from "@/components/dat/dulieudaxoa/Context";
 
 export default function TTNB() {
-    const router = useRouter();
-    const [activeTabs, setActiveTabs] = useState('1');
-    const [selectedItemKey, setSelectedItemKey] = useState<string | null>(null);
-    const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
-    const [isModalRestoreOpen, setIsModalRestoreOpen] = useState(false);
-    const [selectedAction, setSelectedAction] = useState('');
-    const [selectAllItems, setSelectAllItems] = useState(false);
-    const [showSelectAllButton, setShowSelectAllButton] = useState(false);
-    const [showSelectAllText, setShowSelectAllText] = useState("Bỏ chọn tất cả");
+  const router = useRouter();
 
-    const handleSelectAllItems = () => {
-        setShowSelectAllButton(!showSelectAllButton);
-        setSelectAllItems(!selectAllItems);
+  const [activeTabs, setActiveTabs] = useState("1");
+  const [selectedItemKey, setSelectedItemKey] = useState<string | null>(null);
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
+  const [isModalRestoreOpen, setIsModalRestoreOpen] = useState(false);
+  const [selectedAction, setSelectedAction] = useState("");
+  const [selectAllItems, setSelectAllItems] = useState(false);
+  const [showSelectAllButton, setShowSelectAllButton] = useState(false);
+  const [showSelectAllText, setShowSelectAllText] = useState("Bỏ chọn tất cả");
 
-        if (showSelectAllButton) {
-            setShowSelectAllText("Chọn tất cả");
-        } else {
-            setShowSelectAllText("Bỏ chọn tất cả");
-        }
-    };
+  const handleSelectAllItems = () => {
+    setShowSelectAllButton(!showSelectAllButton);
+    setSelectAllItems(!selectAllItems);
 
+    if (showSelectAllButton) {
+      setShowSelectAllText("Chọn tất cả");
+    } else {
+      setShowSelectAllText("Bỏ chọn tất cả");
+    }
+  };
+
+  const showRestoreModal = () => {
+    setSelectedAction("Khôi phục");
+    setIsModalRestoreOpen(true);
+  };
   const showDeleteModal = () => {
     setSelectedAction("Xóa");
     setIsModalDeleteOpen(true);
   };
-
   const handleRestoreModalOk = () => {
     setIsModalRestoreOpen(false);
   };
-
   const handleRestoreModalCancel = () => {
     setIsModalRestoreOpen(false);
   };
-
   const handleDeleteModalOk = () => {
     setIsModalDeleteOpen(false);
   };
-
   const handleDeleteModalCancel = () => {
     setIsModalDeleteOpen(false);
   };
 
-  const handleSelectAll = () => {
-    if (!selectAll) {
-    } else {
-      setSelectedItems([]);
-    }
-    setSelectAll(!selectAll);
-  };
   const onChange = (key: string) => {
     setActiveTabs(key);
   };
+
   const RenderTab1 = () => {
-    if (activeTabs === "1") {
-      return (
-        <Image
-          src="/logo/deleteData/tab1-xanh.svg"
-          alt="tab1"
-          width={22}
-          height={22}
-          preview={false}
-        />
-      );
-    } else {
-      return (
-        <Image
-          src="/logo/deleteData/tab1-xam.svg"
-          alt="tab1"
-          width={22}
-          height={22}
-          preview={false}
-        />
-      );
-    }
+    const isActiveTab = activeTabs === "1";
+    return (
+      <Image
+        src={`/img/dulieudaxoa/tab1-${isActiveTab ? "xanh" : "xam"}.svg`}
+        alt="tab1"
+        width={22}
+        height={22}
+        preview={false}
+      />
+    );
   };
   const RenderTab2 = () => {
-    if (activeTabs === "2") {
-      return (
-        <Image
-          src="/logo/deleteData/tab2-xanh.svg"
-          alt="tab2"
-          width={22}
-          height={22}
-          preview={false}
-        />
-      );
-    } else {
-      return (
-        <Image
-          src="/logo/deleteData/tab2-xam.svg"
-          alt="tab2"
-          width={22}
-          height={22}
-          preview={false}
-        />
-      );
-    }
+    const isActiveTab = activeTabs === "2";
+    return (
+      <Image
+        src={`/img/dulieudaxoa/tab2-${isActiveTab ? "xanh" : "xam"}.svg`}
+        alt="tab2"
+        width={22}
+        height={22}
+        preview={false}
+      />
+    );
   };
 
-
-    const onChange = (key: string) => {
-        setActiveTabs(key);
-    };
-
-    const RenderTab1 = () => {
-        const isActiveTab = activeTabs === "1";
-        return (
-            <Image
-                src={`/img/dulieudaxoa/tab1-${isActiveTab ? 'xanh' : 'xam'}.svg`}
-                alt="tab1"
-                width={22}
-                height={22}
-                preview={false}
-            />
-        );
-    };
-    const RenderTab2 = () => {
-        const isActiveTab = activeTabs === "2";
-        return (
-            <Image
-                src={`/img/dulieudaxoa/tab2-${isActiveTab ? 'xanh' : 'xam'}.svg`}
-                alt="tab2"
-                width={22}
-                height={22}
-                preview={false}
-            />
-        );
-    };
-
-    return (
-        <div className='flex containerTTNB'>
-            <div className={`${styles.sidebar}`}>
-                <SideBar />
-            </div>
-
-
+  return (
+    <div className="flex containerTTNB">
+      <div className={`${styles.sidebar}`}>
+        <SideBar />
+      </div>
+      <div className={`${styles.sidebarContent}`}></div>
       <div
         style={{
           width: "100%",
@@ -161,98 +101,43 @@ export default function TTNB() {
           <LeftOutlined rev={undefined} />
           <p className={styles.back}>Truyền thông nội bộ</p>
         </div>
-
         <div id="TableDeleteDataDetail" className={styles.container}>
           <div className={styles.position}>
             <div className={styles.btnGroup}>
-              {!selectAll && (
+              {!showSelectAllButton && (
                 <div className={styles.btn}>
-                  <Button block onClick={handleSelectAll}>
+                  <Button block onClick={handleSelectAllItems}>
                     Chọn tất cả
                   </Button>
                 </div>
+              )}
 
-                <div id="TableDeleteDataDetail" className={styles.container}>
-                    <div className={styles.position}>
-                        <div className={styles.btnGroup}>
-                            {!showSelectAllButton && (
-                                <div className={styles.btn}>
-                                    <Button block onClick={handleSelectAllItems}>
-                                        Chọn tất cả
-                                    </Button>
-                                </div>
-                            )}
-                            {showSelectAllButton && (
-                                <div className={styles.btn}>
-                                    <Button block onClick={showRestoreModal}>
-                                        Khôi phục
-                                    </Button>
-                                </div>
-                            )}
-                            {showSelectAllButton && (
-                                <div className={styles.btn}>
-                                    <Button block onClick={showDeleteModal}>
-                                        Xóa
-                                    </Button>
-                                </div>
-                            )}
-                            {showSelectAllButton && (
-                                <div className={styles.btn}>
-                                    <Button block onClick={handleSelectAllItems}>
-                                        {showSelectAllText}
-                                    </Button>
-                                </div>
-                            )}
-                        </div>
-                        <div className={styles.searchWrapper}>
-                            <Input
-                                placeholder="Tìm kiếm"
-                                size="large"
-                                className={styles.search}
-                                suffix={
-                                    <SearchOutlined
-                                        className="cursor-pointer"
-                                        rev={"xxx"}
-                                    />
-                                }
-                            />
-                        </div>
-                    </div>
-                    <Tabs
-                        defaultActiveKey="1"
-                        onChange={onChange}
-                        items={[
-                            {
-                                key: '1',
-                                label: <RenderTab1 />,
-                                active: activeTabs === '1',
-                                children: (
-                                    <ContentTab1
-                                        selectAllItems={selectAllItems}
-                                        setSelectAllItems={setSelectAllItems}
-                                        selectedItemKey={selectedItemKey}
-                                        setSelectedItemKey={setSelectedItemKey}
-                                    />
-                                ),
-                            },
-                            {
-                                key: '2',
-                                label: <RenderTab2 />,
-                                active: activeTabs === '2',
-                                children: (
-                                    <ContentTab2
-                                        selectAllItems={selectAllItems}
-                                        setSelectAllItems={setSelectAllItems}
-                                        selectedItemKey={selectedItemKey}
-                                        setSelectedItemKey={setSelectedItemKey}
-                                    />
-                                ),
-                            },
-                        ]}
-                        className={`${styles.tabTTNB} tabTTNB`}
-                    />
+              {showSelectAllButton && (
+                <div className={styles.btn}>
+                  <Button block onClick={showRestoreModal}>
+                    Khôi phục
+                  </Button>
+                  <Button block onClick={showRestoreModal}>
+                    Khôi phục
+                  </Button>
                 </div>
+              )}
 
+              {showSelectAllButton && (
+                <div className={styles.btn}>
+                  <Button block onClick={showDeleteModal}>
+                    Xóa
+                  </Button>
+                </div>
+              )}
+
+              {showSelectAllButton && (
+                <div className={styles.btn}>
+                  <Button block onClick={handleSelectAllItems}>
+                    {showSelectAllText}
+                  </Button>
+                </div>
+              )}
             </div>
             <div className={styles.searchWrapper}>
               <Input
@@ -267,8 +152,35 @@ export default function TTNB() {
           </div>
           <Tabs
             defaultActiveKey="1"
-            items={itemsTab}
             onChange={onChange}
+            items={[
+              {
+                key: "1",
+                label: <RenderTab1 />,
+                active: activeTabs === "1",
+                children: (
+                  <ContentTab1
+                    selectAllItems={selectAllItems}
+                    setSelectAllItems={setSelectAllItems}
+                    selectedItemKey={selectedItemKey}
+                    setSelectedItemKey={setSelectedItemKey}
+                  />
+                ),
+              },
+              {
+                key: "2",
+                label: <RenderTab2 />,
+                active: activeTabs === "2",
+                children: (
+                  <ContentTab2
+                    selectAllItems={selectAllItems}
+                    setSelectAllItems={setSelectAllItems}
+                    selectedItemKey={selectedItemKey}
+                    setSelectedItemKey={setSelectedItemKey}
+                  />
+                ),
+              },
+            ]}
             className={`${styles.tabTTNB} tabTTNB`}
           />
         </div>
@@ -293,7 +205,6 @@ export default function TTNB() {
           </span>
           thông tin về tài liệu sẽ được khôi phục lại vị trí ban đầu?
         </p>
-
         <div className={styles.modalRestoreBtn}>
           <Button
             size="large"
@@ -311,7 +222,6 @@ export default function TTNB() {
           </Button>
         </div>
       </Modal>
-
       <Modal
         title={selectedAction}
         open={isModalDeleteOpen}
@@ -331,7 +241,6 @@ export default function TTNB() {
             không thể khôi phục lại.
           </span>
         </p>
-
         <div className={styles.modalDeleteBtn}>
           <Button
             size="large"
