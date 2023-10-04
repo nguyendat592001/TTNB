@@ -42,6 +42,7 @@ const Question = () => {
       }
    };
    const [reverse, setReverse] = useState(true);
+
    return (
       <>
          <div className={styles.container}>
@@ -124,7 +125,7 @@ const Question = () => {
                </div>
             </div>
             <div>
-               <Modal className={`thuc_modal ${styles.thuc_pin}`} title="Từ chối kềm theo ý kiến đóng góp" open={isModalNewOpen} onCancel={handleNewCancel} footer={null}>
+               <Modal className={`thuc_modal ${styles.thuc_pin}`} title="Câu hỏi" open={isModalNewOpen} onCancel={handleNewCancel} footer={null}>
                   <div className={styles.modal_container}>
                      <Select
                         defaultValue="Câu trả lời tự do"
@@ -228,7 +229,7 @@ const Question = () => {
                         <Button className={`btn_cancer`} onClick={handleNewCancel}>
                            Hủy
                         </Button>
-                        <Button className={`btn_ok`}>Xóa nhóm</Button>
+                        <Button className={`btn_ok`}>Lưu</Button>
                      </div>
                   </div>
                </Modal>
