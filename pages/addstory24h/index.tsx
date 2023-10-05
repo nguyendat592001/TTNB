@@ -10,6 +10,7 @@ export default function Index() {
   const [imaget, setImageNone] = useState(true);
   const [textColorIndex, setTextColor] = useState(0);
 
+  //  đưa ảnh vào
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {

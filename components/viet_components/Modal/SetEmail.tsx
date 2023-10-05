@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "antd";
 import styles from "./Modal.module.scss";
 import { Image } from "antd";
+import AddEmail from "./AddEmail";
 
 const SetEmail: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,10 +33,7 @@ const SetEmail: React.FC = () => {
           Email hiện tại : <p>Some ...</p>
         </span>
 
-        <div>
-          <Image src="/img/nv_add-circle_blue.svg" />
-          Thêm email khác
-        </div>
+        <AddEmail />
       </Modal>
     </>
   );

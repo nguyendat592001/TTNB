@@ -53,24 +53,32 @@ const fr = [
 ];
 
 export default function Follower() {
-  const [add, setAdd] = useState(false);
+  const [followers, setFollowers] = useState(fr);
+
+  const handleRemoveFollower = (id: number) => {
+    // Lọc ra danh sách bạn bè mới loại bỏ người dùng có id tương ứng
+    const updatedFollowers = followers.filter((follower) => follower.id !== id);
+    setFollowers(updatedFollowers);
+  };
 
   return (
     <div className={styles.grid_fr}>
-      {fr.map((allfr, index) => (
+      {followers.map((follower, index) => (
         <div key={index} className={styles.grid}>
-          <div className={styles.allfr} key={allfr.id}>
+          <div className={styles.allfr} key={follower.id}>
             <Image
               className={styles.allfr_img}
               width={56}
               height={56}
               alt="anh-dai-dien"
-              src={allfr.imgAvt}
+              src={follower.imgAvt}
             />
-            <a className={styles.allfr_name}>{allfr.name}</a>
+            <a className={styles.allfr_name}>{follower.name}</a>
           </div>
           <div className={styles.feedback_dad}>
-            <BtnAction />
+            <BtnAction
+              removeFollower={() => handleRemoveFollower(follower.id)}
+            />
           </div>
         </div>
       ))}
