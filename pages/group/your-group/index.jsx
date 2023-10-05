@@ -1,17 +1,151 @@
 import React, { useState, useEffect } from "react";
 import styles from "./index.module.css";
-import { Image, Input, Popover, Modal, Select, Upload, Button, Tabs } from "antd";
+import { Image, Input, Dropdown, Modal, Menu, Button, Tabs, Popover, message, Switch } from "antd";
 import { useRouter } from "next/router";
 import { CameraOutlined, CloseOutlined } from "@ant-design/icons";
 import LeftNav from "../../../components/thuc_components/left-nav-group/leftNav";
-import OptionPost from "../../../components/common/Popover/OptionPost";
 import Discuss from "./home/discuss";
 import Member from "./home/member";
 import PinStatus from "./home/pin-status";
 import VideoHd from "./home/videohd";
 import Colection from "./home/colection";
 import File from "./home/file";
+import ShareNewFeed from "../../../components/thuc_components/shareGroup/shareNewfeed/shareNewFeed";
+import ShareFriend from "../../../components/thuc_components/shareGroup/shareNewfeed/shareFriend";
+import Head from "next/head";
 const App = () => {
+   //modal chia sẻ bảng tin
+   const [isModalShareNewFeed, setIsModalShareNewFeed] = useState(false);
+   const showShareNewFeed = () => {
+      setIsModalShareNewFeed(true);
+   };
+   const handleShareNewFeedCancel = () => {
+      setIsModalShareNewFeed(false);
+   };
+   //modal chia sẻ chat
+   const [isModalShareMessenger, setIsModalShareMessenger] = useState(false);
+   const showShareMessenger = () => {
+      setIsModalShareMessenger(true);
+   };
+   const handleShareMessengerCancel = () => {
+      setIsModalShareMessenger(false);
+   };
+   //modal chia sẻ bạn bè
+   const [isModalShareFriend, setIsModalShareFriend] = useState(false);
+   const showShareFriend = () => {
+      setIsModalShareFriend(true);
+      setIsModalInviteFriendOpen(false);
+   };
+   const handleShareFriendCancel = () => {
+      setIsModalShareFriend(false);
+   };
+   //modal cài đặt thông báo
+   const [isModalNotificalOpen, setIsModalNotificalOpen] = useState(false);
+   const showModalNotifical = () => {
+      setIsModalNotificalOpen(true);
+   };
+   const handleNotificalCancel = () => {
+      setIsModalNotificalOpen(false);
+   };
+
+   const itemNofical = [
+      {
+         key: "1",
+         name: "Tất cả bài viết",
+         subtitle: "Mọi bài viết trong nhóm",
+      },
+      {
+         key: "2",
+         name: "Bài viết nổi bật",
+         subtitle: "Bài viết của bạn bè và bài viết gợi ý",
+      },
+      {
+         key: "3",
+         name: "Bài viết của bạn bè",
+         subtitle: "Chỉ bài viết của bạn bè",
+      },
+      {
+         key: "4",
+         name: "Tắt",
+         subtitle: (
+            <p>
+               Chỉ những lượt nhắc và cập nhật quan trọng về cài đặt
+               <br /> hoặc quyền riêng tư của nhóm
+            </p>
+         ),
+      },
+   ];
+   const [selectedTime, setSelectedTime] = useState("");
+   const [reverse, setReverse] = useState(true);
+   const handleRadioChange = (name) => {
+      setSelectedTime(name);
+   };
+
+   //modal cài đặt Unfollow
+   const [isModalUnfollowOpen, setIsModalUnfollowOpen] = useState(false);
+   const showModalUnfollow = () => {
+      setIsModalUnfollowOpen(true);
+   };
+   const handleUnfollowCancel = () => {
+      setIsModalUnfollowOpen(false);
+   };
+   const handleNotificalOk = () => {
+      setFollow("on");
+      setIsModalUnfollowOpen(false);
+   };
+
+   //modal tạm dừng nhóm
+   const [isModalStopOpen, setIsModalStopOpen] = useState(false);
+   const showModalStop = () => {
+      setIsModalStopOpen(true);
+   };
+   const handleStopCancel = () => {
+      setIsModalStopOpen(false);
+   };
+
+   const itemStop = [
+      {
+         key: "1",
+         name: "Trong 12 giờ",
+      },
+      {
+         key: "2",
+         name: "Trong 24 giờ",
+      },
+      {
+         key: "3",
+         name: "Trong 3 ngày",
+      },
+      {
+         key: "4",
+         name: "Trong 7 ngày",
+      },
+      {
+         key: "5",
+         name: "Trong 14 ngày",
+      },
+      {
+         key: "6",
+         name: "Trong 30 ngày",
+      },
+      {
+         key: "7",
+         name: "Bỏ tạm dừng",
+      },
+   ];
+   const [selectedStop, setSelectedStop] = useState("");
+   const handleRadioStopChange = (name) => {
+      setSelectedStop(name);
+   };
+
+   //modal xóa nhóm
+   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
+   const showModalDelete = () => {
+      setIsModalDeleteOpen(true);
+   };
+   const handleDeleteCancel = () => {
+      setIsModalDeleteOpen(false);
+   };
    const router = useRouter();
    //tabs
 
@@ -47,50 +181,170 @@ const App = () => {
          children: <File />,
       },
    ];
+
+   //datapopover
+   const dataPopover = [
+      {
+         key: "1",
+         img: "/img/group/share.svg",
+         label: "Chia sẻ ngay",
+      },
+      {
+         key: "2",
+         img: "/img/group/sharefd.svg",
+         label: "Chia sẻ lên bảng tin",
+      },
+      {
+         key: "3",
+         img: "/img/group/mess.svg",
+         label: "Gửi bằng chat",
+      },
+      {
+         key: "4",
+         img: "/img/group/share_friend.svg",
+         label: "Chia sẻ lên trang cá nhân của bạn bè",
+      },
+      {
+         key: "5",
+         img: "/img/group/copy.svg",
+         label: "Sao chép liên kết",
+      },
+   ];
+   const content = (
+      <Menu onClick={({ key }) => handlePopoverClick(key)}>
+         {dataPopover.map((item) => (
+            <>
+               <Menu.Item key={item.key}>
+                  <>
+                     <div className={styles.menu_drop}>
+                        <Image alt="/" src={item.img} preview={false} className={`drop_img`} />
+                        <div className={styles.menu_flex}>
+                           <p>{item.label}</p>
+                        </div>
+                     </div>
+                  </>
+               </Menu.Item>
+            </>
+         ))}
+      </Menu>
+   );
+   const handlePopoverClick = (key) => {
+      if (key === "1") {
+         alert("Chia sẻ nhóm thành công");
+      }
+      if (key === "2") {
+         showShareNewFeed();
+      }
+      if (key === "3") {
+         showShareMessenger();
+      }
+      if (key === "4") {
+         showModalInviteFriend();
+      }
+      if (key === "5") {
+         message.success("Sao chép liên kết thành công", 2);
+      }
+   };
    //data chi tiết
-   const [isOptionPopoverOpen, setIsOptionPopoverOpen] = useState(false);
+   const [pinGroup, setPinGroup] = useState("on");
+   const [follow, setFollow] = useState("on");
    const menuOption = [
       {
          key: "1",
-         icon: <Image src="/img/group/dot1.svg" alt="icon" preview={false} />,
+         icon: "/img/group/dot1.svg",
          text: "Nội dung của bạn",
       },
       {
          key: "2",
-         icon: <Image src="/img/group/dot21.svg" alt="icon" preview={false} />,
-         text: "Bỏ ghim nhóm",
+         icon: pinGroup === "on" ? "/img/group/dot21.svg" : "/img/group/dot22.svg",
+         text: pinGroup === "on" ? "Bỏ ghim nhóm" : "Ghim nhóm",
       },
       {
          key: "3",
-         icon: <Image src="/img/group/dot3.svg" alt="icon" preview={false} />,
-         text: "Chia sẻ",
+         icon: "/img/group/dot3.svg",
+         text: (
+            <Popover placement="bottomRight" content={content} trigger="click" arrow={false}>
+               Chia sẻ
+            </Popover>
+         ),
       },
       {
          key: "4",
-         icon: <Image src="/img/group/dot4.svg" alt="icon" preview={false} />,
+         icon: "/img/group/dot4.svg",
          text: "Cài đặt thông báo",
       },
       {
          key: "5",
-         icon: <Image src="/img/group/dot5.svg" alt="icon" preview={false} />,
-         text: "Theo dõi nhóm",
+         icon: follow === "on" ? "/img/group/dot5.svg" : "/img/group/bo-theo-doi.svg",
+         text: follow === "on" ? "Theo dõi nhóm" : "Bỏ theo dõi nhóm",
       },
       {
          key: "6",
-         icon: <Image src="/img/group/dot6.svg" alt="icon" preview={false} />,
+         icon: "/img/group/dot6.svg",
          text: "Tạm dừng nhóm",
       },
       {
          key: "7",
-         icon: <Image src="/img/group/dot7.svg" alt="icon" preview={false} />,
+         icon: "/img/group/dot7.svg",
          text: "Xóa nhóm",
       },
       {
          key: "8",
-         icon: <Image src="/img/group/dot8.svg" alt="icon" preview={false} />,
+         icon: "/img/group/dot8.svg",
          text: "Tìm kiếm",
       },
    ];
+   const menuDrop = (
+      <Menu onClick={({ key }) => handleDropdownClick(key)}>
+         {menuOption.map((item) => (
+            <>
+               <Menu.Item key={item.key}>
+                  <>
+                     <div className={styles.menu_drop}>
+                        <Image alt="/" src={item.icon} preview={false} className={`drop_img`} />
+                        <div className={styles.menu_flex}>
+                           <p>{item.text}</p>
+                        </div>
+                     </div>
+                  </>
+               </Menu.Item>
+            </>
+         ))}
+      </Menu>
+   );
+   const handleDropdownClick = (key) => {
+      if (key === "1") {
+         router.push("/group/content-group/posted");
+      }
+      if (key === "2") {
+         if (pinGroup === "on") {
+            alert("Bỏ ghim nhóm thành công");
+            setPinGroup("off");
+         } else {
+            alert("Ghim nhóm thành công");
+            setPinGroup("on");
+         }
+      }
+      if (key === "4") {
+         showModalNotifical();
+      }
+      if (key === "5") {
+         if (follow === "on") {
+            alert("Theo dõi nhóm thành công");
+            setFollow("off");
+         } else {
+            showModalUnfollow();
+         }
+      }
+      if (key === "6") {
+         showModalStop();
+      }
+      if (key === "7") {
+         showModalDelete();
+      }
+   };
+   const [openPopover, setOpenPopover] = useState(false);
+   const showPopover = () => {};
    //data invited
    const data = [
       {
@@ -128,36 +382,90 @@ const App = () => {
       setIsModalInviteOpen(true);
    };
    const operations = (
-      <Popover
-         placement="bottomRight"
-         content={
-            <OptionPost
-               menuItems={menuOption}
-               //   onMenuItemClick={handlePopoverItemClick}
-            />
-         }
-         trigger="click"
-         arrow={false}
-         open={isOptionPopoverOpen}
-         onOpenChange={(open) => setIsOptionPopoverOpen(open)}>
+      <Dropdown overlay={menuDrop} placement="bottomRight" trigger="click">
          <Image
             src="/img/group/dot.png"
             alt="icon"
             width={40}
             height={40}
             preview={false}
-            onClick={() => setIsOptionPopoverOpen(!isOptionPopoverOpen)}
             style={{
                cursor: "pointer",
                marginRight: "10px",
                transform: "rotate(90deg)",
             }}
          />
-      </Popover>
+      </Dropdown>
    );
+   const dataListGroup = [
+      {
+         key: 1,
+         img: "/img/group/tq5.jpg",
+         name: "Nguyễn Hoàng Việt",
+         imgGr: "/img/group/mu4.jpg",
+         grName: "Fan MU Việt Nam",
+      },
+      {
+         key: 2,
+         img: "/img/group/tq4.jpg",
+         name: "Nguyễn Thế Đạt",
+         imgGr: "/img/group/mu3.jpg",
+         grName: "Manchester United",
+      },
+      {
+         key: 3,
+         img: "/img/group/tq3.jpg",
+         name: "Nguyễn Văn Thức",
+         imgGr: "/img/group/mu2.jpg",
+         grName: "Fan MU Hà Nội",
+      },
+      {
+         key: 4,
+         img: "/img/group/tq2.jpg",
+         name: "Nguyễn Thế Anh",
+         imgGr: "/img/group/mu1.jpg",
+         grName: "abc",
+      },
+      {
+         key: 5,
+         img: "/img/group/tq1.jpg",
+         name: "Nguyễn Việt Hoàng",
+         imgGr: "/img/group/mu4.jpg",
+         grName: "TTNB",
+      },
+   ];
+   const [buttonStates, setButtonStates] = useState(dataListGroup.map(() => false));
+
+   const handleButtonClick = (index) => {
+      const newButtonStates = [...buttonStates];
+      newButtonStates[index] = !newButtonStates[index];
+      setButtonStates(newButtonStates);
+   };
+   const [searchValue, setSearchValue] = useState("");
+   const [filteredDataListGroup, setFilteredDataListGroup] = useState(dataListGroup);
+
+   const handleInputChange = (event) => {
+      const value = event.target.value.toLowerCase();
+      setSearchValue(value);
+      const filteredGroups = dataListGroup.filter((item) => item.grName.toLowerCase().includes(searchValue.toLowerCase()));
+      setFilteredDataListGroup(filteredGroups);
+   };
+
+   //modal share friend
+   const [isModalInviteFriendOpen, setIsModalInviteFriendOpen] = useState(false);
+   const handleInviteFriendCancel = () => {
+      setIsModalInviteFriendOpen(false);
+   };
+   const showModalInviteFriend = () => {
+      setIsModalInviteFriendOpen(true);
+   };
    return (
       <>
          <div className={styles.container}>
+            <Head>
+               <title>Nhóm do bạn quản lý</title>
+               <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+            </Head>
             <div className={styles.left_container}>
                <div className={styles.left}>
                   <LeftNav />
@@ -259,7 +567,169 @@ const App = () => {
                      </div>
                   </div>
                </Modal>
+               <Modal className={`thuc_modal ${styles.modal_new}`} title="Gửi bằng chat" open={isModalShareMessenger} onCancel={handleShareMessengerCancel} footer={null}>
+                  <div className={styles.modal_container}>
+                     <div className={styles.content}>
+                        <Image src="/img/group/tq4.jpg" alt="" width={70} height={70} preview={false} style={{ borderRadius: "8px" }} />
+                        <div className={styles.content_flex}>
+                           <h3> Fan MU Việt Nam </h3>
+                           <div className={styles.content_fl}>
+                              <p>Nhóm công khai</p>
+                              <p>1 tr thành viên</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div className={styles.input1}>
+                        <Input className={`thuc_input_full`} placeholder="Nhập tin nhắn của bạn"></Input>
+                        <Input className={`input_search`} placeholder="Tìm kiếm" value={searchValue} onChange={handleInputChange}></Input>
+                     </div>
+
+                     <div className={styles.scroll}>
+                        <h3>Gần đây</h3>
+                        <div className={styles.scroll_height}>
+                           {filteredDataListGroup.map((item, index) => {
+                              return (
+                                 <div className={styles.recently} key={item.key}>
+                                    <div className={styles.recently_fl}>
+                                       <Image alt="" src={item.img} width={50} height={50} style={{ borderRadius: "50%" }} preview={false} />
+                                       <p className={styles.p_new}>{item.name}</p>
+                                    </div>
+                                    <Button className={`btn_sent`} onClick={() => handleButtonClick(index)}>
+                                       {" "}
+                                       {buttonStates[index] ? "Gửi" : "Đã gửi"}
+                                    </Button>
+                                 </div>
+                              );
+                           })}
+                        </div>
+                     </div>
+
+                     <div className={styles.scroll}>
+                        <h3>Nhóm</h3>
+                        <div className={styles.scroll_height}>
+                           {filteredDataListGroup.map((item, index) => {
+                              return (
+                                 <div className={styles.recently} key={item.key}>
+                                    <div className={styles.recently_fl}>
+                                       <Image alt="" src={item.imgGr} width={50} height={50} style={{ borderRadius: "50%" }} preview={false} />
+                                       <p className={styles.p_new}>{item.grName}</p>
+                                    </div>
+                                    <Button className={`btn_sent`} onClick={() => handleButtonClick(index)}>
+                                       {" "}
+                                       {buttonStates[index] ? "Gửi" : "Đã gửi"}
+                                    </Button>
+                                 </div>
+                              );
+                           })}
+                        </div>
+                     </div>
+                  </div>
+               </Modal>
+               <Modal className={`thuc_modal ${styles.modal_new}`} title="Chia sẻ lên trang cá nhân bạn bè" open={isModalInviteFriendOpen} onCancel={handleInviteFriendCancel} footer={null}>
+                  <div className={styles.modal_container}>
+                     <div className={styles.input1}>
+                        <Input className={`input_search`} placeholder="Tìm kiếm" value={searchValue} onChange={handleInputChange}></Input>
+                     </div>
+
+                     <div className={styles.scroll}>
+                        <h3>Tất cả bạn bè</h3>
+                        <div className={styles.scroll_friend}>
+                           {filteredDataListGroup.map((item) => {
+                              return (
+                                 <div className={styles.recently} key={item.key}>
+                                    <div className={styles.recently_fl}>
+                                       <Image alt="" src={item.img} width={50} height={50} style={{ borderRadius: "50%" }} preview={false} />
+                                       <p className={styles.p_new}>{item.name}</p>
+                                    </div>
+                                    <div className={styles.img} onClick={showShareFriend}>
+                                       <Image alt="" src="/img/group/drop_right.svg" preview={false}></Image>
+                                    </div>
+                                 </div>
+                              );
+                           })}
+                        </div>
+                     </div>
+                  </div>
+               </Modal>
+               <Modal className={`thuc_modal `} title="Cài đặt thông báo" open={isModalNotificalOpen} onCancel={handleNotificalCancel} footer={null}>
+                  <div className={styles.modal_container_notifical}>
+                     {itemNofical.map((item) => {
+                        return (
+                           <div className={styles.madal_input} key={item.key}>
+                              <div className={styles.modal_fl}>
+                                 <h3>{item.name}</h3>
+                                 <p>{item.subtitle}</p>
+                              </div>
+                              <input type="radio" checked={selectedTime === item.name} onChange={() => handleRadioChange(item.name)} className={styles.input} />
+                           </div>
+                        );
+                     })}
+                     <div className={styles.madal_input}>
+                        <div className={styles.modal_fl}>
+                           <h3>Thông báo về yêu cầu làm thành viên</h3>
+                           <p>Thông báo về yêu cầu làm thành viên</p>
+                        </div>
+                        <Switch size="small" checked={reverse} onChange={setReverse} />
+                     </div>
+                     <div className={styles.btn}>
+                        <Button className={`btn_cancer`} onClick={handleNotificalCancel}>
+                           Hủy
+                        </Button>
+                        <Button className={`btn_ok`}>Xác nhận</Button>
+                     </div>
+                  </div>
+               </Modal>
+               <Modal className={`thuc_modal `} title="Bỏ theo dõi nhóm" open={isModalUnfollowOpen} onCancel={handleUnfollowCancel} footer={null}>
+                  <div className={styles.modal_container_notifical}>
+                     <p>Bạn có chắc muốn bỏ theo dõi nhóm Fan MU Việt Nam không?</p>
+                     <div className={styles.btn}>
+                        <Button className={`btn_cancer`} onClick={handleUnfollowCancel}>
+                           Hủy
+                        </Button>
+                        <Button className={`btn_ok`} onClick={handleNotificalOk}>
+                           Xác nhận
+                        </Button>
+                     </div>
+                  </div>
+               </Modal>
+               <Modal className={`thuc_modal `} title="Tạm dừng nhóm" open={isModalStopOpen} onCancel={handleStopCancel} footer={null}>
+                  <div className={styles.modal_container_notifical}>
+                     <h3>Ai có thể đăng trong nhóm</h3>
+                     <p>
+                        Khi bạn tạm dừng nhóm, mọi người sẽ chỉ đọc được nội dung trong đó. Một số công cụ có thể bị hạn chế đối với quản trị viên và người kiểm duyệt khi nhóm tạm dừng. Bạn có thể
+                        tiếp tục bất cứ lúc nào.
+                     </p>
+                     <h3>Thời gian tạm dừng nhóm</h3>
+                     {itemStop.map((item) => {
+                        return (
+                           <div className={styles.recently_fl} key={item.key}>
+                              <input type="radio" checked={selectedStop === item.name} onChange={() => handleRadioStopChange(item.name)} className={styles.input} />
+                              <p>{item.name}</p>
+                           </div>
+                        );
+                     })}
+                     <div className={styles.btn}>
+                        <Button className={`btn_cancer`} onClick={handleStopCancel}>
+                           Hủy
+                        </Button>
+                        <Button className={`btn_ok`}>Xác nhận</Button>
+                     </div>
+                  </div>
+               </Modal>
+               <Modal className={`thuc_modal `} title="Xóa nhóm" open={isModalDeleteOpen} onCancel={handleDeleteCancel} footer={null}>
+                  <div className={styles.modal_container_notifical}>
+                     <p>Bạn chắc chắn muốn xóa nhóm Fan MU Việt Nam?</p>
+                     <div className={styles.btn}>
+                        <Button className={`btn_cancer`} onClick={handleDeleteCancel}>
+                           Hủy
+                        </Button>
+                        <Button className={`btn_ok`}>Xác nhận</Button>
+                     </div>
+                  </div>
+               </Modal>
             </div>
+            <ShareNewFeed isOpen={isModalShareNewFeed} isClose={handleShareNewFeedCancel} />
+            <ShareFriend isOpen={isModalShareFriend} isClose={handleShareFriendCancel} />
          </div>
       </>
    );

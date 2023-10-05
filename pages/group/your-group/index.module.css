@@ -17,6 +17,9 @@
    padding-right: 10px;
    overflow: auto;
 }
+.left::-webkit-scrollbar {
+   display: none;
+}
 .left_container {
    width: 25%;
    float: left;
@@ -147,4 +150,94 @@
    background: #cccccc;
    padding: 5px;
    width: 40%;
+}
+.menu_drop {
+   display: flex;
+   gap: 25px;
+   align-items: center;
+}
+.content {
+   border-radius: 8px;
+   border: 1px solid #999999;
+   border-radius: 10px;
+   background: #f7f8fc;
+   display: flex;
+   align-items: center;
+   padding: 20px;
+   margin-bottom: 20px;
+   gap: 20px;
+}
+.content_flex {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.content_fl {
+   display: flex;
+   gap: 10px;
+}
+.input1 {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   padding-top: 15px;
+   padding-bottom: 15px;
+}
+.recently {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border-bottom: 1px dotted;
+}
+.recently_fl {
+   display: flex;
+   gap: 15px;
+   align-items: center;
+   cursor: pointer;
+}
+.scroll {
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+.scroll_height {
+   height: 130px;
+   overflow: auto;
+}
+.scroll_friend::-webkit-scrollbar,
+.scroll_height::-webkit-scrollbar {
+   display: none;
+}
+.scroll_friend {
+   height: 400px;
+   overflow: auto;
+}
+.img {
+   cursor: pointer;
+}
+.input {
+   width: 17px;
+   height: 17px;
+}
+.madal_input {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.btn {
+   display: flex;
+   gap: 20px;
+   justify-content: center;
+   align-items: center;
+}
+.modal_fl {
+   display: flex;
+   flex-direction: column;
+}
+.modal_container_notifical {
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
 }

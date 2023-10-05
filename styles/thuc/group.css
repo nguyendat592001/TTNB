@@ -59,6 +59,11 @@
    padding: 12px 15px;
    background: #f7f8fc;
 }
+.input_search {
+   width: 100%;
+   border-radius: 35px;
+   padding: 12px 15px;
+}
 .thuc_space .ant-space-item {
    width: 100%;
 }
@@ -114,4 +119,13 @@
    color: #fff;
    border-radius: 20px;
    width: 100%;
+}
+.btn_sent {
+   border-radius: 25px;
+   color: #4c5bd4;
+   font-size: 14px;
+   font-weight: 400;
+   background: white;
+   width: 100px;
+   height: 36px;
 }
