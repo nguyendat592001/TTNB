@@ -1,0 +1,59 @@
+.sidebar {
+    position: fixed;
+}
+
+.subSidebar {
+    width: 25%;
+}
+
+.VHDNContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.VHDNContentHeader {
+    gap: 40px;
+    width: 100%;
+}
+
+.VHDNSearchInput {
+    margin-top: 30px;
+    width: 64%;
+}
+
+.contentRightContainer {
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.searchInput {
+    border: 1px solid #d9d9d9;
+    border-radius: 16px;
+    padding: 10px 20px;
+    width: 100%;
+
+    &hover {
+        border: 1px solid #d9d9d9 !important;
+        border-radius: 16px !important;
+    }
+}
+
+.selectedOption {
+    width: 100%;
+    padding: 18px 18%;
+    display: flex;
+    align-items: center;
+    background: #4c5bd4;
+    border: 1px solid #4c5bd4;
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, .1);
+    border-radius: 6px;
+    color: #fff;
+    gap: 20px;
+}
+
+.VHDNcontentRight {
+    position: fixed;
+    width: 360px;
+}

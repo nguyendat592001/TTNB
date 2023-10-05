@@ -1,15 +1,15 @@
 .posts {
-    margin-top: -25px;
+    margin-top: 15px;
 }
 
-.addPost {
+.addQuestion {
     background-color: #FFF;
     border-radius: 10px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
     padding: 20px;
 }
 
-.addPost__header {
+.addQuestion__header {
     display: flex;
     align-items: center;
 }
@@ -18,11 +18,11 @@
     border-radius: 50%;
 }
 
-.addPost__header__left {
+.addQuestion__header__left {
     cursor: pointer;
 }
 
-.addPost__header__right {
+.addQuestion__header__right {
     margin-left: 10px;
     width: 100%;
     padding-left: 10px;
@@ -42,12 +42,12 @@
     cursor: pointer;
 }
 
-.addPost__body {
+.addQuestion__body {
     display: flex;
     justify-content: space-between;
 }
 
-.addPost__body_item {
+.addQuestion__body_item {
     color: #666666;
     font-weight: 500;
     cursor: pointer;
@@ -56,17 +56,30 @@
     align-items: center;
 }
 
-.addPost__body_title {
+.addQuestion__body_title {
     margin-left: 8px;
 }
 
+.addQuestion__button {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 42px !important;
+    background: #4c5bd4;
+    text-align: center;
+    border-radius: 50px !important;
+    font-weight: 700;
+    line-height: 19px;
+    color: #fff;
+    border: 0;
+}
+
 @media (max-width: 768px) {
-    .addPost__body {
+    .addQuestion__body {
         flex-wrap: wrap;
         gap: 12px;
     }
 
-    .addPost__body_item {
+    .addQuestion__body_item {
         font-size: 14px;
     }
 }

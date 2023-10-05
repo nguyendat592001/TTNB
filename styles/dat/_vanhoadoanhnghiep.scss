@@ -1,11 +1,11 @@
-.QTTTcontentRight {
+.VHDNcontentRight {
     .ant-menu-item {
-        padding: 18px 25%;
+        padding: 18px 18%;
         display: flex;
         align-items: center;
         background: #4c5bd4;
         color: #fff;
-        width: 430px;
+        width: 360px;
         height: 60px;
         margin: 0;
         border-radius: 0 !important;
@@ -18,30 +18,8 @@
     }
 }
 
-.TDCHcontentRight {
-    .ant-menu-item {
-        padding: 18px 25%;
-        display: flex;
-        align-items: center;
-        background: #4c5bd4;
-        color: #fff;
-        width: 400px;
-        height: 60px;
-        margin: 0;
-        border-radius: 0 !important;
-        gap: 10px;
-
-        &:hover {
-            background-color: #2e3994 !important;
-            color: #fff !important;
-        }
-    }
-}
-
-.modalExchangeQuestion .ant-modal-content,
-.modalAddDocument .ant-modal-content,
-.modalEditDocument .ant-modal-content,
-.edit-question-modal .ant-modal-content,
+// 
+.detail-email-modal .ant-modal-content,
 .UploadQuestionModal .ant-modal-content {
     padding: 0px;
     width: 100%;
@@ -71,10 +49,9 @@
     }
 }
 
-.turn-on-notification-modal .ant-modal-content,
-.delete-question-modal .ant-modal-content,
-.delete-comment-modal .ant-modal-content,
-.modalDeleteDocument .ant-modal-content {
+//center
+
+.delete-email-modal .ant-modal-content {
     padding: 0px;
     width: 100%;
 
@@ -101,6 +78,6 @@
     }
 
     .ant-modal-body {
-        padding: 15px 20px 5px 20px;
+        padding: 15px 45px 5px 45px;
     }
 }
