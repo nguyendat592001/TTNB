@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import type { TabsProps } from "antd";
 import { Tabs, Image } from "antd";
 import CDC from "./CDC";
+import QRT from "./QRT";
+import PerAndTag from "./PerAndTag";
+import PostPublic from "./PostPublic";
+import Block from "./Block";
+import Story from "./Story";
+import Notif from "./Notification";
 
 type TabPosition = "left" | "right" | "top" | "bottom";
 
@@ -30,7 +36,7 @@ const SidebarSetting: React.FC = () => {
           Quyền riêng tư
         </div>
       ),
-      children: "Quyền riêng tư",
+      children: <QRT />,
     },
     {
       key: "3",
@@ -40,7 +46,7 @@ const SidebarSetting: React.FC = () => {
           Trang cá nhân và gắn thẻ
         </div>
       ),
-      children: "Trang cá nhân và gắn thẻ",
+      children: <PerAndTag />,
     },
     {
       key: "4",
@@ -50,7 +56,7 @@ const SidebarSetting: React.FC = () => {
           Bài viết công khai
         </div>
       ),
-      children: "Bài viết công khai",
+      children: <PostPublic />,
     },
     {
       key: "5",
@@ -60,7 +66,7 @@ const SidebarSetting: React.FC = () => {
           Chặn
         </div>
       ),
-      children: "Chặn",
+      children: <Block />,
     },
     {
       key: "6",
@@ -70,7 +76,7 @@ const SidebarSetting: React.FC = () => {
           Tin đăng
         </div>
       ),
-      children: "Tin đăng",
+      children: <Story />,
     },
     {
       key: "7",
@@ -80,7 +86,7 @@ const SidebarSetting: React.FC = () => {
           Thông báo
         </div>
       ),
-      children: "Thông báo",
+      children: <Notif />,
     },
   ];
   return (

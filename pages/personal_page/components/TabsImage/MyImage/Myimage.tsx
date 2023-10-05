@@ -1,132 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "../TabsImage.module.scss";
 
 import type { MenuProps } from "antd";
 import { Dropdown } from "antd";
-const fr = [
-  {
-    id: 1,
-    imgAvt: "/img/c.png",
-    name: "Nguyễn Hoàng",
-  },
-  {
-    id: 2,
-    imgAvt: "/img/c.png",
-    name: "Đạt",
-  },
-  {
-    id: 3,
-    imgAvt: "/img/c.png",
-    name: "Nguyễn Hoàng",
-  },
-  {
-    id: 4,
-    imgAvt: "/img/c.png",
-    name: "Nguyễn Hoàng",
-  },
-  {
-    id: 5,
-    imgAvt: "/img/c.png",
-    name: "Nguyễn Hoàng",
-  },
-  {
-    id: 6,
-    imgAvt: "/img/c.png",
-    name: "Nguyễn Hoàng",
-  },
-  {
-    id: 7,
-    imgAvt: "/img/c.png",
-    name: "Nguyễn Hoàng",
-  },
-  {
-    id: 8,
-    imgAvt: "/img/c.png",
-    name: "Nguyễn Hoàng",
-  },
-  {
-    id: 9,
-    imgAvt: "/img/c.png",
-    name: "Nguyễn Hoàng",
-  },
-];
+import Pen from "./edit";
 
 export default function Myimage() {
-  const items: MenuProps["items"] = [
+  const fr = [
     {
-      label: (
-        <a className={styles.pen}>
-          <Image
-            width={19}
-            height={20}
-            alt=""
-            src={"/img/dat-lam-anh-dai-dien.svg"}
-          />
-          Đặt làm ảnh đại diện
-        </a>
-      ),
-      key: "0",
+      id: 1,
+      imgAvt: "/img/c.png",
+      name: "Nguyễn Hoàng",
     },
     {
-      label: (
-        <a className={styles.pen}>
-          {" "}
-          <Image
-            width={19}
-            height={20}
-            alt=""
-            src={"/img/dat-lam-anh-bia.svg"}
-          />
-          Đặt làm ảnh bìa
-        </a>
-      ),
-      key: "1",
-    },
-
-    {
-      label: (
-        <a className={styles.pen}>
-          {" "}
-          <Image width={19} height={20} alt="" src={"/img/fe_edit.svg"} />
-          Tải xuống
-        </a>
-      ),
-      key: "3",
+      id: 2,
+      imgAvt: "/img/c.png",
+      name: "Đạt",
     },
     {
-      label: (
-        <a className={styles.pen}>
-          {" "}
-          <Image width={19} height={20} alt="" src={"/img/public_del.svg"} />
-          Xóa ảnh
-        </a>
-      ),
-      key: "4",
+      id: 3,
+      imgAvt: "/img/c.png",
+      name: "Nguyễn Hoàng",
+    },
+    {
+      id: 4,
+      imgAvt: "/img/c.png",
+      name: "Nguyễn Hoàng",
+    },
+    {
+      id: 5,
+      imgAvt: "/img/c.png",
+      name: "Nguyễn Hoàng",
+    },
+    {
+      id: 6,
+      imgAvt: "/img/c.png",
+      name: "Nguyễn Hoàng",
+    },
+    {
+      id: 7,
+      imgAvt: "/img/c.png",
+      name: "Nguyễn Hoàng",
+    },
+    {
+      id: 8,
+      imgAvt: "/img/c.png",
+      name: "Nguyễn Hoàng",
+    },
+    {
+      id: 9,
+      imgAvt: "/img/c.png",
+      name: "Nguyễn Hoàng",
     },
   ];
+  const [img, setImg] = useState(fr);
+  const handleRemoveFollower = (id: number) => {
+    // Lọc ra danh sách bạn bè mới loại bỏ người dùng có id tương ứng
+    const updatedFollowers = img.filter((imgs) => imgs.id !== id);
+    setImg(updatedFollowers);
+  };
+  const handleDownload = () => {
+    // Create a fake URL for the image download
+    const downloadURL = "/path/to/your/image.jpg"; // Thay đổi đường dẫn tới tệp ảnh của bạn
+
+    // Create a fake anchor element
+    const anchor = document.createElement("a");
+    anchor.href = downloadURL;
+    anchor.download = "image.jpg"; // Tên tệp ảnh khi tải xuống
+
+    // Trigger a click event to download the image
+    anchor.click();
+  };
+
   return (
     <div>
       <div className={styles.myimage}>
-        {fr.map((image) => (
-          <div className={styles.myimage_img} key={image.id}>
+        {img.map((imgs, index) => (
+          <div className={styles.myimage_img} key={index}>
             <Image
               className={styles.myimage_img_img}
               width={215}
               height={215}
               alt="anh-loi"
-              src={image.imgAvt}
+              src={imgs.imgAvt}
             />
-            <Dropdown menu={{ items }} trigger={["click"]}>
-              <Image
-                onClick={(e) => e.preventDefault()}
-                className={styles.myimage_img_edit}
-                width={31}
-                height={30}
-                alt="pencel"
-                src={"/img/edit_album.svg"}
-              />
-            </Dropdown>
+            <Pen
+              removeFollower={() => handleRemoveFollower(imgs.id)}
+              imageURL={imgs.imgAvt}
+            />
           </div>
         ))}
       </div>
