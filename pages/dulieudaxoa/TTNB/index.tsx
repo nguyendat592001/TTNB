@@ -1,13 +1,12 @@
 import SideBar from "@/components/header/sidebar/sidebar";
 import React, { useState } from "react";
 import { Button, Image, Input, Modal, Tabs } from "antd";
-import type { TabsProps } from "antd";
+
 import styles from "./index.module.scss";
 import { LeftOutlined, SearchOutlined } from "@ant-design/icons";
 import ContentTab1 from "@/components/dat/dulieudaxoa/ContentTab1";
 import ContentTab2 from "@/components/dat/dulieudaxoa/ContentTab2";
 import { useRouter } from "next/router";
-import { SelectedItemsProvider } from "@/components/dat/dulieudaxoa/Context";
 
 export default function TTNB() {
   const router = useRouter();
