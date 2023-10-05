@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 import { Image, Input, Card, Modal, Select, Popover, Button } from "antd";
 import { useRouter } from "next/router";
 import { AppstoreAddOutlined, DesktopOutlined, SearchOutlined, RightOutlined } from "@ant-design/icons";
-
+import Head from "next/head";
 const App = () => {
    const router = useRouter();
 
@@ -157,6 +157,10 @@ const App = () => {
    return (
       <>
          <div className={styles.container}>
+            <Head>
+               <title>Nhóm</title>
+               <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+            </Head>
             <div className={styles.left_container}>
                <div className={styles.left}>
                   <div className={styles.left_all}>
