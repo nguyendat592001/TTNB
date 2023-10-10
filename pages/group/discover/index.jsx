@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./index.module.css";
-import { Image, Card } from "antd";
+import { Image, Card, Dropdown } from "antd";
 import { useRouter } from "next/router";
 import LeftNavGroup from "../../../components/thuc_components/left-nav/leftNavGroup";
 import Head from "next/head";
@@ -65,13 +65,38 @@ const App = () => {
       newButtonStates[index] = !newButtonStates[index];
       setButtonStates(newButtonStates);
    };
+   const items = [
+      {
+         key: "1",
+         label: (
+            <div className={styles.menu}>
+               <div className={styles.right_menu_content}>
+                  <LeftNavGroup />
+               </div>
+            </div>
+         ),
+      },
+   ];
    return (
       <>
-         <Head>
-            <title>Khám phá</title>
-            <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
-         </Head>
+         <div className={styles.right_none}>
+            <div className={styles.right_menu}>
+               <Dropdown
+                  menu={{
+                     items,
+                  }}
+                  placement="bottomRight"
+                  trigger="click">
+                  <Image src="/img/group/menuu.png" alt="icon" width={40} height={40} preview={false} />
+               </Dropdown>
+               <h3>Nhóm</h3>
+            </div>
+         </div>
          <div className={styles.container}>
+            <Head>
+               <title>Khám phá</title>
+               <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+            </Head>
             <div className={styles.left_container}>
                <div className={styles.left_cd}>
                   <LeftNavGroup />
@@ -85,12 +110,7 @@ const App = () => {
                <div className={styles.all_card}>
                   {data.map((item, index) => {
                      return (
-                        <Card
-                           key={index}
-                           className={`thuc_card ${styles.card}`}
-                           style={{
-                              width: 280,
-                           }}>
+                        <Card key={index} className={`thuc_card ${styles.card}`}>
                            <Image alt="/" src={item.img} height={250} preview={false} />
                            <p className={styles.name}>{item.name}</p>
                            <p className={styles.friend}>{item.friend}</p>

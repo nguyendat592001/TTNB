@@ -129,6 +129,19 @@
    width: 100px;
    height: 36px;
 }
-.thuc_menu {
-   color: #474747;
+.thuc_card {
+   width: 280px;
+}
+.thuc_select {
+   width: 200px;
+}
+@media (max-width: 821px) {
+   .thuc_card {
+      width: 230px;
+   }
+}
+@media (max-width: 550px) {
+   .thuc_select {
+      width: 100px;
+   }
 }

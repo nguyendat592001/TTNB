@@ -33,6 +33,7 @@ const LeftNavGroup = () => {
    };
    const showModalNotification = () => {
       setIsModalNotificationOpen(true);
+      setIsOpenPopover(false);
    };
    //modal ghim
    const [isModalPinOpen, setIsModalPinOpen] = useState(false);
@@ -41,6 +42,7 @@ const LeftNavGroup = () => {
    };
    const showModalPin = () => {
       setIsModalPinOpen(true);
+      setIsOpenPopover(false);
    };
    const initialDataForOtherUnGroups = [
       {
@@ -92,6 +94,7 @@ const LeftNavGroup = () => {
    };
    const showModalFollow = () => {
       setIsModalFollowOpen(true);
+      setIsOpenPopover(false);
    };
    // modal out
    const [isModalOutOpen, setIsModalOutOpen] = useState(false);
@@ -100,6 +103,7 @@ const LeftNavGroup = () => {
    };
    const showModalOut = () => {
       setIsModalOutOpen(true);
+      setIsOpenPopover(false);
    };
 
    const handleChange = (value) => {
@@ -114,6 +118,8 @@ const LeftNavGroup = () => {
       setIsModalNewOpen(true);
    };
    //popover
+   const [isOpenPopover, setIsOpenPopover] = useState(false);
+   const [openModalEditGroup, setOpenModalEditGroup] = useState(false);
    const text = <span style={{ paddingLeft: "20px" }}>Cài đặt nhóm</span>;
    const content = (
       <div style={{ padding: "0px 20px 20px 20px" }}>
@@ -149,7 +155,7 @@ const LeftNavGroup = () => {
                   <div className={styles.left_all}>
                      <div className={styles.left_group}>
                         <p className={styles.left_group_p}>Nhóm</p>
-                        <Popover className={`thuc_popover_group`} title={text} content={content} trigger="click" arrow={false}>
+                        <Popover className={`thuc_popover_group`} title={text} content={content} trigger="click" arrow={false} open={isOpenPopover} onOpenChange={(open) => setIsOpenPopover(open)}>
                            <button className={styles.left_group_btn}>Cài đặt</button>
                         </Popover>
                      </div>
@@ -242,9 +248,7 @@ const LeftNavGroup = () => {
                            <div>
                               <Select
                                  defaultValue="Tất cả bài viết"
-                                 style={{
-                                    width: 200,
-                                 }}
+                                 className={`thuc_select`}
                                  onChange={handleChange}
                                  options={[
                                     {
@@ -271,9 +275,7 @@ const LeftNavGroup = () => {
                            <div>
                               <Select
                                  defaultValue="Tất cả bài viết"
-                                 style={{
-                                    width: 200,
-                                 }}
+                                 className={`thuc_select`}
                                  onChange={handleChange}
                                  options={[
                                     {
@@ -300,9 +302,7 @@ const LeftNavGroup = () => {
                            <div>
                               <Select
                                  defaultValue="Tất cả bài viết"
-                                 style={{
-                                    width: 200,
-                                 }}
+                                 className={`thuc_select`}
                                  onChange={handleChange}
                                  options={[
                                     {
