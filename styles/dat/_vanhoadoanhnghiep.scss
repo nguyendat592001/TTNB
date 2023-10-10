@@ -1,6 +1,6 @@
 .VHDNcontentRight {
     .ant-menu-item {
-        padding: 18px 18%;
+        padding: 18px 10%;
         display: flex;
         align-items: center;
         background: #4c5bd4;
@@ -18,7 +18,13 @@
     }
 }
 
-// 
+// bth
+.edit-ntlv-modal .ant-modal-content,
+.add-ntlv-modal .ant-modal-content,
+.edit-group-modal .ant-modal-content,
+.edit-description-modal .ant-modal-content,
+.edit-vision-modal .ant-modal-content,
+.edit-mission-modal .ant-modal-content,
 .detail-email-modal .ant-modal-content,
 .UploadQuestionModal .ant-modal-content {
     padding: 0px;
@@ -50,7 +56,7 @@
 }
 
 //center
-
+.delete-ntlv-modal .ant-modal-content,
 .delete-email-modal .ant-modal-content {
     padding: 0px;
     width: 100%;
@@ -79,5 +85,43 @@
 
     .ant-modal-body {
         padding: 15px 45px 5px 45px;
+    }
+}
+
+//ModalEditDescription
+
+.edit-description-modal__content .ant-form {
+    .ant-form-item {
+        .ant-row {
+            display: block;
+
+            .ant-form-item-label {
+                text-align: left;
+
+                label {
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: #000000;
+                }
+            }
+        }
+    }
+}
+
+//Collapse
+
+.LCNTTRightContainer__list .ant-collapse {
+    border: none;
+    border-radius: 0;
+    font-weight: 500;
+
+    .ant-collapse-item {
+        padding: 4px;
+        background-color: #fff;
+
+        .ant-collapse-expand-icon {
+            padding-top: 2px;
+        }
     }
 }

@@ -34,7 +34,7 @@ const SelectOptions = [
     },
     {
         key: '6',
-        value: 'Cài đặt lịch cập nhật thông tin mới',
+        value: 'Cài đặt lịch cập nhật',
         img: '/img/VHDN/v_6.png',
     },
 ];
