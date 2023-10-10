@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import styles from "./index.module.css";
 import { Modal, Image, Dropdown, Button, Select, Input, Space, Menu } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
-
+import Head from "next/head";
 const PostWaiting = () => {
    const [isModalNotificationOpen, setIsModalNotificationOpen] = useState(false);
    const showModalNotification = () => {
@@ -125,6 +125,10 @@ const PostWaiting = () => {
    };
    return (
       <>
+         <Head>
+            <title>Bài viết đang chờ</title>
+            <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+         </Head>
          <div className={styles.container}>
             <div className={styles.left_container}>
                <div className={styles.left}>
@@ -213,10 +217,9 @@ const PostWaiting = () => {
                   </div>
                </div>
 
-               {dataContent.map((item,index) => {
+               {dataContent.map((item, index) => {
                   return (
                      <div key={index} className={styles.content}>
-
                         <div className={styles.content_all}>
                            <div className={styles.content_fl}>
                               <input type="checkbox" className={styles.checkbox}></input>

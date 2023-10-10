@@ -5,6 +5,7 @@ import LeftNav from "../../../../components/thuc_components/left-nav-group/leftN
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useRouter } from "next/router";
+import Head from "next/head";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const Overview = () => {
@@ -60,6 +61,10 @@ const Overview = () => {
    };
    return (
       <>
+         <Head>
+            <title>Tổng quan</title>
+            <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+         </Head>
          <div className={styles.container}>
             <div className={styles.left_container}>
                <div className={styles.left}>

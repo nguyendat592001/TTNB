@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./index.module.css";
 import { Modal, Image, Menu, Button, Input, Switch, Dropdown, Form } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
-
+import Head from "next/head";
 const SetUp = () => {
    //modal mô tả
    const [isModalDescribeOpen, setIsModalDescribeOpen] = useState(false);
@@ -138,6 +138,10 @@ const SetUp = () => {
    };
    return (
       <>
+         <Head>
+            <title>Cài đặt nhóm</title>
+            <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+         </Head>
          <div className={styles.container}>
             <div className={styles.left_container}>
                <div className={styles.left}>

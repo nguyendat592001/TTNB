@@ -4,6 +4,7 @@ import { Modal, Image, Dropdown, Button, Select, Input, Space, Menu } from "antd
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import Time from "../../../../components/thuc_components/newFeed/newFeedContent/time";
 import NewFeedContent from "../../../../components/thuc_components/newFeed/newFeedContent/newFeedContent";
+import Head from "next/head";
 const PostWaiting = () => {
    const [isModalOpen, setIsModalOpen] = useState(false);
    const handleInputClick = () => {
@@ -115,6 +116,10 @@ const PostWaiting = () => {
    }, []);
    return (
       <>
+         <Head>
+            <title>Bài viết đã lên lịch</title>
+            <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+         </Head>
          <div className={styles.container}>
             <div className={styles.left_container}>
                <div className={styles.left}>

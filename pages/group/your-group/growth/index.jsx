@@ -4,7 +4,7 @@ import { Modal, Image, Dropdown, Button, Select, Input, Space, Menu } from "antd
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { Line } from "react-chartjs-2";
-
+import Head from "next/head";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 const Growth = () => {
    const dataChart = {
@@ -65,6 +65,10 @@ const Growth = () => {
    };
    return (
       <>
+         <Head>
+            <title>Mức độ tăng trưởng</title>
+            <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+         </Head>
          <div className={styles.container}>
             <div className={styles.left_container}>
                <div className={styles.left}>
