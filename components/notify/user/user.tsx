@@ -11,7 +11,7 @@ export default function User(): JSX.Element {
       icon: "/img/c.png",
       label: "Nguyễn Thế Đạt",
       isFirstImage: true,
-      link: "/personal_page/center_avt",
+      link: "/personal_page",
     },
     {
       key: "2",
@@ -86,9 +86,8 @@ export default function User(): JSX.Element {
         {menuItems.map((item, index) => (
           <React.Fragment key={item.key}>
             <Menu.Item
-              className={`${styles.menuItem} ${
-                index >= 7 ? styles.itemWithSpacing : ""
-              }`}
+              className={`${styles.menuItem} ${index >= 7 ? styles.itemWithSpacing : ""
+                }`}
             >
               <a href={item.link} className={styles.menuLink}>
                 <Image
