@@ -46,7 +46,7 @@ const items: TabsProps["items"] = [
 
 const App: React.FC = () => {
   return (
-    <>
+    <div className="w100">
       <Divider />
       <div className="center_tab_block">
         <Tabs
@@ -55,7 +55,7 @@ const App: React.FC = () => {
           items={items}
         ></Tabs>
       </div>
-    </>
+    </div>
   );
 };
 

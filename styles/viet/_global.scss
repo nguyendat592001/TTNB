@@ -1,6 +1,7 @@
 // Center nav block
 .center_tab_block .ant-tabs-nav-list {
 
+
     .ant-tabs-tab {
         color: #474747;
         font-size: 16px;
@@ -16,7 +17,7 @@
 
 }
 
-.ant-tabs .ant-tabs-extra-content {
+.center_tab_block .ant-tabs .ant-tabs-extra-content {
     margin-right: 15px;
 }
 
@@ -130,3 +131,92 @@
     }
 }
 
+/// modal header text center del address
+.addressbacham .ant-modal-content {
+    padding: 0px;
+    width: 100%;
+
+    .ant-modal-close {
+        color: #ffffff;
+    }
+
+    .ant-modal-header {
+        background-color: #4c5bd4;
+        width: 100%;
+        height: 50px;
+        margin: 0;
+
+        .ant-modal-title {
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+    }
+
+    .ant-modal-body {
+        padding: 15px 45px 5px 45px;
+    }
+}
+//contact_info
+.title_contact_info{
+    color: #474747;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-right: 15px;
+    font-size: 16px;
+    line-height: 24px;
+    display: block;
+}
+// responsive
+.up {
+            position: relative;
+            top:-56px;
+            left: -40px;
+            background-color: #fff;
+            height: 30px;
+            border-radius: 50%;
+    .ant-image{
+        
+    }
+}
+@media  (max-width:1024px){
+    .width100{
+        width: 100%;
+    }
+    .center_tab_block{
+        width: 100%;
+    }
+    .image{
+        .ant-image{
+            width: 100%;
+        }
+    }
+    .avt{
+        .ant-image{
+            width: 100%;
+        }
+    }
+}
+@media  (max-width:545px) {
+    .center_tab_block .ant-tabs .ant-tabs-extra-content{
+        position: absolute !important;
+        padding-left: 10px;
+        top: -65px;
+    }
+    .center_tab_block .ant-tabs-nav-wrap  {
+        width: 1002px;
+        overflow-x: scroll;
+    }
+}
+@media  (max-width:425px) {
+    .center_tab_block .ant-tabs .ant-tabs-extra-content{
+        position: absolute !important;
+        // left: 375px;
+        top: -65px;
+    }
+}

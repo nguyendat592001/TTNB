@@ -1,8 +1,8 @@
+"use client";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import Image from "next/image";
+import { Image } from "antd";
 import styles from "./index.module.scss";
-import Link from "next/link";
 import NavBlock from "./center_nav";
 import CoverImage from "@/components/headerperson/UpdateImageWall";
 import EditPerPages from "@/components/common/Modal/EditPerPages/EditPages";
@@ -24,7 +24,14 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
     <div>
       <div className={styles.center_avt}>
         <div className={styles.center_avt_header}>
-          <Image width={1200} height={460} alt="anh-bia" src={"/img/c.png"} />
+          <div className={`${styles.avt} avt`}>
+            <Image
+              width={1200}
+              alt="anh-bia"
+              src={"/img/c.png"}
+              preview={false}
+            />
+          </div>
 
           <div className={styles.cover_image_container}>
             <div
@@ -37,6 +44,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                 height={24}
                 alt="may-anh"
                 src={"/img/nv_camera.svg"}
+                preview={false}
               />
               <span className={styles.center_cover_upload_btn_txt}>
                 Chỉnh sửa ảnh bìa
@@ -52,17 +60,26 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
         </div>
         <div className={styles.center_avt_footer}>
           <div className={styles.center_avt_info}>
-            <Image width={192} height={192} alt="anh-loi" src={"/img/c.png"} />
+            <Image
+              width={192}
+              preview={false}
+              height={192}
+              alt="anh-loi"
+              src={"/img/c.png"}
+            />
+
             <p
               onClick={() => {
                 setAvatar(true);
               }}
+              className="up"
             >
               <Image
                 width={30}
                 height={30}
                 alt="anh-loi"
                 src={"/img/nv_camera.svg"}
+                preview={false}
               />
             </p>
             {avatar && (
@@ -85,18 +102,21 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                 height={24}
                 alt="anh"
                 src={"/img/app_add.png"}
+                preview={false}
               />
               <Image
                 width={24}
                 height={24}
                 alt="anh"
                 src={"/img/app_add.png"}
+                preview={false}
               />
               <Image
                 width={24}
                 height={24}
                 alt="anh"
                 src={"/img/app_add.png"}
+                preview={false}
               />
             </div>
           </div>
@@ -107,6 +127,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                 height={20}
                 alt="cin"
                 src={"/img/nv_add-circle.svg"}
+                preview={false}
               />
               Thêm vào tin
             </p>
@@ -119,7 +140,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
             />
           </div>
         </div>
-        <div className={styles.center_nav_block}>
+        <div className={`${styles.center_nav_block} width100`}>
           <NavBlock />
         </div>
       </div>

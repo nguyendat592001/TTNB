@@ -73,11 +73,11 @@ export default function tutorial() {
           <div className={styles.img_video}>
             <div className={styles.img_hd}>
               <div className={styles.qr}>
-                <Image src="/img/hd_logo_qr.png" preview={false} />
+                <Image alt="" src="/img/hd_logo_qr.png" preview={false} />
               </div>
               <div className={styles.img_download}>
-                <Image src="/img/hd_chplay_hd.png" preview={false} />
-                <Image src="/img/hd_app-store.png" preview={false} />
+                <Image alt="" src="/img/hd_chplay_hd.png" preview={false} />
+                <Image alt="" src="/img/hd_app-store.png" preview={false} />
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function tutorial() {
               <div key={index} className={styles.data}>
                 <div className={styles.padding_right}>
                   <div className={styles.img}>
-                    <Image src={datas.imgSrc} preview={false} />
+                    <Image alt="" src={datas.imgSrc} preview={false} />
                   </div>
 
                   <div>

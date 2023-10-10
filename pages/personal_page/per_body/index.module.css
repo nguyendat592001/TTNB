@@ -18,6 +18,7 @@
     border: none;
     border-radius: 5px;
     width: 100%;
+    cursor: pointer;
 }
 .kytu {display: flex;justify-content: flex-end;
 margin-right: 44px;}
@@ -35,6 +36,7 @@ margin-right: 44px;}
     font-weight: 700;
     border-radius: 8px;
     border: none;
+    cursor: pointer;
 }
 .btn_huy {
     color: #474747;
@@ -130,4 +132,24 @@ margin-right: 44px;}
 }
 .story_modal >span {
     color: #4c5bd4;
+}
+@media screen and (max-width:1024px) {
+    .title{
+        display: none;
+    }
+    .Divider{
+        display: none;
+    }
+    .center_intro{
+        width: 100%;
+    }
+    .sto{
+        display: none;
+    }
+    .st{
+        display: none;
+    }
+    .filter_post_title{
+        display: none;
+    }
 }

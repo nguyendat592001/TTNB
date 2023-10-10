@@ -11,12 +11,15 @@ export default function ChangeBackground(props: any) {
   return (
     <div>
       <div>
-        <textarea
-          style={{ width: "100%", height: 100, padding: 10 }}
-          value={value}
-          onChange={handleTextarea2Change}
-          placeholder="Nhập văn bản..."
-        ></textarea>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <textarea
+            style={{ width: "100%", height: 100, padding: 10 }}
+            value={value}
+            onChange={handleTextarea2Change}
+            placeholder="Nhập văn bản..."
+          ></textarea>
+        </div>
+
         <div>
           <span>Phông nền</span>
           <button style={{ marginBottom: 10 }}>{colorButtons}</button>

@@ -5,7 +5,7 @@ import styles from "./Serfdoom.module.scss";
 import ModalFriendExcept from "../Regime/ModalFriendExcept";
 import ModalFriendSpecific from "../Regime/ModalFriendSpecific";
 
-const App: React.FC = () => {
+const Serfdom: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("congkhai");
   const [showFriendExceptModal, setShowFriendExceptModal] = useState(false);
@@ -191,4 +191,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Serfdom;

@@ -4,6 +4,7 @@ import AddressWork from "@/components/common/Modal/AddressWork/address";
 import InfoBasic from "../../components/Intro/InfoBasic";
 import Family_and_elationships from "../../components/Intro/family_and_elationships";
 import Details_about_you from "../../components/Intro/details_about_you";
+import Tongquan from "@/components/common/Modal/AddressWork/tongquan";
 
 export default function Intro() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -13,7 +14,7 @@ export default function Intro() {
     setActiveIndex(index);
     switch (index) {
       case 0:
-        setRenderedComponent(<AddressWork />);
+        setRenderedComponent(<Tongquan />);
         break;
       case 1:
         setRenderedComponent(<InfoBasic />);
