@@ -3,13 +3,9 @@ import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import Serfdom from "@/components/common/Modal/Serfdom/Serfdom";
 import styles from "./nhanvien.module.scss";
-interface AddressProps {
-  nhanvien: boolean;
-  setNhanvien: () => void;
-}
+
 const Themnoilamviec = (props: any) => {
   const { nhanvien, setNhanvien } = props;
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOk = () => {
     setNhanvien(false);

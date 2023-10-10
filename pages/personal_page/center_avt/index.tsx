@@ -59,38 +59,38 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
           </div>
         </div>
         <div className={styles.center_avt_footer}>
-          <div className={styles.center_avt_info}>
-            <Image
-              width={192}
-              preview={false}
-              height={192}
-              alt="anh-loi"
-              src={"/img/c.png"}
-            />
+          <Image
+            width={192}
+            preview={false}
+            height={186}
+            alt="anh-loi"
+            src={"/img/c.png"}
+            className="anhdaidien"
+          />
 
-            <p
-              onClick={() => {
-                setAvatar(true);
-              }}
-              className="up"
-            >
-              <Image
-                width={30}
-                height={30}
-                alt="anh-loi"
-                src={"/img/nv_camera.svg"}
-                preview={false}
-              />
-            </p>
-            {avatar && (
-              <Avatar
-                isOpen={avatar}
-                onClose={() => {
-                  setAvatar(false);
-                }}
-              />
-            )}
+          <div
+            onClick={() => {
+              setAvatar(true);
+            }}
+            className="up"
+          >
+            <Image
+              width={30}
+              height={30}
+              alt="anh-loi"
+              src={"/img/nv_camera.svg"}
+              preview={false}
+            />
           </div>
+          {avatar && (
+            <Avatar
+              isOpen={avatar}
+              onClose={() => {
+                setAvatar(false);
+              }}
+            />
+          )}
+
           <div className={styles.center_avt_info_detail}>
             <p className={styles.center_avt_name}>
               Công ty Cổ phần Thanh toán Hưng Hà
@@ -104,24 +104,10 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                 src={"/img/app_add.png"}
                 preview={false}
               />
-              <Image
-                width={24}
-                height={24}
-                alt="anh"
-                src={"/img/app_add.png"}
-                preview={false}
-              />
-              <Image
-                width={24}
-                height={24}
-                alt="anh"
-                src={"/img/app_add.png"}
-                preview={false}
-              />
             </div>
           </div>
           <div className={styles.center_avt_btn}>
-            <p onClick={onClicknewstory} className={styles.addstory}>
+            <div onClick={onClicknewstory} className={styles.addstory}>
               <Image
                 width={20}
                 height={20}
@@ -130,7 +116,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                 preview={false}
               />
               Thêm vào tin
-            </p>
+            </div>
 
             <EditPerPages
               isOpen={false}

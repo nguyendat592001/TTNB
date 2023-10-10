@@ -25,20 +25,13 @@
     
     .center_avt_footer {
         display: flex;
-        position: relative;
+        // position: relative;
         width: 100%;
         margin-bottom: -25px;
     }
     
     .center_avt_footer .center_avt_info {
-        width: 200px;
-        height: 200px;
-    
-        margin-top: -100px;
-        margin-bottom: 20px;
-        left: 0;
-        margin-left: 82px;
-        transform: none;
+       
     
     
     }
@@ -49,10 +42,10 @@
     }
     
     .center_avt_info_detail {
-        margin: -40px 0px 0px 20px;
+        margin: -40px 0px 0px 102px;
     
         .center_avt_name {
-            width: 120%;
+            // width: 120%;
             font-weight: 600;
             font-size: 30px;
             line-height: 40px;
@@ -80,7 +73,7 @@
         top: 60px;
         height: 45px;
     
-        p {
+        div {
             display: flex;
             align-items: center;
             font-size: 15px;
@@ -114,7 +107,7 @@
         }
     }
     
-    .center_avt_info p>img {
+    .center_avt_info div>img {
         position: relative;
         bottom: 55px;
         right: -150px;
@@ -190,15 +183,7 @@
             position: relative;
           
         }
-        .up{
-            position: relative;
-            top:140px;
-            left: -40px;
-            background-color: #fff;
-            height: 30px;
-            border-radius: 50%;
-
-        }
+        
     }
     .center_avt_count_mem{
         display: none;

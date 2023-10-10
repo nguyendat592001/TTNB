@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Image, Modal } from "antd";
 import Serfdom from "@/components/common/Modal/Serfdom/Serfdom";
 import styles from "./Contact_Info.module.scss";
-interface Birth {}
+
 const DateOfBirth = (props: any) => {
   const { onBirthDateChange } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -29,14 +29,14 @@ export default function Intro() {
 
           <div className={styles.follow}>
             {add && (
-              <p>
+              <div>
                 <Image
                   alt=""
                   src={"img/noi-lam-viec-icon.svg"}
                   preview={false}
                 />
                 Làm việc tại : <span>{add}</span>
-              </p>
+              </div>
             )}
 
             <div className={styles.follow_list}>

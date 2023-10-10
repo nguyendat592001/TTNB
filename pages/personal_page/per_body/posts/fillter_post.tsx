@@ -1,6 +1,6 @@
+"use client";
 import React from "react";
 import styles from "../index.module.css";
-import Image from "next/image";
 import Fillter from "@/components/viet_components/fillter/Fillter";
 import Article_management from "@/components/viet_components/Article_management/Article_management";
 export default function FillterPosat() {

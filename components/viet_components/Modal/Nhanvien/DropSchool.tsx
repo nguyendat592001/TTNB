@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import type { MenuProps } from "antd";
 import { Dropdown, Image, Modal } from "antd";
 import styles from "./nhanvien.module.scss";
-import Themnoilamviec from "./Themnoilamviec";
-import Editnoilamviec from "./EditNoiLamViec";
+import School from "./School";
+import EditSchool from "./EditSchool";
 
-const DropNoiLamViec = (props: any) => {
-  const [nhanvien, setNhanvien] = useState(false);
+const DropSchool = (props: any) => {
+  const { school, setSchool } = props;
+  // const [school, setSchool] = useState(false);
   const [edit, setEdit] = useState(false);
   const [del, setDel] = useState(false);
   const okdel = () => {
@@ -15,57 +16,58 @@ const DropNoiLamViec = (props: any) => {
   const canceldel = () => {
     setDel(false);
   };
+  const onClickSchool = () => {
+    setSchool(true);
+  };
   const items: MenuProps["items"] = [
     {
       label: (
-        <p className={styles.item} onClick={() => setNhanvien(true)}>
+        <div className={styles.item} onClick={onClickSchool}>
           <Image
             alt="anh-loi"
             src={"/img/nv_add-circle_blue.svg"}
             preview={false}
           />
-          Thêm nơi làm việc
-        </p>
+          Thêm trường học
+        </div>
       ),
       key: "0",
     },
     {
       label: (
-        <p className={styles.item} onClick={() => setEdit(true)}>
+        <div className={styles.item} onClick={() => setEdit(true)}>
           <Image alt="anh-loi" src={"/img/nv_pen.svg"} preview={false} />
           Chỉnh sửa
-        </p>
+        </div>
       ),
       key: "1",
     },
     {
       label: (
-        <p
+        <div
           className={styles.item}
           onClick={() => {
             setDel(true);
           }}
         >
           <Image alt="anh-loi" src={"/img/public_del.svg"} preview={false} />
-          Xóa nơi làm việc
-        </p>
+          Xóa trường học
+        </div>
       ),
       key: "2",
     },
   ];
   return (
     <Dropdown menu={{ items }} trigger={["click"]}>
-      <a onClick={(e) => e.preventDefault()}>
-        <p className={styles.item}>
+      <div onClick={(e) => e.preventDefault()}>
+        <div className={styles.item}>
           <Image alt="" src={"/img/xem-them.svg"} preview={false} />
-        </p>
-        {nhanvien && (
-          <Themnoilamviec nhanvien={nhanvien} setNhanvien={setNhanvien} />
-        )}
-        {edit && <Editnoilamviec edit={edit} setEdit={setEdit} />}
+        </div>
+        {school && <School school={school} setSchool={setSchool} />}
+        {edit && <EditSchool edit={edit} setEdit={setEdit} />}
         <Modal
           className="addressbacham"
-          title={"Xóa nơi làm việc"}
+          title={"Xóa trường học"}
           open={del}
           onOk={okdel}
           onCancel={canceldel}
@@ -73,7 +75,7 @@ const DropNoiLamViec = (props: any) => {
         >
           <div className={styles.modal_body}>
             <p className="text-center">
-              Bạn có chắc chắn muốn xóa nơi làm việc này khỏi trang cá nhân của
+              Bạn có chắc chắn muốn xóa trường học này khỏi trang cá nhân của
               mình không
             </p>
             <div className={styles.button}>
@@ -81,14 +83,14 @@ const DropNoiLamViec = (props: any) => {
                 Hủy
               </button>
               <button className={styles.ok} onClick={okdel}>
-                Lưu
+                Xóa
               </button>
             </div>
           </div>
         </Modal>
-      </a>
+      </div>
     </Dropdown>
   );
 };
 
-export default DropNoiLamViec;
+export default DropSchool;

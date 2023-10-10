@@ -23,7 +23,7 @@ export default function AddressWork(): JSX.Element {
   };
   return (
     <>
-      <p
+      <div
         onClick={() => {
           showModal();
           changeModalTitle("Thêm mới nơi làm việc");
@@ -37,7 +37,7 @@ export default function AddressWork(): JSX.Element {
           src={"/img/nv_add-circle_blue.svg"}
         />
         Thêm nơi làm việc
-      </p>
+      </div>
 
       <ConfigProvider
         theme={{
