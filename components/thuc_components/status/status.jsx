@@ -18,6 +18,9 @@ import ModalRegime from "@/components/common/Modal/Regime/ModalRegime";
 import Link from "next/link";
 import { StatusCOntext } from "../../../components/context/statusContext";
 import DropStatus from "./dropdown/dropStatus/dropStatus";
+import DropAdmin from "./dropdown/dropAdmin/dropAdmin";
+import DropReport from "./dropdown/dropAdmin/dropReport";
+import DropUser from "./dropdown/dropAdmin/dropUser";
 const menu = (
    <Menu className={`${styles.menu__sort_popover} menuSortPopover `}>
       <Menu.Item key="1">Mới nhất</Menu.Item>
@@ -324,10 +327,18 @@ const Status = () => {
                                     <div className={styles.comment__avatar_user}>
                                        <Image src={comment.avatar} width={40} height={40} preview={false} className={styles.comment__avatar_user_img} alt="avatar" />
                                     </div>
+
                                     <div className={styles.comment__content}>
-                                       <div className={styles.comment__content_info}>
-                                          <p className={styles.comment__name}>{comment.name}</p>
-                                          <p className={styles.comment__text}>{comment.content}</p>
+                                       <div className={styles.comment_fl}>
+                                          <div className={styles.comment__content_info}>
+                                             <p className={styles.comment__name}>{comment.name}</p>
+                                             <p className={styles.comment__text}>{comment.content}</p>
+                                          </div>
+                                          <div>
+                                             {/* <DropAdmin /> */}
+                                             {/* <DropReport /> */}
+                                             <DropUser />
+                                          </div>
                                        </div>
                                        <div className={styles.comment__content_reaction}>
                                           <p className={styles.comment__cxuc}>Thích</p>

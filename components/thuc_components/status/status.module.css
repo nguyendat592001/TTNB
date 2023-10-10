@@ -153,15 +153,6 @@
    width: 100%;
 }
 
-.comment__content_info {
-   margin-left: 15px;
-   padding: 10px 15px;
-   background-color: #f2f2f2;
-   border-radius: 10px;
-   width: 100%;
-   line-height: 20px;
-}
-
 .comment__name {
    color: #474747;
    font-size: 16px;
@@ -264,6 +255,17 @@
 
    border-radius: 10px;
    margin-top: 15px;
+}
+.comment_fl {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-left: 15px;
+   padding: 10px 15px;
+   background-color: #f2f2f2;
+   border-radius: 10px;
+   width: 100%;
+   line-height: 20px;
 }
 @media (max-width: 426px) {
    .post {

@@ -54,7 +54,7 @@ const Opinion = ({ isOpinionVisible }) => {
                                  + Thêm lựa chọn
                               </Button>
                               <div className={styles.img}>
-                                 <Popover content={content} placement="bottomRight">
+                                 <Popover content={content} placement="bottomRight" trigger="click">
                                     <Image src="/img/group/setting.svg" alt="" preview={false} />
                                  </Popover>
                               </div>

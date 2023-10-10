@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import styles from "./index.module.css";
 import { Modal, Image, Input, Button } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
-
+import Head from "next/head";
 const Rule = () => {
    const [isModalOpen, setIsModalOpen] = useState(false);
    const [inputValue, setInputValue] = useState("");
@@ -45,6 +45,10 @@ const Rule = () => {
 
    return (
       <>
+         <Head>
+            <title>Quy tắc nhóm</title>
+            <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+         </Head>
          <div className={styles.container}>
             <div className={styles.left_container}>
                <div className={styles.left}>

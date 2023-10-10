@@ -3,6 +3,7 @@ import styles from "./index.module.css";
 import { Modal, Image, Form, Button, Select, Input, Space, Switch } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import { MinusCircleOutlined } from "@ant-design/icons";
+import Head from "next/head";
 const Question = () => {
    const [isModalNewOpen, setIsModalNewOpen] = useState(false);
    const showModalNew = () => {
@@ -45,6 +46,10 @@ const Question = () => {
 
    return (
       <>
+         <Head>
+            <title>Câu hỏi chọn thành viên</title>
+            <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+         </Head>
          <div className={styles.container}>
             <div className={styles.left_container}>
                <div className={styles.left}>

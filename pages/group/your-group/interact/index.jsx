@@ -4,7 +4,7 @@ import { Tabs } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { Line } from "react-chartjs-2";
-
+import Head from "next/head";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 const Interact = () => {
    const dataChart = {
@@ -107,6 +107,10 @@ const Interact = () => {
    ];
    return (
       <>
+         <Head>
+            <title>Tương tác</title>
+            <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+         </Head>
          <div className={styles.container}>
             <div className={styles.left_container}>
                <div className={styles.left}>

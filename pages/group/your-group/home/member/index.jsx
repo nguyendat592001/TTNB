@@ -4,6 +4,8 @@ import { Input, Image, Dropdown } from "antd";
 import Drop from "../../../../../components/thuc_components/status/dropdown/dropOne/drop";
 import DropTwo from "../../../../../components/thuc_components/status/dropdown/dropTwo/dropTwo";
 import DropThree from "../../../../../components/thuc_components/status/dropdown/dropThree/dropThree";
+import DropFour from "../../../../../components/thuc_components/status/dropdown/dropFour/dropFour";
+import DropRemove from "../../../../../components/thuc_components/status/dropdown/dropOne/dropRemove";
 const Member = () => {
    const [isInvited, setIsInvited] = useState(false);
 
@@ -42,7 +44,7 @@ const Member = () => {
                         </div>
                      </div>
                      <div>
-                        <Drop />
+                        <DropRemove />
                      </div>
                   </div>
                </div>
