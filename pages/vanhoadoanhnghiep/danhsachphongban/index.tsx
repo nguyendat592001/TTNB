@@ -180,7 +180,6 @@ export default function Index() {
                                         src="/img/VHDN/bacham.png"
                                         alt="Picture of the author"
                                         preview={false}
-                                        onClick={() => { }}
                                     />
                                 </div>
                             </Popover>

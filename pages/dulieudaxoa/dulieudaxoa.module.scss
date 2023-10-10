@@ -41,3 +41,58 @@
     display: flex;
     gap: 8px;
 }
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 90px;
+    }
+
+    .sidebarContent {
+        width: 90px;
+    }
+}
+
+@media (max-width: 426px) {
+
+    .sidebar,
+    .sidebarContent {
+        display: none;
+    }
+
+    .dulieudaxoa {
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .dulieudaxoa__TTNB,
+    .dulieudaxoa__VHDN,
+    .dulieudaxoa__QLTT {
+        width: 45%;
+        display: block;
+        text-align: center;
+    }
+
+    .dulieudaxoa__VHDN__number,
+    .dulieudaxoa__QLTT__number,
+    .dulieudaxoa__TTNB__number {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .dulieudaxoa__TTNB__content,
+    .dulieudaxoa__VHDN__content,
+    .dulieudaxoa__QLTT__content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 281px) {
+
+    .dulieudaxoa__TTNB,
+    .dulieudaxoa__VHDN,
+    .dulieudaxoa__QLTT {
+        width: 100%;
+    }
+}
