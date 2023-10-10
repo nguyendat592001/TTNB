@@ -86,3 +86,13 @@
         color: #4c5bd4;
     }
 }
+@media  (max-width:545px) {
+    .setting_per{
+        padding: 10px 15px;
+        width: calc(100% - 55px);
+        display: flex;
+        justify-content: center;
+        margin-left:55px ;
+        
+    }
+}

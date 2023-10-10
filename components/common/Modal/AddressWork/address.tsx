@@ -6,7 +6,7 @@ import Serfdom from "../Serfdom/Serfdom";
 
 export default function AddressWork(): JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [modalTitle, setModalTitle] = useState("Thêm mới nơi làm việc");
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -18,20 +18,26 @@ export default function AddressWork(): JSX.Element {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
+  const changeModalTitle = (title: string) => {
+    setModalTitle(title);
+  };
   return (
     <>
-      <div className={styles.overview}>
-        <p onClick={showModal} className={styles.opmodal}>
-          <Image
-            width={24}
-            height={25}
-            alt="anh-loi"
-            src={"/img/nv_add-circle_blue.svg"}
-          />
-          Thêm nơi làm việc
-        </p>
-      </div>
+      <p
+        onClick={() => {
+          showModal();
+          changeModalTitle("Thêm mới nơi làm việc");
+        }}
+        className={styles.item}
+      >
+        <Image
+          width={24}
+          height={25}
+          alt="anh-loi"
+          src={"/img/nv_add-circle_blue.svg"}
+        />
+        Thêm nơi làm việc
+      </p>
 
       <ConfigProvider
         theme={{
@@ -51,7 +57,7 @@ export default function AddressWork(): JSX.Element {
       >
         <Modal
           className="address"
-          title="Thêm mới nơi làm việc"
+          title={modalTitle}
           open={isModalOpen}
           onOk={handleOk}
           onCancel={handleCancel}

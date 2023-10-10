@@ -20,7 +20,7 @@ const AddEmail: React.FC = () => {
   return (
     <>
       <div className={styles.btn_Addemail} onClick={showModal}>
-        <Image src="/img/nv_add-circle_blue.svg" preview={false} />
+        <Image alt="" src="/img/nv_add-circle_blue.svg" preview={false} />
         Thêm email khác
       </div>
       <Modal

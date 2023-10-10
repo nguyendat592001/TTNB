@@ -1,38 +1,59 @@
 import React, { useState } from "react";
 import styles from "../index.module.css";
 import { Divider } from "antd";
-import Image from "next/image";
+import { Image } from "antd";
 import Interest from "@/components/common/Modal/Interest/Interest";
-import Link from "next/link";
+
 import HomeImage from "../ImageP/homeImage";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import EdieStory from "./EdieStory";
 import Friend from "../Friend/friend";
 
 export default function Intro() {
   const router = useRouter();
-  const more = () => {
-    router.push("/");
-  };
+  const [add, setAdd] = useState("d");
 
   return (
     <>
       <div>
         <div className={styles.center_intro}>
-          <p>Giới thiệu</p>
-          <Divider />
-
-          <EdieStory />
+          <p className={styles.title} style={{ fontSize: 16, fontWeight: 700 }}>
+            Giới thiệu
+          </p>
+          <div className={styles.Divider}>
+            <Divider />
+          </div>
+          <div className={styles.sto}>
+            <EdieStory />
+          </div>
 
           <div className={styles.follow}>
+            {add && (
+              <p>
+                <Image
+                  alt=""
+                  src={"img/noi-lam-viec-icon.svg"}
+                  preview={false}
+                />
+                Làm việc tại : <span>{add}</span>
+              </p>
+            )}
+
             <div className={styles.follow_list}>
-              <Image width={24} height={24} alt="" src={"/img/nv_eye.svg"} />
+              <Image
+                width={24}
+                height={24}
+                alt=""
+                src={"/img/nv_eye.svg"}
+                preview={false}
+              />
               <span>Có 1 người theo dõi</span>
             </div>
             <p>Xem thêm</p>
           </div>
-
-          <Interest />
+          <div className={styles.st}>
+            <Interest />
+          </div>
         </div>
         <HomeImage />
         <Friend />

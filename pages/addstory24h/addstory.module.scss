@@ -127,15 +127,18 @@
     .textarea{
         border: none;
         font-size: 30px;
-        position: relative;
-        top: 50%;
-        left: 0%;
+        position: absolute;
+        display: flex;
+        // top: 50%;
+        // left: 0%;
         width: 300px;
-        transform: translateX(-100%);
+        // transform: translateY(50%);
         background: none;
         color: #474747;
         text-align: center;
+        align-items: center;
         height: 470px;
+        padding-top: 10%;
         
     }
     .textarea:focus{
