@@ -531,9 +531,19 @@ function Post() {
                     />
                   </div>
                   <div className={styles.comment__content}>
-                    <div className={styles.comment__content_info}>
-                      <p className={styles.comment__name}>{comment.name}</p>
-                      <p className={styles.comment__text}>{comment.content}</p>
+                    <div className={`${styles.comment__content_info} flex flex-space-between flex-align-center`}>
+                      <div>
+                        <p className={styles.comment__name}>{comment.name}</p>
+                        <p className={styles.comment__text}>{comment.content}</p>
+                      </div>
+                      <div className={styles.comment__option}>
+                        <Image
+                          src="/img/VHDN/bacham.png"
+                          alt="icon"
+                          preview={false}
+                          className='cursor-pointer'
+                        />
+                      </div>
                     </div>
                     <div className={styles.comment__content_reaction}>
                       <p className={styles.comment__cxuc}>Thích</p>
