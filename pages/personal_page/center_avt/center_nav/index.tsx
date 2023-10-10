@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Divider, Tabs } from "antd";
 import type { TabsProps } from "antd";
@@ -44,7 +45,7 @@ const items: TabsProps["items"] = [
   },
 ];
 
-const App: React.FC = () => {
+const Center_nav: React.FC = () => {
   return (
     <div className="w100">
       <Divider />
@@ -59,4 +60,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Center_nav;

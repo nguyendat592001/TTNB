@@ -175,14 +175,33 @@
 // responsive
 .up {
             position: relative;
-            top:-56px;
-            left: -40px;
-            background-color: #fff;
+            top:45px;
+            left: 93px;
+            width: 30px;
             height: 30px;
+            background-color: #fff;
             border-radius: 50%;
-    .ant-image{
-        
-    }
+    
+}
+.anhdaidien{
+    border-radius: 50%;
+    border: 2px solid white;
+    position: relative;
+    top: -80px;
+    left: 120px;
+}
+@media  (max-width:1200px){
+   
+    .up {
+        position: relative;
+        top:-133px;
+        left: 275px;
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 50%;
+
+}
 }
 @media  (max-width:1024px){
     .width100{
@@ -201,6 +220,16 @@
             width: 100%;
         }
     }
+    .up {
+        position: relative;
+        top:130px;
+        left: -30px;
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 50%;
+
+}
 }
 @media  (max-width:545px) {
     .center_tab_block .ant-tabs .ant-tabs-extra-content{

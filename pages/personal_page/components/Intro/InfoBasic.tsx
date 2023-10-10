@@ -9,13 +9,7 @@ import { Image } from "antd";
 export default function InfoBasic() {
   const [email, setEmail] = useState("sđ");
   const [display, setDisplay] = useState(false);
-  useEffect(() => {
-    if (email === "") {
-      setDisplay(false);
-    } else {
-      setDisplay(true);
-    }
-  }, [display]);
+
   return (
     <div>
       <div className={styles.overview}>
@@ -48,7 +42,7 @@ export default function InfoBasic() {
               <Image alt="" src={"/img/zmdi_email.svg"} />
 
               <p className={styles.subitem1}>
-                Email: &ensp;<span className={styles.subsub}>{email}</span>
+                Email: &ensp;<span className={styles.subsub}></span>
               </p>
               <p className={styles.subitem2}>công khai</p>
               <div className={styles.subitem3}>

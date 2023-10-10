@@ -85,7 +85,7 @@ export default function Following() {
               alt="anh-dai-dien"
               src={allfr.imgAvt}
             />
-            <a className={styles.allfr_name}>{allfr.name}</a>
+            <div className={styles.allfr_name}>{allfr.name}</div>
           </div>
           <div className={styles.feedback_dad}>
             <button
