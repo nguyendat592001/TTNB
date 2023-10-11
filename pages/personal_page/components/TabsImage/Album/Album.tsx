@@ -1,5 +1,6 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
+import { Image } from "antd";
 import styles from "../TabsImage.module.scss";
 import { Dropdown, MenuProps } from "antd";
 import { useRouter } from "next/router";
@@ -109,46 +110,52 @@ export default function Edit_album() {
     <div>
       <div className={styles.album}>
         <div className={styles.album_add}>
-          <div
-            className={styles.album_add__new}
-            onClick={() => {
-              router.push("/create_album");
-            }}
-          >
-            <Image
-              width={24}
-              height={25}
-              alt="alicu"
-              src={"/img/nv_add-circle_blue.svg"}
-            />
-            <p>Tạo album</p>
-          </div>
+          {/*  */}
           <div className={styles.album_new}>
+            <div
+              className={styles.album_add__new}
+              onClick={() => {
+                router.push("/create_album");
+              }}
+            >
+              <Image
+                width={24}
+                height={25}
+                alt="alicu"
+                src={"/img/nv_add-circle_blue.svg"}
+                preview={false}
+              />
+              <p>Tạo album</p>
+            </div>
             {album.map((albums, index) => (
-              <div key={index}>
-                <div className={styles.album_new_img}>
-                  <Image
-                    width={218}
-                    height={215}
-                    alt="anh loi"
-                    src={albums.imgSrc}
-                  />
-                  <Dropdown menu={{ items }} trigger={["click"]}>
+              <div key={index} className={styles.img486}>
+                <div className={styles.img486_child}>
+                  <div className={styles.album_new_img}>
                     <Image
-                      style={{ cursor: "pointer" }}
-                      onClick={(e) => e.preventDefault()}
-                      className={styles.album_img_edit}
-                      width={31}
-                      height={30}
-                      alt="pencel"
-                      src={"/img/edit_album.svg"}
+                      width={218}
+                      height={215}
+                      alt="anh loi"
+                      src={albums.imgSrc}
+                      preview={false}
                     />
-                  </Dropdown>
-                </div>
+                    <Dropdown menu={{ items }} trigger={["click"]}>
+                      <Image
+                        style={{ cursor: "pointer" }}
+                        onClick={(e) => e.preventDefault()}
+                        className={styles.album_img_edit}
+                        width={31}
+                        height={30}
+                        preview={false}
+                        alt="pencel"
+                        src={"/img/edit_album.svg"}
+                      />
+                    </Dropdown>
+                  </div>
 
-                <div className={styles.data}>
-                  <p>{albums.des}</p>
-                  <span>{albums.length} mục</span>
+                  <div className={styles.data}>
+                    <p>{albums.des}</p>
+                    <span>{albums.length} mục</span>
+                  </div>
                 </div>
               </div>
             ))}

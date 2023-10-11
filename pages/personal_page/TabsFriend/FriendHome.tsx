@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./FriendHome.module.scss";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, Input } from "antd";
 import { Tabs } from "antd";
 import type { TabsProps } from "antd";
 import Allfriend from "@/pages/personal_page/components/AllFriend/allfriend";
 
 import Follower from "@/pages/personal_page/components/Follower/follower";
 import Following from "@/pages/personal_page/components/Following/Following";
+import Search from "antd/es/input/Search";
+import { SearchOutlined } from "@ant-design/icons";
 const fr = [
   {
     id: 1,
@@ -97,17 +99,11 @@ export default function FriendHome() {
           <p className={styles.nav_friend_fr}>Bạn bè({fr.length})</p>
           <div className={styles.filter_friend}>
             <div className={styles.input_search}>
-              <input
+              <Input
                 placeholder="Tìm kiếm bạn bè"
                 className={styles.input}
                 type="text"
-              />
-              <Image
-                className={styles.input_search__image}
-                width={24}
-                height={25}
-                alt="search"
-                src={"/img/search.svg"}
+                suffix={<SearchOutlined rev={undefined} />}
               />
             </div>
             <div className={styles.looking_add}>

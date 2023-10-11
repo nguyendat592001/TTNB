@@ -26,7 +26,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
         <div className={styles.center_avt_header}>
           <div className={`${styles.avt} avt`}>
             <Image
-              width={1200}
+              // width={1200}
               alt="anh-bia"
               src={"/img/c.png"}
               preview={false}
@@ -59,14 +59,15 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
           </div>
         </div>
         <div className={styles.center_avt_footer}>
-          <Image
-            width={192}
-            preview={false}
-            height={186}
-            alt="anh-loi"
-            src={"/img/c.png"}
-            className="anhdaidien"
-          />
+          <div className="anhdaidien">
+            <Image
+              width={192}
+              preview={false}
+              height={186}
+              alt="anh-loi"
+              src={"/img/c.png"}
+            />
+          </div>
 
           <div
             onClick={() => {
