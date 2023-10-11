@@ -43,6 +43,15 @@
    flex-direction: column;
 }
 
+@media (max-width: 821px) {
+   .content_bot {
+      display: none;
+   }
+   .content_top {
+      width: 100%;
+      padding-top: 50px;
+   }
+}
 @media (max-width: 426px) {
    .post {
       padding: 12px;

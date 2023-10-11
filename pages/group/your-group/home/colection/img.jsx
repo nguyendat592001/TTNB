@@ -22,7 +22,7 @@ const Img = () => {
             {dataImg.map((item) => {
                return (
                   <div className={styles.introduce_img} key={item.key}>
-                     <Image alt="/" src={item.img} height={170} preview={false} />
+                     <Image alt="/" src={item.img} className={`img_colection`} />
                   </div>
                );
             })}

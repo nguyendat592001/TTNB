@@ -149,7 +149,7 @@ const App = () => {
    const router = useRouter();
    //tabs
 
-   const items = [
+   const itemstabs = [
       {
          key: "1",
          label: "Thảo luận",
@@ -459,6 +459,19 @@ const App = () => {
    const showModalInviteFriend = () => {
       setIsModalInviteFriendOpen(true);
    };
+
+   const items = [
+      {
+         key: "1",
+         label: (
+            <div className={styles.menu}>
+               <div className={styles.right_menu_content}>
+                  <LeftNav />
+               </div>
+            </div>
+         ),
+      },
+   ];
    return (
       <>
          <div className={styles.container}>
@@ -473,8 +486,16 @@ const App = () => {
             </div>
             <div className={styles.right}>
                <div className={styles.right_header}>
-                  <div>
-                     <Image alt="/" className={styles.img_header} width={1103} height={345} src="/img/group/tq5.jpg" preview={false} />
+                  <div className={`right_img ${styles.right_img}`}>
+                     <Image
+                        alt="/"
+                        className={`img_banner ${styles.img_header}`}
+                        src="/img/group/tq5.jpg"
+                        preview={false}
+                        style={{
+                           Width: "100%",
+                        }}
+                     />
                      <div className={styles.cam_header}>
                         <CameraOutlined />
                      </div>
@@ -491,14 +512,26 @@ const App = () => {
                            <p className={styles.left_p2}>1 tr thành viên</p>
                         </div>
                         <div className={styles.inv}>
-                           <Image alt="/" src={"/img/group/mu1.jpg"} style={{ borderRadius: "50%" }} width={70} height={70} preview={false} />
+                           <div className={styles.right_none}>
+                              <div className={styles.right_menu}>
+                                 <Dropdown
+                                    menu={{
+                                       items,
+                                    }}
+                                    placement="bottomRight"
+                                    trigger="click">
+                                    <Image src="/img/group/menuu.png" alt="icon" width={40} height={40} preview={false} />
+                                 </Dropdown>
+                              </div>
+                           </div>
+                           <Image alt="/" src={"/img/group/mu1.jpg"} style={{ borderRadius: "50%" }} width={70} height={70} preview={false} className={styles.img_none} />
                            <button className={styles.btn_inv} onClick={showModalInvite}>
                               + Mời
                            </button>
                         </div>
                      </div>
-                     <div>
-                        <Tabs tabBarExtraContent={operations} items={items} />
+                     <div className={styles.tabs}>
+                        <Tabs tabBarExtraContent={operations} items={itemstabs} />
                      </div>
                   </div>
                </div>

@@ -92,3 +92,40 @@
    border: none;
    cursor: pointer;
 }
+@media (max-width: 1281px) {
+   .container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+   }
+
+   .left {
+      width: 100%;
+      background: unset;
+      box-shadow: unset;
+      padding: unset;
+   }
+   .right {
+      width: 100%;
+      margin-left: unset;
+      background: unset;
+      box-shadow: unset;
+      padding: unset;
+   }
+}
+
+@media (max-width: 415px) {
+   .p_bold {
+      font-size: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }
+   .p_green {
+      font-size: 13px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }
+   .left_flex {
+      gap: 7px;
+   }
+}

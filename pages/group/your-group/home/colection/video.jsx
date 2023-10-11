@@ -35,8 +35,8 @@ const VideoColection = () => {
             {dataVideo.map((item) => {
                return (
                   <div className={styles.introduce_img} key={item.key}>
-                     <div className={`${styles.post__content__video} ${styles.post__content__video_container}`}>
-                        <video ref={videoRef} width="100%" height="200" controls onClick={handleVideoClick} className={styles.video}>
+                     <div className={styles.post__content__video}>
+                        <video ref={videoRef} controls onClick={handleVideoClick} className={styles.video}>
                            <source src={item.videoSrc} type="video/mp4" />
                         </video>
                      </div>

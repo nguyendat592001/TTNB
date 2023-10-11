@@ -82,3 +82,11 @@
    align-items: center;
    justify-content: center;
 }
+@media (max-width: 821px) {
+   .content_bot {
+      display: none;
+   }
+   .content_top {
+      width: 100%;
+   }
+}
