@@ -16,3 +16,17 @@
 .introduce_img {
    width: 22%;
 }
+.video {
+   height: 200px;
+   width: 100%;
+}
+
+@media (max-width: 550px) {
+   .video {
+      height: 150px;
+      width: 300px;
+   }
+   .introduce_all_img {
+      flex-direction: column;
+   }
+}
