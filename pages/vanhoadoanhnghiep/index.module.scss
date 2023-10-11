@@ -57,3 +57,129 @@
     position: fixed;
     width: 360px;
 }
+
+.contentRightContainer {
+    margin-top: 0px;
+}
+
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 90px;
+    }
+
+    .subSidebar {
+        width: 120px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .selectedOption {
+        width: 270px;
+    }
+
+    .VHDNContentRight {
+        width: 270px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .VHDNSearchInput {
+        width: 57%;
+    }
+
+    .VHDNContentHeader {
+        gap: 20px;
+    }
+
+    .selectedOption {
+        width: 250px;
+    }
+
+    .VHDNContentRight {
+        width: 250px !important;
+    }
+}
+
+@media (max-width: 426px) {
+    .sidebar {
+        display: none;
+    }
+
+    .subSidebar {
+        display: none;
+    }
+
+    .VHDNContent {
+        margin: 0 20px;
+    }
+
+    .VHDNContentHeader {
+        flex-direction: column-reverse;
+    }
+
+    .VHDNContentRight {
+        display: none;
+    }
+
+    .VHDNSearchInput {
+        margin-top: 0px;
+        width: 100%;
+    }
+
+    .menuOptionSmall {
+        display: flex;
+        justify-content: flex-end;
+        height: 60px;
+    }
+
+    .VHDNSmallMenu {
+        display: block !important;
+    }
+
+    .selectedOption {
+        width: 90%;
+        margin-left: -26px;
+        padding: 12px 8%;
+    }
+
+}
+
+@media (max-width: 376px) {
+    .selectedOption {
+        width: 80%;
+        margin-left: 26px;
+        padding: 12px 8%;
+    }
+}
+
+@media (max-width: 320px) {
+    .selectedOption {
+        width: 65%;
+        margin-left: 66px;
+    }
+
+    .VHDNSmallMenu {
+        margin-right: 12px;
+    }
+
+}
+
+@media (max-width: 280px) {
+    .selectedOption {
+        width: 60%;
+        margin-left: 76px;
+    }
+
+    .VHDNSmallMenu {
+        margin-right: 26px;
+    }
+
+    .DrawerVHDNContentRight {
+        width: 245px !important;
+    }
+}
+
+.VHDNSmallMenu {
+    display: none;
+}

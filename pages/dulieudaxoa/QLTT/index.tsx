@@ -109,54 +109,61 @@ export default function TTNB() {
                 </div>
 
                 <div id="TableDeleteDataDetail" className={styles.container}>
-                    <div className={styles.position}>
-                        <div className={styles.btnGroup}>
-                            {!showSelectAllButton && (
-                                <div className={styles.btn}>
-                                    <Button block onClick={handleSelectAllItems}>
-                                        Chọn tất cả
-                                    </Button>
-                                </div>
-                            )}
-                            {showSelectAllButton && (
-                                <div className={styles.btn}>
-                                    <Button block onClick={showRestoreModal}>
-                                        Khôi phục
-                                    </Button>
-                                </div>
-                            )}
-                            {showSelectAllButton && (
-                                <div className={styles.btn}>
-                                    <Button block onClick={showDeleteModal}>
-                                        Xóa
-                                    </Button>
-                                </div>
-                            )}
-                            {showSelectAllButton && (
-                                <div className={styles.btn}>
-                                    <Button block onClick={handleSelectAllItems}>
-                                        {showSelectAllText}
-                                    </Button>
-                                </div>
-                            )}
-                        </div>
-                        <div className={styles.searchWrapper}>
-                            <Input
-                                placeholder="Tìm kiếm"
-                                size="large"
-                                className={styles.search}
-                                suffix={
-                                    <SearchOutlined
-                                        className="cursor-pointer"
-                                        rev={"xxx"}
-                                    />
-                                }
-                            />
-                        </div>
-                    </div>
+
                     <Tabs
                         defaultActiveKey="1"
                         onChange={onChange}
+                        tabBarExtraContent={
+                            <div className={styles.position}>
+                                <div className={styles.btnGroup}>
+                                    {!showSelectAllButton && (
+                                        <div className={styles.btn}>
+                                            <Button block onClick={handleSelectAllItems}>
+                                                Chọn tất cả
+                                            </Button>
+                                        </div>
+                                    )}
+                                    {showSelectAllButton && (
+                                        <div className={styles.btn}>
+                                            <Button block onClick={showRestoreModal}>
+                                                Khôi phục
+                                            </Button>
+                                        </div>
+                                    )}
+                                    {showSelectAllButton && (
+                                        <div className={styles.btn}>
+                                            <Button block onClick={showDeleteModal}>
+                                                Xóa
+                                            </Button>
+                                        </div>
+                                    )}
+                                    {showSelectAllButton && (
+                                        <div className={styles.btn}>
+                                            <Button
+                                                style={{
+                                                    padding: 0,
+                                                }}
+                                                block onClick={handleSelectAllItems}>
+                                                {showSelectAllText}
+                                            </Button>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className={styles.searchWrapper}>
+                                    <Input
+                                        placeholder="Tìm kiếm"
+                                        size="large"
+                                        className={styles.search}
+                                        suffix={
+                                            <SearchOutlined
+                                                className="cursor-pointer"
+                                                rev={"xxx"}
+                                            />
+                                        }
+                                    />
+                                </div>
+                            </div>
+                        }
                         items={[
                             {
                                 key: '1',

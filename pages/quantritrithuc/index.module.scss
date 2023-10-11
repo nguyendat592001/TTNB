@@ -64,7 +64,6 @@
     align-items: center;
     border: 1px solid #4c5bd4;
     box-shadow: 0 2px 5px 3px rgba(0, 0, 0, .1);
-    border-radius: 6px;
     color: #fff;
     gap: 10px;
     justify-content: flex-end;
@@ -83,7 +82,7 @@
 
 .themtailieuButton {
     height: 48px !important;
-    width: 22% !important;
+    min-width: 22% !important;
     display: flex;
     justify-content: center;
     border-radius: 25px !important;
@@ -190,4 +189,116 @@
     text-align: center;
     font-weight: 700;
     padding: 0 80px !important;
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 90px;
+    }
+
+    .subSidebar {
+        width: 120px;
+    }
+
+    .QTTTcontentRight {
+        width: 340px;
+    }
+
+    .selectedOption {
+        padding: 12px 22%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .QTTTContentBodyItem {
+        width: calc(33% - 20px);
+    }
+
+    .QTTTcontentRight {
+        width: 240px;
+    }
+
+    .selectedOption {
+        padding: 12px 22%;
+    }
+}
+
+@media (max-width: 426px) {
+
+    .sidebar,
+    .subSidebar {
+        display: none;
+    }
+
+    .QTTTContent {
+        padding: 0 20px;
+    }
+
+    .QTTTContentHeader {
+        flex-direction: column-reverse;
+    }
+
+    .QTTTSearchInput {
+        width: 50%;
+    }
+
+    .QTTTButtonAdd {
+        padding-right: 0;
+        position: relative;
+        top: -76px;
+    }
+
+    .QTTTContentBody {
+        position: relative;
+        top: -76px;
+    }
+
+    .QTTTContentBodyListItem {
+        margin-right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .QTTTContentBodyItem {
+        width: 74%;
+    }
+
+    .QTTTcontentRight {
+        width: 90%;
+    }
+}
+
+@media (max-width: 320px) {
+    .themtailieuButton {
+        padding: 4px 20%;
+    }
+
+    .themtailieuButtonText {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .QTTTButtonAdd {
+        left: 20px;
+    }
+}
+
+@media (max-width: 280px) {
+    .QTTTSearchInput {
+        width: 100%;
+    }
+
+    .QTTTButtonAdd {
+        top: -16px;
+    }
+
+    .QTTTContentBody {
+        top: -16px;
+    }
+
+    .QTTTButtonAdd {
+        width: 100%;
+    }
 }

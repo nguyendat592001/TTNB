@@ -18,6 +18,79 @@
     }
 }
 
+@media (max-width: 1024px) {
+
+    .VHDNcontentRight {
+        .ant-menu-item {
+            width: 270px;
+            padding: 18px 8%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .VHDNcontentRight {
+        .ant-menu {
+            width: 250px;
+        }
+
+        .ant-menu-item {
+            width: 250px;
+            padding: 18px 8%;
+        }
+    }
+}
+
+@media (max-width: 426px) {
+    .VHDNcontentRight {
+        .ant-menu {
+            width: 90%;
+            margin-left: -26px;
+        }
+
+        .ant-menu-item {
+            width: 100%;
+            padding: 12px 8%;
+        }
+    }
+}
+
+@media (max-width: 376px) {
+    .VHDNcontentRight {
+        .ant-menu {
+            width: 80%;
+            margin-left: 26px;
+        }
+
+        .ant-menu-item {
+            width: 100%;
+            padding: 12px 8%;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .VHDNcontentRight {
+        .ant-menu {
+            width: 65%;
+            margin-left: 66px;
+        }
+
+        .ant-menu-item {
+            padding: 0 8%;
+        }
+    }
+}
+
+@media (max-width: 280px) {
+    .VHDNcontentRight {
+        .ant-menu {
+            width: 60%;
+            margin-left: 76px;
+        }
+    }
+}
+
 // bth
 .edit-ntlv-modal .ant-modal-content,
 .add-ntlv-modal .ant-modal-content,

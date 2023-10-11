@@ -1,7 +1,7 @@
 
 import SideBar from '@/components/header/sidebar/sidebar';
 import { SearchOutlined } from '@ant-design/icons'
-import { Input, Menu, Image, Button, Popover } from 'antd'
+import { Input, Menu, Image, Button, Popover, Drawer } from 'antd'
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 
@@ -90,7 +90,16 @@ export default function Vanhoadoanhnghiep({ childrenContentLeft, childrenContent
 
     const remainingOptions = SelectOptions.filter(option => option.key !== selectedOption.key);
     const handleSelectedOptionClick = () => {
-        router.push('/vanhoadoanhnghiep/thutuceo');
+        //router.push('/vanhoadoanhnghiep/thutuceo');
+    };
+    const [openDrawer, setOpenDrawer] = useState(false);
+
+    const showDrawer = () => {
+        setOpenDrawer(true);
+    };
+
+    const onClose = () => {
+        setOpenDrawer(false);
     };
     return (
         <div
@@ -109,59 +118,97 @@ export default function Vanhoadoanhnghiep({ childrenContentLeft, childrenContent
                     <div
                         className={styles.contentRightContainer}
                     >
-                        <div
-                            className={`${styles.VHDNcontentRight} VHDNcontentRight`}
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            <div>
+                        <div className={styles.menuOptionSmall}>
+                            <div
+                                className={`${styles.VHDNcontentRight} VHDNcontentRight`}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                            >
                                 <div
-                                    className={`${styles.selectedOption} cursor-pointer`}
-                                    onClick={handleSelectedOptionClick}
+                                    className={`${styles.selectedOptionContainer}`}
                                 >
-                                    <Image
-                                        src={selectedOption.img}
-                                        alt={selectedOption.value}
-                                        preview={false}
-                                        width={25}
-                                    />
-                                    <span className={`${styles.optionText} cursor-pointer`}>{selectedOption.value}</span>
+                                    <div
+                                        className={`${styles.selectedOption} cursor-pointer`}
+                                        onClick={handleSelectedOptionClick}
+                                    >
+                                        <Image
+                                            src={selectedOption.img}
+                                            alt={selectedOption.value}
+                                            preview={false}
+                                            width={25}
+                                        />
+                                        <span className={`${styles.optionText} cursor-pointer`}>{selectedOption.value}</span>
+                                    </div>
+                                    <Menu
+                                        style={{
+                                            display: subMenuOpen ? 'block' : 'none',
+                                            zIndex: 1000000000000,
+                                        }}
+                                        onClick={(e) => handleMenuClick(remainingOptions.find(option => option.key === e.key))}
+                                    >
+                                        {remainingOptions.map(option => (
+                                            <Menu.Item key={option.key}>
+                                                <div
+                                                    style={{
+                                                        display: 'flex',
+                                                        gap: '20px',
+                                                    }}
+                                                >
+                                                    <Image
+                                                        src={option.img}
+                                                        alt={option.value}
+                                                        preview={false}
+                                                        width={25}
+                                                    />
+                                                    <span className={styles.optionText}>{option.value}</span>
+                                                </div>
+                                            </Menu.Item>
+                                        ))}
+                                    </Menu>
                                 </div>
-                                <Menu
-                                    style={{
-                                        display: subMenuOpen ? 'block' : 'none',
-                                        zIndex: 1000000000000,
-                                    }}
-                                    onClick={(e) => handleMenuClick(remainingOptions.find(option => option.key === e.key))}
-                                >
-                                    {remainingOptions.map(option => (
-                                        <Menu.Item key={option.key}>
-                                            <div
-                                                style={{
-                                                    display: 'flex',
-                                                    gap: '20px',
-                                                }}
-                                            >
-                                                <Image
-                                                    src={option.img}
-                                                    alt={option.value}
-                                                    preview={false}
-                                                    width={25}
-                                                />
-                                                <span className={styles.optionText}>{option.value}</span>
-                                            </div>
-                                        </Menu.Item>
-                                    ))}
-                                </Menu>
                             </div>
-
+                            <div
+                                className={`${styles.VHDNSmallMenu} VHDNSmallMenu`}
+                                onClick={showDrawer}
+                            >
+                                <Image
+                                    src="/img/VHDN/icon_small_menu.png"
+                                    alt="v_7"
+                                    preview={false}
+                                />
+                            </div>
                         </div>
-                        <div style={{
-                            position: 'fixed',
-                            top: '160px',
-                            zIndex: -3,
-                            width: '360px',
-                        }}>
+                        <Drawer
+                            title={<div className='flex flex-end'>
+                                <Image
+                                    src='/img/QTTT/smallMenu.png'
+                                    alt='smallMenu'
+                                    preview={false}
+                                />
+                            </div>}
+                            placement="right"
+                            onClose={onClose}
+                            open={openDrawer}
+                            width={300}
+                        >
+                            <div style={{
+                                position: 'fixed',
+                                width: '260px',
+                            }}
+                                className={`${styles.DrawerVHDNContentRight} sVHDNContentRight`}
+                            >
+                                {childrenContentRight}
+                            </div>
+                        </Drawer>
+                        <div
+                            style={{
+                                position: 'fixed',
+                                top: '160px',
+                                zIndex: -3,
+                                width: '360px',
+                            }}
+                            className={`${styles.VHDNContentRight} VHDNContentRight`}
+                        >
                             {childrenContentRight}
                         </div>
                     </div>
