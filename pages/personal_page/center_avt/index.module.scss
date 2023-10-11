@@ -6,11 +6,11 @@
     }
     
     .center_avt .center_avt_header {
-        width: 1200px;
+        width: 100%;
     }
     
     .center_avt .center_avt_header .avt {
-        width: 1200px;
+        width: 100%;
     
         img {
             width: 100%;
@@ -25,16 +25,12 @@
     
     .center_avt_footer {
         display: flex;
-        // position: relative;
+        position: relative;
         width: 100%;
         margin-bottom: -25px;
     }
     
-    .center_avt_footer .center_avt_info {
-       
-    
-    
-    }
+   
     
     .center_avt_footer .center_avt_info img {
         border-radius: 50%;
@@ -157,7 +153,27 @@
         cursor: pointer;
     }
 }
+@media (max-width:1024px){
 
+ .center_cover_upload_btn {
+    color: #474747;
+    font-weight: 500;
+    border: none;
+    position: relative;
+    width: auto;
+    height: unset;
+    cursor: pointer;
+    top: -60px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    float: right;
+
+}
+.center_cover_upload_btn_txt{
+    display: none;
+ }
+}
 @media (max-width:1200px) {
     .center_avt {
         width: 100%;
@@ -185,6 +201,15 @@
         }
         
     }
+    .center_avt .center_avt_header .avt {
+        width: 100%;
+    
+        img {
+            width: 100%;
+            height: 236px;
+            object-fit: cover;
+        }
+    }
     .center_avt_count_mem{
         display: none;
     }
@@ -198,7 +223,7 @@
         margin: 20px 0;
     }
     .center_avt_info_detail{
-        margin: 0;
+        margin: -100px 0 0 0;
     }
     .center_avt_name{
         width: 100% !important;
@@ -219,4 +244,16 @@
             
         }
     }
+}
+@media screen and (max-width:320px) {
+    .center_avt .center_avt_header .avt {
+        width: 100%;
+    
+        img {
+            width: 100%;
+            height: 122.22px;
+            object-fit: cover;
+        }
+    }
+    
 }

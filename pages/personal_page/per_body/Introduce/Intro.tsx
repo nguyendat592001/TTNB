@@ -73,6 +73,14 @@ export default function Intro() {
 
         <div>{renderedComponent}</div>
       </div>
+      <div className={styles.respon}>
+        <div className={styles.gap20}>
+          <Tongquan />
+          <InfoBasic />
+          <Family_and_elationships />
+          <Details_about_you />
+        </div>
+      </div>
     </>
   );
 }

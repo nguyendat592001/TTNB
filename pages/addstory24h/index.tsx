@@ -3,6 +3,8 @@ import styles from "./addstory.module.scss";
 import { Image } from "antd";
 import Head from "next/head";
 import NavStory from "./NavStory/navStory";
+import Menus from "./menu";
+import Settingstory from "@/components/viet_components/SettingStory/Settingstory";
 export default function Index() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [text, setText] = useState(false);
@@ -136,7 +138,7 @@ export default function Index() {
         <title>Tạo tin 24h</title>
         <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
       </Head>
-      <div style={{ display: "flex" }}>
+      <div className={styles.taotin24h}>
         <NavStory
           selectedImage={selectedImage}
           text={onClickOpentextarea}
@@ -181,7 +183,7 @@ export default function Index() {
               </div>
             </div>
             <div
-              className={`${styles.header} ${styles.edit} ${
+              className={`${styles.header1} ${styles.edit} ${
                 selectedImage ? "" : styles.hidden
               }`}
             >
