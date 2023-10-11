@@ -45,6 +45,7 @@ const MostQuestionsAsked: React.FC<MostQuestionsAskedProps> = ({ data }) => {
                 dataSource={data}
                 pagination={false}
                 className={`${styles.TDCHcontentRightTable} TDCHcontentRightTable`}
+                scroll={{ x: "max-content" }}
             />
         </div>
     )

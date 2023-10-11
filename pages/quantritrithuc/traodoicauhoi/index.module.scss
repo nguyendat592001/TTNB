@@ -180,3 +180,126 @@
         border-radius: 4px;
     }
 }
+
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 90px;
+    }
+
+    .subSidebar {
+        width: 120px;
+    }
+
+    .selectedOption {
+        width: 290px;
+        padding: 12px 10%;
+    }
+
+    .TDCHTablecontentRight {
+        padding-right: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .selectedOption {
+        width: 230px;
+        padding: 12px 8px;
+    }
+
+    .TDCHContent {
+        margin-left: 104px;
+    }
+
+    .TDCHContentBodyLeft {
+        width: 56%;
+    }
+
+    .subSidebar {
+        width: 120px;
+    }
+
+    .TDCHContentBodyLeftContainer {
+        padding: 15px 10px;
+    }
+}
+
+@media (max-width: 426px) {
+    .sidebar {
+        display: none;
+    }
+
+    .subSidebar {
+        display: none;
+    }
+
+    .TDCHContent {
+        margin: 0 10px;
+    }
+
+    .TDCHContentBodyLeft {
+        width: 100%;
+    }
+
+    .TDCHTablecontentRight {
+        display: none;
+    }
+
+    .TDCHSearchInput {
+        margin-top: 16px;
+    }
+
+    .TDCHContentBody {
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+
+    .contentRightContainer {
+        margin-top: 10px;
+        height: 45px;
+        width: 100%;
+    }
+
+    .selectContainer {
+        height: 45px;
+    }
+
+    .selectedOption {
+        width: 85%;
+        padding: 0px 16%;
+    }
+
+    .smallMenu {
+        display: block !important;
+    }
+}
+
+.selectContainer {
+    flex: 1;
+}
+
+.smallMenu {
+    display: none;
+}
+
+@media (max-width: 376px) {
+    .smallMenu {
+        margin-right: 40px;
+    }
+}
+
+@media (max-width: 320px) {
+    .smallMenu {
+        margin-right: 100px;
+    }
+}
+
+@media (max-width: 280px) {
+
+    .smallMenu {
+        margin-right: 140px;
+    }
+
+    .selectedOption {
+        padding: 0px 4%;
+    }
+}

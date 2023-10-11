@@ -45,6 +45,7 @@ const MostKnowledgeableMembers: React.FC<MostKnowledgeableMembersProps> = ({ dat
                 dataSource={data}
                 pagination={false}
                 className={`${styles.TDCHcontentRightTable} TDCHcontentRightTable`}
+                scroll={{ x: "max-content" }}
             />
         </div>
     )

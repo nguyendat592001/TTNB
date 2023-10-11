@@ -1,5 +1,5 @@
 import { BellFilled, DeleteOutlined, EditOutlined, SearchOutlined, SendOutlined } from '@ant-design/icons'
-import { Input, Menu, Image, Button, Popover, Table, Divider } from 'antd'
+import { Input, Menu, Image, Button, Popover, Table, Divider, Drawer } from 'antd'
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import styles from './index.module.scss'
@@ -142,7 +142,7 @@ export default function TraoDoiCauHoi() {
             router.push('/quantritrithuc/traodoicauhoi');
         }
         if (option.key === '3') {
-            router.push('/quantritrithuc/cauhoicuatoi');
+            router.push('/quantritrithuc/traodoicauhoi');
         }
     };
 
@@ -197,7 +197,15 @@ export default function TraoDoiCauHoi() {
     const closeDeleteCommentModal = () => {
         setOpenModalDeleteComment(false);
     };
+    const [openDrawer, setOpenDrawer] = useState(false);
 
+    const showDrawer = () => {
+        setOpenDrawer(true);
+    };
+
+    const onClose = () => {
+        setOpenDrawer(false);
+    };
     return (
         <div
             className={`${styles.TDCHContainer} QTTTContainer flex`}
@@ -445,11 +453,11 @@ export default function TraoDoiCauHoi() {
                         className={styles.contentRightContainer}
                     >
                         <div
-                            className={`${styles.TDCHcontentRight} TDCHcontentRight`}
+                            className={`${styles.TDCHcontentRight} TDCHcontentRight flex flex-space-between`}
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <div>
+                            <div className={styles.selectContainer}>
                                 <div
                                     className={`${styles.selectedOption} cursor-pointer`}
                                 >
@@ -483,12 +491,45 @@ export default function TraoDoiCauHoi() {
                                     ))}
                                 </Menu>
                             </div>
+                            <div
+                                className={styles.smallMenu}
+                                onClick={showDrawer}
+                            >
+                                <Image
+                                    src='/img/QTTT/smallMenu.png'
+                                    alt='smallMenu'
+                                    preview={false}
+                                />
+                            </div>
+                            <Drawer
+                                title={<div className='flex flex-end'>
+                                    <Image
+                                        src='/img/QTTT/smallMenu.png'
+                                        alt='smallMenu'
+                                        preview={false}
+                                    />
+                                </div>}
+                                placement="right"
+                                onClose={onClose}
+                                open={openDrawer}
+                                width={300}
+                            >
+                                <div
+                                    className={`${styles.smallMenus} TDCHTablecontentRight`}
+                                >
+                                    <MostKnowledgeableMembers data={sttArray} />
+                                    <MostActiveMembers data={mostActiveData} />
+                                    <MostQuestionsAsked data={mostQuestionsData} />
+                                </div>
+                            </Drawer>
                         </div>
                         <div style={{
                             width: '100%',
                             height: '90px',
                         }}></div>
-                        <div>
+                        <div
+                            className={`${styles.TDCHTablecontentRight} TDCHTablecontentRight`}
+                        >
                             <MostKnowledgeableMembers data={sttArray} />
                             <MostActiveMembers data={mostActiveData} />
                             <MostQuestionsAsked data={mostQuestionsData} />

@@ -111,7 +111,7 @@ export default function QTTT() {
             router.push('/quantritrithuc/traodoicauhoi');
         }
         if (option.key === '3') {
-            router.push('/quantritrithuc/cauhoicuatoi');
+            router.push('/quantritrithuc/traodoicauhoi');
         }
     };
 

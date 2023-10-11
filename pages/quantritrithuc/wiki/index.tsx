@@ -53,7 +53,7 @@ interface SelectOptions {
     img: string;
 
 }
-export default function Wiki() {
+export default function QTTT() {
     const router = useRouter();
     const [subMenuOpen, setSubMenuOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(SelectOptions[0]);
@@ -111,7 +111,7 @@ export default function Wiki() {
             router.push('/quantritrithuc/traodoicauhoi');
         }
         if (option.key === '3') {
-            router.push('/quantritrithuc/cauhoicuatoi');
+            router.push('/quantritrithuc/traodoicauhoi');
         }
     };
 
@@ -182,16 +182,16 @@ export default function Wiki() {
 
     return (
         <div
-            className={`${styles.WikiContainer} QTTTContainer flex`}
+            className={`${styles.QTTTContainer} QTTTContainer flex`}
         >
             <div className={`${styles.sidebar}`}>
                 <SideBar />
             </div>
             <div className={`${styles.subSidebar}`}></div>
-            <div className={`${styles.WikiContent} QTTTContent`}>
+            <div className={`${styles.QTTTContent} QTTTContent`}>
 
-                <div className={`${styles.WikiContentHeader} QTTTContentHeader flex`}>
-                    <div className={`${styles.WikiSearchInput} QTTTSearchInput `}>
+                <div className={`${styles.QTTTContentHeader} QTTTContentHeader flex`}>
+                    <div className={`${styles.QTTTSearchInput} QTTTSearchInput `}>
                         <Input
                             placeholder="Tìm kiếm sách"
                             suffix={<SearchOutlined rev={undefined} />}
@@ -203,7 +203,7 @@ export default function Wiki() {
                         className={styles.contentRightContainer}
                     >
                         <div
-                            className={`${styles.WikicontentRight} QTTTcontentRight`}
+                            className={`${styles.QTTTcontentRight} QTTTcontentRight`}
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
@@ -246,7 +246,7 @@ export default function Wiki() {
                 </div>
 
                 <div
-                    className={`${styles.WikiButtonAdd} QTTTButtonAdd flex flex-end `}
+                    className={`${styles.QTTTButtonAdd} QTTTButtonAdd flex flex-end `}
                 >
                     <Button
                         className={styles.themtailieuButton}
@@ -262,17 +262,17 @@ export default function Wiki() {
                     </Button>
                 </div>
 
-                <div className={`${styles.WikiContentBody} QTTTContentBody`}>
+                <div className={`${styles.QTTTContentBody} QTTTContentBody`}>
                     <div
-                        className={`${styles.WikiContentBodyListItem} QTTTContentBodyListItem`}
+                        className={`${styles.QTTTContentBodyListItem} QTTTContentBodyListItem`}
                     >
                         {DocumentData.map((document) => (
                             <div
-                                className={`${styles.WikiContentBodyItem} QTTTContentBodyItem `}
+                                className={`${styles.QTTTContentBodyItem} QTTTContentBodyItem `}
                                 key={document.id}
                             >
                                 <div
-                                    className={`${styles.WikiContentBodyItemImg} QTTTContentBodyItemImg`}
+                                    className={`${styles.QTTTContentBodyItemImg} QTTTContentBodyItemImg`}
                                 >
                                     <Image
                                         src='/img/QTTT/anhbiasach.png'
@@ -286,12 +286,12 @@ export default function Wiki() {
                                     />
                                 </div>
                                 <div className={
-                                    `${styles.WikiContentBodyItemInfo} QTTTContentBodyItemInfo`
+                                    `${styles.QTTTContentBodyItemInfo} QTTTContentBodyItemInfo`
                                 }>
                                     <div className='flex flex-space-between '>
                                         <p>
                                             Tên tài liệu :
-                                            <span className={styles.WikiBoldText}> {document.name}</span>
+                                            <span className={styles.QTTTBoldText}> {document.name}</span>
                                         </p>
                                         <Popover
                                             content={content}
@@ -310,17 +310,17 @@ export default function Wiki() {
                                     </div>
                                     <p>
                                         Tác giả :
-                                        <span className={styles.WikiBoldText}> {document.author}</span>
+                                        <span className={styles.QTTTBoldText}> {document.author}</span>
                                     </p>
                                     <p>
                                         Ngày tạo :
-                                        <span className={styles.WikiBoldText}> {document.createDate}</span>
+                                        <span className={styles.QTTTBoldText}> {document.createDate}</span>
                                     </p>
                                     <p>
                                         Lĩnh vực đề cập :
-                                        <span className={styles.WikiBoldText}> {document.field}</span>
+                                        <span className={styles.QTTTBoldText}> {document.field}</span>
                                     </p>
-                                    <a className={`${styles.WikiBoldText} ${styles.WikiDowloadFile}`}> {document.fileName}</a>
+                                    <a className={`${styles.QTTTBoldText} ${styles.QTTTDowloadFile}`}> {document.fileName}</a>
                                 </div>
                             </div>
                         ))}

@@ -141,6 +141,10 @@ export default function Index() {
                     </Form.Item>
                     <Form.Item
                         className={styles.thutuceoContainerContentFormButton}
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center'
+                        }}
                     >
                         <button
                             type="submit"
