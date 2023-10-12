@@ -6,6 +6,7 @@ import { Input, Switch } from "antd";
 
 import { SearchOutlined } from "@ant-design/icons";
 import Head from "next/head";
+import Post from "@/components/homepage/ContentHome/Post/Post";
 
 interface Info_post {
   id: number;
@@ -21,37 +22,9 @@ export default function Search_per() {
   const handleonClick = () => {
     setTime(!time);
   };
-  const info = [
-    {
-      id: 1,
-      name: "Nguyễn Văn Thức",
-      date: "16:00 11/6/2023",
-      avt: "/img/c.png",
-      imgSrc: "/img/c.png",
-      imgfr: "/img/friend.svg",
-      text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariaturerror eaque optio repellat in alias corporis, sed ratione debitisplaceat est? Ex repellendus debitis sunt voluptatibus. Asperiores,obcaecati in. Cum! ",
-    },
-    {
-      id: 2,
-      name: "Nguyễn Văn Thức",
-      date: "16:00 11/6/2023",
-      avt: "/img/c.png",
-      imgSrc: "/img/c.png",
-      imgfr: "/img/friend.svg",
-      text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariaturerror eaque optio repellat in alias corporis, sed ratione debitisplaceat est? Ex repellendus debitis sunt voluptatibus. Asperiores,obcaecati in. Cum! ",
-    },
-    {
-      id: 3,
-      name: "Nguyễn Văn Thức",
-      date: "16:00 11/6/2023",
-      avt: "/img/c.png",
-      imgSrc: "/img/c.png",
-      imgfr: "/img/friend.svg",
-      text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariaturerror eaque optio repellat in alias corporis, sed ratione debitisplaceat est? Ex repellendus debitis sunt voluptatibus. Asperiores,obcaecati in. Cum! ",
-    },
-  ];
+
   const onChange = (checked: boolean) => {
-    console.log(`switch to ${checked}`);
+    // console.log(`switch to ${checked}`);
   };
   return (
     <>
@@ -108,47 +81,12 @@ export default function Search_per() {
               ) : null}
             </div>
           </div>
-          {info.map((infos, index) => (
-            <div key={index} className={styles.post}>
-              <div className={styles.info_post}>
-                <div className={styles.info_per}>
-                  <Image width={40} height={40} alt="" src={infos.avt} />
-                  <div>
-                    <p>{infos.name}</p>
-                    <p>
-                      {infos.date}.
-                      <Image
-                        width={21}
-                        height={21}
-                        alt=""
-                        src={infos.imgfr}
-                        style={{ marginLeft: 10 }}
-                      />
-                    </p>
-                  </div>
-                </div>
-                <Popdot />
-              </div>
-              <div className={styles.post_post}>
-                <p>{infos.text}</p>
-                <Image width={144} height={144} alt="" src={infos.imgSrc} />
-              </div>
-              <div className={styles.footer}>
-                <div className={styles.like}>
-                  <Image
-                    width={26}
-                    height={26}
-                    alt=""
-                    src={"/img/search_indi_like.svg"}
-                  />
-                  <span>Bạn, Mipan Zu Zu và 98 người khác</span>
-                </div>
-                <div className={styles.comment}>
-                  20 <span>Bình luận</span>
-                </div>
-              </div>
-            </div>
-          ))}
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
         </div>
       </div>
     </>

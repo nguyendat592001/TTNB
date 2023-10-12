@@ -136,7 +136,7 @@ export default function Article_management() {
 
         <div className={styles.list_post}>
           {Img.map((imgs, index) => (
-            <label htmlFor="img_post" key={index}>
+            <label htmlFor="img_post" key={index} className={styles.label1}>
               <Image alt="anh-loi" src={imgs.imgSrc} preview={false} />
               <div className={styles.info_post}>
                 <Image
@@ -145,11 +145,11 @@ export default function Article_management() {
                   alt="anh-loi"
                   src={imgs.imgSrc}
                   preview={false}
+                  className={styles.anhloi}
                 />
                 <div className={styles.info_post_post}>
                   <p>Acing the worlds 2nd* most popular Management Mastes</p>
                   <p style={{ display: "flex", textAlign: "center", gap: 5 }}>
-
                     25 Tháng 9
                     <Image
                       width={20}

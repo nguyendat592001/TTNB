@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Divider } from "antd";
 import { Image } from "antd";
 import styles from "./friend.module.scss";
+import { useRouter } from "next/router";
 const info = [
   {
     id: 1,
@@ -68,6 +69,10 @@ const info = [
 ];
 
 export default function Friend() {
+  const router = useRouter();
+  const handleClickOpenPersonalPages = () => {
+    router.push("/personal_page");
+  };
   const chunkSize = 3;
   const imgChunks = [];
   for (let i = 0; i < info.length; i += chunkSize) {
@@ -90,11 +95,16 @@ export default function Friend() {
         <Divider />
         <div className={styles.homeImage__image_all}>
           {displayedImages.map((img, imgIndex) => (
-            <div key={imgIndex} className={`${styles.image} image`}>
+            <div
+              key={imgIndex}
+              className={`${styles.image} image`}
+              onClick={handleClickOpenPersonalPages}
+            >
               <Image
                 className={styles.itemImg}
                 alt="anh-loi"
                 src={img.imgSrc}
+                preview={false}
               />
               <p className={styles.name_fri}>{img.name}</p>
             </div>

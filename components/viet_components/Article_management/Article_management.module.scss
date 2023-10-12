@@ -84,11 +84,14 @@
 .list_post::-webkit-scrollbar {
     display: none;
 }
-
-.input {
+.label1{
     position: relative;
-    top: -390px;
-    right: -305px;
+}
+.input {
+    position: absolute;
+    top: 13px;
+    right: 23px;
+    width: 13px;
 }
 
 .btn_btn {
@@ -195,10 +198,21 @@
         }
     }
 }
+@media screen and (max-width:468px) {
+    .list_post {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+    }
+}
 @media screen and (max-width:320px) {
     .filter_post_btn{
         font-weight: 500;
         font-size: 15px;
         gap: 5px;
     }
+    
 }

@@ -133,13 +133,19 @@
 
     .right {
         width: 100%;
+        margin-left: 20px;
     }
 
+}
+@media screen and (max-width:590px) {
+    .right{
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width:475px) {
     .right {
 
-        margin: 20px;
+        margin: 20px 0 0 0;
     }
 }

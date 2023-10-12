@@ -70,3 +70,23 @@
     font-weight: 400;
     margin-top: 10px;
 }
+@media screen and (max-width:567px) {
+    .gridStyles{
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+    .img_img{
+        width: 100%;   
+    }
+    .img_img .img{
+        width: 100%;
+        object-fit: cover;
+    }
+}
+@media screen and (max-width:323px) {
+    .gridStyles{
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
+   
+}

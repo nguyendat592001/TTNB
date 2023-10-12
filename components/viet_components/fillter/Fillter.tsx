@@ -39,6 +39,7 @@ export default function Fillter() {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}
+        className="addressbacham"
       >
         <p className={styles.tuto}>
           Dùng bộ lọc để tìm bài viết trên dòng thời gian của bạn.
@@ -51,17 +52,17 @@ export default function Fillter() {
             <div className={styles.datetime}>
               <Select
                 defaultValue="Năm"
-                style={{ width: 100 }}
+                style={{ maxWidth: 100 }}
                 options={[{ value: "Năm" }]}
               />
               <Select
                 defaultValue="Tháng"
-                style={{ width: 100 }}
+                style={{ maxWidth: 100 }}
                 options={[{ value: "Tháng" }]}
               />
               <Select
                 defaultValue="Ngày"
-                style={{ width: 100 }}
+                style={{ maxWidth: 100 }}
                 options={[{ value: "Ngày" }]}
               />
             </div>
@@ -70,7 +71,7 @@ export default function Fillter() {
             <span>Người đăng:</span>
             <Select
               defaultValue="Bất kỳ ai"
-              style={{ width: 250 }}
+              style={{ maxWidth: 250 }}
               options={[
                 { value: "Bất kỳ ai", label: "Bất kỳ ai" },
                 { value: "Bạn", label: "Bạn" },
@@ -82,7 +83,7 @@ export default function Fillter() {
             <span>Quyền riêng tư:</span>
             <Select
               defaultValue="Tất cả bài viết"
-              style={{ width: 250 }}
+              style={{ maxWidth: 250 }}
               options={[
                 { value: "Tất cả bài viết", label: "Tất cả bài viết" },
                 { value: "Công khai", label: "Công khai" },
@@ -95,7 +96,7 @@ export default function Fillter() {
             <span>Bài viết được gắn thẻ:</span>
             <Select
               defaultValue="Tất cả bài viết"
-              style={{ width: 250 }}
+              style={{ maxWidth: 250 }}
               options={[
                 { value: "Tất cả bài viết", label: "Tất cả bài viết" },
                 {

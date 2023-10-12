@@ -19,48 +19,46 @@ export default function NavStory(props: any) {
 
   return (
     <div>
-      <div className={styles.navigation}>
-        <div className={styles.head_nav}>
-          <span className={styles.tin}>Tin</span>
-          <Settingstory />
+      <div className={styles.head_nav}>
+        <span className={styles.tin}>Tin</span>
+        <Settingstory />
+      </div>
+      <div className={styles.my_story}>
+        <span>Tạo tin của bạn</span>
+        <div className={styles.personal}>
+          <Image src={"/img/c.png"} width={50} preview={false} />
+          <span className={styles.name}>Nguyễn Văn Thức</span>
         </div>
-        <div className={styles.my_story}>
-          <span>Tạo tin của bạn</span>
-          <div className={styles.personal}>
-            <Image src={"/img/c.png"} width={50} preview={false} />
-            <span className={styles.name}>Nguyễn Văn Thức</span>
-          </div>
-        </div>
-        <Divider />
-        <div className={styles.nav_content}>
-          <div className={styles.navfooter}>
-            {selectedImage && (
-              <div>
-                <OptionStory text={text} />
-                <Footernav />
-                {text ? (
-                  <div>
-                    <span>Màu chữ</span>
-                    <button style={{ marginBottom: 10 }}>
-                      {colorButtonsText}
-                    </button>
-                  </div>
-                ) : null}
-              </div>
-            )}
-            {!imaget && (
-              <>
-                <ChangeBackground
-                  colorButtons={colorButtons}
-                  value={value}
-                  updateTextarea1Content={updateTextarea1Content}
-                  colorButtonsText={colorButtonsText}
-                />
-                <OptionStory text={text} />
-                <Footernav />
-              </>
-            )}
-          </div>
+      </div>
+      <Divider />
+      <div className={styles.nav_content}>
+        <div className={styles.navfooter}>
+          {selectedImage && (
+            <div>
+              <OptionStory text={text} />
+              <Footernav />
+              {text ? (
+                <div>
+                  <span>Màu chữ</span>
+                  <button style={{ marginBottom: 10 }}>
+                    {colorButtonsText}
+                  </button>
+                </div>
+              ) : null}
+            </div>
+          )}
+          {!imaget && (
+            <>
+              <ChangeBackground
+                colorButtons={colorButtons}
+                value={value}
+                updateTextarea1Content={updateTextarea1Content}
+                colorButtonsText={colorButtonsText}
+              />
+              <OptionStory text={text} />
+              <Footernav />
+            </>
+          )}
         </div>
       </div>
     </div>

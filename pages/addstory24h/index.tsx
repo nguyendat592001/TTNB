@@ -1,17 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./addstory.module.scss";
-import { Image } from "antd";
+import { Button, Image, Drawer } from "antd";
 import Head from "next/head";
 import NavStory from "./NavStory/navStory";
-import Menus from "./menu";
+
 import Settingstory from "@/components/viet_components/SettingStory/Settingstory";
+
 export default function Index() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [text, setText] = useState(false);
   const [textStory, setTextstory] = useState(false);
   const [imaget, setImageNone] = useState(true);
+  const [story, setStory] = useState(true);
   const [textColorIndex, setTextColor] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [url, setUrl] = useState("");
 
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
   //  đưa ảnh vào
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -20,6 +31,8 @@ export default function Index() {
       reader.onload = (e) => {
         if (e.target) {
           setSelectedImage(e.target.result as string);
+          const newUrl = "/anh24h";
+          setUrl(newUrl);
         }
       };
       reader.readAsDataURL(file);
@@ -30,6 +43,7 @@ export default function Index() {
   };
   const onClicktextstory = () => {
     setTextstory(true);
+    setStory(false);
     setImageNone(false);
   };
 
@@ -139,19 +153,29 @@ export default function Index() {
         <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
       </Head>
       <div className={styles.taotin24h}>
-        <NavStory
-          selectedImage={selectedImage}
-          text={onClickOpentextarea}
-          imaget={imaget}
-          colorButtons={colorButtons}
-          colorButtonsText={colorButtonsText}
-          value={textarea1Content}
-          updateTextarea1Content={updateTextarea1Content}
-        />
-        {imaget ? (
-          <div className={styles.cont}>
+        <div className={styles.navigation}>
+          <NavStory
+            selectedImage={selectedImage}
+            text={onClickOpentextarea}
+            imaget={imaget}
+            colorButtons={colorButtons}
+            colorButtonsText={colorButtonsText}
+            value={textarea1Content}
+            updateTextarea1Content={updateTextarea1Content}
+          />
+        </div>
+
+        {story ? (
+          <div
+            className={`${styles.cont} ${selectedImage ? styles.hidden : ""}`}
+          >
+            <div className={styles.settig}>
+              <div>
+                <Settingstory />
+              </div>
+            </div>
             <div
-              className={`${styles.header} ${selectedImage ? styles.hidden : ""}
+              className={`${styles.header} 
         `}
             >
               <label htmlFor="image_story" className={styles.image_story}>
@@ -182,39 +206,74 @@ export default function Index() {
                 <span>Tạo tin văn bản</span>
               </div>
             </div>
-            <div
-              className={`${styles.header1} ${styles.edit} ${
-                selectedImage ? "" : styles.hidden
-              }`}
-            >
-              <span className={styles.watch}>Xem trước</span>
-              <div className={styles.fa_content}>
-                <div className={styles.content}>
-                  <div className={styles.image_story2}>
-                    {selectedImage && (
-                      <Image
-                        width={300}
-                        height={470}
-                        src={selectedImage}
-                        alt="Selected Image"
-                        preview={false}
-                      />
-                    )}
-                    {text ? (
-                      <textarea
-                        style={textareaStyle2}
-                        className={styles.textarea}
-                        placeholder="Nhập văn bản..."
-                      ></textarea>
-                    ) : null}
-                  </div>
+          </div>
+        ) : null}
+
+        {imaget ? (
+          <div
+            className={`${styles.header1} ${styles.edit} tuychinh ${
+              selectedImage ? "" : styles.hidden
+            }`}
+          >
+            <div className={styles.watch}>
+              Xem trước{" "}
+              <Button type="primary" onClick={showDrawer}>
+                Tùy chỉnh
+              </Button>
+              <Drawer title="" placement="right" onClose={onClose} open={open}>
+                <NavStory
+                  selectedImage={selectedImage}
+                  text={onClickOpentextarea}
+                  imaget={imaget}
+                  colorButtons={colorButtons}
+                  colorButtonsText={colorButtonsText}
+                  value={textarea1Content}
+                  updateTextarea1Content={updateTextarea1Content}
+                />
+              </Drawer>
+            </div>
+            <div className={styles.fa_content}>
+              <div className={styles.content}>
+                <div className={styles.image_story2}>
+                  {selectedImage && (
+                    <Image
+                      width={300}
+                      height={470}
+                      src={selectedImage}
+                      alt="Selected Image"
+                      preview={false}
+                    />
+                  )}
+                  {text ? (
+                    <textarea
+                      style={textareaStyle2}
+                      className={styles.textarea}
+                      placeholder="Nhập văn bản..."
+                    ></textarea>
+                  ) : null}
                 </div>
               </div>
             </div>
           </div>
         ) : (
-          <div className={`${styles.header} ${styles.edit} `}>
-            <span className={styles.watch}>Xem trước</span>
+          <div className={`${styles.header} ${styles.edit} tuychinh`}>
+            <div className={styles.watch}>
+              Xem trước
+              <Button type="primary" onClick={showDrawer}>
+                Tùy chỉnh
+              </Button>
+              <Drawer title="" placement="right" onClose={onClose} open={open}>
+                <NavStory
+                  selectedImage={selectedImage}
+                  text={onClickOpentextarea}
+                  imaget={imaget}
+                  colorButtons={colorButtons}
+                  colorButtonsText={colorButtonsText}
+                  value={textarea1Content}
+                  updateTextarea1Content={updateTextarea1Content}
+                />
+              </Drawer>
+            </div>
             <div className={styles.fa_content}>
               <div className={styles.content}>
                 <div className={styles.image_story2}>

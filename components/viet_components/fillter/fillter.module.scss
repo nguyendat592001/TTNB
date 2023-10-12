@@ -68,6 +68,16 @@
         cursor: pointer;
     }
 }
+@media screen and (max-width:475px) {
+   .components{
+    display: flex;
+    flex-direction: column;
+   }
+    .datetime{
+    display: flex;
+    flex-direction: column;
+   }
+}
 @media screen and (max-width:320px) {
     .filter_post_btn{
         font-weight: 500;

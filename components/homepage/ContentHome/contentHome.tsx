@@ -1,10 +1,11 @@
-import { PlusCircleFilled, RightCircleFilled } from "@ant-design/icons";
+// import { PlusCircleFilled, RightCircleFilled } from "@ant-design/icons";
 import { Image } from "antd";
 import React, { useEffect, useState } from "react";
 import AddPost from "./AddPost/AddPost";
 import styles from "./contentHome.module.css";
 import Post from "./Post/Post";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const slidesData = [
   {
@@ -41,7 +42,7 @@ const slidesData = [
 export default function ContentHome(): JSX.Element {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(3);
-
+  const router = useRouter();
   useEffect(() => {
     const handleResize = () => {
       const windowWidth = window.innerWidth;
@@ -119,7 +120,13 @@ export default function ContentHome(): JSX.Element {
               {slidesData
                 .slice(currentSlideIndex, currentSlideIndex + slidesToShow)
                 .map((slide, index) => (
-                  <div key={index} className={`${styles.story}`}>
+                  <div
+                    key={index}
+                    className={`${styles.story}`}
+                    onClick={() => {
+                      router.push("/WatchStory24h");
+                    }}
+                  >
                     <div className={styles.userDetails}>
                       <Image
                         src={slide.src}
