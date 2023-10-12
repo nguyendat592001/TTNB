@@ -166,7 +166,8 @@
       height: 290px !important;
    }
    .img_colection {
-      height: 130px !important;
+      height: 150px !important;
+      width: 400px !important;
    }
 }
 @media (max-width: 415px) {
@@ -179,5 +180,6 @@
    }
    .img_colection {
       height: 100px !important;
+      width: 300px !important;
    }
 }

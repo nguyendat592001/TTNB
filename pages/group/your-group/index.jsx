@@ -539,7 +539,7 @@ const App = () => {
             <div>
                <Modal className={`thuc_modal ${styles.modal_out}`} title="Mời bạn bè" open={isModalInviteOpen} onCancel={handleInviteCancel} footer={null}>
                   <div className={styles.modal_container}>
-                     <div className={styles.input}>
+                     <div>
                         <Input placeholder="Tìm kiếm bạn bè" />
                      </div>
                      <div className={styles.banner_fr}>

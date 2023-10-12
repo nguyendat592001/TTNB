@@ -3,6 +3,7 @@ import styles from "./index.module.css";
 import { Modal, Image, Dropdown, Button, Select, Menu } from "antd";
 import LeftContent from "../../../../components/thuc_components/left-nav-group/leftContent";
 import Time from "../../../../components/thuc_components/newFeed/newFeedContent/time";
+import Head from "next/head";
 const App = () => {
    const handleChange = (value) => {
       console.log(`selected ${value}`);
@@ -160,10 +161,39 @@ const App = () => {
          );
       }
    };
+   const items = [
+      {
+         key: "1",
+         label: (
+            <div className={styles.menu}>
+               <div className={styles.right_menu_content}>
+                  <LeftContent />
+               </div>
+            </div>
+         ),
+      },
+   ];
    return (
       <>
+         <div className={styles.right_none}>
+            <div className={styles.right_menu}>
+               <Dropdown
+                  menu={{
+                     items,
+                  }}
+                  placement="bottomRight"
+                  trigger="click">
+                  <Image src="/img/group/menuu.png" alt="icon" width={40} height={40} preview={false} />
+               </Dropdown>
+               <h3>Nội dung của bạn</h3>
+            </div>
+         </div>
          <div className={styles.container}>
             <div className={styles.left_container}>
+               <Head>
+                  <title>Nội dung của bạn</title>
+                  <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+               </Head>
                <div className={styles.left}>
                   <LeftContent />
                </div>
@@ -205,7 +235,7 @@ const App = () => {
                                     <Image alt="" src="/img/group/tq5.jpg" width={50} height={50} style={{ borderRadius: "50%" }} preview={false} />
                                     <div className={styles.drop_fl}>
                                        <h3>{item.group}</h3>
-                                       <div className={styles.content_fl}>
+                                       <div className={styles.content_fl1}>
                                           <p>{item.name}</p>
                                           <p>{item.time}</p>
                                        </div>
