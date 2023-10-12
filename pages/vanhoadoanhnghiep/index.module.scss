@@ -58,9 +58,7 @@
     width: 360px;
 }
 
-.contentRightContainer {
-    margin-top: 0px;
-}
+
 
 @media (max-width: 1200px) {
     .sidebar {
@@ -69,6 +67,10 @@
 
     .subSidebar {
         width: 120px;
+    }
+
+    .contentRightContainer {
+        margin-top: 0px;
     }
 }
 
@@ -143,6 +145,10 @@
         padding: 12px 8%;
     }
 
+    .VHDNSmallMenu {
+        margin-top: 8px;
+    }
+
 }
 
 @media (max-width: 376px) {
@@ -151,16 +157,23 @@
         margin-left: 26px;
         padding: 12px 8%;
     }
+
 }
 
 @media (max-width: 320px) {
     .selectedOption {
         width: 65%;
         margin-left: 66px;
+        padding: 12px 4%;
     }
 
     .VHDNSmallMenu {
-        margin-right: 12px;
+        margin-right: -4px;
+    }
+
+    .VHDNSearchInput {
+        width: 105%;
+        margin-left: -8px;
     }
 
 }
@@ -168,15 +181,21 @@
 @media (max-width: 280px) {
     .selectedOption {
         width: 60%;
-        margin-left: 76px;
+        margin-left: 100px;
+        padding: 12px 1%;
     }
 
     .VHDNSmallMenu {
-        margin-right: 26px;
+        margin-right: -10px;
     }
 
     .DrawerVHDNContentRight {
         width: 245px !important;
+    }
+
+    .VHDNSearchInput {
+        width: 115%;
+        margin-left: -18px;
     }
 }
 

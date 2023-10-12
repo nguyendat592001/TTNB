@@ -129,3 +129,18 @@ export const menuItemsHomeContact = [
         status: false,
     },
 ];
+
+export const menuItemsHomeGroup = [
+    {
+        key: "1",
+        link: "/",
+        avatar: "/img/c.png",
+        name: "Nhóm 1",
+    },
+    {
+        key: "2",
+        link: "/",
+        avatar: "/img/c.png",
+        name: "Nhóm 2",
+    },
+];

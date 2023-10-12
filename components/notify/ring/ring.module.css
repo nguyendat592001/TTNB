@@ -108,3 +108,15 @@
         width: 376px;
     }
 }
+
+@media (max-width: 320px) {
+    .container {
+        width: 320px;
+    }
+}
+
+@media (max-width: 280px) {
+    .container {
+        width: 280px;
+    }
+}

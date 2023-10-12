@@ -106,3 +106,20 @@
     border-radius: 20px !important;
     font-weight: bold;
 }
+
+.ModalSave__footer {
+    margin: 20px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ModalSave__footer__btnOK {
+    background: #4C5BD4;
+    border-radius: 50px;
+    color: white;
+    font-weight: 700;
+    height: 36px;
+    width: 135px;
+}

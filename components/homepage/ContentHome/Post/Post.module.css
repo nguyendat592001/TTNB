@@ -257,3 +257,38 @@
         padding: 12px;
     }
 }
+
+@media (max-width: 376px) {
+
+    .people,
+    .cmt,
+    .share,
+    .footer_cmt,
+    .footer_share {
+        display: none;
+    }
+
+    .iconCmt,
+    .iconShare {
+        display: block !important;
+    }
+}
+
+.iconCmt,
+.iconShare {
+    display: none;
+}
+
+/* option comment */
+
+.itemDropdown {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 4px;
+    font-weight: 500;
+}
+
+.commentHidden {
+    background-color: #666 !important;
+}

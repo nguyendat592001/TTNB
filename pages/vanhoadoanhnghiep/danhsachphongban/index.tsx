@@ -1,6 +1,6 @@
 import ModalEditGroup from '@/components/dat/Modal/VHDN/danhsachphongban/ModalEditGroup';
 import { EditOutlined } from '@ant-design/icons';
-import { Image, Popover } from 'antd';
+import { Image, Popover, Tooltip } from 'antd';
 import React, { useEffect, useState } from 'react'
 import Vanhoadoanhnghiep from '..';
 import styles from './index.module.scss';
@@ -15,7 +15,7 @@ interface GroupData {
     img: string;
     content: {
         title: string;
-        content: string | { id: number; img: string }[];
+        content: string | { id: number; img: string; memberName?: string; }[];
     }[];
 }
 
@@ -46,14 +46,17 @@ export default function Index() {
                         {
                             id: 1,
                             img: '/img/c.png',
+                            memberName: 'NTD1'
                         },
                         {
                             id: 2,
                             img: '/img/c.png',
+                            memberName: 'NTD2'
                         },
                         {
                             id: 3,
                             img: '/img/c.png',
+                            memberName: 'NTD3'
                         },
                     ]
                 },
@@ -82,6 +85,7 @@ export default function Index() {
                         {
                             id: 1,
                             img: '/img/c.png',
+                            memberName: 'abc'
                         },
                     ]
                 },
@@ -200,14 +204,19 @@ export default function Index() {
                                         {Array.isArray(item.content) ? (
                                             <div className={`${styles.ContentItemContentImg}`}>
                                                 {item.content.map((member, memberIndex) => (
-                                                    <Image
-                                                        src={member.img}
-                                                        alt="Member Image"
+                                                    <Tooltip
+                                                        title={member.memberName}
                                                         key={memberIndex}
-                                                        width={50}
-                                                        preview={false}
-                                                        style={{ borderRadius: '50%' }}
-                                                    />
+                                                    >
+                                                        <Image
+                                                            src={member.img}
+                                                            alt="Member Image"
+                                                            key={memberIndex}
+                                                            width={50}
+                                                            preview={false}
+                                                            style={{ borderRadius: '50%' }}
+                                                        />
+                                                    </Tooltip>
                                                 ))}
                                             </div>
                                         ) : (
