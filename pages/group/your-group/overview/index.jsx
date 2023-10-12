@@ -59,8 +59,34 @@ const Overview = () => {
          ],
       },
    };
+
+   const items = [
+      {
+         key: "1",
+         label: (
+            <div className={styles.menu}>
+               <div className={styles.right_menu_content}>
+                  <LeftNav />
+               </div>
+            </div>
+         ),
+      },
+   ];
    return (
       <>
+         <div className={styles.right_none}>
+            <div className={styles.right_menu}>
+               <Dropdown
+                  menu={{
+                     items,
+                  }}
+                  placement="bottomRight"
+                  trigger="click">
+                  <Image src="/img/group/menuu.png" alt="icon" width={40} height={40} preview={false} />
+               </Dropdown>
+               <h2>Tổng quan</h2>
+            </div>
+         </div>
          <Head>
             <title>Tổng quan</title>
             <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
@@ -80,7 +106,7 @@ const Overview = () => {
                         <div className={styles.right_img}>
                            <Image alt="" src="/img/group/ln8.png" preview={false} />
                         </div>
-                        <div>
+                        <div className={styles.right_text}>
                            <h3>Nội dung thành viên báo cáo</h3>
                            <p>0 tin mới hôm nay</p>
                         </div>
@@ -89,7 +115,7 @@ const Overview = () => {
                         <div className={styles.right_img2}>
                            <Image alt="" src="/img/group/ln5.png" preview={false} />
                         </div>
-                        <div>
+                        <div className={styles.right_text}>
                            <h3>Bài viết đang chờ</h3>
                            <p>0 bài viết mới hôm nay</p>
                         </div>
@@ -98,7 +124,7 @@ const Overview = () => {
                         <div className={styles.right_img3}>
                            <Image alt="" src="/img/group/ln3.png" preview={false} />
                         </div>
-                        <div>
+                        <div className={styles.right_text}>
                            <h3>Yêu cầu làm thành viên</h3>
                            <p>0 yêu cầu mới hôm nay</p>
                         </div>

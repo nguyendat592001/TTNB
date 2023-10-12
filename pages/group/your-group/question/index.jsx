@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./index.module.css";
-import { Modal, Image, Form, Button, Select, Input, Space, Switch } from "antd";
+import { Modal, Image, Form, Button, Select, Input, Space, Switch, Dropdown } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import { MinusCircleOutlined } from "@ant-design/icons";
 import Head from "next/head";
@@ -44,8 +44,33 @@ const Question = () => {
    };
    const [reverse, setReverse] = useState(true);
 
+   const items = [
+      {
+         key: "1",
+         label: (
+            <div className={styles.menu}>
+               <div className={styles.right_menu_content}>
+                  <LeftNav />
+               </div>
+            </div>
+         ),
+      },
+   ];
    return (
       <>
+         <div className={styles.right_none}>
+            <div className={styles.right_menu}>
+               <Dropdown
+                  menu={{
+                     items,
+                  }}
+                  placement="bottomRight"
+                  trigger="click">
+                  <Image src="/img/group/menuu.png" alt="icon" width={40} height={40} preview={false} />
+               </Dropdown>
+               <h2>Câu hỏi chọn thành viên</h2>
+            </div>
+         </div>
          <Head>
             <title>Câu hỏi chọn thành viên</title>
             <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
