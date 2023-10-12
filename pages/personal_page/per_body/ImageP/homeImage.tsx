@@ -77,7 +77,12 @@ const HomeImage = (setActiveTab: any) => {
       <div className={styles.homeImage__image_all}>
         {displayedImages.map((img, imgIndex) => (
           <div key={imgIndex} className={`${styles.image} image`}>
-            <Image className={styles.itemImg} alt="anh-loi" src={img.imgSrc} />
+            <Image
+              className={styles.itemImg}
+              alt="anh-loi"
+              src={img.imgSrc}
+              preview={false}
+            />
           </div>
         ))}
         {Img.length > limit && (

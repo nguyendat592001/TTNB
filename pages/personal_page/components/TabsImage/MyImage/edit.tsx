@@ -9,12 +9,10 @@ const Pen = (props: any) => {
   const handleDownload = () => {
     // Sử dụng đường dẫn hình ảnh từ imageURL
     const downloadURL = imageURL; // imageURL đã được truyền từ Myimage
-
     // Tạo một fake anchor element
     const anchor = document.createElement("a");
     anchor.href = downloadURL;
     anchor.download = "image.jpg"; // Tên tệp ảnh khi tải xuống
-
     // Trigger a click event to download the image
     anchor.click();
   };

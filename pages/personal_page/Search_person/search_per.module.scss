@@ -117,6 +117,7 @@
         }
 
         .time_post {
+            position: relative;
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
@@ -133,6 +134,7 @@
         height: 105px;
         overflow-y: scroll;
         right: 50%;
+        z-index: 10000;
 
         ul {
             li {

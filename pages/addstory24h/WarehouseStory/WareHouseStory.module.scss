@@ -67,3 +67,36 @@
 .activeTab{
     background: #cf2a2a;
 }
+
+.header_an{
+    display: none;
+}
+.header_fake{
+    display: block;
+}
+@media screen and (max-width:769px) {
+    .sidebar{
+        display: none;
+    }
+    .header_an{
+        display: block;
+    }
+    .header_fake{
+        display: none;
+    }
+    .content {
+        margin: 10px !important;
+    }
+}
+@media screen and (max-width:321px) {
+    .head_content{
+        display: flex;
+        flex-direction: column;
+    }
+    .myimage_img{
+        width: 100% !important;
+        .myimage_img_img{
+            width: 100%;
+        }
+    }
+}

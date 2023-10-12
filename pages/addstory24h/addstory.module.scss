@@ -6,8 +6,8 @@
     display: flex;
     justify-content: center;
     margin-top: 100px;
-    width: 79%;
-    margin-left: 21%;
+    width: 100%;
+    // margin-left: 21%;
 
     .image_story {
         background: linear-gradient(153.69deg, #0073BA 28.06%, #00C0B0 84.56%);
@@ -99,12 +99,11 @@
 
 //navStory 
 .navigation {
-    position: fixed;
-    width: 21%;
+    width: 300px;
     background-color: #fff;
-    height: 100vh;
+    height: 150vh;
     padding: 10px;
-
+}
     .head_nav {
         display: flex;
         justify-content: space-between;
@@ -135,7 +134,7 @@
             }
         }
     }
-}
+
 
 .edit {
     background-color: #fff;
@@ -145,7 +144,10 @@
     .watch{
         font-size: 17px;
         font-weight: 500;
+        display: flex;
+        justify-content: space-between;
     }
+    
     .fa_content {
         padding: 20px;
     }
@@ -157,10 +159,7 @@
 
     }
 }
-.hidden{
-    display: none;
-    
-}
+
 .image_story2{
     display: flex;
     justify-content: center;
@@ -193,10 +192,13 @@
 }
 
 .cont{
-    margin-left: 21%;
-    width: 66%;
+    // margin-left: 21%;
+    width: 100%;
     display: flex;
     justify-content: center;
+}
+.hidden{
+    display: none;  
 }
 .textarea2{
     display: flex;
@@ -234,13 +236,43 @@
     display: flex;
     width: 100%;
 }
+.settig{
+    display: none;
+}
 @media screen and (max-width:769px) {
     .navigation{
         display: none;
     }    
+    .cont{
+        display: flex;
+        flex-direction: column;
+        .settig{
+            display: block;
+            div{
+                padding: 20px 20px 0 0;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+        }
+    }
+    .hidden{
+        display: none;  
+    }
     .header{
-        
+        display: flex;
+        flex-direction: column;
         margin: 0;
         width: 100%;
+        gap: 20px;
+        padding: 20px 20px;
+        .image_story{
+            width: 100%;
+            height: 200px;
+        }
+        .text_story{
+            width: 100%;
+            height: 200px;
+        }
     }
 }

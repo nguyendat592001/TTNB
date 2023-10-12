@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { TabsProps } from "antd";
-import { Tabs, Image } from "antd";
+import { Tabs, Image, Button, Drawer } from "antd";
 import CDC from "./CDC";
 import QRT from "./QRT";
 import PerAndTag from "./PerAndTag";
@@ -8,11 +8,21 @@ import PostPublic from "./PostPublic";
 import Block from "./Block";
 import Story from "./Story";
 import Notif from "./Notification";
+import TabPane from "antd/lib/tabs/TabPane";
 
 type TabPosition = "left" | "right" | "top" | "bottom";
 
 const SidebarSetting: React.FC = () => {
   const [tabPosition, setTabPosition] = useState<TabPosition>("left");
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -92,6 +102,15 @@ const SidebarSetting: React.FC = () => {
   return (
     <div className="tabSetting">
       <Tabs tabPosition={tabPosition} items={items} />
+      <div className="taban">
+        <CDC />
+        <QRT />
+        <PerAndTag />
+        <PostPublic />
+        <Block />
+        <Story />
+        <Notif />
+      </div>
     </div>
   );
 };
