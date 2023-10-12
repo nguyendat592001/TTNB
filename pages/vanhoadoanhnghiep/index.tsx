@@ -192,7 +192,6 @@ export default function Vanhoadoanhnghiep({ childrenContentLeft, childrenContent
                             width={300}
                         >
                             <div style={{
-                                position: 'fixed',
                                 width: '260px',
                             }}
                                 className={`${styles.DrawerVHDNContentRight} sVHDNContentRight`}
@@ -206,6 +205,8 @@ export default function Vanhoadoanhnghiep({ childrenContentLeft, childrenContent
                                 top: '160px',
                                 zIndex: -3,
                                 width: '360px',
+                                overflow: "scroll",
+                                height: 'calc(100vh - 160px)',
                             }}
                             className={`${styles.VHDNContentRight} VHDNContentRight`}
                         >

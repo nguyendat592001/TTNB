@@ -1,15 +1,16 @@
 import {
-  Alert,
   Button,
   Divider,
+  Dropdown,
   Image,
   Menu,
+  MenuProps,
   message,
   Popover,
   Tooltip,
 } from "antd";
 import { SetStateAction, useState } from "react";
-import { DownOutlined } from "@ant-design/icons";
+import { CommentOutlined, DeleteOutlined, DownOutlined, EditOutlined, StopOutlined } from "@ant-design/icons";
 
 import styles from "./Post.module.css";
 import PostComment from "./PostComment/PostComment";
@@ -73,6 +74,8 @@ function Post() {
   const [isPostClosed, setIsPostClosed] = useState(false);
   const [isPostRestored, setIsPostRestored] = useState(false);
 
+  const [areCommentsHidden, setAreCommentsHidden] = useState(false);
+
   function handleRestoreClick() {
     setIsPostRestored(true);
     alert("Bài viết đã được khôi phục");
@@ -127,6 +130,52 @@ function Post() {
       </div>
     </div>
   );
+  const handleHideShowComments = () => {
+    setAreCommentsHidden(!areCommentsHidden);
+  };
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: (
+        <div className={`${styles.itemDropdown} flex`}>
+          <EditOutlined rev={undefined} />
+          <p>Chỉnh sửa bình luận</p>
+        </div>
+      ),
+    },
+    {
+      key: '2',
+      label: (
+        <div
+          className={`${styles.itemDropdown} flex`}
+          onClick={handleHideShowComments}
+        >
+          {areCommentsHidden ?
+            <>
+              <CommentOutlined rev={undefined} />
+              <p>Hiện bình luận</p>
+            </>
+            :
+            <>
+              <StopOutlined rev={undefined} />
+              <p>Ẩn bình luận</p>
+            </>
+          }
+        </div>
+      ),
+    },
+    {
+      key: '3',
+      label: (
+        <div
+          className={`${styles.itemDropdown} flex`}
+        >
+          <DeleteOutlined rev={undefined} />
+          <p>Xóa bình luận</p>
+        </div>
+      ),
+    }
+  ];
 
   const handlePopoverItemClick = (modal: string) => {
     if (modal === MODAL_SHARE_NOW) {
@@ -406,7 +455,7 @@ function Post() {
                 arrow={false}
               >
                 <p className={styles.post__reaction__count_like__text}>
-                  {likeCount} Người
+                  {likeCount} <span className={styles.people}>Người</span>
                 </p>
               </Popover>
             </div>
@@ -418,10 +467,20 @@ function Post() {
                   trigger="hover"
                   arrow={false}
                 >
-                  <span className={styles.post__reaction__count_comment}>
+                  <div className={`${styles.post__reaction__count_comment} flex flex-align-center`}>
                     1.000
-                    <span> Bình luận </span>
-                  </span>
+                    <div className={styles.iconCmt} >
+                      <Image
+                        src="/img/img-home/ep_post_cmt.svg"
+                        alt="icon"
+                        preview={false}
+                        width={18}
+                        height={18}
+                        className={styles.iconCmt}
+                      />
+                    </div>
+                    <div className={styles.cmt} >Bình luận </div>
+                  </div>
                 </Popover>
               </div>
 
@@ -432,10 +491,20 @@ function Post() {
                   trigger="hover"
                   arrow={false}
                 >
-                  <span className={styles.post__reaction__count_share__text}>
+                  <div className={`${styles.post__reaction__count_share__text} flex flex-align-center`}>
                     1.000
-                    <span> Lượt chia sẻ </span>
-                  </span>
+                    <div className={styles.iconShare} >
+                      <Image
+                        src="/img/img-home/ep_post_share.svg"
+                        alt="icon"
+                        preview={false}
+                        width={18}
+                        height={18}
+                        className={styles.iconShare}
+                      />
+                    </div>
+                    <div className={styles.share}>Lượt chia sẻ </div>
+                  </div>
                 </Popover>
               </div>
             </div>
@@ -462,7 +531,9 @@ function Post() {
                 />
               </div>
               <div className={styles.post__footer__middle__text}>
-                <p>Bình luận</p>
+                <p
+                  className={styles.footer_cmt}
+                >Bình luận</p>
               </div>
             </div>
 
@@ -491,7 +562,7 @@ function Post() {
                   />
                 </div>
                 <div className={styles.post__footer__right__text}>
-                  <p>Chia sẻ</p>
+                  <p className={styles.footer_share}>Chia sẻ</p>
                 </div>
               </div>
             </Popover>
@@ -519,7 +590,7 @@ function Post() {
                 </div>
               </Popover>
               {comments.map((comment, index) => (
-                <div key={index} className={styles.comment}>
+                <div key={index} className={`${styles.comment} `}>
                   <div className={styles.comment__avatar_user}>
                     <Image
                       src={comment.avatar}
@@ -530,25 +601,36 @@ function Post() {
                       alt="avatar"
                     />
                   </div>
-                  <div className={styles.comment__content}>
-                    <div className={`${styles.comment__content_info} flex flex-space-between flex-align-center`}>
+                  <div className={`${styles.comment__content} `}>
+                    <div className={`${styles.comment__content_info} ${areCommentsHidden ? styles.commentHidden : ''
+                      } flex flex-space-between flex-align-center`}>
                       <div>
                         <p className={styles.comment__name}>{comment.name}</p>
-                        <p className={styles.comment__text}>{comment.content}</p>
+                        <p className={styles.comment__text}>
+                          {areCommentsHidden ? "Bình luận đã ẩn" : comment.content}
+                        </p>
                       </div>
-                      <div className={styles.comment__option}>
-                        <Image
-                          src="/img/VHDN/bacham.png"
-                          alt="icon"
-                          preview={false}
-                          className='cursor-pointer'
-                        />
-                      </div>
+                      <Dropdown
+                        menu={{ items }}
+                        trigger={["click"]}
+                        placement="bottomRight"
+                      >
+                        <div
+                          className={styles.comment__option}
+                        >
+                          <Image
+                            src="/img/VHDN/bacham.png"
+                            alt="icon"
+                            preview={false}
+                            className='cursor-pointer'
+                          />
+                        </div>
+                      </Dropdown>
                     </div>
                     <div className={styles.comment__content_reaction}>
-                      <p className={styles.comment__cxuc}>Thích</p>
+                      <p className={`${styles.comment__cxuc} cursor-pointer`}>Thích</p>
                       <p
-                        className={styles.comment__reply}
+                        className={`${styles.comment__reply} cursor-pointer`}
                         onClick={() => handleReplyClick(index)}
                       >
                         Trả lời

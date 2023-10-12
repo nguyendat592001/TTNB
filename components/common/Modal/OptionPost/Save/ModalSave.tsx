@@ -34,9 +34,11 @@ function ModalSave({ selectedModal, closeSelectedModal }: ModalSaveProps) {
     const [newCollectionName, setNewCollectionName] = useState('');
     const [isInputFilled, setIsInputFilled] = useState(false);
     const [collections, setCollections] = useState<DataCollectionItem[]>(dataCollection);
+    const [selectedCollection, setSelectedCollection] = useState<number | undefined>(undefined);
 
     const onChange = (e: RadioChangeEvent) => {
         setValue(e.target.value);
+        setSelectedCollection(e.target.value);
     };
 
     const handleAddNewCollectionClick = () => {
@@ -62,6 +64,7 @@ function ModalSave({ selectedModal, closeSelectedModal }: ModalSaveProps) {
             setShowNewCollectionInput(false);
             setNewCollectionName('');
             setIsInputFilled(false);
+
         }
     };
     return (
@@ -151,6 +154,15 @@ function ModalSave({ selectedModal, closeSelectedModal }: ModalSaveProps) {
                         </>
                     )}
                 </div>
+            </div>
+            <div className={styles.ModalSave__footer}>
+                <Button
+                    className={styles.ModalSave__footer__btnOK}
+                    onClick={closeSelectedModal}
+                    disabled={selectedCollection === undefined}
+                >
+                    Xong
+                </Button>
             </div>
         </Modal>
     );

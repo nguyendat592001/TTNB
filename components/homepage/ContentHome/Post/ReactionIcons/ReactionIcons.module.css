@@ -69,3 +69,11 @@
 .hahaColor {
     color: #f7b928;
 }
+
+/* -----------end color text------------ */
+
+@media (max-width: 376px) {
+    .post__footer__left__text {
+        display: none;
+    }
+}

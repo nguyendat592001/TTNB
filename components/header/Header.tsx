@@ -43,8 +43,8 @@ export default function Header(): JSX.Element {
                         />
                     </div>
                 ) : (
-                    <Row gutter={48} className={styles.row}>
-                        <Col span={6} className={`${styles.Sidebar} SideBar`} >
+                    <div className={`${styles.row} flex`}>
+                        <div className={`${styles.Sidebar} SideBar`} >
                             <ConfigProvider
                                 theme={{
                                     components: {
@@ -95,16 +95,16 @@ export default function Header(): JSX.Element {
                                     </div>
                                 </Popover>
                             </ConfigProvider>
-                        </Col>
-                        <Col lg={11} md={11} xs={10} className={styles.colSearch} >
+                        </div>
+                        <div className={styles.colSearch} >
                             <div className={styles.search}>
                                 <Search onMobileSearchClick={toggleMobileSearch} />
                             </div>
-                        </Col>
-                        <Col lg={6} md={6} xs={7} offset={1} className={styles.colNotify} >
+                        </div>
+                        <div className={styles.colNotify} >
                             <Notify />
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                 )}
             </div>
         </>

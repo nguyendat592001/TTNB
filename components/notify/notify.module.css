@@ -19,8 +19,9 @@
 /* tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
     .notify {
-        justify-content: space-between;
+        justify-content: flex-end;
         margin-right: 10px;
+        gap: 30px;
     }
 }
 
@@ -37,6 +38,6 @@
 
 @media (max-width: 426px) {
     .notify {
-        right: 40px;
+        right: 0;
     }
 }
