@@ -4,6 +4,7 @@ import { Image, Card, Dropdown } from "antd";
 import { useRouter } from "next/router";
 import LeftNavGroup from "../../../components/thuc_components/left-nav/leftNavGroup";
 import Head from "next/head";
+import ModalAsk from "../../../components/thuc_components/modalQuesstion/modalAsk";
 const App = () => {
    const router = useRouter();
 
@@ -57,12 +58,27 @@ const App = () => {
          friend: "1 triệu thành viên",
       },
    ];
+   // modal trả lời quy tắc nhóm
+   const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
+   const [isModalAskQuestionOpen, setIsModalAskQuestionOpen] = useState(false);
+   const handleAskQuestionCancel = () => {
+      setIsModalAskQuestionOpen(false);
+      setSelectedGroupIndex(null);
+   };
+   const showModalAskQuestion = () => {
+      setIsModalAskQuestionOpen(true);
+   };
 
    const [buttonStates, setButtonStates] = useState(data.map(() => false));
-
    const handleButtonClick = (index) => {
       const newButtonStates = [...buttonStates];
-      newButtonStates[index] = !newButtonStates[index];
+      if (newButtonStates[index]) {
+         newButtonStates[index] = false;
+      } else {
+         newButtonStates[index] = true;
+         setSelectedGroupIndex(index);
+         showModalAskQuestion();
+      }
       setButtonStates(newButtonStates);
    };
    const items = [
@@ -136,6 +152,7 @@ const App = () => {
                   })}
                </div>
             </div>
+            {isModalAskQuestionOpen && selectedGroupIndex !== null && <ModalAsk isOpen={isModalAskQuestionOpen} onClose={handleAskQuestionCancel} selectedGroup={data[selectedGroupIndex]} />}
          </div>
       </>
    );

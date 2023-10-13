@@ -22,7 +22,7 @@ const PostWaiting = () => {
    const handleChange = (value) => {
       console.log(value);
    };
-   const items = [
+   const itemsDrop = [
       {
          key: "1",
          label: "Bật thông báo",
@@ -123,8 +123,33 @@ const PostWaiting = () => {
          );
       }
    };
+   const items = [
+      {
+         key: "1",
+         label: (
+            <div className={styles.menu}>
+               <div className={styles.right_menu_content}>
+                  <LeftNav />
+               </div>
+            </div>
+         ),
+      },
+   ];
    return (
       <>
+         <div className={styles.right_none}>
+            <div className={styles.right_menu}>
+               <Dropdown
+                  menu={{
+                     items,
+                  }}
+                  placement="bottomRight"
+                  trigger="click">
+                  <Image src="/img/group/menuu.png" alt="icon" width={40} height={40} preview={false} />
+               </Dropdown>
+               <h2>Bài viết đang chờ</h2>
+            </div>
+         </div>
          <Head>
             <title>Bài viết đang chờ</title>
             <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
@@ -234,7 +259,7 @@ const PostWaiting = () => {
                            <Dropdown
                               overlay={
                                  <Menu onClick={({ key }) => handleDropdownClick(key)}>
-                                    {items.map((item) => (
+                                    {itemsDrop.map((item) => (
                                        <Menu.Item key={item.key}>{item.label}</Menu.Item>
                                     ))}
                                  </Menu>
@@ -254,7 +279,7 @@ const PostWaiting = () => {
                         <div className={styles.content_btn}>
                            <button className={styles.content_btn_ok}>Phê duyệt</button>
                            <button className={styles.content_btn_cancer}>Từ chối</button>
-                           <Dropdown overlay={menuDrop} placement="bottomRight" trigger="click">
+                           <Dropdown overlay={menuDrop} placement="bottomLeft" trigger="click">
                               <div>
                                  <Image alt="" src="/img/group/dot12.svg" preview={false} />
                               </div>
