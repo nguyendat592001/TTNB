@@ -21,7 +21,7 @@ const PostWaiting = () => {
    const handleTimeCancel = () => {
       setIsCalenderOpen(false);
    };
-   const items = [
+   const itemsDrop = [
       {
          key: "1",
          label: "Chỉnh sửa bài viết",
@@ -114,8 +114,33 @@ const PostWaiting = () => {
    useEffect(() => {
       showContent();
    }, []);
+   const items = [
+      {
+         key: "1",
+         label: (
+            <div className={styles.menu}>
+               <div className={styles.right_menu_content}>
+                  <LeftNav />
+               </div>
+            </div>
+         ),
+      },
+   ];
    return (
       <>
+         <div className={styles.right_none}>
+            <div className={styles.right_menu}>
+               <Dropdown
+                  menu={{
+                     items,
+                  }}
+                  placement="bottomRight"
+                  trigger="click">
+                  <Image src="/img/group/menuu.png" alt="icon" width={40} height={40} preview={false} />
+               </Dropdown>
+               <h2>Bài viết đã lên lịch</h2>
+            </div>
+         </div>
          <Head>
             <title>Bài viết đã lên lịch</title>
             <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
@@ -152,7 +177,7 @@ const PostWaiting = () => {
                                  <Dropdown
                                     overlay={
                                        <Menu onClick={({ key }) => handleDropdownClick(key)}>
-                                          {items.map((item) => (
+                                          {itemsDrop.map((item) => (
                                              <Menu.Item key={item.key}>{item.label}</Menu.Item>
                                           ))}
                                        </Menu>

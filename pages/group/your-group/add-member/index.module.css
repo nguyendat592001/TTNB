@@ -92,6 +92,11 @@
    flex-direction: column;
    width: 100%;
 }
+.modal_flex {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
 .btn {
    display: flex;
    gap: 20px;
@@ -100,6 +105,7 @@
 }
 .textarea {
    padding: 10px;
+   outline: none;
 }
 .right_none {
    display: none;

@@ -4,6 +4,7 @@ import { Modal, Image, Dropdown, Button, Menu, Input } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import Head from "next/head";
 const AddMember = () => {
+   //modal từ chối
    const [isModalRefuseOpen, setIsModalRefuseOpen] = useState(false);
    const showModalRefuse = () => {
       setIsModalRefuseOpen(true);
@@ -11,13 +12,34 @@ const AddMember = () => {
    const handleRefuseCancel = () => {
       setIsModalRefuseOpen(false);
    };
-
+   //modal xem câu trả lời
+   const [isModalAskOpen, setIsModalAskOpen] = useState(false);
+   const showModalAsk = () => {
+      setIsModalAskOpen(true);
+   };
+   const handleAskCancel = () => {
+      setIsModalAskOpen(false);
+   };
    const handleDropdownClick = (key) => {
       if (key === "3") {
+         showModalAsk();
+      }
+      if (key === "4") {
          showModalRefuse();
       }
    };
-
+   const itemAsk = [
+      {
+         key: "1",
+         name: "Tôn trọng mọi người",
+         label: "ok",
+      },
+      {
+         key: "2",
+         name: "ĐCSVN Quang vinh muôn năm",
+         label: "Muôn năm",
+      },
+   ];
    const itemsDrop = [
       {
          key: "1",
@@ -29,10 +51,14 @@ const AddMember = () => {
       },
       {
          key: "3",
-         label: "Từ chối kèm theo ý kiến đóng góp",
+         label: "Xem Câu trả lời",
       },
       {
          key: "4",
+         label: "Từ chối kèm theo ý kiến đóng góp",
+      },
+      {
+         key: "5",
          label: "Từ chối và cấm Nguyễn Thế Đạt",
       },
    ];
@@ -183,7 +209,27 @@ const AddMember = () => {
                         <Button className={`btn_cancer`} onClick={handleRefuseCancel}>
                            Hủy
                         </Button>
-                        <Button className={`btn_ok`}>Xóa nhóm</Button>
+                        <Button className={`btn_ok`}>Xác nhận</Button>
+                     </div>
+                  </div>
+               </Modal>
+               <Modal className={`thuc_modal`} title="Câu trả lời của Nguyễn Hoàng Việt" open={isModalAskOpen} onCancel={handleAskCancel} footer={null}>
+                  <div className={styles.modal_container}>
+                     {itemAsk.map((item) => {
+                        return (
+                           <div className={styles.modal_flex} key={item.id}>
+                              <h3>{item.name}</h3>
+                              <p>{item.label}</p>
+                           </div>
+                        );
+                     })}
+                     <div className={styles.content_btn}>
+                        <button className={styles.btn_ok} onClick={() => handleApproveClickOk}>
+                           Phê duyệt
+                        </button>
+                        <button className={styles.btn_cancer} onClick={() => handleApproveClickCancer}>
+                           Từ chối
+                        </button>
                      </div>
                   </div>
                </Modal>
