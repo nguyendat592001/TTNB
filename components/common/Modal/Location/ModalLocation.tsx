@@ -5,6 +5,7 @@ import { useState } from "react";
 import styles from "./ModalLocation.module.css";
 
 interface LocationItem {
+    key: string;
     name: string;
 }
 
@@ -15,36 +16,47 @@ interface LocationsProps {
 
 const locationItemsData: LocationItem[] = [
     {
+        key: "1",
         name: "Hà Nội 1",
     },
     {
+        key: "2",
         name: "Hà Nội 2",
     },
     {
+        key: "3",
         name: "Hà Nội",
     },
     {
+        key: "4",
         name: "Hà Nội 0",
     },
     {
+        key: "5",
         name: "Hà Nội",
     },
     {
+        key: "6",
         name: "Hà Nội",
     },
     {
+        key: "7",
         name: "Hà Nội",
     },
     {
+        key: "8",
         name: "Hà Nội",
     },
     {
+        key: "9",
         name: "Hà Nội",
     },
     {
+        key: "10",
         name: "Hà Nội",
     },
     {
+        key: "11",
         name: "Hà Nội",
     },
 ];

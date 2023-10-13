@@ -9,14 +9,14 @@ import {
   Popover,
   Tooltip,
 } from "antd";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useRef, useState } from "react";
 import { CommentOutlined, DeleteOutlined, DownOutlined, EditOutlined, StopOutlined } from "@ant-design/icons";
 
 import styles from "./Post.module.css";
 import PostComment from "./PostComment/PostComment";
 import ReactionIcons from "./ReactionIcons/ReactionIcons ";
 import OptionPost from "@/components/common/Popover/OptionPost";
-import { menuOptionPost, menuOptionSharePost } from "./dataPost";
+import { menuOptionPost, menuOptionSharePost, dataPost } from "./dataPost";
 import ModalShareOnTime from "@/components/common/Modal/Share/ShareOnTime/ModalShareOnTime";
 import ModalShareOnChat from "@/components/common/Modal/Share/ShareOnChat/ModalShareOnChat";
 import ModalShareOnGroup from "@/components/common/Modal/Share/ShareOnGroup/ModalShareOnGroup";
@@ -28,8 +28,10 @@ import ModalEditPost from "@/components/common/Modal/OptionPost/ModalEditPost/Mo
 import ModalEditView from "@/components/common/Modal/OptionPost/EditView/ModalEditView";
 import ModalRegime from "@/components/common/Modal/Regime/ModalRegime";
 import Link from "next/link";
+import PostItem from "./PostItem/PostItem";
 
 interface Comment {
+  id: number;
   avatar: string;
   name: string;
   content: string;
@@ -58,6 +60,7 @@ const MODAL_OPTION_POST_EDIT_VIEW = "editView";
 
 function Post() {
   const [comments, setComments] = useState<Comment[]>([]);
+  const commentIdCounter = useRef(1);
   const [showComments, setShowComments] = useState(false);
   const [selectedImage, setSelectedImage] = useState(
     "/img/img-home/ep_post_active_like.svg"
@@ -99,6 +102,7 @@ function Post() {
   function handleSubmitComment(comment: string) {
     if (comment.trim() !== "") {
       const newComment: Comment = {
+        id: commentIdCounter.current++,
         avatar: "/img/c.png",
         name: "Nguyễn Thế Đạt",
         content: comment,
@@ -110,6 +114,7 @@ function Post() {
   }
 
   function addComment(comment: Comment) {
+    comment.id = commentIdCounter.current++; // Assign a unique ID
     setComments((prevComments) => [...prevComments, comment]);
   }
   const content = (
@@ -130,52 +135,9 @@ function Post() {
       </div>
     </div>
   );
-  const handleHideShowComments = () => {
+  const handleHideShowComments = (commentId: number) => {
     setAreCommentsHidden(!areCommentsHidden);
   };
-  const items: MenuProps['items'] = [
-    {
-      key: '1',
-      label: (
-        <div className={`${styles.itemDropdown} flex`}>
-          <EditOutlined rev={undefined} />
-          <p>Chỉnh sửa bình luận</p>
-        </div>
-      ),
-    },
-    {
-      key: '2',
-      label: (
-        <div
-          className={`${styles.itemDropdown} flex`}
-          onClick={handleHideShowComments}
-        >
-          {areCommentsHidden ?
-            <>
-              <CommentOutlined rev={undefined} />
-              <p>Hiện bình luận</p>
-            </>
-            :
-            <>
-              <StopOutlined rev={undefined} />
-              <p>Ẩn bình luận</p>
-            </>
-          }
-        </div>
-      ),
-    },
-    {
-      key: '3',
-      label: (
-        <div
-          className={`${styles.itemDropdown} flex`}
-        >
-          <DeleteOutlined rev={undefined} />
-          <p>Xóa bình luận</p>
-        </div>
-      ),
-    }
-  ];
 
   const handlePopoverItemClick = (modal: string) => {
     if (modal === MODAL_SHARE_NOW) {
@@ -281,6 +243,32 @@ function Post() {
         return null;
     }
   };
+  function editComment(commentId: number, newText: string) {
+    setComments((prevComments) =>
+      prevComments.map((comment) =>
+        comment.id === commentId ? { ...comment, content: newText } : comment
+      )
+    );
+  }
+
+  function deleteComment(commentId: number) {
+    setComments((prevComments) =>
+      prevComments.filter((comment) => comment.id !== commentId)
+    );
+  }
+
+  function handleEditComment(commentId: number) {
+    const newText = prompt("Enter new comment text:"); // You can replace this with your UI for editing
+    if (newText !== null) {
+      editComment(commentId, newText);
+    }
+  }
+  function handleDeleteComment(commentId: number) {
+    const confirmDelete = window.confirm("Are you sure you want to delete this comment?");
+    if (confirmDelete) {
+      deleteComment(commentId);
+    }
+  }
 
   return (
     <div className={styles.post}>
@@ -423,14 +411,13 @@ function Post() {
               />
             </div>
           </div>
-          <div className={styles.post__content}>
+          <div className={styles.post__content_container}>
             <div className={styles.post__content__text}>
               <p>Hello</p>
             </div>
-            <div className={styles.post__content__image}>
-              <Image src="/img/c.png" alt="icon" />
+            <div className={styles.post__content}>
+              <PostItem dataPost={dataPost} />
             </div>
-            {/* <PostVideo /> */}
           </div>
           <div className={styles.post__count_reaction}>
             <div className={styles.post__reaction__count_like}>
@@ -590,7 +577,7 @@ function Post() {
                 </div>
               </Popover>
               {comments.map((comment, index) => (
-                <div key={index} className={`${styles.comment} `}>
+                <div key={comment.id} className={`${styles.comment}`}>
                   <div className={styles.comment__avatar_user}>
                     <Image
                       src={comment.avatar}
@@ -611,7 +598,46 @@ function Post() {
                         </p>
                       </div>
                       <Dropdown
-                        menu={{ items }}
+                        overlay=
+                        {<Menu>
+                          <Menu.Item key="1">
+                            <div
+                              className={`${styles.itemDropdown} flex`}
+                              onClick={() => handleEditComment(comment.id)}
+                            >
+                              <EditOutlined rev={undefined} />
+                              <p>Chỉnh sửa bình luận</p>
+                            </div>
+                          </Menu.Item>
+                          <Menu.Item key="2">
+                            <div
+                              className={`${styles.itemDropdown} flex`}
+                              onClick={() => handleHideShowComments(comment.id)}
+                            >
+                              {areCommentsHidden ?
+                                <>
+                                  <CommentOutlined rev={undefined} />
+                                  <p>Hiện bình luận</p>
+                                </>
+                                :
+                                <>
+                                  <StopOutlined rev={undefined} />
+                                  <p>Ẩn bình luận</p>
+                                </>
+                              }
+                            </div>
+                          </Menu.Item>
+                          <Menu.Item key="3">
+                            <div
+                              className={`${styles.itemDropdown} flex`}
+                              onClick={() => handleDeleteComment(comment.id)}
+                            >
+                              <DeleteOutlined rev={undefined} />
+                              <p>Xóa bình luận</p>
+                            </div>
+                          </Menu.Item>
+                        </Menu>
+                        }
                         trigger={["click"]}
                         placement="bottomRight"
                       >
