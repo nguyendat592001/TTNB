@@ -82,7 +82,12 @@ export default function ContentHome(): JSX.Element {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.content__story}>
-            <div className={styles.add__story}>
+            <div
+              className={styles.add__story}
+              onClick={() => {
+                router.push("/addstory24h");
+              }}
+            >
               <Image
                 src="/img/c.png"
                 alt=""
@@ -92,16 +97,14 @@ export default function ContentHome(): JSX.Element {
                 className={styles.imageAdd__story}
               />
               <div className={styles.btnAdd__story}>
-                <Link href="/">
-                  <Image
-                    src="/img/img-home/add_story.svg"
-                    alt=""
-                    width={50}
-                    height={50}
-                    preview={false}
-                    className={styles.imageAdd}
-                  />
-                </Link>
+                <Image
+                  src="/img/img-home/add_story.svg"
+                  alt=""
+                  width={50}
+                  height={50}
+                  preview={false}
+                  className={styles.imageAdd}
+                />
               </div>
             </div>
             <div className={`${styles.slide__story}`}>

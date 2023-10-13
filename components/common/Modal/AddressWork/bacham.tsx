@@ -34,7 +34,6 @@ export default function AddressWork(props: any): JSX.Element {
   };
   const handleOk = () => {
     setIsModalOpen(false);
-    updateValues(ctynew, motanew);
   };
 
   const handleCancel = () => {
