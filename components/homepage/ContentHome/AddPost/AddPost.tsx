@@ -10,7 +10,11 @@ function AddPost() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isTagModalOpen, setIsTagModalOpen] = useState(false);
     const [isEmotionsModalOpen, setIsEmotionsModalOpen] = useState(false);
+    const [isUploadFileOpen, setIsUploadFileOpen] = useState(false);
 
+    const handleImgClick = () => {
+        setIsUploadFileOpen(true);
+    };
     const handleInputClick = () => {
         setIsModalOpen(true);
     };
@@ -52,7 +56,10 @@ function AddPost() {
                     </div>
                     <Divider className={styles.divider} />
                     <div className={styles.addPost__body}>
-                        <div className={`${styles.addPost__body_item} ${styles.addPost__upload} `} >
+                        <div
+                            className={`${styles.addPost__body_item} ${styles.addPost__upload} `}
+                            onClick={handleImgClick}
+                        >
                             <Image
                                 src='/img/img-home/nv_upload_file.svg'
                                 alt='avatar'
@@ -93,13 +100,18 @@ function AddPost() {
             </div>
             <ModalAddPost
                 isOpen={isModalOpen}
-                onClose={handleModalClose} />
+                onClose={handleModalClose}
+            />
             <ModalTag
                 isOpen={isTagModalOpen}
                 onClose={() => setIsTagModalOpen(false)} />
             <ModalEmotions
                 isOpen={isEmotionsModalOpen}
                 onClose={() => setIsEmotionsModalOpen(false)}
+            />
+            <ModalAddPost
+                isOpen={isUploadFileOpen}
+                onClose={() => setIsUploadFileOpen(false)}
             />
         </>
     );

@@ -54,6 +54,15 @@
     line-height: 24px;
 }
 
+.post__content {
+    display: flex;
+    gap: 10px;
+}
+
+.post__content__image {
+    width: 100%;
+}
+
 .post__content__text {
     margin-top: 15px;
     font-size: 16px;
@@ -61,9 +70,6 @@
     font-weight: 400;
 }
 
-.post__content__image {
-    margin-top: 15px;
-}
 
 .post__count_reaction {
     display: flex;

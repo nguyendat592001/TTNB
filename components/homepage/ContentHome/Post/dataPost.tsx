@@ -169,3 +169,26 @@ export const reactionImages: ReactionImage[] = [
 
     },
 ];
+
+export const dataPost = [
+    {
+        id: 1,
+        srcDoc: [
+            {
+                name: 'tailieu1.txt',
+                src: '/img/c.png',
+            },
+            {
+                name: 'tailieu2.txt',
+                src: '/img/c.png',
+            },
+        ],
+        srcImg: [
+            '/img/c.png',
+        ],
+        srcVideo: [
+            '/video/video1.mp4',
+        ]
+    },
+
+];

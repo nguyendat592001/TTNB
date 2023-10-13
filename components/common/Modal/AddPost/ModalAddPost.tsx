@@ -65,7 +65,7 @@ const ModalAddPost: React.FC<ModalAddPostProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
         <div className={styles.modal__input}>
-          <Input
+          <Input.TextArea
             placeholder="Hãy biết cảm nghĩ của bạn"
             bordered={false}
             size="large"
