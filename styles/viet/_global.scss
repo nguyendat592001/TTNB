@@ -424,3 +424,31 @@
 
 
 }
+// story
+.input-footer-story
+.ant-input-affix-wrapper >input.ant-input{
+        background: none ;
+        color: #fff;
+        
+    }
+    .input-footer-story
+    .ant-input-affix-wrapper{
+        border-radius: 20px;
+    }
+    .tabsStory{
+        .ant-tabs .ant-tabs-tab{
+            margin: 0 0 0 4px;
+            padding: 0px;
+        }
+        .ant-tabs-top >.ant-tabs-nav{
+            width: 350px;
+        }
+        .ant-tabs-top >.ant-tabs-nav::before{
+            display: none;
+        }
+    }
+    .input-footer-story{
+        // width: 320px;
+        z-index: 1;
+        position: relative;
+    }

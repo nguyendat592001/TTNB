@@ -8,7 +8,7 @@ import Allfriend from "@/pages/personal_page/components/AllFriend/allfriend";
 
 import Follower from "@/pages/personal_page/components/Follower/follower";
 import Following from "@/pages/personal_page/components/Following/Following";
-import Search from "antd/es/input/Search";
+import { useRouter } from "next/router";
 import { SearchOutlined } from "@ant-design/icons";
 const fr = [
   {
@@ -60,7 +60,7 @@ const fr = [
 
 export default function FriendHome() {
   const onChange = (key: string) => {};
-
+  const router = useRouter();
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -107,8 +107,22 @@ export default function FriendHome() {
               />
             </div>
             <div className={styles.looking_add}>
-              <p className={styles.friend_request}>Lời mời kết bạn</p>
-              <p className={styles.looking_for_friend}>Tìm bạn bè</p>
+              <p
+                className={styles.friend_request}
+                onClick={() => {
+                  router.push("/friend/addFiend");
+                }}
+              >
+                Lời mời kết bạn
+              </p>
+              <p
+                className={styles.looking_for_friend}
+                onClick={() => {
+                  router.push("/friend");
+                }}
+              >
+                Tìm bạn bè
+              </p>
             </div>
           </div>
         </div>

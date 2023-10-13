@@ -89,7 +89,12 @@ function SiderbarStory() {
         <div className={styles.siderbar_story_content}>
           <div className={styles.header_content}>
             <h4>Tạo tin của bạn</h4>
-            <div className={styles.info}>
+            <div
+              className={styles.info}
+              onClick={() => {
+                router.push("/addstory24h");
+              }}
+            >
               <Image
                 alt="add-story"
                 preview={false}

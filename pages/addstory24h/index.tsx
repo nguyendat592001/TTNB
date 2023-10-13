@@ -242,6 +242,7 @@ export default function Index() {
                       src={selectedImage}
                       alt="Selected Image"
                       preview={false}
+                      style={{ objectFit: "cover" }}
                     />
                   )}
                   {text ? (
