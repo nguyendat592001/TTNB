@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./index.module.css";
-import { Tabs } from "antd";
+import { Tabs, Dropdown, Image } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { Line } from "react-chartjs-2";
@@ -88,7 +88,7 @@ const Interact = () => {
    const onChange = (key) => {
       console.log(key);
    };
-   const items = [
+   const itemsTabs = [
       {
          key: "1",
          label: "Bài viết",
@@ -105,8 +105,33 @@ const Interact = () => {
          children: <Line data={dataChartFeel} options={options} />,
       },
    ];
+   const items = [
+      {
+         key: "1",
+         label: (
+            <div className={styles.menu}>
+               <div className={styles.right_menu_content}>
+                  <LeftNav />
+               </div>
+            </div>
+         ),
+      },
+   ];
    return (
       <>
+         <div className={styles.right_none}>
+            <div className={styles.right_menu}>
+               <Dropdown
+                  menu={{
+                     items,
+                  }}
+                  placement="bottomRight"
+                  trigger="click">
+                  <Image src="/img/group/menuu.png" alt="icon" width={40} height={40} preview={false} />
+               </Dropdown>
+               <h2>Tương tác</h2>
+            </div>
+         </div>
          <Head>
             <title>Tương tác</title>
             <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
@@ -125,7 +150,7 @@ const Interact = () => {
 
                <div className={styles.tabs}>
                   <h2>Bài viết</h2>
-                  <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+                  <Tabs defaultActiveKey="1" items={itemsTabs} onChange={onChange} />
                </div>
 
                <div className={styles.line}>

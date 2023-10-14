@@ -48,7 +48,7 @@ const SetUp = () => {
       setIsModalHideOpen(false);
    };
    //vị trí
-   const items = [
+   const itemsDrop = [
       {
          key: "1",
          name: "Hà Nội",
@@ -68,13 +68,13 @@ const SetUp = () => {
    ];
 
    const [searchText, setSearchText] = useState("");
-   const [filteredItems, setFilteredItems] = useState(items);
+   const [filteredItems, setFilteredItems] = useState(itemsDrop);
 
    const handleSearch = (e) => {
       const value = e.target.value.toLowerCase();
       setSearchText(value);
 
-      const filtered = items.filter((item) => item.name.toLowerCase().includes(value));
+      const filtered = itemsDrop.filter((item) => item.name.toLowerCase().includes(value));
       setFilteredItems(filtered);
    };
    const handleInputClick = (e) => {
@@ -136,8 +136,33 @@ const SetUp = () => {
    const handleCommenttCancel = () => {
       setIsModalCommenttOpen(false);
    };
+   const items = [
+      {
+         key: "1",
+         label: (
+            <div className={styles.menu}>
+               <div className={styles.right_menu_content}>
+                  <LeftNav />
+               </div>
+            </div>
+         ),
+      },
+   ];
    return (
       <>
+         <div className={styles.right_none}>
+            <div className={styles.right_menu}>
+               <Dropdown
+                  menu={{
+                     items,
+                  }}
+                  placement="bottomRight"
+                  trigger="click">
+                  <Image src="/img/group/menuu.png" alt="icon" width={40} height={40} preview={false} />
+               </Dropdown>
+               <h2>Cài đặt nhóm</h2>
+            </div>
+         </div>
          <Head>
             <title>Cài đặt nhóm</title>
             <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
@@ -303,7 +328,10 @@ const SetUp = () => {
                               <Image alt="" src="/img/group/earth.png" preview={false} />
                               <div>
                                  <p className={styles.p}>Công khai</p>
-                                 <p>Tất cả mọi người nhìn thấy bài đăng trong nhóm của bạn.</p>
+                                 <p>
+                                    Tất cả mọi người nhìn thấy bài đăng
+                                    <br /> trong nhóm của bạn.
+                                 </p>
                               </div>
                            </div>
                            <input type="radio" name="visibility" className={styles.radio} />
@@ -314,8 +342,8 @@ const SetUp = () => {
                               <div>
                                  <p className={styles.p}>Riêng tư</p>
                                  <p>
-                                    Chỉ thành viên mới nhìn thấy mọi người trong nhóm và
-                                    <br /> những gì họ đăng
+                                    Chỉ thành viên mới nhìn thấy mọi <br />
+                                    người trong nhóm và những gì họ đăng
                                  </p>
                               </div>
                            </div>
@@ -373,7 +401,10 @@ const SetUp = () => {
                         <div className={styles.content_btn}>
                            <div>
                               <p className={styles.p}>Bất cứ ai trong nhóm</p>
-                              <p>Thành viên chỉ có thể phê duyệt yêu cầu của bạn bè</p>
+                              <p>
+                                 Thành viên chỉ có thể phê duyệt yêu cầu
+                                 <br /> của bạn bè
+                              </p>
                            </div>
                            <input type="radio" name="visibility" className={styles.radio} />
                         </div>
@@ -415,8 +446,8 @@ const SetUp = () => {
                            <div>
                               <p className={styles.p}>Bật</p>
                               <p>
-                                 Bài viết của thành viên phải được quản trị viên hoặc người kiểm
-                                 <br /> duyệt phê duyệt
+                                 Bài viết của thành viên phải được quản
+                                 <br /> trị viên hoặc người kiểm duyệt phê duyệt
                               </p>
                            </div>
                            <input type="radio" name="visibility" className={styles.radio} />
@@ -444,8 +475,8 @@ const SetUp = () => {
                            <div>
                               <p className={styles.p}>Bật</p>
                               <p>
-                                 Bài viết của thành viên phải được quản trị viên hoặc người kiểm
-                                 <br /> duyệt phê duyệt
+                                 Bài viết của thành viên phải được quản trị viên
+                                 <br /> hoặc người kiểm duyệt phê duyệt
                               </p>
                            </div>
                            <input type="radio" name="visibility" className={styles.radio} />
@@ -473,7 +504,10 @@ const SetUp = () => {
                         <div className={styles.content_btn}>
                            <div>
                               <p className={styles.p}>Theo mặc định</p>
-                              <p>Tự động hiển thị bình luận từ mới nhất đến cũ nhất.</p>
+                              <p>
+                                 Tự động hiển thị bình luận từ mới nhất
+                                 <br /> đến cũ nhất.
+                              </p>
                            </div>
                            <input type="radio" name="visibility" className={styles.radio} />
                         </div>
