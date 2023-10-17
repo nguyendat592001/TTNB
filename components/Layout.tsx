@@ -57,7 +57,9 @@ export default function Layout({ children }: LayoutProps) {
     ];
 
     if (pagesWithNewSidebar.includes(router.pathname)) {
-      return <Sidebar />;
+      return <Sidebar closePopover={function (): void {
+        throw new Error("Function not implemented.");
+      }} />;
     } else {
       return null;
     }
@@ -73,9 +75,8 @@ export default function Layout({ children }: LayoutProps) {
       <div className={styles.body}>
         <div className={styles.header}>{renderHeader()}</div>
         <div
-          className={`${styles.content} ${
-            renderNavbar() ? "flex-container" : ""
-          }`}
+          className={`${styles.content} ${renderNavbar() ? "flex-container" : ""
+            }`}
         >
           <div className={`${styles.navbar} navbar `}>
             <div className={`${styles.nav} nav `}>{renderNavbar()}</div>

@@ -30,7 +30,9 @@ function ModalEditView({ selectedModal, closeSelectedModal, toggleModal }: Modal
     return (
         <div>
             {/* Conditionally render ModalRegime based on isRegimeModalOpen */}
-            <ModalRegime isOpen={isRegimeModalOpen} onClose={closeRegimeModal} />
+            <ModalRegime isOpen={isRegimeModalOpen} onClose={closeRegimeModal} onRegimeSelect={function (selectedRegimeData: any): void {
+                throw new Error("Function not implemented.");
+            }} />
         </div>
     );
 }

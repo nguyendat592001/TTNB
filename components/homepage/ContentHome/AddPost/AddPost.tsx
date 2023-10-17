@@ -117,8 +117,7 @@ function AddPost() {
             </div>
             <ModalAddPost
                 isOpen={isModalOpen}
-                onClose={handleModalClose}
-            />
+                onClose={handleModalClose} selectedRegime={null} />
             <ModalTag
                 isOpen={isTagModalOpen}
                 onClose={() => setIsTagModalOpen(false)}
@@ -133,8 +132,7 @@ function AddPost() {
             />
             <ModalAddPost
                 isOpen={isUploadFileOpen}
-                onClose={() => setIsUploadFileOpen(false)}
-            />
+                onClose={() => setIsUploadFileOpen(false)} selectedRegime={null} />
         </>
     );
 }

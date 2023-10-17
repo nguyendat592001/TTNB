@@ -6,6 +6,7 @@ import { useState } from "react";
 import styles from "@/components/common/Modal/Regime/ModalRegime.module.css";
 import ModalFriendExcept from "@/components/common/Modal/Regime/ModalFriendExcept";
 import ModalFriendSpecific from "@/components/common/Modal/Regime/ModalFriendSpecific";
+import { Friend } from "@/components/common/Modal/Regime/ModalRegime";
 
 interface RegimeProps {
   isOpen: boolean;
@@ -135,14 +136,16 @@ const PrivateStory: React.FC<RegimeProps> = ({ isOpen, onClose }) => {
       {showFriendExceptModal && (
         <ModalFriendExcept
           isOpen={showFriendExceptModal}
-          onClose={() => setShowFriendExceptModal(false)}
-        />
+          onClose={() => setShowFriendExceptModal(false)} onSave={function (selectedFriends: Friend[]): void {
+            throw new Error("Function not implemented.");
+          }} selectedFriendsExcept={[]} />
       )}
       {showFriendSpecificModal && (
         <ModalFriendSpecific
           isOpen={showFriendSpecificModal}
-          onClose={() => setShowFriendSpecificModal(false)}
-        />
+          onClose={() => setShowFriendSpecificModal(false)} onSave={function (selectedFriends: Friend[]): void {
+            throw new Error("Function not implemented.");
+          }} selectedFriendsSpecific={[]} />
       )}
     </>
   );

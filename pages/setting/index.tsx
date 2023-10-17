@@ -49,7 +49,9 @@ const App: React.FC = () => {
                 <div
                     className={`${styles.SideBarSetting} SideBarSetting`}
                 >
-                    <SideBar />
+                    <SideBar closePopover={function (): void {
+                        throw new Error('Function not implemented.');
+                    }} />
                 </div>
             </div>
             <div className={styles.containerTabs}>

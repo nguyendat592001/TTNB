@@ -211,7 +211,9 @@ export default function TraoDoiCauHoi() {
             className={`${styles.TDCHContainer} QTTTContainer flex`}
         >
             <div className={`${styles.sidebar}`}>
-                <SideBar />
+                <SideBar closePopover={function (): void {
+                    throw new Error('Function not implemented.');
+                }} />
             </div>
             <div className={`${styles.subSidebar}`}></div>
             <div className={`${styles.TDCHContent} `}>

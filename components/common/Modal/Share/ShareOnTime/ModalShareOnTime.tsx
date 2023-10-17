@@ -112,14 +112,16 @@ function ModalShareOnTime({
         {isLocationModalOpen && (
           <ModalLocation
             isOpen={isLocationModalOpen}
-            onClose={() => setIsLocationModalOpen(false)}
-          />
+            onClose={() => setIsLocationModalOpen(false)} onLocationSelect={function (location: string): void {
+              throw new Error("Function not implemented.");
+            }} />
         )}
         {isRegimeModalOpen && (
           <ModalRegime
             isOpen={isRegimeModalOpen}
-            onClose={() => setIsRegimeModalOpen(false)}
-          />
+            onClose={() => setIsRegimeModalOpen(false)} onRegimeSelect={function (selectedRegimeData: any): void {
+              throw new Error("Function not implemented.");
+            }} />
         )}
         <div className={styles.modal__footer__right__btn}>
           <Button className={styles.modal__btn}>Đăng</Button>
