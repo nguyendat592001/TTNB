@@ -4,34 +4,28 @@ import styles from "./tuychinh.module.scss";
 
 const CreEvent = (props: any) => {
   const { event, setEvent } = props;
-  const [privateEvent, setPrivateEvent] = useState(false);
-  const [publicEvent, setPublicEvent] = useState(false);
+  const [doinoi, setDoinoi] = useState(false);
+  const [doingoai, setDoingoai] = useState(false);
   const handleOk = () => {
     setEvent(false);
   };
-
   const handleCancel = () => {
     setEvent(false);
   };
-  const handleOkEvent = () => {
-    setPrivateEvent(false);
+  //nội bộ
+  const doinoiOk = () => {
+    setDoinoi(false);
+  };
+  const doinoiCancel = () => {
+    setDoinoi(false);
+  };
+  //đối ngoại
+  const okdoingoai = () => {
+    setDoingoai(false);
   };
 
-  const handleCancelEvent = () => {
-    setPrivateEvent(false);
-  };
-  const handlClikckOpenEventPrvate = () => {
-    setPrivateEvent(true);
-  };
-  const handleClickOpenPublicEvent = () => {
-    setPublicEvent(true);
-  };
-  const handleOkEventPublic = () => {
-    setPublicEvent(false);
-  };
-
-  const handleCancelEventPublic = () => {
-    setPublicEvent(false);
+  const canceldoingoai = () => {
+    setDoingoai(false);
   };
   const onChange = (value: string) => {};
   const onSearch = (value: string) => {};
@@ -55,12 +49,22 @@ const CreEvent = (props: any) => {
         className="addressbacham"
       >
         <div>
-          <div className={styles.event} onClick={handlClikckOpenEventPrvate}>
+          <div
+            className={styles.event}
+            onClick={() => {
+              setDoinoi(true);
+            }}
+          >
             <Image alt="phanh" src="/img/TTNB/sk_1.png" preview={false} />
             Tạo sự kiện nội bộ
             <Image alt="phanh" src="/img/TTNB/sk_3.png" preview={false} />
           </div>
-          <div className={styles.event} onClick={handleClickOpenPublicEvent}>
+          <div
+            className={styles.event}
+            onClick={() => {
+              setDoingoai(true);
+            }}
+          >
             <Image alt="phanh" src="/img/TTNB/sk_2.png" preview={false} />
             Tạo sự kiện đối ngoại
             <Image alt="phanh" src="/img/TTNB/sk_3.png" preview={false} />
@@ -70,9 +74,9 @@ const CreEvent = (props: any) => {
       {/* ///////////// */}
       <Modal
         title="Tạo sự kiện nội bộ"
-        open={privateEvent}
-        onOk={handleOkEvent}
-        onCancel={handleCancelEvent}
+        open={doinoi}
+        onOk={doinoiOk}
+        onCancel={doinoiCancel}
         footer={null}
         className="addressbacham"
       >
@@ -148,10 +152,10 @@ const CreEvent = (props: any) => {
           />
         </div>
         <div className={styles.btn}>
-          <button className={styles.huy} onClick={handleCancel}>
+          <button className={styles.huy} onClick={doinoiCancel}>
             Hủy
           </button>
-          <button className={styles.ok} onClick={handleOk}>
+          <button className={styles.ok} onClick={doinoiOk}>
             Tạo sự kiện
           </button>
         </div>
@@ -159,9 +163,9 @@ const CreEvent = (props: any) => {
       {/* ///////// */}
       <Modal
         title="Tạo sự kiện đối ngoại"
-        open={publicEvent}
-        onOk={handleOkEventPublic}
-        onCancel={handleCancelEventPublic}
+        open={doingoai}
+        onOk={okdoingoai}
+        onCancel={canceldoingoai}
         footer={null}
         className="addressbacham w670px"
       >
@@ -323,10 +327,10 @@ const CreEvent = (props: any) => {
           />
         </div>
         <div className={styles.btn}>
-          <button className={styles.huy} onClick={handleCancel}>
+          <button className={styles.huy} onClick={canceldoingoai}>
             Hủy
           </button>
-          <button className={styles.ok} onClick={handleOk}>
+          <button className={styles.ok} onClick={okdoingoai}>
             Tạo sự kiện
           </button>
         </div>
