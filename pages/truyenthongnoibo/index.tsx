@@ -97,7 +97,9 @@ export default function TruyenThongNoiBo({
 
       <div className={`${styles.VHDNContainer} VHDNContainer flex`}>
         <div className={`${styles.sidebar}`}>
-          <SideBar />
+          <SideBar closePopover={function (): void {
+            throw new Error("Function not implemented.");
+          }} />
         </div>
         <div className={`${styles.subSidebar}`}></div>
         <div className={`${styles.VHDNContent} VHDNContent`}>
