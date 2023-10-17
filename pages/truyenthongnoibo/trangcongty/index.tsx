@@ -1,47 +1,18 @@
-import ModalDeleteEmail from "@/components/dat/Modal/VHDN/ThuTuCeo/ModalDeleteEmail";
-import ModalDetailEmail from "@/components/dat/Modal/VHDN/ThuTuCeo/ModalDetailEmail";
-import { UploadOutlined } from "@ant-design/icons";
 import { Checkbox, Form, Input, Upload, Image, Button } from "antd";
 import React, { useState } from "react";
-import Vanhoadoanhnghiep from "..";
 import styles from "./index.module.scss";
+import TruyenThongNoiBo from "..";
 
-interface FormValues {
-  subject: string;
-  attachment: UploadFile[];
-  emailContent: string;
-  notificationMethod: string[];
-}
-
-interface UploadFile extends File {
-  uid: string;
-}
-
-export default function Index() {
-  const [fileList, setFileList] = useState<UploadFile[]>([]);
-  const [openModalDetailEmail, setOpenModalDetailEmail] = useState(false);
-  const [openModalDeleteEmail, setOpenModalDeleteEmail] = useState(false);
-
-  const handleOpenModalDetailEmail = () => {
-    setOpenModalDetailEmail(true);
-  };
-
-  const handleCloseModalDetailEmail = () => {
-    setOpenModalDetailEmail(false);
-  };
-
-  const handleOpenModalDeleteEmail = () => {
-    setOpenModalDeleteEmail(true);
-  };
-
-  const handleCloseModalDeleteEmail = () => {
-    setOpenModalDeleteEmail(false);
-  };
-
-  const onFinish = (values: FormValues) => {
-    // Xử lý dữ liệu khi form được gửi đi
-    console.log("Received values:", values);
-  };
+export default function Trangcongty() {
+  const danhsach = [
+    { id: 1, name: "Biên tập" },
+    { id: 2, name: "Kinh doanh" },
+    { id: 3, name: "Phòng SEO" },
+    { id: 4, name: "Phòng đào tạo" },
+    { id: 5, name: "Phòng sáng tạo" },
+    { id: 6, name: "Phòng tài vụ" },
+    { id: 7, name: "Phòng nhân sự" },
+  ];
 
   const childrenContentLeft = (
     <div className={styles.thutuceoContainer}>
@@ -49,7 +20,7 @@ export default function Index() {
         <p className={styles.thutuceoContainerTitle}>Tạo thư mới từ CEO</p>
       </div>
       <div className={styles.thutuceoContainerContent}>
-        <Form
+        {/* <Form
           name="emailForm"
           onFinish={onFinish}
           className={styles.thutuceoContainerContentForm}
@@ -132,64 +103,35 @@ export default function Index() {
               Tạo mới
             </button>
           </Form.Item>
-        </Form>
+        </Form> */}
       </div>
     </div>
   );
   const childrenContentRight = (
     <div className={styles.thutuceoContainerContentRight}>
       <div className={styles.thutuceoContainerContentRightHeader}>
-        <p>DANH SÁCH THƯ</p>
+        <p>Danh sách nhóm - thảo luận</p>
       </div>
       <div className={styles.thutuceoContainerContentRightContent}>
         <div className={styles.thutuceoContainerContentRightContentItem}>
-          <p
-            className={styles.thutuceoContainerContentRightContentItemTitle}
-            onClick={handleOpenModalDetailEmail}
-          >
-            THƯ GỬI NĂM MỚI ĐẾN TOÀN BỘ CÁC THÀNH VIÊN TRONG CÔNG TY
-          </p>
-          <div
-            className={`${styles.thutuceoContainerContentRightContentItemUserContainer} flex flex-align-center`}
-          >
-            <p className={styles.thutuceoContainerContentRightContentItemUser}>
-              Người cập nhật: Công ty Cổ phần Thanh toán Hưng Hà
-            </p>
-            <Image
-              src="/img/VHDN/v_7.png"
-              alt="anh"
-              width={20}
-              height={20}
-              preview={false}
-              className="cursor-pointer"
-              onClick={handleOpenModalDeleteEmail}
-            />
-          </div>
-          <div
-            className={
-              styles.thutuceoContainerContentRightContentItemTimeContainer
-            }
-          >
-            <p className={styles.thutuceoContainerContentRightContentItemTime}>
-              02:49 05.10.2023
-            </p>
-          </div>
+          <ul>
+            {danhsach.map((list, index) => (
+              <li key={index} className={styles.list_gr}>
+                <p>{list.name}</p>
+                <Image
+                  alt="phanh"
+                  src={"/img/TTNB/icon_n.png"}
+                  preview={false}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-      <ModalDetailEmail
-        open={openModalDetailEmail}
-        onClose={handleCloseModalDetailEmail}
-        onConfirm={handleCloseModalDetailEmail}
-      />
-      <ModalDeleteEmail
-        open={openModalDeleteEmail}
-        onClose={handleCloseModalDeleteEmail}
-        onConfirm={handleCloseModalDeleteEmail}
-      />
     </div>
   );
   return (
-    <Vanhoadoanhnghiep
+    <TruyenThongNoiBo
       childrenContentLeft={childrenContentLeft}
       childrenContentRight={childrenContentRight}
     />

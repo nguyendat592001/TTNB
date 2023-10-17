@@ -1,0 +1,115 @@
+.text_title{
+    font-size: 14px;
+    color: rgba(71,71,71,.75);
+    font-style: italic;
+    line-height: 18px;
+}
+.title_name{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #474747;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    width: 100%;
+   
+    
+}
+.input_title_notif{
+    width: 100%;
+    padding: 5px;
+}
+.input_title_notif:focus{
+    outline: none;
+}
+.textarea{
+    width: 100%;
+    padding: 10px;
+}
+.textarea:focus{
+    outline: none;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    button{
+        width: 150px;
+        height: 35px;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 20px 0;
+        border-radius: 20px;
+        
+    }
+    .huy{
+        color: #4c5bd4;
+        border:1px solid #4c5bd4;
+    }
+    .ok{
+        background-color: #4c5bd4;
+        color: #fff;
+        border:1px solid #4c5bd4;
+    }
+}
+.event{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 2px 5px 3px rgba(0,0,0,.1);
+    border-radius: 9px;
+    height: 70px;
+    padding: 17px 23px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #4c5bd4;
+    cursor: pointer;
+    width: 100%;
+}
+.input_dt{
+    display: flex;
+    justify-content: space-between;
+}
+.input_datetime{
+    width: 40%;
+    padding: 5px;
+}
+.input_datetime:focus{
+    outline: none;
+}
+.info_diengia{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.khachmoi{
+    width: 100%;
+}
+.tbl_khachmoi{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.id{
+    width: 10%;
+}
+.th{
+    width: 30%;
+}
+.tbl_khachmoi>tr>th{
+    width: 100%;
+}
+.tbl_khachmoi >tr>td{
+    text-align: center;
+    width: 100%;
+}
+.td{
+    border: none;
+   
+}
+.td:focus{
+    outline: none;
+}
