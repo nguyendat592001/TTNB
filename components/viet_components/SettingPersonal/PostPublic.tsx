@@ -94,6 +94,7 @@ const PostPublic = () => {
           <ModalRegime isOpen={true} onClose={handleCloseModal} onRegimeSelect={function (selectedRegimeData: any): void {
             throw new Error("Function not implemented.");
           }} />
+          // add props
         )}
       </main>
     </>
