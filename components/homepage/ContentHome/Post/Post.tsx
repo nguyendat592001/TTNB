@@ -238,7 +238,9 @@ function Post() {
           />
         );
       case MODAL_OPTION_POST_EDIT_VIEW:
-        return <ModalRegime isOpen={true} onClose={closeSelectedModal} />;
+        return <ModalRegime isOpen={true} onClose={closeSelectedModal} onRegimeSelect={function (selectedRegimeData: any): void {
+          throw new Error("Function not implemented.");
+        }} />;
       default:
         return null;
     }

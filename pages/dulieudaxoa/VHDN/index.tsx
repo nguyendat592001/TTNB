@@ -91,7 +91,9 @@ export default function TTNB() {
     return (
         <div className='flex containerTTNB'>
             <div className={`${styles.sidebar}`}>
-                <SideBar />
+                <SideBar closePopover={function (): void {
+                    throw new Error('Function not implemented.');
+                }} />
             </div>
 
             <div className={`${styles.sidebarContent}`}></div>

@@ -13,7 +13,9 @@ const App: React.FC = () => {
     return (
         <div className='flex'>
             <div className={`${styles.sidebar}`}>
-                <SideBar />
+                <SideBar closePopover={function (): void {
+                    throw new Error('Function not implemented.');
+                }} />
             </div>
             <div className={`${styles.sidebarContent}`}></div>
             <div className={`${styles.dulieudaxoa} flex flex-space-around flex-wrap`}>

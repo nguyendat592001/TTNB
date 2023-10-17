@@ -91,7 +91,9 @@ const PostPublic = () => {
         ))}
 
         {editingId !== null && (
-          <ModalRegime isOpen={true} onClose={handleCloseModal} />
+          <ModalRegime isOpen={true} onClose={handleCloseModal} onRegimeSelect={function (selectedRegimeData: any): void {
+            throw new Error("Function not implemented.");
+          }} />
         )}
       </main>
     </>
