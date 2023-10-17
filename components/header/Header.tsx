@@ -9,6 +9,15 @@ import SideBar from "./sidebar/sidebar";
 
 export default function Header(): JSX.Element {
     const [showMobileSearch, setShowMobileSearch] = useState(false);
+    const [showPopover, setShowPopover] = useState(false);
+
+    const togglePopover = () => {
+        setShowPopover(!showPopover);
+    };
+
+    const closePopover = () => {
+        setShowPopover(false);
+    };
 
     const toggleMobileSearch = () => {
         setShowMobileSearch(!showMobileSearch);
@@ -59,12 +68,14 @@ export default function Header(): JSX.Element {
                             >
                                 <Popover
                                     content={
-                                        <SideBar />
+                                        <SideBar closePopover={closePopover} />
                                     }
                                     placement="bottomLeft"
                                     className={`${styles.PopoverSidebar} PopoverSidebar`}
                                     trigger="click"
                                     arrow={false}
+                                    open={showPopover}
+                                    onOpenChange={togglePopover}
                                 >
                                     <div
                                         className={styles.navbar}

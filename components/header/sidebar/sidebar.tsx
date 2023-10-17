@@ -4,8 +4,15 @@ import { usePathname } from "next/navigation";
 import styles from './sidebar.module.css';
 import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8, Icon9 } from "../iconheader";
 
-export default function SideBar(): JSX.Element {
+interface Props {
+    closePopover: () => void;
+}
+
+export default function SideBar({ closePopover }: Props): JSX.Element {
     const pathname = usePathname();
+    const handleItemClick = () => {
+        closePopover();
+    };
     return (
         <div className={`${styles.MenuSidebar} ${styles.fixedMenu} MenuSidebar`}>
             <ConfigProvider
@@ -35,6 +42,7 @@ export default function SideBar(): JSX.Element {
                                         pathname === "/" ? styles.MenuItemActive : styles.MenuItem
                                     }
                                     href="/"
+                                    onClick={handleItemClick}
                                 >
                                     Trang chủ
                                 </Link>
@@ -47,6 +55,7 @@ export default function SideBar(): JSX.Element {
                                 <Link
                                     className={styles.MenuItem}
                                     href=''
+                                    onClick={handleItemClick}
                                 >
                                     Truyền thông nội bộ
                                 </Link>
@@ -59,6 +68,7 @@ export default function SideBar(): JSX.Element {
                                 <Link
                                     className={styles.MenuItem}
                                     href='/vanhoadoanhnghiep/thutuceo'
+                                    onClick={handleItemClick}
                                 >
                                     Văn hóa doanh nghiệp
                                 </Link>
@@ -71,6 +81,7 @@ export default function SideBar(): JSX.Element {
                                 <Link
                                     className={styles.MenuItem}
                                     href='/quantritrithuc'
+                                    onClick={handleItemClick}
                                 >
                                     Quản trị tri thức
                                 </Link>
@@ -83,6 +94,7 @@ export default function SideBar(): JSX.Element {
                                 <Link
                                     className={styles.MenuItem}
                                     href=''
+                                    onClick={handleItemClick}
                                 >
                                     Quản lý cuộc họp
                                 </Link>
@@ -95,6 +107,7 @@ export default function SideBar(): JSX.Element {
                                 <Link
                                     className={styles.MenuItem}
                                     href='/dulieudaxoa'
+                                    onClick={handleItemClick}
                                 >
                                     Dữ liệu đã xóa gần đây
                                 </Link>
@@ -107,6 +120,7 @@ export default function SideBar(): JSX.Element {
                                 <Link
                                     className={styles.MenuItem}
                                     href='/setting'
+                                    onClick={handleItemClick}
                                 >
                                     cài đặt
                                 </Link>
@@ -119,6 +133,7 @@ export default function SideBar(): JSX.Element {
                                 <Link
                                     className={styles.MenuItem}
                                     href=''
+                                    onClick={handleItemClick}
                                 >
                                     Chuyển đối số 365
                                 </Link>
@@ -131,6 +146,7 @@ export default function SideBar(): JSX.Element {
                                 <Link
                                     className={styles.MenuItem}
                                     href=''
+                                    onClick={handleItemClick}
                                 >
                                     Cài đặt chung
                                 </Link>

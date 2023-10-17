@@ -9,6 +9,7 @@ import styles from "./ModalRegime.module.css";
 interface RegimeProps {
   isOpen: boolean;
   onClose: () => void;
+  onRegimeSelect: (selectedRegimeData: any) => void;
 }
 
 interface RegimeType {
@@ -18,55 +19,88 @@ interface RegimeType {
   imageSrc: string;
   subtitle?: string;
 }
+export interface Friend {
+  id: number;
+  name: string;
+  imageUrl: string;
+}
+const ModalRegime: React.FC<RegimeProps> = ({ isOpen, onClose, onRegimeSelect }) => {
 
-const regimes: RegimeType[] = [
-  {
-    id: 1,
-    key: 1,
-    title: "Công khai",
-    imageSrc: "/img/img-home/regime/regime1.svg",
-  },
-  {
-    id: 2,
-    key: 2,
-    title: "Bạn bè",
-    imageSrc: "/img/img-home/regime/regime2.svg",
-  },
-  {
-    id: 3,
-    key: 3,
-    title: "Bạn bè ngoại trừ...",
-    imageSrc: "/img/img-home/regime/regime3.svg",
-    subtitle: "Bạn bè ;Ngoại trừ :",
-  },
-  {
-    id: 4,
-    key: 4,
-    title: "Chỉ mình tôi",
-    imageSrc: "/img/img-home/regime/regime4.svg",
-  },
-  {
-    id: 5,
-    key: 5,
-    title: "Bạn bè cụ thể",
-    imageSrc: "/img/img-home/regime/regime5.svg",
-    subtitle: "Hiển thị với một số bạn bè",
-  },
-];
-const ModalRegime: React.FC<RegimeProps> = ({ isOpen, onClose }) => {
   const [selectedRegime, setSelectedRegime] = useState<number | null>(null);
   const [showFriendExceptModal, setShowFriendExceptModal] = useState(false);
   const [showFriendSpecificModal, setShowFriendSpecificModal] = useState(false);
 
+  const [selectedFriendsExcept, setSelectedFriendsExcept] = useState<Friend[]>([]);
+  const [selectedFriendsSpecific, setSelectedFriendsSpecific] = useState<Friend[]>([]);
+
   const toggleSecondaryModal = () => {
     setShowFriendExceptModal(!showFriendExceptModal);
   };
+  const [tempSelectedFriendsExcept, setTempSelectedFriendsExcept] = useState<Friend[]>([]);
+  const [tempSelectedFriendsSpecific, setTempSelectedFriendsSpecific] = useState<Friend[]>([]);
 
   const handleItemClick = (regimeId: number, regimeKey?: number) => {
     setSelectedRegime(regimeId);
-    setShowFriendExceptModal(regimeKey === 3);
-    setShowFriendSpecificModal(regimeKey === 5);
+
+    if (regimeKey === 3) {
+      setTempSelectedFriendsExcept(selectedFriendsExcept);
+    } else if (regimeKey === 5) {
+      setTempSelectedFriendsSpecific(selectedFriendsSpecific);
+    }
+
+    const selectedRegimeData = {
+      regimeId,
+      regimeKey,
+      title: regimes.find((regime) => regime.id === regimeId)?.title,
+      imageSrc: regimes.find((regime) => regime.id === regimeId)?.imageSrc,
+    };
+
+    onRegimeSelect(selectedRegimeData);
+    if (regimeKey !== 3 && regimeKey !== 5) {
+      onClose();
+    }
   };
+
+  const selectedFriendsExceptDisplay = selectedFriendsExcept.map(friend => friend.name).join(", ");
+  const selectedFriendsSpecificDisplay = selectedFriendsSpecific.map(friend => friend.name).join(", ");
+  const isExceptSelected = selectedRegime === 3;
+  const isSpecificSelected = selectedRegime === 5;
+
+  const regimes: RegimeType[] = [
+    {
+      id: 1,
+      key: 1,
+      title: "Công khai",
+      imageSrc: "/img/img-home/regime/regime1.svg",
+    },
+    {
+      id: 2,
+      key: 2,
+      title: "Bạn bè",
+      imageSrc: "/img/img-home/regime/regime2.svg",
+    },
+    {
+      id: 3,
+      key: 3,
+      title: "Bạn bè ngoại trừ...",
+      imageSrc: "/img/img-home/regime/regime3.svg",
+      subtitle: isExceptSelected ? selectedFriendsExceptDisplay : "Bạn bè ;Ngoại trừ :",
+    },
+    {
+      id: 4,
+      key: 4,
+      title: "Chỉ mình tôi",
+      imageSrc: "/img/img-home/regime/regime4.svg",
+    },
+    {
+      id: 5,
+      key: 5,
+      title: "Bạn bè cụ thể",
+      imageSrc: "/img/img-home/regime/regime5.svg",
+      subtitle: isSpecificSelected ? selectedFriendsSpecificDisplay : "Bạn bè cụ thể :",
+    },
+  ];
+
   return (
     <>
       <Modal
@@ -81,6 +115,7 @@ const ModalRegime: React.FC<RegimeProps> = ({ isOpen, onClose }) => {
             <div className={styles.modalRegime__content_title}>
               <p className={styles.modalRegime__content_mainTitle}>
                 Ai có thể xem bài viết của bạn?
+
               </p>
               <p className={styles.modalRegime__content_subTitle}>
                 Bài viết của bạn sẽ hiển thị ở Bảng tin, trang cá nhân và kết
@@ -109,7 +144,10 @@ const ModalRegime: React.FC<RegimeProps> = ({ isOpen, onClose }) => {
                         className={styles.subtitle}
                         onClick={toggleSecondaryModal}
                       >
-                        {regime.subtitle}
+                        {isExceptSelected ? tempSelectedFriendsExcept.map(friend => friend.name).join(", ")
+                          : isSpecificSelected
+                            ? tempSelectedFriendsSpecific.map(friend => friend.name).join(", ")
+                            : regime.subtitle}
                       </p>
                     )}
                   </div>
@@ -141,12 +179,20 @@ const ModalRegime: React.FC<RegimeProps> = ({ isOpen, onClose }) => {
         <ModalFriendExcept
           isOpen={showFriendExceptModal}
           onClose={() => setShowFriendExceptModal(false)}
+          onSave={(selectedFriends) => {
+            setSelectedFriendsExcept(selectedFriends);
+          }}
+          selectedFriendsExcept={tempSelectedFriendsExcept}
         />
       )}
       {showFriendSpecificModal && (
         <ModalFriendSpecific
           isOpen={showFriendSpecificModal}
           onClose={() => setShowFriendSpecificModal(false)}
+          onSave={(selectedFriends) => {
+            setSelectedFriendsSpecific(selectedFriends);
+          }}
+          selectedFriendsSpecific={tempSelectedFriendsSpecific}
         />
       )}
     </>

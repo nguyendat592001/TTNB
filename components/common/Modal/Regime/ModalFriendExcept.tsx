@@ -12,6 +12,8 @@ interface Friend {
 interface FriendExceptProps {
     isOpen: boolean;
     onClose: () => void;
+    onSave: (selectedFriends: Friend[]) => void;
+    selectedFriendsExcept: Friend[];
 }
 
 const friendsData: Friend[] = [
@@ -28,7 +30,7 @@ const friendsData: Friend[] = [
     { id: 12, name: 'Nguyễn Thế Đạt 11', imageUrl: '/img/c.png' },
     { id: 13, name: 'Nguyễn Thế Đạt 12', imageUrl: '/img/c.png' },
 ];
-const ModalFriendExcept: React.FC<FriendExceptProps> = ({ isOpen, onClose }) => {
+const ModalFriendExcept: React.FC<FriendExceptProps> = ({ isOpen, onClose, onSave, selectedFriendsExcept }) => {
     const [selectedFriends, setSelectedFriends] = useState<Friend[]>([]);
     const [searchText, setSearchText] = useState<string>('');
 
@@ -49,10 +51,17 @@ const ModalFriendExcept: React.FC<FriendExceptProps> = ({ isOpen, onClose }) => 
     const handleFriendDeselect = (friend: Friend) => {
         setSelectedFriends(selectedFriends.filter(item => item.id !== friend.id));
     };
+
     const handleModalClose = () => {
         setSelectedFriends([]);
         onClose();
     };
+
+    const handleSave = () => {
+        onSave(selectedFriends);
+        onClose();
+    };
+
     return (
 
         <Modal
@@ -135,7 +144,7 @@ const ModalFriendExcept: React.FC<FriendExceptProps> = ({ isOpen, onClose }) => 
             </div>
             <div className={styles.modal__footer}>
                 <Button className={styles.modal__btn} onClick={handleModalClose}>Hủy</Button>
-                <Button className={styles.modal__btn__active}>Lưu</Button>
+                <Button className={styles.modal__btn__active} onClick={handleSave}>Lưu</Button>
             </div>
         </Modal>
     );
