@@ -11,6 +11,21 @@ function AddPost() {
     const [isTagModalOpen, setIsTagModalOpen] = useState(false);
     const [isEmotionsModalOpen, setIsEmotionsModalOpen] = useState(false);
     const [isUploadFileOpen, setIsUploadFileOpen] = useState(false);
+    const [selectedFriendNames, setSelectedFriendNames] = useState<string[]>([]);
+    const [selectedEmotion, setSelectedEmotion] = useState<string | null>(null);
+    const [selectedActivity, setSelectedActivity] = useState<string | null>(null);
+
+    const handleFriendNamesSelect = (selectedNames: string[]) => {
+        setSelectedFriendNames(selectedNames);
+    };
+
+    const handleEmotionSelect = (selectedEmotion: string) => {
+        setSelectedEmotion(selectedEmotion);
+    };
+
+    const handleActivitySelect = (selectedActivity: string) => {
+        setSelectedActivity(selectedActivity);
+    };
 
     const handleImgClick = () => {
         setIsUploadFileOpen(true);
@@ -70,7 +85,9 @@ function AddPost() {
                             />
                             <span className={styles.addPost__body_title}>Ảnh/video/tệp</span>
                         </div>
-                        <div className={`${styles.addPost__body_item} ${styles.addPost__tag} `} onClick={handleTagClick}>
+                        <div className={`${styles.addPost__body_item} ${styles.addPost__tag} `}
+                            onClick={handleImgClick}
+                        >
                             <Image
                                 src='/img/img-home/nv_post_feel_user_tag.svg'
                                 alt='avatar'
@@ -83,7 +100,7 @@ function AddPost() {
                         </div>
                         <div
                             className={`${styles.addPost__body_item} ${styles.addPost__activities} `}
-                            onClick={handleEmotionsClick}
+                            onClick={handleImgClick}
                         >
                             <Image
                                 src='/img/img-home/nv_icon_post_footer_active.svg'
@@ -104,10 +121,15 @@ function AddPost() {
             />
             <ModalTag
                 isOpen={isTagModalOpen}
-                onClose={() => setIsTagModalOpen(false)} />
+                onClose={() => setIsTagModalOpen(false)}
+                onFriendNamesSelect={handleFriendNamesSelect}
+            />
             <ModalEmotions
                 isOpen={isEmotionsModalOpen}
                 onClose={() => setIsEmotionsModalOpen(false)}
+
+                onEmotionSelect={handleEmotionSelect}
+                onActivitySelect={handleActivitySelect}
             />
             <ModalAddPost
                 isOpen={isUploadFileOpen}

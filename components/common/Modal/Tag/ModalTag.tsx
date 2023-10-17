@@ -12,6 +12,7 @@ interface Friend {
 interface ModalTagProps {
     isOpen: boolean;
     onClose: () => void;
+    onFriendNamesSelect: (selectedNames: string[]) => void;
 }
 
 const friendsData: Friend[] = [
@@ -29,7 +30,7 @@ const friendsData: Friend[] = [
     { id: 13, name: 'Nguyễn Thế Đạt 12', imageUrl: '/img/c.png' },
 ];
 
-const ModalTag: React.FC<ModalTagProps> = ({ isOpen, onClose }) => {
+const ModalTag: React.FC<ModalTagProps> = ({ isOpen, onClose, onFriendNamesSelect }) => {
 
     const [selectedFriends, setSelectedFriends] = useState<Friend[]>([]);
     const [searchText, setSearchText] = useState<string>('');
@@ -47,12 +48,11 @@ const ModalTag: React.FC<ModalTagProps> = ({ isOpen, onClose }) => {
             setSelectedFriends([...selectedFriends, friend]);
         }
     };
-
     const handleFriendDeselect = (friend: Friend) => {
         setSelectedFriends(selectedFriends.filter(item => item.id !== friend.id));
     };
     const handleModalClose = () => {
-        setSelectedFriends([]);
+        onFriendNamesSelect(selectedFriends.map(friend => friend.name));
         onClose();
     };
     return (

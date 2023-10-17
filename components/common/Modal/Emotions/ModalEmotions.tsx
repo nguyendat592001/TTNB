@@ -7,20 +7,33 @@ import Activity from './Activity';
 interface EmotionsProps {
     isOpen: boolean;
     onClose: () => void;
+    onActivitySelect: (selectedActivity: string) => void;
+    onEmotionSelect: (selectedEmotion: string) => void;
 }
-const items: TabsProps['items'] = [
-    {
-        key: '1',
-        label: 'Cảm xúc',
-        children: <Emotion />,
-    },
-    {
-        key: '2',
-        label: 'Hoạt động',
-        children: <Activity />,
-    },
-];
-const Emotions: React.FC<EmotionsProps> = ({ isOpen, onClose }) => {
+
+const Emotions: React.FC<EmotionsProps> = ({ isOpen, onClose, onEmotionSelect, onActivitySelect }) => {
+
+    const handleActivitySelect = (selectedActivity: string) => {
+        onActivitySelect(selectedActivity);
+        onClose();
+    };
+    const handleEmotionSelect = (selectedEmotion: string) => {
+        onEmotionSelect(selectedEmotion);
+        onClose();
+    };
+
+    const items: TabsProps['items'] = [
+        {
+            key: '1',
+            label: 'Cảm xúc',
+            children: <Emotion onEmotionSelect={handleEmotionSelect} />,
+        },
+        {
+            key: '2',
+            label: 'Hoạt động',
+            children: <Activity onActivitySelect={handleActivitySelect} />,
+        },
+    ];
     return (
         <Modal
             title="Cảm xúc/Hoạt động"
