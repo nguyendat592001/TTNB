@@ -9,8 +9,10 @@ interface ActivityItem {
     name: string;
     imageSrc: string;
 }
-
-function Activity() {
+interface ActivityProps {
+    onActivitySelect: (activity: string) => void;
+}
+function Activity({ onActivitySelect }: ActivityProps) {
 
     const [searchText, setSearchText] = useState("");
     const [filteredActivities, setFilteredActivities] = useState<ActivityItem[]>(activitiesData);
@@ -22,6 +24,9 @@ function Activity() {
             activity.name.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredActivities(filtered);
+    };
+    const handleActivitySelect = (selectedActivity: string) => {
+        onActivitySelect(selectedActivity);
     };
     return (
         <>
@@ -40,7 +45,11 @@ function Activity() {
                 </div>
                 <div className={styles.listEmotions}>
                     {filteredActivities.map((activity, index) => (
-                        <div key={index} className={styles.emotion__item}>
+                        <div
+                            key={index}
+                            className={styles.emotion__item}
+                            onClick={() => handleActivitySelect(activity.name)}
+                        >
                             <Image
                                 src={activity.imageSrc}
                                 alt={activity.name}

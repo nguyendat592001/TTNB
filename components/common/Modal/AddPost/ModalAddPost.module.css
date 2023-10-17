@@ -82,10 +82,15 @@
 
 .modal__btn {
     width: 100%;
-    background: #a8a8a8;
+    background-color: #4c5bd4;
     color: white;
     height: 36px;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.disabledButton {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

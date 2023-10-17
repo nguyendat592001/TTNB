@@ -9,8 +9,10 @@ interface EmotionItem {
     name: string;
     imageSrc: string;
 }
-
-function Emotion(): JSX.Element {
+interface EmotionProps {
+    onEmotionSelect: (emotion: string) => void;
+}
+function Emotion({ onEmotionSelect }: EmotionProps): JSX.Element {
 
     const [searchText, setSearchText] = useState("");
     const [filteredEmotions, setFilteredEmotions] = useState<EmotionItem[]>(emotionsData);
@@ -22,6 +24,9 @@ function Emotion(): JSX.Element {
             emotion.name.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredEmotions(filtered);
+    };
+    const handleEmotionSelect = (selectedEmotion: string) => {
+        onEmotionSelect(selectedEmotion);
     };
     return (
         <>
@@ -40,7 +45,11 @@ function Emotion(): JSX.Element {
                 </div>
                 <div className={styles.listEmotions}>
                     {filteredEmotions.map((emotion, index) => (
-                        <div key={index} className={styles.emotion__item}>
+                        <div
+                            key={index}
+                            className={styles.emotion__item}
+                            onClick={() => handleEmotionSelect(emotion.name)}
+                        >
                             <Image
                                 src={emotion.imageSrc}
                                 alt={emotion.name}

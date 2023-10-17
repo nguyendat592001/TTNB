@@ -12,6 +12,7 @@ interface LocationItem {
 interface LocationsProps {
     isOpen: boolean;
     onClose: () => void;
+    onLocationSelect: (location: string) => void;
 }
 
 const locationItemsData: LocationItem[] = [
@@ -60,7 +61,7 @@ const locationItemsData: LocationItem[] = [
         name: "Hà Nội",
     },
 ];
-const ModalLocation: React.FC<LocationsProps> = ({ isOpen, onClose }) => {
+const ModalLocation: React.FC<LocationsProps> = ({ isOpen, onClose, onLocationSelect }) => {
     const [searchText, setSearchText] = useState("");
     const [filteredActivities, setFilteredActivities] = useState<LocationItem[]>(locationItemsData);
 
@@ -71,6 +72,10 @@ const ModalLocation: React.FC<LocationsProps> = ({ isOpen, onClose }) => {
             activity.name.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredActivities(filtered);
+    };
+    const handleLocationSelect = (selectedLocation: string) => {
+        onLocationSelect(selectedLocation);
+        onClose();
     };
     return (
         <>
@@ -96,7 +101,11 @@ const ModalLocation: React.FC<LocationsProps> = ({ isOpen, onClose }) => {
                     </div>
                     <div className={styles.listLocations}>
                         {filteredActivities.map((activity, index) => (
-                            <div key={index} className={styles.Location__item}>
+                            <div
+                                key={index}
+                                className={styles.Location__item}
+                                onClick={() => handleLocationSelect(activity.name)}
+                            >
                                 <Image
                                     src="/img/img-home/nv_location.svg"
                                     alt={activity.name}
