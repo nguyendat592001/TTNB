@@ -2,9 +2,9 @@ import { Checkbox, Form, Input, Upload, Image, Button } from "antd";
 import React, { useState } from "react";
 import styles from "./index.module.scss";
 import TruyenThongNoiBo from "..";
-import AnhBia from "../AnhBia";
+import AnhBia from "../../../components/AnhBia";
 import { SearchOutlined } from "@ant-design/icons";
-import Post from "../Post";
+import Post from "../../../components/Post";
 
 export default function Trangcongty() {
   const danhsach = [

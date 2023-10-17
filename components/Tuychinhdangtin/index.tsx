@@ -19,11 +19,7 @@ const Tuychinhdangtin: React.FC = () => {
           }}
           className={styles.item}
         >
-          <Image
-            alt="phanh"
-            src="/img/TTNB/icon_tuychinh.png"
-            preview={false}
-          />
+          <Image alt="phanh" src="/img/TTNB/tuychinh_1.png" preview={false} />
           Tạo thông báo
         </div>
       ),
@@ -37,11 +33,7 @@ const Tuychinhdangtin: React.FC = () => {
             setHelomem(true);
           }}
         >
-          <Image
-            alt="phanh"
-            src="/img/TTNB/icon_tuychinh.png"
-            preview={false}
-          />
+          <Image alt="phanh" src="/img/TTNB/tuychinh_2.png" preview={false} />
           Chào đón thành viên mới
         </div>
       ),
@@ -55,11 +47,7 @@ const Tuychinhdangtin: React.FC = () => {
             setEvent(true);
           }}
         >
-          <Image
-            alt="phanh"
-            src="/img/TTNB/icon_tuychinh.png"
-            preview={false}
-          />
+          <Image alt="phanh" src="/img/TTNB/tuychinh_3.png" preview={false} />
           Tạo sự kiện
         </div>
       ),
