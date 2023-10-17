@@ -19,7 +19,7 @@ export default function Post() {
             preview={false}
             alt="phanh"
             src="/img/c.png"
-            width={40}
+            width={53}
             height={40}
           />
           <input

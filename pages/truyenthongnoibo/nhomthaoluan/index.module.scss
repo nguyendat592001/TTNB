@@ -105,7 +105,42 @@
 .thutuceoContainerContentRightContentItemTime {
     color: rgba(71, 71, 71, .75);
 }
+.list_item{
+    color: #4c5bd4;
+    font-weight: 500;
+}
+.thanhvien{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.member{
+    position: relative;
+    cursor: pointer;
+    img{
+        border-radius: 50%;
+    }
+   
+}
 
+.chitiet{
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    background: #fff;
+    padding: 10px;
+   
+}
+.chitetmem{
+    display: flex;
+  flex-direction: row;
+}
+.phanh{
+    display: flex;
+    flex-direction: column;
+}
+ 
 @media (max-width: 320px) {
     .thutuceoContainerContentFormButtonSubmit {
         max-width: 200px;
