@@ -30,7 +30,15 @@ export default function Layout({ children }: LayoutProps) {
     if (isCompanyUrl) {
       return null;
     } else {
-      const pagesWithNewHeader = ["/sukien", "/caidat", "/c"];
+      const pagesWithNewHeader = [
+        "/sukien",
+        "/caidat",
+        "/c",
+        // "/truyenthongnoibo/trangcongty",
+        // "/truyenthongnoibo/nhomthaoluan",
+        // "/truyenthongnoibo/sinhnhat",
+        // "/truyenthongnoibo/sukien",
+      ];
       if (pagesWithNewHeader.includes(router.pathname)) {
         return <NewHeader collapsed={false} />;
       } else {
@@ -39,7 +47,14 @@ export default function Layout({ children }: LayoutProps) {
     }
   };
   const renderNavbar = () => {
-    const pagesWithNewSidebar = ["/sukien", "/c"];
+    const pagesWithNewSidebar = [
+      "/sukien",
+      "/c",
+      // "/truyenthongnoibo/trangcongty",
+      // "/truyenthongnoibo/nhomthaoluan",
+      // "/truyenthongnoibo/sinhnhat",
+      // "/truyenthongnoibo/sukien",
+    ];
 
     if (pagesWithNewSidebar.includes(router.pathname)) {
       return <Sidebar />;

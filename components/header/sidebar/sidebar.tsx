@@ -1,8 +1,19 @@
 import { ConfigProvider, Menu } from "antd";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from './sidebar.module.css';
-import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8, Icon9 } from "../iconheader";
+import styles from "./sidebar.module.css";
+import {
+  Icon1,
+  Icon2,
+  Icon3,
+  Icon4,
+  Icon5,
+  Icon6,
+  Icon7,
+  Icon8,
+  Icon9,
+} from "../iconheader";
+
 
 interface Props {
     closePopover: () => void;
@@ -160,3 +171,4 @@ export default function SideBar({ closePopover }: Props): JSX.Element {
         </div>
     )
 }
+
