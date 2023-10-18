@@ -11,8 +11,8 @@ const CreateModalNotifical = (props: any) => {
   const handleCancel = () => {
     setCreateNotif(false);
   };
-  const onChange = (value: string) => {};
-  const onSearch = (value: string) => {};
+  const onChange = (value: string) => { };
+  const onSearch = (value: string) => { };
   const filterOption = (
     input: string,
     option?: { label: string; value: string }
@@ -20,10 +20,7 @@ const CreateModalNotifical = (props: any) => {
 
   return (
     <>
-      <div>
-        <Image alt="phanh" src="/img/TTNB/icon_tuychinh.png" preview={false} />
-        Tạo thông báo
-      </div>
+
       <Modal
         title="Tạo thông báo"
         open={createNotif}

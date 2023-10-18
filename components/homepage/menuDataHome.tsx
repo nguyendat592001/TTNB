@@ -28,7 +28,7 @@ export const menuItemsHome = [
         key: "5",
         icon: "/img/img-header/user/ep_info_event.svg",
         label: "Sự kiện",
-        link: "/sukien",
+        link: "/truyenthongnoibo/sukien",
     },
     {
         key: "6",

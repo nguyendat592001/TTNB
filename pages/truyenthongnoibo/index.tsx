@@ -71,7 +71,7 @@ export default function TruyenThongNoiBo({
       router.push("/truyenthongnoibo/sinhnhat");
     }
     if (option.key === "4") {
-      router.push("/truyenthongnoibo/su-kien");
+      router.push("/truyenthongnoibo/sukien");
     }
   };
 

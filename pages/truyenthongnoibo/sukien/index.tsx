@@ -3,6 +3,7 @@ import NoiBoContent from '@/components/Event/NoiBoContent';
 import TableEvent from '@/components/Event/TableEvent';
 import { SearchOutlined } from '@ant-design/icons';
 import { Image, Input, Menu } from 'antd';
+import router from 'next/router';
 import { useState } from 'react';
 
 import styles from './sukien.module.css';
@@ -52,6 +53,18 @@ const App: React.FC = () => {
     const handleMenuClick = (option: any) => {
         setSelectedOption(option);
         setSubMenuVisible(false);
+        if (option.key === "2") {
+            router.push("/truyenthongnoibo/trangcongty");
+        }
+        if (option.key === "3") {
+            router.push("/truyenthongnoibo/nhomthaoluan");
+        }
+        if (option.key === "4") {
+            router.push("/truyenthongnoibo/sinh-nhat");
+        }
+        if (option.key === "1") {
+            router.push("/truyenthongnoibo/sukien");
+        }
     };
 
     const handleEventNoiBoClick = () => {
