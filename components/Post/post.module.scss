@@ -48,3 +48,10 @@
     font-size: 15px;
     font-weight: 500;
 }
+@media screen and (max-width:525px)
+ {
+ .footer_post{
+    display: flex;
+    flex-direction: column;
+ }   
+}

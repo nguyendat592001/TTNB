@@ -1,3 +1,4 @@
+
 import { Input, Image } from "antd";
 import React, { useState } from "react";
 import styles from "./index.module.scss";
@@ -11,12 +12,13 @@ import router from "next/router";
 
 export default function Trangcongty() {
 
+
   const childrenContentLeft = (
     <div className={styles.thutuceoContaines}>
       <div className={styles.thutuceoContainerHeader}>
         <AnhBia />
       </div>
-      <div className={styles.searchPost} >
+      <div className={styles.searchPost}>
         <Input
           className={styles.timkiembaiviet}
           placeholder="Tìm kiếm bài viết"
@@ -68,6 +70,8 @@ export default function Trangcongty() {
               preview={false}
               className={styles.BaiVietDanhDau_body_avatar}
             />
+
+
             <div className={styles.info}>
               <p className={styles.name}>Nguyễn Thế Đạt</p>
               <p>14:11 17/10/2023</p>
@@ -103,10 +107,16 @@ export default function Trangcongty() {
       <CreateModalNotifical createNotif={createNotif} setCreateNotif={setCreateNotif} />
     </div>
   );
+
   return (
-    <TruyenThongNoiBo
-      childrenContentLeft={childrenContentLeft}
-      childrenContentRight={childrenContentRight}
-    />
+    <>
+      <Head>
+        <title>Trang công ty</title>
+      </Head>
+      <TruyenThongNoiBo
+        childrenContentLeft={childrenContentLeft}
+        childrenContentRight={childrenContentRight}
+      />
+    </>
   );
 }

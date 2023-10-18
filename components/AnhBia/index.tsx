@@ -4,7 +4,8 @@ import { Image } from "antd";
 interface ImageUrl {
   imageUrl: string;
 }
-function AnhBia() {
+function AnhBia(props: any) {
+  const { ten, soluong } = props;
   const [uploadedImage, setUploadedImage] = useState<string | null>("");
 
   const handleImageUpload = (event: any) => {
@@ -62,8 +63,8 @@ function AnhBia() {
           </div>
 
           <div className={styles.info_gr}>
-            <p>tên nhóm</p>
-            <p>số lượng</p>
+            <p>{ten}</p>
+            <p>{soluong} thành viên</p>
           </div>
         </div>
         <label htmlFor="update-image" className={styles.btn_chinhsuaanhbia}>

@@ -69,7 +69,7 @@
         top: 60px;
         height: 45px;
     
-        div {
+        .addstory {
             display: flex;
             align-items: center;
             font-size: 15px;
@@ -256,4 +256,47 @@
         }
     }
     
+}
+.addstory_2 {
+    .add_fr {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #4c5bd4;
+        width: 160px;
+        background-color: #fff;
+        height: 45px;
+        color: #474747;
+        gap: 10px;
+        border-radius:10px ;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+}
+.nhantin{
+    background-color: #4c5bd4;
+    color: #fff;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius:10px ;
+    cursor: pointer;
+    font-weight: 500;
+}
+.trang_ban_be{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #4c5bd4;
+    width: 160px;
+    background-color: #fff;
+    height: 45px;
+    color: #474747;
+    gap: 10px;
+    border-radius:10px ;
+    cursor: pointer;
+    font-weight: 500;
 }

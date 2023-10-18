@@ -8,15 +8,16 @@ import styles from "./index.module.scss";
 import Head from "next/head";
 const SelectOptions = [
   {
-    key: "2",
-    value: "Nhóm thảo-luận",
-    img: "/img/TTNB/sbp_2.png",
-  },
-  {
     key: "1",
     value: "Trang công ty",
     img: "/img/TTNB/sbp_1.png",
   },
+  {
+    key: "2",
+    value: "Nhóm thảo-luận",
+    img: "/img/TTNB/sbp_2.png",
+  },
+
   {
     key: "3",
     value: "Sinh nhật",
@@ -67,7 +68,7 @@ export default function TruyenThongNoiBo({
       router.push("/truyenthongnoibo/nhomthaoluan");
     }
     if (option.key === "3") {
-      router.push("/truyenthongnoibo/sinh-nhat");
+      router.push("/truyenthongnoibo/sinhnhat");
     }
     if (option.key === "4") {
       router.push("/truyenthongnoibo/sukien");
@@ -91,15 +92,13 @@ export default function TruyenThongNoiBo({
   };
   return (
     <>
-      <Head>
-        <title>Nhóm thảo luận</title>
-      </Head>
-
       <div className={`${styles.VHDNContainer} VHDNContainer flex`}>
         <div className={`${styles.sidebar}`}>
-          <SideBar closePopover={function (): void {
-            throw new Error("Function not implemented.");
-          }} />
+          <SideBar
+            closePopover={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
         </div>
         <div className={`${styles.subSidebar}`}></div>
         <div className={`${styles.VHDNContent} VHDNContent`}>
