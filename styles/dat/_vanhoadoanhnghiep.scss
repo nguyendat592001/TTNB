@@ -182,6 +182,27 @@
     }
 }
 
+.edit-TTNB-Post-modal__content .ant-form {
+    .ant-form-item {
+        margin-bottom: 16px;
+
+        .ant-row {
+            display: block;
+
+            .ant-form-item-label {
+                text-align: left;
+
+                label {
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: #000000;
+                }
+            }
+        }
+    }
+}
+
 //Collapse
 
 .LCNTTRightContainer__list .ant-collapse {
@@ -197,4 +218,8 @@
             padding-top: 2px;
         }
     }
+}
+
+.uploadImg .ant-upload {
+    width: 100%;
 }
