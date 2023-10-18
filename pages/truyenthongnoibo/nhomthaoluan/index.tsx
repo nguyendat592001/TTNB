@@ -5,16 +5,22 @@ import TruyenThongNoiBo from "..";
 import AnhBia from "../../../components/AnhBia";
 import { SearchOutlined } from "@ant-design/icons";
 import Post from "../../../components/Post";
+import Head from "next/head";
+interface DanhSachItem {
+  id: number;
+  name: string;
+  soluong: number;
+}
 
-export default function Trangcongty() {
-  const danhsach = [
-    { id: 1, name: "Biên tập" },
-    { id: 2, name: "Kinh doanh" },
-    { id: 3, name: "Phòng SEO" },
-    { id: 4, name: "Phòng đào tạo" },
-    { id: 5, name: "Phòng sáng tạo" },
-    { id: 6, name: "Phòng tài vụ" },
-    { id: 7, name: "Phòng nhân sự" },
+export default function Nhomthaoluan() {
+  const danhsach: DanhSachItem[] = [
+    { id: 1, name: "Biên tập", soluong: 10 },
+    { id: 2, name: "Kinh doanh", soluong: 10 },
+    { id: 3, name: "Phòng SEO", soluong: 3 },
+    { id: 4, name: "Phòng đào tạo", soluong: 3 },
+    { id: 5, name: "Phòng sáng tạo", soluong: 4 },
+    { id: 6, name: "Phòng tài vụ", soluong: 3 },
+    { id: 7, name: "Phòng nhân sự", soluong: 4 },
   ];
   const member = [
     {
@@ -38,60 +44,22 @@ export default function Trangcongty() {
       ID: "42134234",
       chucvu: "Thành viên",
     },
-    {
-      id: 4,
-      name: "Nguyễn Thế Đạt",
-      image: "/img/c.png",
-      ID: "42134234",
-      chucvu: "Thành viên",
-    },
-    {
-      id: 5,
-      name: "Nguyễn Thế Đạt",
-      image: "/img/c.png",
-      ID: "42134234",
-      chucvu: "Thành viên",
-    },
-    {
-      id: 6,
-      name: "Nguyễn Thế Đạt",
-      image: "/img/c.png",
-      ID: "42134234",
-      chucvu: "Thành viên",
-    },
-    {
-      id: 7,
-      name: "Nguyễn Thế Đạt",
-      image: "/img/c.png",
-      ID: "42134234",
-      chucvu: "Thành viên",
-    },
-    {
-      id: 8,
-      name: "Nguyễn Thế Đạt",
-      image: "/img/c.png",
-      ID: "42134234",
-      chucvu: "Thành viên",
-    },
-    {
-      id: 9,
-      name: "Nguyễn Thế Đạt",
-      image: "/img/c.png",
-      ID: "42134234",
-      chucvu: "Thành viên",
-    },
-    {
-      id: 10,
-      name: "Nguyễn Thế Đạt",
-      image: "/img/c.png",
-      ID: "42134234",
-      chucvu: "Thành viên",
-    },
   ];
+  const [selectedItem, setSelectedItem] = useState<DanhSachItem | null>(
+    danhsach.find((item) => item.id === 1) || null
+  );
+  const handleItemClick = (id: number) => {
+    // Tìm mục tương ứng trong danh sách danhsach dựa trên id
+    const selectedItem = danhsach.find((item) => item.id === id) || null;
+    setSelectedItem(selectedItem);
+  };
+
   const childrenContentLeft = (
     <div className={styles.thutuceoContainer}>
       <div className={styles.thutuceoContainerHeader}>
-        <AnhBia />
+        {selectedItem && (
+          <AnhBia ten={selectedItem.name} soluong={selectedItem.soluong} />
+        )}
       </div>
       <div className={`${styles.undefined_search} undefined_search`}>
         <Input
@@ -114,7 +82,11 @@ export default function Trangcongty() {
           <div className={styles.thutuceoContainerContentRightContentItem}>
             <ul>
               {danhsach.map((list, index) => (
-                <li key={index} className={styles.list_gr}>
+                <li
+                  key={index}
+                  className={styles.list_gr}
+                  onClick={() => handleItemClick(list.id)}
+                >
                   <p>{list.name}</p>
                   <Image
                     alt="phanh"
@@ -148,7 +120,7 @@ export default function Trangcongty() {
       </div>
       <div className={styles.thutuceoContainerContentRight}>
         <div className={styles.thutuceoContainerContentRightHeader}>
-          <p>Thành viên</p>
+          <p>Thành viên ({member.length})</p>
         </div>
         <div className={styles.thutuceoContainerContentRightContent}>
           <div className={styles.thutuceoContainerContentRightContentItem}>
@@ -186,9 +158,14 @@ export default function Trangcongty() {
     </div>
   );
   return (
-    <TruyenThongNoiBo
-      childrenContentLeft={childrenContentLeft}
-      childrenContentRight={childrenContentRight}
-    />
+    <>
+      <Head>
+        <title>Nhóm thảo luận</title>
+      </Head>
+      <TruyenThongNoiBo
+        childrenContentLeft={childrenContentLeft}
+        childrenContentRight={childrenContentRight}
+      />
+    </>
   );
 }

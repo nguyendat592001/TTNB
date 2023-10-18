@@ -28,11 +28,6 @@ const ModalAddPost = (props: any) => {
   };
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  //   const handleUploadClick = () => {
-  //     if (fileInputRef.current) {
-  //       fileInputRef.current.click();
-  //     }
-  //   };
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
 
   const handleFileChange = (e: any) => {

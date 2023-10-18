@@ -39,7 +39,12 @@ export default function Post() {
             <Image src="/img/TTNB/icon_anh.png" alt="anh loi" preview={false} />
             Tải lên ảnh/video/tệp
           </div>
-          <div className={styles.footer_post_item}>
+          <div
+            className={styles.footer_post_item}
+            onClick={() => {
+              setOpenModal(true);
+            }}
+          >
             <Image
               src="/img/TTNB/icon_nhac.png"
               alt="anh loi"

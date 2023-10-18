@@ -1,9 +1,25 @@
-import { Input, Image, Button, Popover, Divider, Dropdown, Menu, MenuProps } from "antd";
+import {
+  Input,
+  Image,
+  Button,
+  Popover,
+  Divider,
+  Dropdown,
+  Menu,
+  MenuProps,
+} from "antd";
 import React, { SetStateAction, useRef, useState } from "react";
 import styles from "./index.module.scss";
 import TruyenThongNoiBo from "..";
 import AnhBia from "@/components/AnhBia";
-import { BellFilled, CommentOutlined, DeleteOutlined, EditOutlined, SearchOutlined, StopOutlined } from "@ant-design/icons";
+import {
+  BellFilled,
+  CommentOutlined,
+  DeleteOutlined,
+  EditOutlined,
+  SearchOutlined,
+  StopOutlined,
+} from "@ant-design/icons";
 import Post from "@/components/Post";
 import ReactionIcons from "@/components/homepage/ContentHome/Post/ReactionIcons/ReactionIcons ";
 import PostComment from "@/components/homepage/ContentHome/Post/PostComment/PostComment";
@@ -11,6 +27,7 @@ import Link from "next/link";
 import ModalDeletePost from "@/components/dat/Modal/TTNB/ModalDeletePost";
 import ModalEditPost from "@/components/dat/Modal/TTNB/ModalEditPost";
 import ModalNotify from "@/components/dat/Modal/TTNB/ModalNotify";
+import Head from "next/head";
 
 interface Comment {
   id: number;
@@ -22,7 +39,6 @@ interface Comment {
 }
 
 export default function Trangcongty() {
-
   const [comments, setComments] = useState<Comment[]>([]);
   const commentIdCounter = useRef(1);
   const [showComments, setShowComments] = useState(false);
@@ -114,7 +130,9 @@ export default function Trangcongty() {
     }
   }
   function handleDeleteComment(commentId: number) {
-    const confirmDelete = window.confirm("Are you sure you want to delete this comment?");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this comment?"
+    );
     if (confirmDelete) {
       deleteComment(commentId);
     }
@@ -146,50 +164,41 @@ export default function Trangcongty() {
     setIsModalNotifyOpen(true);
   };
 
-  const items: MenuProps['items'] = [
+  const items: MenuProps["items"] = [
     {
-      key: '1',
+      key: "1",
       label: (
-        <div
-          className={styles.optionItem}
-          onClick={handleModalEditPostOpen}
-        >
+        <div className={styles.optionItem} onClick={handleModalEditPostOpen}>
           <EditOutlined rev={undefined} />
           <p>Chỉnh sửa bài viết</p>
         </div>
       ),
     },
     {
-      key: '2',
+      key: "2",
       label: (
-        <div
-          className={styles.optionItem}
-          onClick={handleModalNotifyOpen}
-        >
+        <div className={styles.optionItem} onClick={handleModalNotifyOpen}>
           <BellFilled rev={undefined} />
           <p>Bật thông báo</p>
         </div>
       ),
     },
     {
-      key: '3',
+      key: "3",
       label: (
-        <div
-          className={styles.optionItem}
-          onClick={handleModalDeletePostOpen}
-        >
+        <div className={styles.optionItem} onClick={handleModalDeletePostOpen}>
           <DeleteOutlined rev={undefined} />
           <p>Xóa bài viết</p>
         </div>
       ),
     },
-  ]
+  ];
   const childrenContentLeft = (
     <div className={styles.thutuceoContaines}>
       <div className={styles.thutuceoContainerHeader}>
         <AnhBia />
       </div>
-      <div className={styles.searchPost} >
+      <div className={styles.searchPost}>
         <Input
           className={styles.timkiembaiviet}
           placeholder="Tìm kiếm bài viết"
@@ -215,13 +224,20 @@ export default function Trangcongty() {
               <div className={`${styles.name} flex`}>
                 <div className={styles.nameText}>
                   <span className={styles.textBold}>Nguyễn Thế Đạt</span>
-                  <span> đã tạo sự kiện nội bộ:<span className={styles.textBold}> test1 </span></span>
+                  <span>
+                    {" "}
+                    đã tạo sự kiện nội bộ:
+                    <span className={styles.textBold}> test1 </span>
+                  </span>
                 </div>
               </div>
               <div className={styles.time}>
                 <p>
                   14:11 17/10/2023 .
-                  <span> PHÒNG 1: PHÒNG BIÊN TẬP NỘI DUNG - Đ/C BÍCH PHƯỢNG</span>
+                  <span>
+                    {" "}
+                    PHÒNG 1: PHÒNG BIÊN TẬP NỘI DUNG - Đ/C BÍCH PHƯỢNG
+                  </span>
                 </p>
               </div>
             </div>
@@ -229,10 +245,9 @@ export default function Trangcongty() {
           <div className={styles.headerIcon}>
             <Dropdown
               menu={{ items }}
-              trigger={['click']}
+              trigger={["click"]}
               placement="bottomRight"
               overlayClassName="headerIconDropdown"
-
             >
               <Image
                 src="/img/TTNB/bacham.png"
@@ -244,9 +259,11 @@ export default function Trangcongty() {
           </div>
         </div>
         <div className={styles.status}>
-          <p className={styles.statusName} >test1</p>
-          <a className={styles.fileName} href="/img/c.png" download>cơ-sở-HDH.pdf</a>
-          <p className={styles.viewDetail} >Xem chi tiết</p>
+          <p className={styles.statusName}>test1</p>
+          <a className={styles.fileName} href="/img/c.png" download>
+            cơ-sở-HDH.pdf
+          </a>
+          <p className={styles.viewDetail}>Xem chi tiết</p>
         </div>
         <div className={`${styles.anh} anhbaiviettrangcongty`}>
           <Image
@@ -256,9 +273,7 @@ export default function Trangcongty() {
             className={styles.anhItem}
           />
           <div className="flex flex-space-between">
-            <div
-              className={styles.sukienTime}
-            >
+            <div className={styles.sukienTime}>
               <div className={styles.gio}>
                 <p className={styles.gioText}>16:10</p>
               </div>
@@ -311,9 +326,11 @@ export default function Trangcongty() {
                   trigger="hover"
                   arrow={false}
                 >
-                  <div className={`${styles.post__reaction__count_comment} flex flex-align-center`}>
+                  <div
+                    className={`${styles.post__reaction__count_comment} flex flex-align-center`}
+                  >
                     100
-                    <div className={styles.iconCmt} >
+                    <div className={styles.iconCmt}>
                       <Image
                         src="/img/img-home/ep_post_cmt.svg"
                         alt="icon"
@@ -347,12 +364,13 @@ export default function Trangcongty() {
                   preview={false}
                 />
               </div>
-              <div className={styles.post__footer__middle__text}
+              <div
+                className={styles.post__footer__middle__text}
                 onClick={toggleGhim}
               >
-                <p
-                  className={styles.footer_cmt}
-                >{isGhim ? 'Ghim' : 'Bỏ Ghim'}</p>
+                <p className={styles.footer_cmt}>
+                  {isGhim ? "Ghim" : "Bỏ Ghim"}
+                </p>
               </div>
             </div>
             <div
@@ -369,9 +387,7 @@ export default function Trangcongty() {
                 />
               </div>
               <div className={styles.post__footer__middle__text}>
-                <p
-                  className={styles.footer_cmt}
-                >Bình luận</p>
+                <p className={styles.footer_cmt}>Bình luận</p>
               </div>
             </div>
           </div>
@@ -393,72 +409,79 @@ export default function Trangcongty() {
                     />
                   </div>
                   <div className={`${styles.comment__content} `}>
-                    <div className={`${styles.comment__content_info} ${areCommentsHidden ? styles.commentHidden : ''
-                      } flex flex-space-between flex-align-center`}>
+                    <div
+                      className={`${styles.comment__content_info} ${
+                        areCommentsHidden ? styles.commentHidden : ""
+                      } flex flex-space-between flex-align-center`}
+                    >
                       <div>
                         <p className={styles.comment__name}>{comment.name}</p>
                         <p className={styles.comment__text}>
-                          {areCommentsHidden ? "Bình luận đã ẩn" : comment.content}
+                          {areCommentsHidden
+                            ? "Bình luận đã ẩn"
+                            : comment.content}
                         </p>
                       </div>
                       <Dropdown
-                        overlay=
-                        {<Menu>
-                          <Menu.Item key="1">
-                            <div
-                              className={`${styles.itemDropdown} flex`}
-                              onClick={() => handleEditComment(comment.id)}
-                            >
-                              <EditOutlined rev={undefined} />
-                              <p>Chỉnh sửa bình luận</p>
-                            </div>
-                          </Menu.Item>
-                          <Menu.Item key="2">
-                            <div
-                              className={`${styles.itemDropdown} flex`}
-                              onClick={() => handleHideShowComments(comment.id)}
-                            >
-                              {areCommentsHidden ?
-                                <>
-                                  <CommentOutlined rev={undefined} />
-                                  <p>Hiện bình luận</p>
-                                </>
-                                :
-                                <>
-                                  <StopOutlined rev={undefined} />
-                                  <p>Ẩn bình luận</p>
-                                </>
-                              }
-                            </div>
-                          </Menu.Item>
-                          <Menu.Item key="3">
-                            <div
-                              className={`${styles.itemDropdown} flex`}
-                              onClick={() => handleDeleteComment(comment.id)}
-                            >
-                              <DeleteOutlined rev={undefined} />
-                              <p>Xóa bình luận</p>
-                            </div>
-                          </Menu.Item>
-                        </Menu>
+                        overlay={
+                          <Menu>
+                            <Menu.Item key="1">
+                              <div
+                                className={`${styles.itemDropdown} flex`}
+                                onClick={() => handleEditComment(comment.id)}
+                              >
+                                <EditOutlined rev={undefined} />
+                                <p>Chỉnh sửa bình luận</p>
+                              </div>
+                            </Menu.Item>
+                            <Menu.Item key="2">
+                              <div
+                                className={`${styles.itemDropdown} flex`}
+                                onClick={() =>
+                                  handleHideShowComments(comment.id)
+                                }
+                              >
+                                {areCommentsHidden ? (
+                                  <>
+                                    <CommentOutlined rev={undefined} />
+                                    <p>Hiện bình luận</p>
+                                  </>
+                                ) : (
+                                  <>
+                                    <StopOutlined rev={undefined} />
+                                    <p>Ẩn bình luận</p>
+                                  </>
+                                )}
+                              </div>
+                            </Menu.Item>
+                            <Menu.Item key="3">
+                              <div
+                                className={`${styles.itemDropdown} flex`}
+                                onClick={() => handleDeleteComment(comment.id)}
+                              >
+                                <DeleteOutlined rev={undefined} />
+                                <p>Xóa bình luận</p>
+                              </div>
+                            </Menu.Item>
+                          </Menu>
                         }
                         trigger={["click"]}
                         placement="bottomRight"
                       >
-                        <div
-                          className={styles.comment__option}
-                        >
+                        <div className={styles.comment__option}>
                           <Image
                             src="/img/VHDN/bacham.png"
                             alt="icon"
                             preview={false}
-                            className='cursor-pointer'
+                            className="cursor-pointer"
                           />
                         </div>
                       </Dropdown>
                     </div>
                     <div className={styles.comment__content_reaction}>
-                      <p className={`${styles.comment__cxuc} cursor-pointer`}>Thích</p>
+                      <p className={`${styles.comment__cxuc} cursor-pointer`}>
+                        Thích
+                      </p>
                       <p
                         className={`${styles.comment__reply} cursor-pointer`}
                         onClick={() => handleReplyClick(index)}
@@ -499,15 +522,16 @@ export default function Trangcongty() {
       />
     </div>
   );
-  const childrenContentRight = (
-    <div>
-      day la noi dung ben phai
-    </div>
-  );
+  const childrenContentRight = <div>day la noi dung ben phai</div>;
   return (
-    <TruyenThongNoiBo
-      childrenContentLeft={childrenContentLeft}
-      childrenContentRight={childrenContentRight}
-    />
+    <>
+      <Head>
+        <title>Trang công ty</title>
+      </Head>
+      <TruyenThongNoiBo
+        childrenContentLeft={childrenContentLeft}
+        childrenContentRight={childrenContentRight}
+      />
+    </>
   );
 }

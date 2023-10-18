@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { Image } from "antd";
+import { Dropdown, Image, MenuProps, Modal } from "antd";
 import styles from "./index.module.scss";
 import NavBlock from "./center_nav";
 import CoverImage from "@/components/headerperson/UpdateImageWall";
@@ -16,10 +16,38 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
   const router = useRouter();
   const [eidtImageWall, setEidtImageWall] = useState(false);
   const [avatar, setAvatar] = useState(false);
+  const [fr, setFr] = useState(false);
+  const [fl, setFl] = useState(false);
+  const clickFr = () => {
+    setFr(!fr);
+  };
   const onClicknewstory = () => {
     router.push("/addstory24h");
   };
 
+  const items: MenuProps["items"] = [
+    {
+      label: <div>Bạn bè</div>,
+      key: "0",
+    },
+    {
+      label: (
+        <div
+          onClick={() => {
+            setFl(!fl);
+          }}
+        >
+          {fl ? "Bỏ theo dõi" : "Theo dõi"}
+        </div>
+      ),
+      key: "1",
+    },
+
+    {
+      label: <div>Hủy kết bạn</div>,
+      key: "3",
+    },
+  ];
   return (
     <div>
       <div className={styles.center_avt}>
@@ -107,6 +135,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
               />
             </div>
           </div>
+          {/* ----------------------------------TRANG CÁ NHÂN------------------------------- */}
           <div className={styles.center_avt_btn}>
             <div onClick={onClicknewstory} className={styles.addstory}>
               <Image
@@ -126,6 +155,80 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
               }}
             />
           </div>
+          {/* ------------TRANG NGƯỜI LẠ --------------------------- */}
+          {/* <div className={styles.center_avt_btn}>
+            <div className={styles.addstory_2} onClick={clickFr}>
+              {fr ? (
+                <div className={styles.add_fr}>
+                  <Image
+                    width={30}
+                    alt=""
+                    src="/img/them-ban-be.svg"
+                    preview={false}
+                  />
+                  Thêm bạn bè
+                </div>
+              ) : (
+                <div className={styles.add_fr}>
+                  <Image
+                    width={30}
+                    alt=""
+                    src="/img/them-ban-be.svg"
+                    preview={false}
+                  />
+                  Hủy kết bạn
+                </div>
+              )}
+            </div>
+            <div
+              className={styles.nhantin}
+              onClick={() => {
+                router.push("https://chat365.timviec365.vn/notification-MTcw");
+              }}
+            >
+              <Image
+                width={30}
+                alt=""
+                src="/img/nhan-tin2.svg"
+                preview={false}
+              />
+              Nhắn tin
+            </div>
+          </div> */}
+          {/* --==================-TRANG BẠN BÈ ------------------------------ */}
+          {/* <div className={styles.center_avt_btn}>
+            <div className={styles.addstory_2} onClick={clickFr}>
+              <Dropdown menu={{ items }} trigger={["click"]}>
+                <div
+                  onClick={(e) => e.preventDefault()}
+                  className={styles.trang_ban_be}
+                >
+                  <Image
+                    width={30}
+                    alt=""
+                    src="/img/them-ban-be.svg"
+                    preview={false}
+                  />
+                  Bạn Bè
+                </div>
+              </Dropdown>
+            </div>
+
+            <div
+              className={styles.nhantin}
+              onClick={() => {
+                router.push("https://chat365.timviec365.vn/notification-MTcw");
+              }}
+            >
+              <Image
+                width={30}
+                alt=""
+                src="/img/nhan-tin2.svg"
+                preview={false}
+              />
+              Nhắn tin
+            </div>
+          </div> */}
         </div>
         <div className={`${styles.center_nav_block} width100`}>
           <NavBlock />
