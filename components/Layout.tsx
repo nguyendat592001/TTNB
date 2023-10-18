@@ -31,9 +31,8 @@ export default function Layout({ children }: LayoutProps) {
       return null;
     } else {
       const pagesWithNewHeader = [
-        "/sukien",
+        "/truyenthongnoibo/sukien",
         "/caidat",
-        "/c",
         // "/truyenthongnoibo/trangcongty",
         // "/truyenthongnoibo/nhomthaoluan",
         // "/truyenthongnoibo/sinhnhat",
@@ -48,8 +47,7 @@ export default function Layout({ children }: LayoutProps) {
   };
   const renderNavbar = () => {
     const pagesWithNewSidebar = [
-      "/sukien",
-      "/c",
+      "/truyenthongnoibo/sukien",
       // "/truyenthongnoibo/trangcongty",
       // "/truyenthongnoibo/nhomthaoluan",
       // "/truyenthongnoibo/sinhnhat",

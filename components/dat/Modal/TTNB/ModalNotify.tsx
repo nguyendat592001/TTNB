@@ -1,11 +1,18 @@
 import React from 'react';
-import { Modal, Button, Image } from 'antd';
+import { Modal, Button, Image, message } from 'antd';
 
 interface ModalNotifyProps {
     open: boolean;
     onClose: () => void;
 }
 const ModalNotify: React.FC<ModalNotifyProps> = ({ open, onClose }) => {
+    const handleShowSuccessMessage = () => {
+        message.success('Bật thông báo thành công!');
+    };
+    const handleTurnOnNotify = () => {
+        handleShowSuccessMessage();
+        onClose();
+    }
     return (
         <Modal
             title="Bật thông báo cho bài viết"
@@ -60,7 +67,7 @@ const ModalNotify: React.FC<ModalNotifyProps> = ({ open, onClose }) => {
                     >
                         Hủy</Button>
                     <Button
-                        onClick={onClose}
+                        onClick={handleTurnOnNotify}
                         size="large"
                         style={{
                             width: '170px',

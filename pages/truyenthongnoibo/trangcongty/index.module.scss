@@ -113,130 +113,6 @@
     }
 }
 
-.postItem {
-    margin-bottom: 100px;
-    box-shadow: 0 1.72314px 4.30784px 2.58471px rgb(0 0 0 / 10%);
-    padding: 20px 3.5%;
-    background: #fff;
-    border-radius: 10px 10px 10px 10px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    .header {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .headerInfo {
-        display: flex;
-        gap: 10px;
-    }
-
-    .avatar {
-        border-radius: 50%;
-    }
-
-    .textBold {
-        font-weight: 600;
-    }
-
-    .headerInfo {
-        display: flex;
-    }
-
-    .status {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-
-        .statusName {
-            font-size: 18px;
-        }
-
-        .fileName {
-            cursor: pointer;
-            color: #4c5bd4;
-        }
-
-        .viewDetail {
-            text-decoration: underline;
-            cursor: pointer;
-            color: #4c5bd4;
-        }
-    }
-
-    .anh {
-        height: 200px;
-
-        .anhItem {
-            height: 200px;
-        }
-
-        .sukienTime {
-            position: relative;
-            bottom: 185px;
-            left: 15px;
-
-            .gio {
-                background: #4c5bd4;
-                border-radius: 6px 6px 0 0;
-                width: 107.39px;
-                height: 40.69px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .gioText {
-                    font-weight: 700;
-                    font-size: 18px;
-                    line-height: 21px;
-                    color: #fff;
-                }
-            }
-
-            .ngay {
-
-                background: #fff;
-                border-radius: 0 0 6px 6px;
-                width: 107.39px;
-                height: 40.69px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .ngayText {
-                    font-size: 16px;
-                    line-height: 19px;
-                    color: #474747;
-                }
-            }
-        }
-
-        .sukienDangky {
-            position: relative;
-            bottom: 55px;
-            right: 15px;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 19px;
-            color: #4c5bd4;
-            border: none;
-            background: #fff;
-            border: 1px solid #4c5bd4;
-            box-sizing: border-box;
-            border-radius: 50px;
-            padding: 8px 30px;
-        }
-    }
-
-    .footer {
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
-}
-
 .optionItem {
     font-size: 16px;
     display: flex;
@@ -250,236 +126,99 @@
     }
 }
 
-// comment post
+// containerRight
 
-.post__count_reaction {
+.containerRight {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.SKSapToi,
+.BaiVietDanhDau,
+.ThongBaoMoi {
+    background: #fff;
+    box-shadow: 0 2px 5px 3px rgb(0 0 0 / 10%);
+    border-radius: 6px;
+    margin-top: 22.35px;
+}
+
+.SKSapToi_header,
+.BaiVietDanhDau_header,
+.ThongBaoMoi_header {
+    padding: 17px 7%;
+    border-bottom: 1px solid rgba(71, 71, 71, .75);
     display: flex;
     justify-content: space-between;
+    font-weight: 700;
     font-size: 16px;
-    margin-top: 15px;
-    padding-top: 15px;
-    cursor: pointer;
-}
-
-.post__reaction__count_like {
-    display: flex;
-}
-
-.post__reaction__count_like__text {
-    margin-left: 6px;
-}
-
-.post__reaction__count_comment {
-    margin-right: 6px;
-}
-
-.sum__comment {
-    display: flex;
+    line-height: 19px;
     align-items: center;
 }
 
-.post__footer {
+.SKSapToi_body,
+.BaiVietDanhDau_body_container,
+.ThongBaoMoi_body {
+    padding: 17px 7%;
+}
+
+.SKSapToi_body_tren {
     display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
+    flex-direction: column;
+    gap: 10px;
 }
 
-
-.post__footer__middle,
-.post__footer__right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-
-.post__footer__middle__text,
-.post__footer__right__text {
-    margin-left: 8px;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
-}
-
-.divider {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    height: 1px;
-    background-color: #CCCCCC;
-
-}
-
-.post__comment_sort {
+.SKSapToi_body_duoi {
     display: flex;
     justify-content: flex-end;
-    margin-top: 12px;
-    font-weight: 500;
-    font-size: 15px;
+    margin-top: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #4c5bd4;
 }
 
-.post__comment_sort_icon {
-    margin-left: 2px;
-    font-size: 12px;
+.BaiVietDanhDau_body {
+    gap: 12px;
 }
 
-.comment__avatar_user_img {
+.BaiVietDanhDau_body_avatar {
     border-radius: 50%;
 }
 
-.comment {
-    display: flex;
-    margin-top: 15px;
-    margin-left: 9px;
-    margin-right: 16px;
-}
-
-.comment__content {
-    width: 100%;
-}
-
-.comment__content_info {
-    margin-left: 15px;
-    padding: 10px 15px;
-    background-color: #F2F2F2;
-    border-radius: 10px;
-    width: 100%;
-    line-height: 20px;
-}
-
-.comment__name {
+.info {
     color: #474747;
+}
+
+.name {
+    font-weight: 700;
     font-size: 16px;
-    font-weight: 500;
-    line-height: 18px;
+    line-height: 19px;
+    color: #474747;
 }
 
-.comment__text {
-    font-size: 16px;
-    font-weight: 400;
+.namePost {
+    margin-top: 12px;
 }
 
-.comment__content_reaction {
-    display: flex;
-    margin-left: 16px;
-    gap: 4px;
-    font-size: 12px;
-    font-weight: 500;
-}
-
-/* popOver content */
-.contentPopover {
-    background: #FFFFFF;
-    box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
-    border-radius: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.contentPopover__title {
-    font-size: 16px;
+.ThongBaoMoi_header_add {
+    color: #4c5bd4;
     font-weight: 600;
-    line-height: 24px;
-    background-color: #fff;
-}
-
-.listUser__item {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 4px;
-}
-
-/* hiddenpost */
-
-.postHidden {
-    display: flex;
-    justify-content: space-between;
-}
-
-.postHidden__container {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-}
-
-.postHidden__content {
-    display: flex;
-    gap: 16px;
-}
-
-.postHidden__content__text_title {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-}
-
-.postHidden__content__text_desc {
-    font-size: 16px;
-    color: #666666;
-    font-weight: 400;
-}
-
-.postHidden__content__img {
     cursor: pointer;
 }
 
-.cmt {
-    margin-left: 2px;
+.ThongBaoMoi_body_tren {
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(71, 71, 71, .75);
 }
 
-.postHidden__btn {
-    border: 1px solid #4C5BD4 !important;
-    color: #4C5BD4;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    border-radius: 10px !important;
-    width: 125px;
+.ThongBaoMoi_body_time {
+    color: rgba(71, 71, 71, .75);
 }
 
-.postHidden__btn:hover {
-    color: #4C5BD4 !important;
-}
-
-@media (max-width: 426px) {
-    .post {
-        padding: 12px;
-    }
-}
-
-@media (max-width: 376px) {
-
-    .people,
-    .cmt,
-    .share,
-    .footer_cmt,
-    .footer_share {
-        display: none;
-    }
-
-    .iconCmt,
-    .iconShare {
-        display: block !important;
-    }
-}
-
-.iconCmt,
-.iconShare {
-    display: none;
-}
-
-/* option comment */
-
-.itemDropdown {
+.ThongBaoMoi_body_duoi {
+    margin-top: 12px;
     display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 4px 4px;
-    font-weight: 500;
-}
-
-.commentHidden {
-    background-color: #666 !important;
+    justify-content: flex-end;
+    text-decoration: underline;
 }
