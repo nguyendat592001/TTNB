@@ -3,6 +3,7 @@ import styles from "./tutorial.module.scss";
 import HeaderLogin from "../login/header";
 import { Image } from "antd";
 import Footer from "../login/footer/Footer";
+import Head from "next/head";
 interface Tutorial {
   imgSrc: string;
   title: string;
@@ -61,6 +62,10 @@ export default function tutorial() {
   ];
   return (
     <div>
+      <Head>
+        <title>Hướng dẫn</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      </Head>
       <HeaderLogin />
       <div className={styles.background}>
         <div className={styles.background_left}>

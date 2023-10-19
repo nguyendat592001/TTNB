@@ -8,7 +8,7 @@ export default function Personal_page() {
     <>
       <Head>
         <title>Trang cá nhân</title>
-        <link rel="shortcut icon" href="./next.svg" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <div className={styles.pages_canhan}>
         <div className={styles.center}>

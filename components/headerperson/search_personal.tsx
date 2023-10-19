@@ -35,7 +35,12 @@ const App: React.FC = () => {
   return (
     <>
       <p
-        style={{ display: "flex", alignItems: "center", padding: "5px 10px" }}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "5px 10px",
+          gap: 10,
+        }}
         onClick={showModal}
       >
         <Image
@@ -66,7 +71,6 @@ const App: React.FC = () => {
         </div>
 
         <div className="img_search_per">
-
           <Image src={"/img/c.png"} alt={""} width={100} preview={false} />
         </div>
         <div className={styles.question}>

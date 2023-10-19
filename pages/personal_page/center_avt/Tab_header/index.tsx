@@ -9,9 +9,6 @@ import Friend from "../../TabsFriend/FriendHome";
 import TabsImage from "../../TabsImage/TabsImage";
 import Video from "@/pages/personal_page/components/Video/Video";
 import TabsGr from "../../TabsGroup/TabsGr";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useRouter } from "next/router";
-
 const operations = <Dot />;
 
 const items: TabsProps["items"] = [
@@ -48,17 +45,6 @@ const items: TabsProps["items"] = [
 ];
 
 const Center_nav: React.FC = () => {
-  // const router = useRouter();
-  // const location = useLocation();
-  // const handleTabChange = (key: string) => {
-  //   // Tạo URL mới dựa trên key của tab và cập nhật URL
-  //   const newUrl = `/tabs-personal/${key}`;
-  //   router.push(newUrl);
-  // };
-
-  // Kiểm tra location để xác định tab hiện tại
-  // const currentTabKey = location.pathname.replace("/tabs-personal/", "");
-
   return (
     <div className="w100">
       <Divider />
@@ -67,7 +53,6 @@ const Center_nav: React.FC = () => {
           defaultActiveKey="1"
           tabBarExtraContent={operations}
           items={items}
-          // onChange={handleTabChange}
         ></Tabs>
       </div>
     </div>

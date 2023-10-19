@@ -1,4 +1,3 @@
-
 import { Input, Image } from "antd";
 import React, { useState } from "react";
 import styles from "./index.module.scss";
@@ -9,10 +8,9 @@ import Post from "@/components/Post";
 import BaiVietTTNB from "@/components/baivietTTNB/BaiVietTTNB";
 import CreateModalNotifical from "@/components/Tuychinhdangtin/taothongbao";
 import router from "next/router";
+import Head from "next/head";
 
 export default function Trangcongty() {
-
-
   const childrenContentLeft = (
     <div className={styles.thutuceoContaines}>
       <div className={styles.thutuceoContainerHeader}>
@@ -32,17 +30,15 @@ export default function Trangcongty() {
       <BaiVietTTNB />
     </div>
   );
-  const [createNotif, setCreateNotif] = useState(false)
+  const [createNotif, setCreateNotif] = useState(false);
 
   const handleClickXemThem = () => {
-    router.push("/truyenthongnoibo/sukien")
-  }
+    router.push("/truyenthongnoibo/sukien");
+  };
   const childrenContentRight = (
     <div className={styles.containerRight}>
       <div className={styles.SKSapToi}>
-        <div className={styles.SKSapToi_header}>
-          Sự kiện sắp tới
-        </div>
+        <div className={styles.SKSapToi_header}>Sự kiện sắp tới</div>
         <div className={styles.SKSapToi_body}>
           <div className={styles.SKSapToi_body_tren}>
             <p>test1</p>
@@ -71,15 +67,12 @@ export default function Trangcongty() {
               className={styles.BaiVietDanhDau_body_avatar}
             />
 
-
             <div className={styles.info}>
               <p className={styles.name}>Nguyễn Thế Đạt</p>
               <p>14:11 17/10/2023</p>
             </div>
           </div>
-          <p
-            className={styles.namePost}
-          >test1</p>
+          <p className={styles.namePost}>test1</p>
         </div>
       </div>
       <div className={styles.ThongBaoMoi}>
@@ -88,23 +81,22 @@ export default function Trangcongty() {
           <p
             className={styles.ThongBaoMoi_header_add}
             onClick={() => setCreateNotif(true)}
-          >Thêm</p>
+          >
+            Thêm
+          </p>
         </div>
         <div className={styles.ThongBaoMoi_body}>
           <div className={styles.ThongBaoMoi_body_tren}>
-            <p
-              className={styles.ThongBaoMoi_body_title}
-            >Thông báo: test</p>
-            <p
-              className={styles.ThongBaoMoi_body_time}
-            >14h10 17.10.2023</p>
+            <p className={styles.ThongBaoMoi_body_title}>Thông báo: test</p>
+            <p className={styles.ThongBaoMoi_body_time}>14h10 17.10.2023</p>
           </div>
-          <p
-            className={styles.ThongBaoMoi_body_duoi}
-          >Hết thông báo</p>
+          <p className={styles.ThongBaoMoi_body_duoi}>Hết thông báo</p>
         </div>
       </div>
-      <CreateModalNotifical createNotif={createNotif} setCreateNotif={setCreateNotif} />
+      <CreateModalNotifical
+        createNotif={createNotif}
+        setCreateNotif={setCreateNotif}
+      />
     </div>
   );
 

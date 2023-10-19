@@ -15,13 +15,15 @@ export default function Post() {
     <div>
       <div className={styles.post}>
         <div className={styles.post_head}>
-          <Image
-            preview={false}
-            alt="phanh"
-            src="/img/c.png"
-            width={53}
-            height={40}
-          />
+          <div>
+            <Image
+              preview={false}
+              alt="phanh"
+              src="/img/c.png"
+              width={40}
+              height={40}
+            />
+          </div>
           <input
             type="text"
             placeholder="Cập nhật công việc với các đồng nghiệp của bạn"

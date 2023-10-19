@@ -3,7 +3,7 @@
 }
 
 .subSidebar {
-    width: 25%;
+    width: 370px;
 }
 
 .VHDNContent {
@@ -72,42 +72,95 @@
     .contentRightContainer {
         margin-top: 0px;
     }
+    .VHDNContentHeader {
+        gap: 10px;
+        
+    }
 }
 
 @media (max-width: 1024px) {
 
     .selectedOption {
         width: 270px;
+        margin-top: 30px;
     }
 
     .VHDNContentRight {
         width: 270px !important;
     }
-}
-
-@media (max-width: 768px) {
-    .VHDNSearchInput {
-        width: 57%;
-    }
-
     .VHDNContentHeader {
-        gap: 20px;
-    }
-
-    .selectedOption {
-        width: 250px;
-    }
-
-    .VHDNContentRight {
-        width: 250px !important;
+        gap: 33px;
+        width: 100%;
     }
 }
 
-@media (max-width: 426px) {
+@media (min-width:768.1px) and (max-width:945px) {
+    .VHDNContentHeader {
+        gap: 5px;
+       
+    }
+}
+@media (max-width: 768px) {
     .sidebar {
         display: none;
     }
+    .VHDNContentHeader {
+        gap: 0px;
+        width: 100%;
+    }
+    .subSidebar {
+        display: none;
+    }
 
+    .VHDNContent {
+        margin: 0 20px;
+    }
+
+    .VHDNContentHeader {
+        flex-direction: column-reverse;
+    }
+
+    .VHDNContentRight {
+        display: none;
+    }
+
+    .VHDNSearchInput {
+        margin-top: 0px;
+        width: 100%;
+    }
+
+    .menuOptionSmall {
+        display: flex;
+        justify-content: flex-end;
+        height: 60px;
+    }
+
+    .VHDNSmallMenu {
+        display: block !important;
+        position: fixed;
+    }
+
+    .selectedOption {
+        width: 90%;
+        margin-top: 5px;
+        padding: 12px 8%;
+    }
+
+    .VHDNSmallMenu {
+        margin-top: 8px;
+    }
+
+}
+
+
+@media (max-width: 475px) {
+    .sidebar {
+        display: none;
+    }
+    .VHDNContentHeader {
+        gap: 0px;
+        width: 100%;
+    }
     .subSidebar {
         display: none;
     }

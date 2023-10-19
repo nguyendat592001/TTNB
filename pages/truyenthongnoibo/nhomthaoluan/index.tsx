@@ -6,6 +6,7 @@ import AnhBia from "../../../components/AnhBia";
 import { SearchOutlined } from "@ant-design/icons";
 import Post from "../../../components/Post";
 import Head from "next/head";
+import BaiVietTTNB from "@/components/baivietTTNB/BaiVietTTNB";
 interface DanhSachItem {
   id: number;
   name: string;
@@ -69,6 +70,9 @@ export default function Nhomthaoluan() {
       </div>
       <div>
         <Post />
+      </div>
+      <div>
+        <BaiVietTTNB />
       </div>
     </div>
   );
