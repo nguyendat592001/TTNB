@@ -2,13 +2,13 @@
 import React from "react";
 import { Divider, Tabs } from "antd";
 import type { TabsProps } from "antd";
-import Dot from "../../components/Dropdown/dot_tabs_block";
-import Post from "../../per_body/posts";
-import Intro from "../../per_body/Introduce/Intro";
-import Friend from "../../TabsFriend/FriendHome";
-import TabsImage from "../../TabsImage/TabsImage";
-import Video from "@/pages/personal_page/components/Video/Video";
-import TabsGr from "../../TabsGroup/TabsGr";
+import Dot from "../Dropdown/dot_tabs_block";
+import Post from "../per_body/posts";
+import Intro from "../per_body/Introduce/Intro";
+import Friend from "../TabsFriend/FriendHome";
+import TabsImage from "../TabsImage/TabsImage";
+import Video from "@/components/viet_components/Video/Video";
+import TabsGr from "../TabsGroup/TabsGr";
 const operations = <Dot />;
 
 const items: TabsProps["items"] = [

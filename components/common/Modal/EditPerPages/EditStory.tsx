@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "@/pages/personal_page/per_body/index.module.css";
+import styles from "@/components/viet_components/per_body/index.module.css";
 
 export default function EditStory() {
   const [isEditingBio, setIsEditingBio] = useState(false);

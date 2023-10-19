@@ -172,7 +172,7 @@
     }
 
     .ant-modal-body {
-        padding: 15px 45px 5px 45px;
+         padding: 20px;
     }
 }
 
@@ -386,6 +386,23 @@
             width: 100%;
         }
     }
+    .anhdaidien {
+        img{
+            width: 142px !important;
+            height: 142px !important;
+        }
+    }
+    .up {
+
+        top: -163px;
+        left: 58%;
+        // width: 30px;
+        // height: 30px;
+        background-color: #fff;
+        border-radius: 50%;
+
+    }
+
 }
 
 @media (max-width:425.9px) {
@@ -397,8 +414,8 @@
 
     .up {
 
-        top: -133px;
-        left: 63%;
+        top: -163px;
+        left: 58%;
         background-color: #fff;
         border-radius: 50%;
 
@@ -409,6 +426,7 @@
         height: 266px;
         object-fit: cover;
     }
+
 }
 
 @media screen and (max-width:320.9px) {
@@ -425,8 +443,8 @@
 
     .up {
 
-        top: -133px;
-        left: 67%;
+        top: -168px;
+        left: 63%;
         // width: 30px;
         // height: 30px;
         background-color: #fff;
@@ -555,4 +573,10 @@
 
 .w670px {
     width: 670px !important;
+}
+@media screen and (max-width:720.9px) {
+    .video_tutorial{
+        width: 100%;
+        height: 100%;
+    }
 }

@@ -3,7 +3,7 @@ import { Modal } from "antd";
 import styles from "./modal.module.css";
 import Image from "next/image";
 import Update from "@/components/common/Modal/UpdateCoverImage/Update";
-import UploadFile from "@/components/Btn/UploadFile";
+import UploadFile from "@/components/viet_components/Btn/UploadFile";
 
 interface FriendExceptProps {
   isOpen: boolean;

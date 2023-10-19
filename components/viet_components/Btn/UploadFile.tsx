@@ -29,7 +29,6 @@ export default function UploadFile({
   };
   return (
     <div>
-      {" "}
       <label htmlFor="file-upload" className={styles.customUploadButton}>
         Tải ảnh lên
       </label>

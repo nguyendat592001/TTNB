@@ -78,7 +78,7 @@ export default function tutorial() {
           <div className={styles.img_video}>
             <div className={styles.img_hd}>
               <div className={styles.qr}>
-                <Image alt="" src="/img/hd_logo_qr.png" preview={false} />
+                <Image alt="phanh" src="/img/hd_logo_qr.png" preview={false} />
               </div>
               <div className={styles.img_download}>
                 <Image alt="" src="/img/hd_chplay_hd.png" preview={false} />
@@ -89,6 +89,7 @@ export default function tutorial() {
         </div>
         <div className={styles.video}>
           <iframe
+            className="video_tutorial"
             width="560"
             height="315"
             src="https://www.youtube.com/embed/UssNzo6m1p8?si=tPWDISwsbu2wI9tu"

@@ -1,5 +1,5 @@
 import React from "react";
-import Center_avt from "./center_avt";
+import Center_avt from "../../components/viet_components/center_avt";
 import styles from "./personal.module.css";
 import Head from "next/head";
 

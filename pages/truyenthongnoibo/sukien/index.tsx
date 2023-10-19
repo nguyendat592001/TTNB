@@ -1,152 +1,201 @@
-import { Input, Image, Button } from "antd";
-import React, { useState } from "react";
-import styles from "./sukien.module.scss";
-import TruyenThongNoiBo from "..";
-import { SearchOutlined } from "@ant-design/icons";
-import Head from "next/head";
-import router from "next/router";
+import DoiNgoaiContent from "@/components/Event/DoiNgoaiContent";
+import NoiBoContent from "@/components/Event/NoiBoContent";
 import TableEvent from "@/components/Event/TableEvent";
-import ModalViewDetail from "@/components/dat/Modal/TTNB/ModalViewDetail";
-import ModalJoinEvent from "@/components/dat/Modal/TTNB/ModalJoinEvent";
+import { SearchOutlined } from "@ant-design/icons";
+import { Image, Input, Menu } from "antd";
+import router from "next/router";
+import { useState } from "react";
 
-export default function Trangcongty() {
-    const handleEventNoiBoClick = () => {
-        router.push("/truyenthongnoibo/sukien/sukiennoibo");
-    };
-    const handleEventDoiNgoaiClick = () => {
-        router.push("/truyenthongnoibo/sukien/sukiendoingoai");
-    };
-    const childrenContentLeft = (
-        <div className={styles.container}>
-            <div className={styles.contentLeft}>
-                <>
-                    <Input
-                        placeholder="Tìm kiếm sự kiện"
-                        suffix={<SearchOutlined rev={undefined} />}
-                        className={styles.searchInput}
-                        bordered={false}
-                    />
-                    <div className={styles.AllEvent}>
-                        <div className={styles.Event}>
-                            <div
-                                className={styles.EventNoiBo}
-                                onClick={handleEventNoiBoClick}
-                            >
-                                <Image
-                                    src='/img/sukien/sk_nb.png'
-                                    alt='img'
-                                    preview={false}
-                                    width={35}
-                                    height={35}
-                                />
-                                <div
-                                    className={styles.EventNoiBoContent}
-                                >
-                                    <p
-                                        className={styles.EventNoiBoContentNumber}
-                                    >0</p>
-                                    <p
-                                        className={styles.EventNoiBoContentText}
-                                    >Sự kiện nội bộ</p>
-                                </div>
-                            </div>
-                            <div
-                                className={styles.EventDoiNgoai}
-                                onClick={handleEventDoiNgoaiClick}
-                            >
-                                <Image
-                                    src='/img/sukien/sk_dn.png'
-                                    alt='img'
-                                    preview={false}
-                                    width={35}
-                                    height={35}
-                                />
-                                <div
-                                    className={styles.EventDoiNgoaiContent}
-                                >
-                                    <p
-                                        className={styles.EventDoiNgoaiContentNumber}
-                                    >0</p>
-                                    <p
-                                        className={styles.EventDoiNgoaiContentText}
-                                    >Sự kiện đối ngoại</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.ContentEvent}>
-                            <div className={styles.TotalEvent}>
-                                <div className={styles.TotalEventTitle}>
-                                    <p className={styles.TotalEventTitleText}>Tổng số sự kiện (1)</p>
-                                </div>
-                                <div className={`${styles.TableEvent} TableEvent`}>
-                                    <TableEvent />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </>
-            </div>
-        </div>
-    );
+import styles from "./sukien.module.css";
+import Head from "next/head";
 
-    const [isModalViewDetailOpen, setIsModalViewDetailOpen] = useState(false);
-    const [isModalJoinEventOpen, setIsModalJoinEventOpen] = useState(false);
+const SelectOptions = [
+  {
+    key: "1",
+    value: "Sự kiện",
+    img: "/img/sukien/sbp_4.png",
+  },
+  {
+    key: "2",
+    value: "Trang công ty",
+    img: "/img/sukien/sbp_1.png",
+  },
+  {
+    key: "3",
+    value: "Thông báo",
+    img: "/img/sukien/sbp_2.png",
+  },
+  {
+    key: "4",
+    value: "Tin tức",
+    img: "/img/sukien/sbp_3.png",
+  },
+];
 
-    const handleViewDetailClick = () => {
-        setIsModalViewDetailOpen(true);
-    };
-
-    const handleJoinEventClick = () => {
-        setIsModalJoinEventOpen(true);
-    };
-
-    const childrenContentRight = (
-        <div className={styles.containerRight}>
-            <div className={styles.RItem}>
-                <div className={styles.RTitle}>
-                    <p className={styles.RTitleText}>a</p>
-                </div>
-                <div className={styles.RContent}>
-                    <p>Nội dung sự kiện: <span>a</span></p>
-                    <p>Vị trí đăng sự kiện: <span>PHÒNG 3: PHÒNG KỸ THUẬT SỐ 3- Đ/C THU HẰNG</span></p>
-                    <p>Thành viên tham gia</p>
-                    <p>Danh sách câu hỏi trong sự kiện</p>
-                </div>
-                <div className={styles.RFooter}>
-                    <Button
-                        className={styles.RFooterButtonJoin}
-                        onClick={handleJoinEventClick}
-                    >
-                        Tham gia
-                    </Button>
-                    <Button
-                        className={styles.RFooterButtonView}
-                        onClick={handleViewDetailClick}
-                    >
-                        Xem chi tiết
-                    </Button>
-                </div>
-            </div>
-            <ModalViewDetail
-                open={isModalViewDetailOpen}
-                onClose={() => setIsModalViewDetailOpen(false)}
-            />
-            <ModalJoinEvent
-                open={isModalJoinEventOpen}
-                onClose={() => setIsModalJoinEventOpen(false)}
-            />
-        </div>
-    );
-
-    return (
-        <>
-            <Head>
-                <title>Trang Sự Kiện</title>
-            </Head>
-            <TruyenThongNoiBo
-                childrenContentLeft={childrenContentLeft}
-                childrenContentRight={childrenContentRight}
-            />
-        </>
-    );
+interface SelectOptions {
+  key: string;
+  value: string;
+  img: string;
 }
+const App: React.FC = () => {
+  const [subMenuVisible, setSubMenuVisible] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(SelectOptions[0]);
+  const [currentContent, setCurrentContent] = useState<React.ReactNode | null>(
+    null
+  );
+
+  const handleMouseEnter = () => {
+    setSubMenuVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setSubMenuVisible(false);
+  };
+
+  const handleMenuClick = (option: any) => {
+    setSelectedOption(option);
+    setSubMenuVisible(false);
+    if (option.key === "2") {
+      router.push("/truyenthongnoibo/trangcongty");
+    }
+    if (option.key === "3") {
+      router.push("/truyenthongnoibo/nhomthaoluan");
+    }
+    if (option.key === "4") {
+      router.push("/truyenthongnoibo/sinh-nhat");
+    }
+    if (option.key === "1") {
+      router.push("/truyenthongnoibo/sukien");
+    }
+  };
+
+  const handleEventNoiBoClick = () => {
+    setCurrentContent(<NoiBoContent />);
+  };
+
+  const handleEventDoiNgoaiClick = () => {
+    setCurrentContent(<DoiNgoaiContent />);
+  };
+
+  const remainingOptions = SelectOptions.filter(
+    (option) => option.key !== selectedOption.key
+  );
+  return (
+    <>
+      <Head>
+        <title>Truyền thông nội bộ | Sự kiện</title>
+      </Head>
+      <div className={styles.container}>
+        <div className={styles.contentLeft}>
+          {currentContent ? (
+            currentContent
+          ) : (
+            <>
+              <Input
+                placeholder="Tìm kiếm sự kiện"
+                suffix={<SearchOutlined rev={undefined} />}
+                className={styles.searchInput}
+                bordered={false}
+              />
+              <div className={styles.AllEvent}>
+                <div className={styles.Event}>
+                  <div
+                    className={styles.EventNoiBo}
+                    onClick={handleEventNoiBoClick}
+                  >
+                    <Image
+                      src="/img/sukien/sk_nb.png"
+                      alt="img"
+                      preview={false}
+                      width={35}
+                      height={35}
+                    />
+                    <div className={styles.EventNoiBoContent}>
+                      <p className={styles.EventNoiBoContentNumber}>0</p>
+                      <p className={styles.EventNoiBoContentText}>
+                        Sự kiện nội bộ
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className={styles.EventDoiNgoai}
+                    onClick={handleEventDoiNgoaiClick}
+                  >
+                    <Image
+                      src="/img/sukien/sk_dn.png"
+                      alt="img"
+                      preview={false}
+                      width={35}
+                      height={35}
+                    />
+                    <div className={styles.EventDoiNgoaiContent}>
+                      <p className={styles.EventDoiNgoaiContentNumber}>0</p>
+                      <p className={styles.EventDoiNgoaiContentText}>
+                        Sự kiện đối ngoại
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.ContentEvent}>
+                  <div className={styles.TotalEvent}>
+                    <div className={styles.TotalEventTitle}>
+                      <p className={styles.TotalEventTitleText}>
+                        Tổng số sự kiện (1)
+                      </p>
+                    </div>
+                    <div className={`${styles.TableEvent} TableEvent`}>
+                      <TableEvent />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+        <div className={styles.contentRightContainer}>
+          <div
+            className={`${styles.contentRight} contentRight`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div>
+              <div className={styles.selectedOption}>
+                <Image
+                  src={selectedOption.img}
+                  alt={selectedOption.value}
+                  preview={false}
+                />
+                <span className={styles.optionText}>
+                  {selectedOption.value}
+                </span>
+              </div>
+              <Menu
+                style={{ display: subMenuVisible ? "block" : "none" }}
+                onClick={(e) =>
+                  handleMenuClick(
+                    remainingOptions.find((option) => option.key === e.key)
+                  )
+                }
+              >
+                {remainingOptions.map((option) => (
+                  <Menu.Item key={option.key}>
+                    <div>
+                      <Image
+                        src={option.img}
+                        alt={option.value}
+                        preview={false}
+                      />
+                      <span className={styles.optionText}>{option.value}</span>
+                    </div>
+                  </Menu.Item>
+                ))}
+              </Menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default App;

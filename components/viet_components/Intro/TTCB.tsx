@@ -1,11 +1,11 @@
-import styles from "@/pages/personal_page/components/Intro/Intro.module.scss";
+import styles from "./Intro.module.scss";
 import Languale from "../Modal/Contact_Info/Language";
 import Opinion from "../Modal/Contact_Info/Opinion";
 import Gender from "../Modal/Contact_Info/Gender";
 import DateOfBirth from "../Modal/Contact_Info/Date_of_birth";
 import { useEffect, useState } from "react";
 import { Image } from "antd";
-import x from "@/pages/personal_page/components/Intro/Intro.module.scss";
+import x from "./Intro.module.scss";
 const TTCB = () => {
   const [birth, setBirth] = useState("");
   // Callback function to update birth date

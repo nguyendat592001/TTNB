@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Tabs } from "antd";
 import type { TabsProps } from "antd";
-import Myimage from "@/pages/personal_page/components/TabsImage/MyImage/Myimage";
-import Album from "@/pages/personal_page/components/TabsImage/Album/Album";
+import Myimage from "@/components/viet_components/TabsImage/MyImage/Myimage";
+import Album from "@/components/viet_components/TabsImage/Album/Album";
 import styles from "./tabs.module.scss";
-import HomeImage from "../per_body/ImageP/homeImage";
+// import HomeImage from "../per_body/ImageP/homeImage";
 
 const TabImage = () => {
   const [activeTab, setActiveTab] = useState<string>("1"); // Initialize active tab as "1"

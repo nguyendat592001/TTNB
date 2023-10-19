@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { Dropdown, Image, MenuProps, Modal } from "antd";
 import styles from "./index.module.scss";
-import NavBlock from "./Tab_header";
+import NavBlock from "../Tab_header";
 import CoverImage from "@/components/headerperson/UpdateImageWall";
 import EditPerPages from "@/components/common/Modal/EditPerPages/EditPages";
 import Avatar from "@/components/headerperson/Avatar";
@@ -189,7 +189,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
             </div>
           </div>
           {/* ----------------------------------TRANG CÁ NHÂN------------------------------- */}
-          {/* <div className={styles.center_avt_btn}>
+          <div className={styles.center_avt_btn}>
             <div onClick={onClicknewstory} className={styles.addstory}>
               <Image
                 width={20}
@@ -207,7 +207,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                 throw new Error("Function not implemented.");
               }}
             />
-          </div> */}
+          </div>
           {/* ------------TRANG NGƯỜI LẠ --------------------------- */}
           {/* <div className={styles.center_avt_btn}>
             <div className={styles.addstory_2} onClick={clickFr}>
@@ -226,7 +226,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                   <Image
                     width={30}
                     alt=""
-                    src="/img/them-ban-be.svg"
+                    src="/img/TTNB/huy-loi-moi.svg"
                     preview={false}
                   />
                   Hủy kết bạn
@@ -249,7 +249,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
             </div>
           </div> */}
           {/* --==================-TRANG BẠN BÈ ------------------------------ */}
-          <div className={styles.center_avt_btn}>
+          {/* <div className={styles.center_avt_btn}>
             <div className={styles.addstory_2} onClick={clickFr}>
               <Dropdown menu={{ items }} trigger={["click"]}>
                 <div
@@ -281,7 +281,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
               />
               Nhắn tin
             </div>
-          </div>
+          </div> */}
         </div>
         <div className={`${styles.center_nav_block} width100`}>
           <NavBlock />

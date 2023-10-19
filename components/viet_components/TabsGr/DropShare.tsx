@@ -5,12 +5,14 @@ import { Dropdown } from "antd";
 import styles from "./tabsGr.module.scss";
 import DropOtherShare from "./DropOthersShare";
 import ShareGroup from "@/components/viet_components/ShareGroup/modalShare";
+import ShareFr from "./ShareFriend";
 interface ShareGroupProps {
   share: boolean;
   setShare: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const DropShare = () => {
   const [share, setShare] = useState(false);
+  const [shareFr, setShareFr] = useState(false);
   const items: MenuProps["items"] = [
     {
       label: (
@@ -33,7 +35,12 @@ const DropShare = () => {
     },
     {
       label: (
-        <div className={styles.dot_child}>
+        <div
+          className={styles.dot_child}
+          onClick={() => {
+            setShareFr(true);
+          }}
+        >
           <Image
             width={25}
             height={24}
@@ -77,6 +84,7 @@ const DropShare = () => {
           <ShareGroup share={share} setShare={setShare} />
         </div>
       )}
+      {shareFr && <ShareFr shareFr={shareFr} setShareFr={setShareFr} />}
     </div>
   );
 };

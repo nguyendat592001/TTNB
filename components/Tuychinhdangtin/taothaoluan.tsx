@@ -93,7 +93,6 @@ const CreateDiscussion = (props: any) => {
             Quyền riêng tư<span style={{ color: "red" }}>*</span>
           </h4>
           <Select
-            mode="multiple"
             placeholder=""
             defaultValue={[]}
             style={{ width: "100%" }}

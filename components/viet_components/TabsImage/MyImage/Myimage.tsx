@@ -12,46 +12,55 @@ export default function Myimage() {
       id: 1,
       imgAvt: "/img/c.png",
       name: "Nguyễn Hoàng",
+      alt: "dasdas",
     },
     {
       id: 2,
       imgAvt: "/img/c.png",
       name: "Đạt",
+      alt: "",
     },
     {
       id: 3,
       imgAvt: "/img/c.png",
       name: "Nguyễn Hoàng",
+      alt: "",
     },
     {
       id: 4,
       imgAvt: "/img/c.png",
       name: "Nguyễn Hoàng",
+      alt: "",
     },
     {
       id: 5,
       imgAvt: "/img/c.png",
       name: "Nguyễn Hoàng",
+      alt: "",
     },
     {
       id: 6,
       imgAvt: "/img/c.png",
       name: "Nguyễn Hoàng",
+      alt: "",
     },
     {
       id: 7,
       imgAvt: "/img/c.png",
       name: "Nguyễn Hoàng",
+      alt: "",
     },
     {
       id: 8,
       imgAvt: "/img/c.png",
       name: "Nguyễn Hoàng",
+      alt: "",
     },
     {
       id: 9,
       imgAvt: "/img/c.png",
       name: "Nguyễn Hoàng",
+      alt: "",
     },
   ];
   const [img, setImg] = useState(fr);
@@ -88,6 +97,7 @@ export default function Myimage() {
             <Pen
               removeFollower={() => handleRemoveFollower(imgs.id)}
               imageURL={imgs.imgAvt}
+              alt={imgs.alt}
             />
           </div>
         ))}
