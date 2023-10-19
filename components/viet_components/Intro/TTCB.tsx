@@ -19,8 +19,6 @@ const TTCB = () => {
   const [desciption, seDescription] = useState("ccd");
   const [gender, setGender] = useState(false);
   const [dngender, setDnGender] = useState("d");
-
-  // const role = "nhanvien";
   const [role, setRole] = useState(false);
 
   return (

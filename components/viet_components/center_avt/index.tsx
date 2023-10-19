@@ -8,11 +8,8 @@ import CoverImage from "@/components/headerperson/UpdateImageWall";
 import EditPerPages from "@/components/common/Modal/EditPerPages/EditPages";
 import Avatar from "@/components/headerperson/Avatar";
 import x from "@/components/Tuychinhdangtin/tuychinh.module.scss";
-interface FriendExceptProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
+
+const Center_avt = () => {
   const router = useRouter();
   const [eidtImageWall, setEidtImageWall] = useState(false);
   const [avatar, setAvatar] = useState(false);
@@ -105,15 +102,11 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
     <div>
       <div className={styles.center_avt}>
         <div className={styles.center_avt_header}>
+          {/*---------------------------------------------------------- ẢNH BÌA -------------------------------------------------- */}
           <div className={`${styles.avt} avt`}>
-            <Image
-              // width={1200}
-              alt="anh-bia"
-              src={"/img/c.png"}
-              preview={false}
-            />
+            <Image alt="anh-bia" src={"/img/c.png"} preview={false} />
           </div>
-
+          {/*-------------------------------------------------- NÚT CHỈNH SỬA ẢNH BÌA   -----------------------------------*/}
           <div className={styles.cover_image_container}>
             <div
               onClick={() => setEidtImageWall(true)}
@@ -131,6 +124,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                 Chỉnh sửa ảnh bìa
               </span>
             </div>
+            {/*-----------------------------------------------MODAL CHỈNH SỬA ẢNH BÌA ----------------------------------------------------- */}
             {eidtImageWall && (
               <CoverImage
                 isOpen={eidtImageWall}
@@ -139,7 +133,11 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
             )}
           </div>
         </div>
+
+        {/* -======== = = = = = = = = ==================KẾT THÚC ẢNH BÌA ================================================================ */}
+        {/* =============================================PHẦN  ẢNH ĐẠI DIỆN====================================================== */}
         <div className={styles.center_avt_footer}>
+          {/* ==========================================ẢNH ĐẠI DIỆN ============================= */}
           <div className="anhdaidien">
             <Image
               width={192}
@@ -149,7 +147,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
               src={"/img/c.png"}
             />
           </div>
-
+          {/*================================================= NÚT CẬP NHẬT ẢNH ĐẠI DIỆN=========================================================== */}
           <div
             onClick={() => {
               setAvatar(true);
@@ -172,6 +170,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
               }}
             />
           )}
+          {/* ===============^^^^^^^=============== */}
 
           <div className={styles.center_avt_info_detail}>
             <p className={styles.center_avt_name}>
@@ -201,14 +200,9 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
               Thêm vào tin
             </div>
 
-            <EditPerPages
-              isOpen={false}
-              onClose={function (): void {
-                throw new Error("Function not implemented.");
-              }}
-            />
+            <EditPerPages />
           </div>
-          {/* ------------TRANG NGƯỜI LẠ --------------------------- */}
+          {/* -------==================-----TRANG NGƯỜI LẠ --------------------------- */}
           {/* <div className={styles.center_avt_btn}>
             <div className={styles.addstory_2} onClick={clickFr}>
               {fr ? (

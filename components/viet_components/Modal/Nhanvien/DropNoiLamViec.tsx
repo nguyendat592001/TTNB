@@ -54,11 +54,15 @@ const DropNoiLamViec = (props: any) => {
     },
   ];
   return (
-    <Dropdown menu={{ items }} trigger={["click"]}>
-      <div onClick={(e) => e.preventDefault()}>
-        <p className={styles.item}>
-          <Image alt="" src={"/img/xem-them.svg"} preview={false} />
-        </p>
+    <>
+      <Dropdown menu={{ items }}>
+        <div onClick={(e) => e.preventDefault()}>
+          <div className={styles.item}>
+            <Image alt="" src={"/img/xem-them.svg"} preview={false} />
+          </div>
+        </div>
+      </Dropdown>
+      <div>
         {nhanvien && (
           <Themnoilamviec nhanvien={nhanvien} setNhanvien={setNhanvien} />
         )}
@@ -87,7 +91,7 @@ const DropNoiLamViec = (props: any) => {
           </div>
         </Modal>
       </div>
-    </Dropdown>
+    </>
   );
 };
 

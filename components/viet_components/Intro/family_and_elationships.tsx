@@ -24,25 +24,34 @@ export default function Family_and_relationships() {
   };
 
   const fa = [
-    { id: 1, imgSrc: "/img/c.png", name: "jaxck", relationship: "đồng nghiệp" },
+    { id: 1, imgSrc: "/img/c.png", name: "jack", relationship: "đồng nghiệp" },
   ];
 
   const items: MenuProps["items"] = [
     {
       label: (
-        <a onClick={() => setFamily(true)}>
-          <Image alt="" src={"/img/chinh-sua.svg"} preview={false} /> Chỉnh sửa
-          thành viên trong gia đình
-        </a>
+        <div
+          onClick={() => setFamily(true)}
+          style={{ display: "flex", gap: 10 }}
+        >
+          <Image alt="phanh" src={"/img/chinh-sua.svg"} preview={false} /> Chỉnh
+          sửa thành viên trong gia đình
+        </div>
       ),
       key: "0",
     },
     {
       label: (
-        <a onClick={handleShowDel}>
-          <Image alt="" src={"/xoa-noi-lam-viec.svg"} preview={false} />
+        <div onClick={handleShowDel} style={{ display: "flex", gap: 10 }}>
+          <Image
+            width={17}
+            height={19}
+            alt="phanh"
+            src={"/xoa-noi-lam-viec.svg"}
+            preview={false}
+          />
           Xóa thành viên
-        </a>
+        </div>
       ),
       key: "1",
     },

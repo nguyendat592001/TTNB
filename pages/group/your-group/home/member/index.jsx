@@ -99,7 +99,7 @@ const Member = () => {
                      <div className={styles.left_flex}>
                         <div className={styles.left_fl2}>
                            <button className={styles.btn_add} onClick={handleButtonClick}>
-                              <img alt="" src="/img/group/add_friend.svg" preview={false} />
+                              <Image alt="" src="/img/group/add_friend.svg" preview={false} />
                               {isInvited ? "Hủy lời mời" : "Thêm bạn bè"}
                            </button>
                         </div>
@@ -140,7 +140,7 @@ const Member = () => {
                      <div className={styles.left_flex}>
                         <div className={styles.left_fl2}>
                            <button className={styles.btn_add} onClick={handleButtonClick}>
-                              <img alt="" src="/img/group/add_friend.svg" preview={false} />
+                              <Image alt="" src="/img/group/add_friend.svg" preview={false} />
                               {isInvited ? "Hủy lời mời" : "Thêm bạn bè"}
                            </button>
                         </div>
