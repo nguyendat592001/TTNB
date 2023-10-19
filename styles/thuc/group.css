@@ -153,6 +153,17 @@
 .img_colection {
    height: 170px !important;
 }
+.btn_join {
+   background: white;
+   height: 40px;
+   color: #4c5bd4;
+   font-weight: 400;
+   font-size: 14px;
+   width: 190px;
+   border-radius: 3px;
+   display: flex;
+   align-items: center;
+}
 @media (max-width: 821px) {
    .thuc_card {
       width: 230px;
@@ -181,5 +192,8 @@
    .img_colection {
       height: 100px !important;
       width: 300px !important;
+   }
+   .btn_join {
+      width: 160px;
    }
 }

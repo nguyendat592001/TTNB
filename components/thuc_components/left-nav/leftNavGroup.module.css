@@ -216,6 +216,7 @@
    font-weight: 500;
    margin: 0 0 15px;
    cursor: pointer;
+   font-size: 15px;
 }
 .left_button {
    width: 100%;
