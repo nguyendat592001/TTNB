@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Image, Input } from "antd";
 import { LeftOutlined, SearchOutlined } from "@ant-design/icons";
 import styles from "./index.module.scss";
@@ -6,6 +6,8 @@ import Link from "next/link";
 import TableEvent from "@/components/Event/TableEvent";
 import Head from "next/head";
 import TruyenThongNoiBo from "../..";
+import ModalJoinEvent from "@/components/dat/Modal/TTNB/ModalJoinEvent";
+import ModalViewDetail from "@/components/dat/Modal/TTNB/ModalViewDetail";
 
 const DoiNgoaiContent: React.FC = () => {
     const childrenContentLeft = (
@@ -74,6 +76,18 @@ const DoiNgoaiContent: React.FC = () => {
             </div>
         </>
     );
+
+    const [isModalJoinEventOpen, setIsModalJoinEventOpen] = useState(false);
+    const [isModalViewDetailOpen, setIsModalViewDetailOpen] = useState(false);
+
+    const handleModalJoinEventOpen = () => {
+        setIsModalJoinEventOpen(true);
+    };
+
+    const handleModalViewDetailOpen = () => {
+        setIsModalViewDetailOpen(true);
+    };
+
     const childrenContentRight = (
         <div className={styles.containerRight}>
             <div className={styles.RItem}>
@@ -89,16 +103,27 @@ const DoiNgoaiContent: React.FC = () => {
                 <div className={styles.RFooter}>
                     <Button
                         className={styles.RFooterButtonJoin}
+                        onClick={handleModalJoinEventOpen}
                     >
                         Tham gia
                     </Button>
                     <Button
                         className={styles.RFooterButtonView}
+                        onClick={handleModalViewDetailOpen}
                     >
                         Xem chi tiết
                     </Button>
                 </div>
             </div>
+
+            <ModalJoinEvent
+                open={isModalJoinEventOpen}
+                onClose={() => setIsModalJoinEventOpen(false)}
+            />
+            <ModalViewDetail
+                open={isModalViewDetailOpen}
+                onClose={() => setIsModalViewDetailOpen(false)}
+            />
         </div>
     );
 

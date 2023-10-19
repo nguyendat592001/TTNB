@@ -108,6 +108,7 @@ export default function Trangcongty() {
       <TruyenThongNoiBo
         childrenContentLeft={childrenContentLeft}
         childrenContentRight={childrenContentRight}
+        keyduocchon="1"
       />
     </>
   );

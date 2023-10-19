@@ -31,7 +31,7 @@ export default function Layout({ children }: LayoutProps) {
       return null;
     } else {
       const pagesWithNewHeader = [
-        "/caidat",
+        "/settings",
         // "/truyenthongnoibo/trangcongty",
         // "/truyenthongnoibo/nhomthaoluan",
         // "/truyenthongnoibo/sinhnhat",
@@ -45,11 +45,7 @@ export default function Layout({ children }: LayoutProps) {
   };
   const renderNavbar = () => {
     const pagesWithNewSidebar = [
-      "/truyenthongnoibossssssssssss/sukienssssss",
-      // "/truyenthongnoibo/trangcongty",
-      // "/truyenthongnoibo/nhomthaoluan",
-      // "/truyenthongnoibo/sinhnhat",
-      // "/truyenthongnoibo/sukien",
+      "/setting",
     ];
 
     if (pagesWithNewSidebar.includes(router.pathname)) {

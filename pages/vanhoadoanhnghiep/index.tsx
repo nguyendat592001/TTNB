@@ -48,15 +48,19 @@ interface SelectOptions {
 interface VHDNProps {
   childrenContentLeft?: React.ReactNode;
   childrenContentRight?: React.ReactNode;
+  keyduocchon: string;
 }
 
 export default function Vanhoadoanhnghiep({
   childrenContentLeft,
   childrenContentRight,
+  keyduocchon,
 }: VHDNProps) {
   const router = useRouter();
   const [subMenuOpen, setSubMenuOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(SelectOptions[0]);
+  const [selectedOption, setSelectedOption] = useState(
+    SelectOptions.find((option) => option.key === keyduocchon) || SelectOptions[0]
+  );
 
   const handleMouseEnter = () => {
     setSubMenuOpen(true);
