@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./intro.module.scss";
 import AddressWork from "@/components/common/Modal/AddressWork/address";
-import InfoBasic from "../../components/Intro/InfoBasic";
-import Family_and_elationships from "../../components/Intro/family_and_elationships";
-import Details_about_you from "../../components/Intro/details_about_you";
+import InfoBasic from "../../../../components/viet_components/Intro/InfoBasic";
+import Family_and_elationships from "../../../../components/viet_components/Intro/family_and_elationships";
+import Details_about_you from "../../../../components/viet_components/Intro/details_about_you";
 import Tongquan from "@/components/common/Modal/AddressWork/tongquan";
 
 export default function Intro() {

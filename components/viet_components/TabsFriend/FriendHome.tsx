@@ -4,10 +4,10 @@ import styles from "./FriendHome.module.scss";
 import { ConfigProvider, Input } from "antd";
 import { Tabs } from "antd";
 import type { TabsProps } from "antd";
-import Allfriend from "@/pages/personal_page/components/AllFriend/allfriend";
+import Allfriend from "@/components/viet_components/AllFriend/allfriend";
 
-import Follower from "@/pages/personal_page/components/Follower/follower";
-import Following from "@/pages/personal_page/components/Following/Following";
+import Follower from "@/components/viet_components/Follower/follower";
+import Following from "@/components/viet_components/Following/Following";
 import { useRouter } from "next/router";
 import { SearchOutlined } from "@ant-design/icons";
 const fr = [
