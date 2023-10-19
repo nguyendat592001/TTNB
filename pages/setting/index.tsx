@@ -42,13 +42,12 @@ const items: TabsProps["items"] = [
     children: <NhomThaoLuan />,
   },
 ];
-// eslint-disable-next-line react-hooks/rules-of-hooks
-const [showPopover, setShowPopover] = useState(false);
-
-const closePopover = () => {
-  setShowPopover(false);
-};
 const App: React.FC = () => {
+  const [showPopover, setShowPopover] = useState(false);
+
+  const closePopover = () => {
+    setShowPopover(false);
+  };
   return (
     <div>
       <Head>
@@ -58,7 +57,6 @@ const App: React.FC = () => {
       <div className={`${styles.settingContainer} settingContainer`}>
         <div className={styles.containerSidebar}>
           <div className={`${styles.SideBarSetting} SideBarSetting`}>
-            <SideBar closePopover={closePopover} />
           </div>
         </div>
         <div className={styles.containerTabs}>
