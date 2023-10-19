@@ -5,8 +5,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Image, Input, Menu } from "antd";
 import router from "next/router";
 import { useState } from "react";
-
-import styles from "./sukien.module.css";
+import styles from "./sukien.module.scss";
 import Head from "next/head";
 
 const SelectOptions = [
