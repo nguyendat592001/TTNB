@@ -4,22 +4,32 @@ import styles from "../TabsImage.module.scss";
 
 import type { MenuProps } from "antd";
 import { Dropdown } from "antd";
+import UpdateAvatar from "@/components/common/Modal/UpdateCoverImage/UpdateAvatar";
+import Update from "@/components/common/Modal/UpdateCoverImage/Update";
 const Pen = (props: any) => {
-  const { removeFollower, imageURL } = props;
+  const { removeFollower, imageURL, alt } = props;
   const handleDownload = () => {
     // Sử dụng đường dẫn hình ảnh từ imageURL
     const downloadURL = imageURL; // imageURL đã được truyền từ Myimage
     // Tạo một fake anchor element
     const anchor = document.createElement("a");
     anchor.href = downloadURL;
-    anchor.download = "image.jpg"; // Tên tệp ảnh khi tải xuống
+    anchor.download = alt;
+    // Tên tệp ảnh khi tải xuống
     // Trigger a click event to download the image
     anchor.click();
   };
+  const [avt, setAvt] = useState(false);
+  const [cover, setCover] = useState(false);
   const items: MenuProps["items"] = [
     {
       label: (
-        <a className={styles.pen}>
+        <div
+          className={styles.pen}
+          onClick={() => {
+            setAvt(true);
+          }}
+        >
           <Image
             width={19}
             height={20}
@@ -27,14 +37,18 @@ const Pen = (props: any) => {
             src={"/img/dat-lam-anh-dai-dien.svg"}
           />
           Đặt làm ảnh đại diện
-        </a>
+        </div>
       ),
       key: "0",
     },
     {
       label: (
-        <a className={styles.pen}>
-          {" "}
+        <div
+          className={styles.pen}
+          onClick={() => {
+            setCover(true);
+          }}
+        >
           <Image
             width={19}
             height={20}
@@ -42,27 +56,27 @@ const Pen = (props: any) => {
             src={"/img/dat-lam-anh-bia.svg"}
           />
           Đặt làm ảnh bìa
-        </a>
+        </div>
       ),
       key: "1",
     },
 
     {
       label: (
-        <a className={styles.pen} onClick={handleDownload}>
+        <div className={styles.pen} onClick={handleDownload}>
           <Image width={19} height={20} alt="" src={"/img/fe_edit.svg"} />
           Tải xuống
-        </a>
+        </div>
       ),
       key: "3",
     },
     {
       label: (
-        <a className={styles.pen} onClick={removeFollower}>
+        <div className={styles.pen} onClick={removeFollower}>
           {" "}
           <Image width={19} height={20} alt="" src={"/img/public_del.svg"} />
           Xóa ảnh
-        </a>
+        </div>
       ),
       key: "4",
     },
@@ -79,6 +93,24 @@ const Pen = (props: any) => {
           src={"/img/edit_album.svg"}
         />
       </Dropdown>
+      {avt && (
+        <UpdateAvatar
+          isOpen={avt}
+          onClose={() => {
+            setAvt(false);
+          }}
+          coverImageSrc={imageURL}
+        />
+      )}
+      {cover && (
+        <Update
+          isOpen={cover}
+          onClose={() => {
+            setCover(false);
+          }}
+          coverImageSrc={imageURL}
+        />
+      )}
     </>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import { Tabs } from "antd";
 import type { TabsProps } from "antd";
-import GrPrivate from "../components/TabsGr/GrPrivate";
-import GrPublic from "../components/TabsGr/GrPublic";
+import GrPrivate from "../TabsGr/GrPrivate";
+import GrPublic from "../TabsGr/GrPublic";
 
 const onChange = (key: string) => {
   console.log(key);

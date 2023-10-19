@@ -5,6 +5,7 @@ import Settingstory from "@/components/viet_components/SettingStory/Settingstory
 import Nhatki from "./Nhatki";
 import Khotin from "./Khotin";
 import TabPane from "antd/lib/tabs/TabPane";
+import Head from "next/head";
 
 export default function WareHouseStory() {
   const [activeTab, setActiveTab] = useState("khoTin"); // Sử dụng biến trạng thái để theo dõi tab được chọn
@@ -14,6 +15,9 @@ export default function WareHouseStory() {
   };
   return (
     <div>
+      <Head>
+        <title>Kho tin lưu trữ</title>
+      </Head>
       <section className={styles.warehouse}>
         <div className={styles.sidebar}>
           <div

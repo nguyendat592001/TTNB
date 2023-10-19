@@ -23,14 +23,12 @@ export default function Search_per() {
     setTime(!time);
   };
 
-  const onChange = (checked: boolean) => {
-    // console.log(`switch to ${checked}`);
-  };
+  const onChange = (checked: boolean) => {};
   return (
     <>
       <Head>
         <title>Tìm kiếm trong trang cá nhân</title>
-        <link rel="shortcut icon" href="/next.svg" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <div className={styles.center}>
         <div className={styles.container}>

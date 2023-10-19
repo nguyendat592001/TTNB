@@ -1,4 +1,4 @@
-@media screen and (max-width:1920px) {
+@media  (max-width:1920px) {
     .center_avt {
         width: 1200px;
         margin: 0 auto;
@@ -38,15 +38,13 @@
     }
     
     .center_avt_info_detail {
-        margin: -40px 0px 0px 102px;
+        margin: -25px 0px 0px 102px;
     
         .center_avt_name {
-            // width: 120%;
             font-weight: 600;
             font-size: 30px;
             line-height: 40px;
             color: #474747;
-    
             overflow: hidden;
             word-break: break-word;
         }
@@ -243,6 +241,31 @@
             justify-content: center;
             
         }
+        .addstory_2{
+            
+            display: flex;
+            justify-content: center;
+            div{
+                width: 100%;
+            }
+        }
+        .nhantin{
+            display: flex;
+            width: calc(100% - 45px);
+            margin-left: 45px;
+        }
+        
+
+    }
+    .center_avt_name{
+        font-size: 24px !important;
+        margin-top: -50px !important;
+    }
+
+}
+@media screen and (max-width:425.9px) {
+    .center_avt_name{
+        margin-top: -50px !important;
     }
 }
 @media screen and (max-width:320px) {
@@ -265,7 +288,7 @@
         border: 1px solid #4c5bd4;
         width: 160px;
         background-color: #fff;
-        height: 45px;
+        height: 40px;
         color: #474747;
         gap: 10px;
         border-radius:10px ;
