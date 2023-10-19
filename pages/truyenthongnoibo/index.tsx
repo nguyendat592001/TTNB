@@ -39,16 +39,18 @@ interface SelectOptions {
 interface TTNBProps {
   childrenContentLeft?: React.ReactNode;
   childrenContentRight?: React.ReactNode;
+  keyduocchon: string;
 }
 
 export default function TruyenThongNoiBo({
   childrenContentLeft,
-  childrenContentRight,
+  childrenContentRight, keyduocchon
 }: TTNBProps) {
   const router = useRouter();
   const [subMenuOpen, setSubMenuOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(SelectOptions[0]);
-
+  const [selectedOption, setSelectedOption] = useState(
+    SelectOptions.find((option) => option.key === keyduocchon) || SelectOptions[0]
+  );
   const handleMouseEnter = () => {
     setSubMenuOpen(true);
   };

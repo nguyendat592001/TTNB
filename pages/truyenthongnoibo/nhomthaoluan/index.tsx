@@ -169,6 +169,7 @@ export default function Nhomthaoluan() {
       <TruyenThongNoiBo
         childrenContentLeft={childrenContentLeft}
         childrenContentRight={childrenContentRight}
+        keyduocchon="2"
       />
     </>
   );

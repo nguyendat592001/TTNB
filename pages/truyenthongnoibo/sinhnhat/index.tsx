@@ -97,6 +97,7 @@ export default function Sinhnhat() {
       <TruyenThongNoiBo
         childrenContentLeft={childrenContentLeft}
         childrenContentRight={childrenContentRight}
+        keyduocchon="3"
       />
     </>
   );
