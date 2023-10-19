@@ -99,7 +99,7 @@ const EditPages = () => {
           </div>
           <div className={styles.edit_intro}>
             <span>Chỉnh sửa phần giới thiệu</span>
-            <p>Chỉnh sửa</p>
+            <p style={{ cursor: "pointer" }}>Chỉnh sửa</p>
           </div>
           <div>
             <p>Sở thích</p>
