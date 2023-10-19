@@ -104,6 +104,11 @@ export default function Vanhoadoanhnghiep({
   const onClose = () => {
     setOpenDrawer(false);
   };
+  const [showPopover, setShowPopover] = useState(false);
+
+  const closePopover = () => {
+    setShowPopover(false);
+  };
   return (
     <div>
       <Head>
@@ -112,11 +117,7 @@ export default function Vanhoadoanhnghiep({
       </Head>
       <div className={`${styles.VHDNContainer} VHDNContainer flex`}>
         <div className={`${styles.sidebar}`}>
-          <SideBar
-            closePopover={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          <SideBar closePopover={closePopover} />
         </div>
         <div className={`${styles.subSidebar}`}></div>
         <div className={`${styles.VHDNContent} VHDNContent`}>

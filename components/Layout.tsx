@@ -31,12 +31,10 @@ export default function Layout({ children }: LayoutProps) {
       return null;
     } else {
       const pagesWithNewHeader = [
-        "/truyenthongnoibo/sukien",
         "/caidat",
         // "/truyenthongnoibo/trangcongty",
         // "/truyenthongnoibo/nhomthaoluan",
         // "/truyenthongnoibo/sinhnhat",
-        // "/truyenthongnoibo/sukien",
       ];
       if (pagesWithNewHeader.includes(router.pathname)) {
         return <NewHeader collapsed={false} />;
@@ -47,7 +45,7 @@ export default function Layout({ children }: LayoutProps) {
   };
   const renderNavbar = () => {
     const pagesWithNewSidebar = [
-      "/truyenthongnoibo/sukien",
+      "/truyenthongnoibossssssssssss/sukienssssss",
       // "/truyenthongnoibo/trangcongty",
       // "/truyenthongnoibo/nhomthaoluan",
       // "/truyenthongnoibo/sinhnhat",

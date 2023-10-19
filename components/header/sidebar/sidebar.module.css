@@ -27,4 +27,6 @@
     height: 100vh;
     background: var(--colorTheme);
     color: #fff;
+    position: fixed;
+    top: 78px;
 }

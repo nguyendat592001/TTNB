@@ -1,4 +1,5 @@
-import { Modal, Space, Table } from 'antd';
+import { DeleteColumnOutlined, DeleteFilled } from '@ant-design/icons';
+import { Button, Modal, Space, Table } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import { useState } from 'react';
 import styles from './TableEvent.module.css';
@@ -55,7 +56,16 @@ const TableEvent: React.FC = () => {
             align: "center",
             render: (_, record: DataType) => (
                 <Space direction="vertical">
-                    <a className={styles.delete} onClick={() => showDeleteModal(record)}>Delete</a>
+                    <div
+                        className={styles.delete}
+                        onClick={() => showDeleteModal(record)}
+                        style={{
+                            cursor: 'pointer',
+                            padding: '12px',
+                        }}
+                    >
+                        <DeleteFilled rev={undefined} />
+                    </div>
                 </Space>
             ),
         }
@@ -113,12 +123,37 @@ const TableEvent: React.FC = () => {
                 pagination={false}
             />
             <Modal
-                title="Confirm Delete"
+                title="Xóa sự kiện"
                 visible={isDeleteModalOpen}
-                onOk={handleDelete}
+                className='modal-delete-event-table'
+                footer={null}
                 onCancel={handleCancel}
             >
-                <p>Are you sure you want to delete this event?</p>
+                <div style={{
+                    marginBottom: '20px',
+                }} >
+                    <span>Bạn có muốn xóa nội dung sự kiện này?</span>
+                </div>
+                Tất cả thông tin sẽ được lưu tự động vào
+                <span> Đã xóa gần đây </span>
+                trong thời gian 05 ngày trước khi bị xóa vĩnh viễn
+
+                <div className={styles.Buttons}>
+                    <Button
+                        className={styles.buttonCancel}
+                        onClick={handleCancel}
+                        size="large"
+                    >
+                        Hủy
+                    </Button>
+                    <Button
+                        className={styles.buttonDelete}
+                        onClick={handleDelete}
+                        size="large"
+                    >
+                        Xóa
+                    </Button>
+                </div>
             </Modal>
         </div>
     );

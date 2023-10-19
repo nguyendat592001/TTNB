@@ -206,14 +206,17 @@ export default function TraoDoiCauHoi() {
     const onClose = () => {
         setOpenDrawer(false);
     };
+    const [showPopover, setShowPopover] = useState(false);
+
+    const closePopover = () => {
+        setShowPopover(false);
+    };
     return (
         <div
             className={`${styles.TDCHContainer} QTTTContainer flex`}
         >
             <div className={`${styles.sidebar}`}>
-                <SideBar closePopover={function (): void {
-                    throw new Error('Function not implemented.');
-                }} />
+                <SideBar closePopover={closePopover} />
             </div>
             <div className={`${styles.subSidebar}`}></div>
             <div className={`${styles.TDCHContent} `}>

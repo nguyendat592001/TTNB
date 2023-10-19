@@ -179,15 +179,17 @@ export default function QTTT() {
             </div>
         </div>
     );
+    const [showPopover, setShowPopover] = useState(false);
 
+    const closePopover = () => {
+        setShowPopover(false);
+    };
     return (
         <div
             className={`${styles.QTTTContainer} QTTTContainer flex`}
         >
             <div className={`${styles.sidebar}`}>
-                <SideBar closePopover={function (): void {
-                    throw new Error('Function not implemented.');
-                }} />
+                <SideBar closePopover={closePopover} />
             </div>
             <div className={`${styles.subSidebar}`}></div>
             <div className={`${styles.QTTTContent} QTTTContent`}>

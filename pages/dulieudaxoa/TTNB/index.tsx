@@ -81,7 +81,11 @@ export default function TTNB() {
       />
     );
   };
+  const [showPopover, setShowPopover] = useState(false);
 
+  const closePopover = () => {
+    setShowPopover(false);
+  };
   return (
     <div>
       <Head>
@@ -90,11 +94,7 @@ export default function TTNB() {
       </Head>
       <div className="flex containerTTNB">
         <div className={`${styles.sidebar}`}>
-          <SideBar
-            closePopover={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          <SideBar closePopover={closePopover} />
         </div>
         <div className={`${styles.sidebarContent}`}></div>
         <div

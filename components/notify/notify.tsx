@@ -42,9 +42,14 @@ export default function Notify(): JSX.Element {
                     </ConfigProvider>
                 </div>
                 <div
-                    className={styles.user}
+                    className={`${styles.user} user`}
                 >
-                    <User />
+                    <div
+                        style={{
+                        }}
+                    >
+                        <User />
+                    </div>
                 </div>
 
             </div>

@@ -11,6 +11,11 @@ const App: React.FC = () => {
   const handleItemClick = (path: string) => {
     router.push(`/dulieudaxoa${path}`);
   };
+  const [showPopover, setShowPopover] = useState(false);
+
+  const closePopover = () => {
+    setShowPopover(false);
+  };
   return (
     <div>
       <Head>
@@ -19,11 +24,7 @@ const App: React.FC = () => {
       </Head>
       <div className="flex">
         <div className={`${styles.sidebar}`}>
-          <SideBar
-            closePopover={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          <SideBar closePopover={closePopover} />
         </div>
         <div className={`${styles.sidebarContent}`}></div>
         <div

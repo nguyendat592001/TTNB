@@ -84,8 +84,8 @@ export default function User(): JSX.Element {
     <div>
       <Menu className={`${styles.MenuUser} MenuUser`}>
         {menuItems.map((item, index) => (
-          <React.Fragment key={item.key}>
-            <Menu.Item
+          <div key={item.key}>
+            <div
               className={`${styles.menuItem} ${index >= 7 ? styles.itemWithSpacing : ""
                 }`}
             >
@@ -118,7 +118,7 @@ export default function User(): JSX.Element {
                   }}
                 />
               )}
-            </Menu.Item>
+            </div>
             {index === 6 && (
               <Menu.Divider
                 style={{
@@ -128,7 +128,7 @@ export default function User(): JSX.Element {
                 }}
               />
             )}
-          </React.Fragment>
+          </div>
         ))}
       </Menu>
     </div>
@@ -138,8 +138,7 @@ export default function User(): JSX.Element {
       overlay={userMenu}
       placement="bottomRight"
       trigger={["click"]}
-      autoAdjustOverflow={false}
-      className={styles.userDropdown}
+      className={`${styles.userDropdown} userDropdown`}
     >
       <div className={styles.userDropdownTrigger}>
         <Image

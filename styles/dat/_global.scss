@@ -1,9 +1,18 @@
 /* menu user*/
+
+.user .userDropdown {
+    .ant-dropdown {
+        position: fixed;
+    }
+}
+
 .MenuUser.ant-dropdown-menu {
     margin-top: 17px;
     width: 300px;
+    position: fixed;
+    right: 10px;
+    top: 61px;
 }
-
 
 .MenuNewUser.ant-dropdown-menu {
     margin-top: 17px;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tabs, TabsProps } from "antd";
 import CaiDatChung from "@/components/dat/caidat/caidatchung/CaiDatChung";
 import ThongTinBaoMat from "@/components/dat/caidat/thongtinbaomat/ThongTinBaoMat";
@@ -9,6 +9,7 @@ import NhomThaoLuan from "@/components/dat/caidat/nhomthaoluan/NhomThaoLuan";
 import styles from "./index.module.scss";
 import SideBar from "@/components/header/sidebar/sidebar";
 import Head from "next/head";
+
 
 const onChange = (key: string) => {
   console.log(key);
@@ -41,7 +42,12 @@ const items: TabsProps["items"] = [
     children: <NhomThaoLuan />,
   },
 ];
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const [showPopover, setShowPopover] = useState(false);
 
+const closePopover = () => {
+  setShowPopover(false);
+};
 const App: React.FC = () => {
   return (
     <div>
@@ -52,11 +58,7 @@ const App: React.FC = () => {
       <div className={`${styles.settingContainer} settingContainer`}>
         <div className={styles.containerSidebar}>
           <div className={`${styles.SideBarSetting} SideBarSetting`}>
-            <SideBar
-              closePopover={function (): void {
-                throw new Error("Function not implemented.");
-              }}
-            />
+            <SideBar closePopover={closePopover} />
           </div>
         </div>
         <div className={styles.containerTabs}>
