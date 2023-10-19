@@ -3,7 +3,7 @@ import { Modal } from "antd";
 import styles from "./modal.module.css";
 import Image from "next/image";
 import Update from "@/components/common/Modal/UpdateCoverImage/Update";
-import UploadFile from "../Btn/UploadFile";
+import UploadFile from "../viet_components/Btn/UploadFile";
 import UpdateAvatar from "../common/Modal/UpdateCoverImage/UpdateAvatar";
 
 interface FriendExceptProps {
