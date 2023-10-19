@@ -11,7 +11,7 @@ interface FriendExceptProps {
   isOpen: boolean;
   onClose: () => void;
 }
-const EditPages = ({ isOpen, onClose }: FriendExceptProps) => {
+const EditPages = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [eidtImageWall, setEidtImageWall] = useState(false);
   const [updateAvt, setUpdateAvt] = useState(false);

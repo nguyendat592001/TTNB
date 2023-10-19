@@ -141,7 +141,11 @@ const Tuychinhdangtin: React.FC = () => {
           onClick={(e) => e.preventDefault()}
           className={styles.footer_post_item}
         >
-          <Image src="/img/TTNB/icon_tuychinh.png" preview={false} />
+          <Image
+            alt="phanh"
+            src="/img/TTNB/icon_tuychinh.png"
+            preview={false}
+          />
           Tùy chỉnh đăng tin
         </div>
       </Dropdown>

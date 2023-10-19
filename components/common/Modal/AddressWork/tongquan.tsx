@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AddressWork from "./address";
 import styles from "./address.module.css";
 import { Image } from "antd";
@@ -8,12 +8,7 @@ import Tongquannhanvien from "@/components/viet_components/Modal/Nhanvien/Tongqu
 
 const Tongquan = () => {
   const [cty, setCty] = useState(false);
-  const [mota, setMota] = useState("dđ");
-  const [otherCty, setOtherCty] = useState("");
-  const [otherMota, setOtherMota] = useState("");
-
   const [isPastExperience, setIsPastExperience] = useState(false);
-
   const [roles, setRoles] = useState(false);
   return (
     <div>
@@ -43,7 +38,7 @@ const Tongquan = () => {
                   </div>
                   <p className={styles.chedo}>Công khai</p>
                   <div className={`${styles.dot}`}>
-                    <Bacham mota={mota} cty={cty} />
+                    <Bacham />
                   </div>
                 </div>
               </div>

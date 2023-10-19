@@ -1,6 +1,6 @@
 .goiy{
     font-size: 12px;
-    padding: 5px 0 0;
+    padding: 10px 0 0 0 ;
 }
 .ip_st {
     display: flex;
@@ -20,15 +20,20 @@
     border: none;
     width: 76%;
 }
+.ip_st > img {
+    cursor: pointer;
+}
 .ip_st .ip_st_kytu >input:focus{
     outline-style: none;
 }
 .add_sothich{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     color: #4c5bd4;
     padding: 20px 0; 
     font-size: 16px;
+    cursor: pointer;
+    gap: 10px;
 }
 .sothich >img {margin-right: 5px;}
 .btn{

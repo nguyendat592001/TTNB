@@ -10,10 +10,7 @@ import styles from "./index.module.scss";
 import SideBar from "@/components/header/sidebar/sidebar";
 import Head from "next/head";
 
-
-const onChange = (key: string) => {
-  console.log(key);
-};
+const onChange = (key: string) => {};
 
 const items: TabsProps["items"] = [
   {
@@ -42,6 +39,7 @@ const items: TabsProps["items"] = [
     children: <NhomThaoLuan />,
   },
 ];
+
 const App: React.FC = () => {
   const [showPopover, setShowPopover] = useState(false);
 

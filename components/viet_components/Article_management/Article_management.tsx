@@ -111,6 +111,7 @@ export default function Article_management() {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}
+        className="addressbacham"
       >
         <div className={styles.quanly}>
           <span>Chọn bài viết bạn muốn quản lý</span>
@@ -184,7 +185,7 @@ export default function Article_management() {
           </div>
           <div className={styles.btn_btn}>
             <button className={`${styles.del} ${styles.btn}`}>Xóa</button>
-            <Management setCheckbutton={setCheckbutton} />
+            <Management checkbutton={checkbutton} />
           </div>
         </div>
       </Modal>

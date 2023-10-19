@@ -1,12 +1,10 @@
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import { useState } from "react";
 import styles from "./Article_management.module.scss";
-interface ManagementProps {
-  setCheckbutton: React.Dispatch<React.SetStateAction<boolean>>;
-}
-const Management: React.FC<ManagementProps> = ({ setCheckbutton }) => {
+const Management = (props: any) => {
+  const { checkbutton } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalcheckbutton, setModalCheckbutton] = useState(false);
+  // const [modalcheckbutton, setModalCheckbutton] = useState(checkbutton);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -24,9 +22,9 @@ const Management: React.FC<ManagementProps> = ({ setCheckbutton }) => {
     <>
       <button
         onClick={showModal}
-        disabled={modalcheckbutton}
-        className={`${styles.ok} ${styles.btn} ${
-          modalcheckbutton ? styles.checkbtn : ""
+        disabled={checkbutton}
+        className={`${styles.ok} addressbacham ${styles.btn} ${
+          checkbutton ? styles.checkbtn : ""
         }`}
       >
         Tiếp
