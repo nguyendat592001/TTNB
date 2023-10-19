@@ -12,12 +12,7 @@ export default function Personal_page() {
       </Head>
       <div className={styles.pages_canhan}>
         <div className={styles.center}>
-          <Center_avt
-            isOpen={false}
-            onClose={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          <Center_avt />
         </div>
       </div>
     </>

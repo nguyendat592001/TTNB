@@ -154,7 +154,9 @@ const LeftNavGroup = () => {
                <div className={styles.left}>
                   <div className={styles.left_all}>
                      <div className={styles.left_group}>
-                        <p className={styles.left_group_p}>Nhóm</p>
+                        <p className={styles.left_group_p} onClick={() => router.push("/group")}>
+                           Nhóm
+                        </p>
                         <Popover className={`thuc_popover_group`} title={text} content={content} trigger="click" arrow={false} open={isOpenPopover} onOpenChange={(open) => setIsOpenPopover(open)}>
                            <button className={styles.left_group_btn}>Cài đặt</button>
                         </Popover>
@@ -206,7 +208,7 @@ const LeftNavGroup = () => {
                      </div>
                      <div className={styles.group2}>
                         <p className={styles.add_p}>Nhóm bạn đã tham gia</p>
-                        <div className={styles.my_group}>
+                        <div className={styles.my_group} onClick={() => router.push("/group/joined-group")}>
                            <Image alt="/" src={"/img/group/mu2.jpg"} style={{ borderRadius: "8px" }} width={50} height={50} preview={false} />
                            <div>
                               <p>Fan MU Việt Nam</p>

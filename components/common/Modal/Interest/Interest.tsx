@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ConfigProvider, Input, Modal } from "antd";
-import Image from "next/image";
+import { Modal, Image } from "antd";
+
 import styles from "./Interest.module.css";
 
 function Interest() {
@@ -58,65 +58,64 @@ function Interest() {
       <p onClick={showModal} className={styles.add__st}>
         Thêm sở thích{" "}
       </p>
-      <ConfigProvider
-        theme={{
-          components: {
-            Modal: {
-              titleFontSize: 21,
-            },
-          },
-        }}
+
+      <Modal
+        className="modal_sothich"
+        // title="Thêm sở thích"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={null}
       >
-        <Modal
-          className="modal_sothich"
-          title="Thêm sở thích"
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-          footer={null}
-        >
-          <p className={styles.goiy}>
-            Bạn thích làm gì? Hãy chọn các sở thích phổ biến dưới đây hoặc thêm
-            sở thích khác nhé.
-          </p>
-          {interests.map((interest, index) => (
-            <div key={index} className={styles.ip_st}>
-              <div className={styles.ip_st_kytu}>
-                <input
-                  placeholder="Nhập sở thích"
-                  value={interest}
-                  onChange={(e) => handleInterestChange(index, e.target.value)}
-                />
-                Số ký tự: {inputLengths[index]}/{25}
-              </div>
-              <Image
-                onClick={() => removeInterest(index)}
-                width={17}
-                height={17}
-                alt=""
-                src={"/img/del_option.svg"}
+        <Image
+          preview={false}
+          alt=""
+          src={"/img/TTNB/nv_bg_popup_so_thich.svg"}
+        />
+
+        <p className={styles.goiy}>
+          Bạn thích làm gì? Hãy chọn các sở thích phổ biến dưới đây hoặc thêm sở
+          thích khác nhé.
+        </p>
+        {interests.map((interest, index) => (
+          <div key={index} className={styles.ip_st}>
+            <div className={styles.ip_st_kytu}>
+              <input
+                placeholder="Nhập sở thích"
+                value={interest}
+                onChange={(e) => handleInterestChange(index, e.target.value)}
               />
+              Số ký tự: {inputLengths[index]}/{25}
             </div>
-          ))}
-          <div className={styles.add_sothich} onClick={addInterest}>
             <Image
-              width={18}
-              height={18}
+              onClick={() => removeInterest(index)}
+              width={10}
+              height={10}
               alt=""
-              src={"/img/nv_add-circle_blue.svg"}
+              src={"/img/del_option.svg"}
+              preview={false}
             />
-            Thêm sở thích
           </div>
-          <div className={styles.btn}>
-            <button className={styles.huy} onClick={handleCancel}>
-              Hủy
-            </button>
-            <button className={styles.ok} onClick={handleOk}>
-              Lưu
-            </button>
-          </div>
-        </Modal>
-      </ConfigProvider>
+        ))}
+        <div className={styles.add_sothich} onClick={addInterest}>
+          <Image
+            width={18}
+            height={18}
+            alt=""
+            src={"/img/nv_add-circle_blue.svg"}
+            preview={false}
+          />
+          Thêm sở thích
+        </div>
+        <div className={styles.btn}>
+          <button className={styles.huy} onClick={handleCancel}>
+            Hủy
+          </button>
+          <button className={styles.ok} onClick={handleOk}>
+            Lưu
+          </button>
+        </div>
+      </Modal>
     </>
   );
 }

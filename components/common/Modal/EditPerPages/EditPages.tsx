@@ -11,7 +11,7 @@ interface FriendExceptProps {
   isOpen: boolean;
   onClose: () => void;
 }
-const EditPages = ({ isOpen, onClose }: FriendExceptProps) => {
+const EditPages = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [eidtImageWall, setEidtImageWall] = useState(false);
   const [updateAvt, setUpdateAvt] = useState(false);
@@ -99,7 +99,7 @@ const EditPages = ({ isOpen, onClose }: FriendExceptProps) => {
           </div>
           <div className={styles.edit_intro}>
             <span>Chỉnh sửa phần giới thiệu</span>
-            <p>Chỉnh sửa</p>
+            <p style={{ cursor: "pointer" }}>Chỉnh sửa</p>
           </div>
           <div>
             <p>Sở thích</p>

@@ -11,7 +11,7 @@
    overflow-x: scroll;
 }
 .all_pin {
-   width: 10000px;
+   width: 2000px;
    padding: 10px;
    display: flex;
    gap: 20px;
@@ -35,4 +35,16 @@
 .introduce_flex {
    display: flex;
    gap: 10px;
+}
+.flex {
+   display: flex;
+   gap: 10px;
+}
+@media (max-width: 550px) {
+   .pin_if {
+      width: 295px;
+   }
+   .flex {
+      font-size: 12px;
+   }
 }

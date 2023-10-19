@@ -26,7 +26,7 @@ export default function NavStory(props: any) {
       <div className={styles.my_story}>
         <span>Tạo tin của bạn</span>
         <div className={styles.personal}>
-          <Image src={"/img/c.png"} width={50} preview={false} />
+          <Image alt="phanh" src={"/img/c.png"} width={50} preview={false} />
           <span className={styles.name}>Nguyễn Văn Thức</span>
         </div>
       </div>

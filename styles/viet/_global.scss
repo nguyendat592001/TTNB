@@ -87,6 +87,11 @@
         height: 186px;
     }
 }
+.modal_sothich{
+    .ant-modal .ant-modal-header {
+    background-image: url("/img/TTNB/nv_bg_popup_so_thich.svg");
+    }
+}
 
 .search_personal {
     .ant-input-affix-wrapper>input.ant-input {

@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import styles from "./index.module.css";
-import { Input, Image, Dropdown } from "antd";
-import Drop from "../../../../../components/thuc_components/status/dropdown/dropOne/drop";
-import DropTwo from "../../../../../components/thuc_components/status/dropdown/dropTwo/dropTwo";
-import DropThree from "../../../../../components/thuc_components/status/dropdown/dropThree/dropThree";
-import DropFour from "../../../../../components/thuc_components/status/dropdown/dropFour/dropFour";
-import DropRemove from "../../../../../components/thuc_components/status/dropdown/dropOne/dropRemove";
+import { Input, Image, Dropdown, Modal, Switch, Button } from "antd";
 const Member = () => {
    const [isInvited, setIsInvited] = useState(false);
 
    const handleButtonClick = () => {
       setIsInvited(!isInvited);
    };
+   const [reverse, setReverse] = useState(true);
+   const [isModalOutOpen, setIsModalOutOpen] = useState(false);
+   const showModalOut = () => {
+      setIsModalOutOpen(true);
+   };
+   const handleOutCancel = () => {
+      setIsModalOutOpen(false);
+   };
+   const items = [
+      {
+         key: "1",
+         label: <div onClick={showModalOut}>Rời khỏi nhóm</div>,
+      },
+   ];
    return (
       <>
          <div className={styles.container}>
@@ -25,11 +34,17 @@ const Member = () => {
                      <Image alt="" src="/img/group/mu3.jpg" className={`img_border`} style={{ borderRadius: "50%" }} preview={false} />
                      <div>
                         <p className={styles.p_bold}>Thức Đẹp Trai</p>
-                        <p className={styles.p_green}>Quản trị viên</p>
                      </div>
                   </div>
                   <div>
-                     <Drop />
+                     <Dropdown
+                        menu={{
+                           items,
+                        }}
+                        placement="bottomRight"
+                        trigger="click">
+                        <Image src="/img/group/more.svg" alt="icon" preview={false} />
+                     </Dropdown>
                   </div>
                </div>
 
@@ -37,14 +52,17 @@ const Member = () => {
                   <p className={styles.p_bold}>Quản trị viên kiểm duyệt</p>
                   <div className={styles.left_content3_chil}>
                      <div className={styles.left_flex}>
-                        <Image alt="" src="/img/group/mu2.jpg" className={`img_border`} style={{ borderRadius: "50%" }} preview={false} />
+                        <Image alt="" src="/img/group/mu4.jpg" className={`img_border`} style={{ borderRadius: "50%" }} preview={false} />
                         <div>
                            <p className={styles.p_bold}>Nguyễn Hoàng Việt</p>
                            <p className={styles.p_green}>Quản trị viên</p>
                         </div>
                      </div>
-                     <div>
-                        <DropRemove />
+                     <div className={styles.left_flex}>
+                        <div className={styles.left_fl2}>
+                           <Image alt="" src="/img/group/mess.svg" preview={false} />
+                           <p>Gửi tin nhắn</p>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -63,9 +81,6 @@ const Member = () => {
                            <Image alt="" src="/img/group/mess.svg" preview={false} />
                            <p>Gửi tin nhắn</p>
                         </div>
-                        <div>
-                           <DropTwo />
-                        </div>
                      </div>
                   </div>
                </div>
@@ -74,7 +89,7 @@ const Member = () => {
                   <p className={styles.p_bold}>Thành viên mới vào nhóm</p>
                   <div className={styles.left_content3_chil}>
                      <div className={styles.left_flex}>
-                        <Image alt="" src="/img/group/mu2.jpg" className={`img_border`} style={{ borderRadius: "50%" }} preview={false} />
+                        <Image alt="" src="/img/group/mu4.jpg" className={`img_border`} style={{ borderRadius: "50%" }} preview={false} />
                         <div>
                            <p className={styles.p_bold}>Nguyễn Hoàng Việt</p>
                         </div>
@@ -84,14 +99,11 @@ const Member = () => {
                            <Image alt="" src="/img/group/mess.svg" preview={false} />
                            <p>Gửi tin nhắn</p>
                         </div>
-                        <div>
-                           <DropTwo />
-                        </div>
                      </div>
                   </div>
                   <div className={styles.left_content3_chil}>
                      <div className={styles.left_flex}>
-                        <Image alt="" src="/img/group/mu2.jpg" className={`img_border`} style={{ borderRadius: "50%" }} preview={false} />
+                        <Image alt="" src="/img/group/mu1.jpg" className={`img_border`} style={{ borderRadius: "50%" }} preview={false} />
                         <div>
                            <p className={styles.p_bold}>Nguyễn Thế Đạt</p>
                         </div>
@@ -99,12 +111,9 @@ const Member = () => {
                      <div className={styles.left_flex}>
                         <div className={styles.left_fl2}>
                            <button className={styles.btn_add} onClick={handleButtonClick}>
-                              <Image alt="" src="/img/group/add_friend.svg" preview={false} />
+                              <img alt="" src="/img/group/add_friend.svg" preview={false} />
                               {isInvited ? "Hủy lời mời" : "Thêm bạn bè"}
                            </button>
-                        </div>
-                        <div>
-                           <DropTwo />
                         </div>
                      </div>
                   </div>
@@ -124,15 +133,11 @@ const Member = () => {
                            <Image alt="" src="/img/group/mess.svg" preview={false} />
                            <p>Gửi tin nhắn</p>
                         </div>
-
-                        <div>
-                           <DropThree />
-                        </div>
                      </div>
                   </div>
                   <div className={styles.left_content3_chil}>
                      <div className={styles.left_flex}>
-                        <Image alt="" src="/img/group/mu2.jpg" className={`img_border`} style={{ borderRadius: "50%" }} preview={false} />
+                        <Image alt="" src="/img/group/mu4.jpg" className={`img_border`} style={{ borderRadius: "50%" }} preview={false} />
                         <div>
                            <p className={styles.p_bold}>Nguyễn Thế Đạt</p>
                         </div>
@@ -140,29 +145,30 @@ const Member = () => {
                      <div className={styles.left_flex}>
                         <div className={styles.left_fl2}>
                            <button className={styles.btn_add} onClick={handleButtonClick}>
-                              <Image alt="" src="/img/group/add_friend.svg" preview={false} />
+                              <img alt="" src="/img/group/add_friend.svg" preview={false} />
                               {isInvited ? "Hủy lời mời" : "Thêm bạn bè"}
                            </button>
-                        </div>
-
-                        <div>
-                           <DropThree />
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-            <div className={styles.right}>
-               <p className={styles.p_bold}>Bị cấm (1)</p>
-               <div className={styles.left_content3_chil}>
-                  <div className={styles.left_flex}>
-                     <Image alt="" src="/img/group/mu2.jpg" className={`img_border`} style={{ borderRadius: "50%" }} preview={false} />
-                     <div>
-                        <p className={styles.p_bold}>Nguyễn Thế Đạt</p>
+            <div>
+               <Modal className={`thuc_modal`} title="Rời khỏi nhóm" open={isModalOutOpen} onCancel={handleOutCancel} footer={null}>
+                  <div className={styles.modal_container_notifical}>
+                     <h3>Bạn chắc chắn muốn rời khỏi nhóm Fan MU Việt Nam</h3>
+                     <div className={styles.modal_fl}>
+                        <p>Ngăn mọi người mời bạn tham gia nhóm này</p>
+                        <Switch size="small" checked={reverse} onChange={setReverse} />
+                     </div>
+                     <div className={styles.btn}>
+                        <Button className={`btn_cancer`} onClick={handleOutCancel}>
+                           Hủy
+                        </Button>
+                        <Button className={`btn_ok`}>Rời khỏi nhóm</Button>
                      </div>
                   </div>
-                  <button className={styles.btn_ban}>Bỏ cấm</button>
-               </div>
+               </Modal>
             </div>
          </div>
       </>

@@ -1,43 +1,36 @@
-import React, { useState } from "react";
-import { ConfigProvider, Modal } from "antd";
-import Image from "next/image";
+import { Modal, Image } from "antd";
 import styles from "./address.module.css";
 import Serfdom from "../Serfdom/Serfdom";
+import { useState } from "react";
 
-export default function AddressWork(): JSX.Element {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
+export default function ModalThemMoi() {
+  const [openModal, setOpenModal] = useState(false);
   const handleOk = () => {
-    setIsModalOpen(false);
+    setOpenModal(false);
   };
-
   const handleCancel = () => {
-    setIsModalOpen(false);
+    setOpenModal(false);
   };
-
+  const showModal = () => {
+    setOpenModal(true);
+  };
   return (
     <>
-      <div onClick={showModal} className={styles.item}>
+      <div className={styles.item} onClick={showModal}>
         <Image
-          width={24}
-          height={25}
           alt="anh-loi"
           src={"/img/nv_add-circle_blue.svg"}
+          preview={false}
         />
         Thêm nơi làm việc
       </div>
-
       <Modal
-        className="addressbacham"
-        title="Thêm mới nơi làm việc"
-        open={isModalOpen}
+        title="Thêm nơi làm việc"
+        open={openModal}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}
+        className={` modalAddDocument`}
       >
         <div className={styles.modal_body}>
           <div className={styles.company}>

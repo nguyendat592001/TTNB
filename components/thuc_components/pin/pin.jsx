@@ -68,7 +68,7 @@ const Pin = () => {
                                  <Image alt="/" src={item.avatar} width={50} height={50} style={{ borderRadius: "50%" }} preview={false} />
                                  <div className={styles.name}>
                                     <h3>{item.name}</h3>
-                                    <div className={styles.introduce_flex}>
+                                    <div className={styles.flex}>
                                        <p>{item.position}</p>
                                        <p>{item.time}</p>
                                     </div>
