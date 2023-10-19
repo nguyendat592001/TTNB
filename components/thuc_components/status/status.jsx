@@ -1,4 +1,4 @@
-import { Divider, Image, Menu, message, Popover, Tooltip } from "antd";
+import { Divider, Image, Menu, message, Popover, Tooltip, Button } from "antd";
 import { useState, useRef, useContext } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import styles from "./status.module.css";
@@ -50,7 +50,8 @@ const Status = () => {
    const [isOptionPopoverOpen, setIsOptionPopoverOpen] = useState(false);
    const [isFirstClick, setIsFirstClick] = useState(false);
    const { dataStatusContext, setDataStatusContext } = useContext(StatusCOntext);
-
+   const [isPostClosed, setIsPostClosed] = useState(false);
+   const [isPostRestored, setIsPostRestored] = useState(false);
    function handleReplyClick(index) {
       setSelectedReplyIndex(index === selectedReplyIndex ? -1 : index);
    }
@@ -62,6 +63,31 @@ const Status = () => {
       }
    }
 
+   const handlePostHideClick = (postId) => {
+      const updatedData = dataStatusContext.map((item) => {
+         if (item.id === postId) {
+            return {
+               ...item,
+               isHidden: true,
+            };
+         }
+         return item;
+      });
+      setDataStatusContext(updatedData);
+   };
+
+   const handlePostRestoreClick = (postId) => {
+      const updatedData = dataStatusContext.map((item) => {
+         if (item.id === postId) {
+            return {
+               ...item,
+               isHidden: false,
+            };
+         }
+         return item;
+      });
+      setDataStatusContext(updatedData);
+   };
    function handleCommentClick() {
       setShowComments(!showComments);
    }
@@ -203,160 +229,197 @@ const Status = () => {
             return (
                <div className={styles.status} key={item.id}>
                   <div className={styles.post}>
-                     <>
-                        <div className={styles.post__header}>
-                           <div className={styles.post__header__left}>
-                              <div className={styles.post__header__left__avatar}>
-                                 <Image src={item.avatar} alt="avatar" width={40} height={40} preview={false} className={styles.avatar} />
-                              </div>
-                              <div className={styles.post__header__left__info}>
-                                 <div className={styles.post__header__left__info__author_name}>
-                                    <Link href="/">{item.name} </Link>
-                                    <span className={styles.post_fell}>{item.feel}</span>
-                                    <span className={styles.post_with}>
-                                       {item.withs}
-                                       <Link href="/"> {item.friend} </Link>
-                                    </span>
-                                    <span className={styles.post_at}>
-                                       {item.at}
-                                       <span className={styles.post_at_bold}>{item.address}</span>
-                                    </span>
+                     {item.isHidden && !item.isRestored ? (
+                        <div className={styles.postHidden}>
+                           <div className={styles.postHidden__container}>
+                              <div className={styles.postHidden__content}>
+                                 <Image src="/img/img-home/hiddenPost/an-bai-viet.svg" alt="" preview={false} className={styles.postHidden__content__img} />
+                                 <div className={styles.postHidden__content__text}>
+                                    <p className={styles.postHidden__content__text_title}>Đã ẩn bài viết</p>
+                                    <p className={styles.postHidden__content__text_desc}>Bạn sẽ không nhìn thấy bài viết này trên bảng tin</p>
                                  </div>
+                              </div>
+                              <div className={styles.postHidden__content}>
+                                 <Image src="/img/img-home/hiddenPost/tim-ho-tro.svg" alt="" preview={false} className={styles.postHidden__content__img} />
+                                 <div className={styles.postHidden__content__text}>
+                                    <p className={styles.postHidden__content__text_title}>Tìm hỗ trợ hoặc báo cáo bài viết</p>
+                                    <p className={styles.postHidden__content__text_desc}>Tôi lo ngại về bài viết này</p>
+                                 </div>
+                              </div>
+                           </div>
+                           <Button onClick={() => handlePostRestoreClick(item.id)} size="large" className={styles.postHidden__btn}>
+                              Hoàn tác
+                           </Button>
+                        </div>
+                     ) : (
+                        <>
+                           <div className={styles.post__header}>
+                              <div className={styles.post__header__left}>
+                                 <div className={styles.post__header__left__avatar}>
+                                    <Image src={item.avatar} alt="avatar" width={40} height={40} preview={false} className={styles.avatar} />
+                                 </div>
+                                 <div className={styles.post__header__left__info}>
+                                    <div className={styles.post__header__left__info__author_name}>
+                                       <Link href="/">{item.name} </Link>
+                                       <span className={styles.post_fell}>{item.feel}</span>
+                                       <span className={styles.post_with}>
+                                          {item.withs}
+                                          <Link href="/"> {item.friend} </Link>
+                                       </span>
+                                       <span className={styles.post_at}>
+                                          {item.at}
+                                          <span className={styles.post_at_bold}>{item.address}</span>
+                                       </span>
+                                    </div>
 
-                                 <div className={styles.post__header__left__info__time}>
-                                    <p className={styles.info__time}>{item.time}</p>
-                                    <div className={styles.info__regime}>
-                                       <Tooltip title="Công khai" placement="bottom" arrow={false}>
-                                          <Image src="/img/img-home/regime/regime1.svg" alt="" width={20} height={20} preview={false} className={styles.iconRegime} />
-                                       </Tooltip>
+                                    <div className={styles.post__header__left__info__time}>
+                                       <p className={styles.info__time}>{item.time}</p>
+                                       <div className={styles.info__regime}>
+                                          <Tooltip title="Công khai" placement="bottom" arrow={false}>
+                                             <Image src="/img/img-home/regime/regime1.svg" alt="" width={20} height={20} preview={false} className={styles.iconRegime} />
+                                          </Tooltip>
+                                       </div>
                                     </div>
                                  </div>
                               </div>
-                           </div>
-                           <div className={styles.post__header__right}>
-                              <div className={styles.post__header__right__icon}>
-                                 <DropStatus />
+                              <div className={styles.post__header__right}>
+                                 <div className={styles.post__header__right__icon}>
+                                    <DropStatus />
+                                 </div>
+                              </div>
+                              <div className={styles.closePost}>
+                                 <Image
+                                    src="/img/img-home/del_option.svg"
+                                    alt="icon"
+                                    width={16}
+                                    height={16}
+                                    preview={false}
+                                    style={{
+                                       cursor: "pointer",
+                                    }}
+                                    onClick={() => handlePostHideClick(item.id)}
+                                 />
                               </div>
                            </div>
-                        </div>
-                        <div className={styles.post__content}>
-                           <div className={styles.post__content__text}>
-                              <p>{item.content}</p>
+                           <div className={styles.post__content}>
+                              <div className={styles.post__content__text}>
+                                 <p>{item.content}</p>
+                              </div>
+                              <div className={styles.collection_fl}>
+                                 {checkColection(item)}
+                                 {checkVideo(item)}
+                              </div>
                            </div>
-                           <div className={styles.collection_fl}>
-                              {checkColection(item)}
-                              {checkVideo(item)}
-                           </div>
-                        </div>
-                        <div className={styles.post__count_reaction}>
-                           <div className={styles.post__reaction__count_like}>
-                              <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
-                                 <Image src={selectedImage} alt="icon" width={25} height={25} preview={false} />
-                              </Popover>
-                              <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
-                                 <p className={styles.post__reaction__count_like__text}>{likeCount} Người</p>
-                              </Popover>
-                           </div>
-                           <div className={styles.sum__comment}>
-                              <div className={styles.post__reaction__count_comment}>
+                           <div className={styles.post__count_reaction}>
+                              <div className={styles.post__reaction__count_like}>
                                  <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
-                                    <span className={styles.post__reaction__count_comment}>
-                                       1.000
-                                       <span> Bình luận </span>
-                                    </span>
+                                    <Image src={selectedImage} alt="icon" width={25} height={25} preview={false} />
+                                 </Popover>
+                                 <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
+                                    <p className={styles.post__reaction__count_like__text}>{likeCount} Người</p>
                                  </Popover>
                               </div>
+                              <div className={styles.sum__comment}>
+                                 <div className={styles.post__reaction__count_comment}>
+                                    <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
+                                       <span className={styles.post__reaction__count_comment}>
+                                          1.000
+                                          <span> Bình luận </span>
+                                       </span>
+                                    </Popover>
+                                 </div>
 
-                              <div className={styles.post__reaction__count_share}>
-                                 <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
-                                    <span className={styles.post__reaction__count_share__text}>
-                                       1.000
-                                       <span> Lượt chia sẻ </span>
-                                    </span>
-                                 </Popover>
-                              </div>
-                           </div>
-                        </div>
-
-                        <Divider className={styles.divider} />
-
-                        <div className={styles.post__footer}>
-                           <ReactionIcons selectedImage={selectedImage} onSelectImage={handleImageClick} />
-                           <div className={styles.post__footer__middle} onClick={handleCommentClick}>
-                              <div className={styles.post__footer__middle__icon}>
-                                 <Image src="/img/img-home/ep_post_cmt.svg" alt="icon" width={25} height={25} preview={false} />
-                              </div>
-                              <div className={styles.post__footer__middle__text}>
-                                 <p>Bình luận</p>
+                                 <div className={styles.post__reaction__count_share}>
+                                    <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
+                                       <span className={styles.post__reaction__count_share__text}>
+                                          1.000
+                                          <span> Lượt chia sẻ </span>
+                                       </span>
+                                    </Popover>
+                                 </div>
                               </div>
                            </div>
 
-                           <Popover
-                              placement="bottomRight"
-                              content={<OptionPost menuItems={menuOptionSharePost} onMenuItemClick={handlePopoverItemClick} />}
-                              trigger="click"
-                              arrow={false}
-                              open={isSharePopoverOpen}
-                              onOpenChange={(open) => setIsSharePopoverOpen(open)}>
-                              <div className={styles.post__footer__right}>
-                                 <div className={styles.post__footer__right__icon}>
-                                    <Image src="/img/img-home/ep_post_share.svg" alt="icon" width={28} height={28} preview={false} onClick={() => setIsSharePopoverOpen(!isSharePopoverOpen)} />
+                           <Divider className={styles.divider} />
+
+                           <div className={styles.post__footer}>
+                              <ReactionIcons selectedImage={selectedImage} onSelectImage={handleImageClick} />
+                              <div className={styles.post__footer__middle} onClick={handleCommentClick}>
+                                 <div className={styles.post__footer__middle__icon}>
+                                    <Image src="/img/img-home/ep_post_cmt.svg" alt="icon" width={25} height={25} preview={false} />
                                  </div>
-                                 <div className={styles.post__footer__right__text}>
-                                    <p>Chia sẻ</p>
+                                 <div className={styles.post__footer__middle__text}>
+                                    <p>Bình luận</p>
                                  </div>
                               </div>
-                           </Popover>
-                        </div>
-                        {renderModal()}
-                        <Divider className={styles.divider} />
 
-                        <PostComment onSubmitComment={handleSubmitComment} />
-                        {showComments && (
-                           <div className={styles.comments}>
-                              <Popover content={menu} trigger="click" arrow={false} placement="bottomRight">
-                                 <div className={styles.post__comment_sort}>
-                                    Mới nhất
-                                    <span>
-                                       <DownOutlined rev={undefined} className={styles.post__comment_sort_icon} />
-                                    </span>
+                              <Popover
+                                 placement="bottomRight"
+                                 content={<OptionPost menuItems={menuOptionSharePost} onMenuItemClick={handlePopoverItemClick} />}
+                                 trigger="click"
+                                 arrow={false}
+                                 open={isSharePopoverOpen}
+                                 onOpenChange={(open) => setIsSharePopoverOpen(open)}>
+                                 <div className={styles.post__footer__right}>
+                                    <div className={styles.post__footer__right__icon}>
+                                       <Image src="/img/img-home/ep_post_share.svg" alt="icon" width={28} height={28} preview={false} onClick={() => setIsSharePopoverOpen(!isSharePopoverOpen)} />
+                                    </div>
+                                    <div className={styles.post__footer__right__text}>
+                                       <p>Chia sẻ</p>
+                                    </div>
                                  </div>
                               </Popover>
-                              {comments.map((comment, index) => (
-                                 <div key={index} className={styles.comment}>
-                                    <div className={styles.comment__avatar_user}>
-                                       <Image src={comment.avatar} width={40} height={40} preview={false} className={styles.comment__avatar_user_img} alt="avatar" />
-                                    </div>
-
-                                    <div className={styles.comment__content}>
-                                       <div className={styles.comment_fl}>
-                                          <div className={styles.comment__content_info}>
-                                             <p className={styles.comment__name}>{comment.name}</p>
-                                             <p className={styles.comment__text}>{comment.content}</p>
-                                          </div>
-                                          <div>
-                                             {/* <DropAdmin /> */}
-                                             {/* <DropReport /> */}
-                                             <DropUser />
-                                          </div>
-                                       </div>
-                                       <div className={styles.comment__content_reaction}>
-                                          <p className={styles.comment__cxuc}>Thích</p>
-                                          <p className={styles.comment__reply} onClick={() => handleReplyClick(index)}>
-                                             Trả lời
-                                          </p>
-
-                                          <p className={styles.comment__day}>{comment.day}</p>
-                                          <p>lúc</p>
-                                          <p className={styles.comment__timestamp}>{comment.timestamp}</p>
-                                       </div>
-                                       {selectedReplyIndex === index && <PostComment onSubmitComment={handleSubmitComment} parentId={index} />}
-                                    </div>
-                                 </div>
-                              ))}
                            </div>
-                        )}
-                     </>
+                           {renderModal()}
+                           <Divider className={styles.divider} />
+
+                           <PostComment onSubmitComment={handleSubmitComment} />
+                           {showComments && (
+                              <div className={styles.comments}>
+                                 <Popover content={menu} trigger="click" arrow={false} placement="bottomRight">
+                                    <div className={styles.post__comment_sort}>
+                                       Mới nhất
+                                       <span>
+                                          <DownOutlined rev={undefined} className={styles.post__comment_sort_icon} />
+                                       </span>
+                                    </div>
+                                 </Popover>
+                                 {comments.map((comment, index) => (
+                                    <div key={index} className={styles.comment}>
+                                       <div className={styles.comment__avatar_user}>
+                                          <Image src={comment.avatar} width={40} height={40} preview={false} className={styles.comment__avatar_user_img} alt="avatar" />
+                                       </div>
+
+                                       <div className={styles.comment__content}>
+                                          <div className={styles.comment_fl}>
+                                             <div className={styles.comment__content_info}>
+                                                <p className={styles.comment__name}>{comment.name}</p>
+                                                <p className={styles.comment__text}>{comment.content}</p>
+                                             </div>
+                                             <div>
+                                                {/* <DropAdmin /> */}
+                                                {/* <DropReport /> */}
+                                                <DropUser />
+                                             </div>
+                                          </div>
+                                          <div className={styles.comment__content_reaction}>
+                                             <p className={styles.comment__cxuc}>Thích</p>
+                                             <p className={styles.comment__reply} onClick={() => handleReplyClick(index)}>
+                                                Trả lời
+                                             </p>
+
+                                             <p className={styles.comment__day}>{comment.day}</p>
+                                             <p>lúc</p>
+                                             <p className={styles.comment__timestamp}>{comment.timestamp}</p>
+                                          </div>
+                                          {selectedReplyIndex === index && <PostComment onSubmitComment={handleSubmitComment} parentId={index} />}
+                                       </div>
+                                    </div>
+                                 ))}
+                              </div>
+                           )}
+                        </>
+                     )}
                   </div>
                </div>
             );

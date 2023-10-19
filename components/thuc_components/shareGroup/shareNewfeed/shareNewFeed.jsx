@@ -47,7 +47,7 @@ const ShareNewFeed = ({ isOpen, isClose }) => {
             </div>
             <div className={styles.modal__footer}>
                <div className={styles.modal__footer__left}>
-                  <p>Thêm vào bài viết</p>
+                  <p className={styles.p_hide}>Thêm vào bài viết</p>
                </div>
                <div className={styles.modal__footer__right}>
                   <Image
