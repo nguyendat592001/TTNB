@@ -116,3 +116,21 @@
    flex-wrap: wrap;
    justify-content: center;
 }
+@media (max-width: 415px) {
+   .p_hide {
+      font-size: 12px;
+   }
+   .modal__footer__right {
+      gap: 10px;
+   }
+}
+@media (max-width: 391px) {
+   .modal__footer__right {
+      gap: 8px;
+   }
+}
+@media (max-width: 361px) {
+   .p_hide {
+      font-size: 10px;
+   }
+}

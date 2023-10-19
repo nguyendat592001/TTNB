@@ -55,7 +55,6 @@ const App: React.FC = () => {
       <div className={`${styles.settingContainer} settingContainer`}>
         <div className={styles.containerSidebar}>
           <div className={`${styles.SideBarSetting} SideBarSetting`}>
-            <SideBar closePopover={closePopover} />
           </div>
         </div>
         <div className={styles.containerTabs}>

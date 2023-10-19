@@ -59,7 +59,7 @@ const Drop = () => {
                      <Button className={`btn_cancer`} onClick={handleOutCancel}>
                         Hủy
                      </Button>
-                     <Button className={`btn_ok`}>Rời khỏi nhốm</Button>
+                     <Button className={`btn_ok`}>Rời khỏi nhóm</Button>
                   </div>
                </div>
             </Modal>

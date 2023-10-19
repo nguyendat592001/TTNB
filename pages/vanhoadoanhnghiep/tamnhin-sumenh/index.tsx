@@ -261,6 +261,7 @@ export default function Index() {
         <Vanhoadoanhnghiep
             childrenContentLeft={childrenContentLeft}
             childrenContentRight={childrenContentRight}
+            keyduocchon="2"
         />
     )
 }
