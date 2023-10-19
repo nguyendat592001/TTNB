@@ -3,11 +3,11 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { Dropdown, Image, MenuProps, Modal } from "antd";
 import styles from "./index.module.scss";
-import NavBlock from "./center_nav";
+import NavBlock from "./Tab_header";
 import CoverImage from "@/components/headerperson/UpdateImageWall";
 import EditPerPages from "@/components/common/Modal/EditPerPages/EditPages";
 import Avatar from "@/components/headerperson/Avatar";
-
+import x from "@/components/Tuychinhdangtin/tuychinh.module.scss";
 interface FriendExceptProps {
   isOpen: boolean;
   onClose: () => void;
@@ -24,10 +24,32 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
   const onClicknewstory = () => {
     router.push("/addstory24h");
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const items: MenuProps["items"] = [
     {
-      label: <div>Bạn bè</div>,
+      label: (
+        <div className={styles.item_fr}>
+          <Image
+            preview={false}
+            width={20}
+            alt="phanh"
+            src={"/img/ban-be2.svg"}
+          />
+          Bạn bè
+        </div>
+      ),
       key: "0",
     },
     {
@@ -37,17 +59,48 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
             setFl(!fl);
           }}
         >
-          {fl ? "Bỏ theo dõi" : "Theo dõi"}
+          {fl ? (
+            <div className={styles.item_fr}>
+              <Image
+                preview={false}
+                width={20}
+                alt="phanh"
+                src={"/img/bo-theo-doi.svg"}
+              />
+              Bỏ theo dõi
+            </div>
+          ) : (
+            <div className={styles.item_fr}>
+              <Image
+                preview={false}
+                width={20}
+                alt="phanh"
+                src={"/img/bo-theo-doi3.svg"}
+              />
+              Theo dõi
+            </div>
+          )}
         </div>
       ),
       key: "1",
     },
 
     {
-      label: <div>Hủy kết bạn</div>,
+      label: (
+        <div className={styles.item_fr} onClick={showModal}>
+          <Image
+            preview={false}
+            width={20}
+            alt="phanh"
+            src={"/img/huy-ket-ban.svg"}
+          />
+          Hủy kết bạn
+        </div>
+      ),
       key: "3",
     },
   ];
+
   return (
     <div>
       <div className={styles.center_avt}>
@@ -136,7 +189,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
             </div>
           </div>
           {/* ----------------------------------TRANG CÁ NHÂN------------------------------- */}
-          <div className={styles.center_avt_btn}>
+          {/* <div className={styles.center_avt_btn}>
             <div onClick={onClicknewstory} className={styles.addstory}>
               <Image
                 width={20}
@@ -154,7 +207,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                 throw new Error("Function not implemented.");
               }}
             />
-          </div>
+          </div> */}
           {/* ------------TRANG NGƯỜI LẠ --------------------------- */}
           {/* <div className={styles.center_avt_btn}>
             <div className={styles.addstory_2} onClick={clickFr}>
@@ -196,7 +249,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
             </div>
           </div> */}
           {/* --==================-TRANG BẠN BÈ ------------------------------ */}
-          {/* <div className={styles.center_avt_btn}>
+          <div className={styles.center_avt_btn}>
             <div className={styles.addstory_2} onClick={clickFr}>
               <Dropdown menu={{ items }} trigger={["click"]}>
                 <div
@@ -204,7 +257,7 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
                   className={styles.trang_ban_be}
                 >
                   <Image
-                    width={30}
+                    width={20}
                     alt=""
                     src="/img/them-ban-be.svg"
                     preview={false}
@@ -221,19 +274,40 @@ const Center_avt = ({ isOpen, onClose }: FriendExceptProps) => {
               }}
             >
               <Image
-                width={30}
+                width={20}
                 alt=""
                 src="/img/nhan-tin2.svg"
                 preview={false}
               />
               Nhắn tin
             </div>
-          </div> */}
+          </div>
         </div>
         <div className={`${styles.center_nav_block} width100`}>
           <NavBlock />
         </div>
       </div>
+
+      <Modal
+        title="Hủy kết bạn"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={null}
+        className="addressbacham"
+      >
+        <p>
+          Bạn có chắc chắn muốn xóa Nguyễn Tuấn Anh khỏi danh sách bạn bè không?
+        </p>
+        <div className={x.btn}>
+          <button className={x.huy} onClick={handleCancel}>
+            Hủy
+          </button>
+          <button className={x.ok} onClick={handleOk}>
+            Xác nhận
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 };

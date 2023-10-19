@@ -277,13 +277,14 @@
 .nhantin{
     background-color: #4c5bd4;
     color: #fff;
-    width: 150px;
+    width: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     border-radius:10px ;
     cursor: pointer;
+    height: 40px;
     font-weight: 500;
 }
 .trang_ban_be{
@@ -291,12 +292,17 @@
     align-items: center;
     justify-content: center;
     border: 1px solid #4c5bd4;
-    width: 160px;
+    width: 140px;
     background-color: #fff;
-    height: 45px;
+    height: 40px;
     color: #474747;
     gap: 10px;
     border-radius:10px ;
     cursor: pointer;
     font-weight: 500;
+}
+.item_fr{
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }

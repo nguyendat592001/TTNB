@@ -12,7 +12,7 @@ const NoiBoContent: React.FC = () => {
         <div className={styles.sukiennoibo__content}>
           <div className={styles.sukiennoibo__content__header}>
             <div className={styles.sukiennoibo__content__header__left}>
-              <Link href="/sukien">
+              <Link href="/truyenthongnoibo/sukien">
                 <LeftOutlined rev={undefined} />
                 <span
                   className={styles.sukiennoibo__content__header__left__text}

@@ -75,7 +75,7 @@ function AnhBia(props: any) {
             width={25}
             height={25}
           />
-          Chỉnh sửa ảnh bìa
+          <p className={styles.text}>Chỉnh sửa ảnh bìa</p>
           <input
             type="file"
             hidden

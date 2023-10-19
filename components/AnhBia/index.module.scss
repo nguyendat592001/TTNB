@@ -5,7 +5,7 @@
     display: flex;
     width: 100%;
     position: relative;
-    top:-120px;
+    top:-95px;
     left: 20px;
  
     .img{
@@ -30,4 +30,15 @@
     right: 10px;
     top: 215px;
     cursor: pointer;
+    width: 156px;
+}
+@media screen and (max-width:425.9px) {
+    .text{
+        display: none;
+    }
+    .btn_chinhsuaanhbia{
+        width: 30px;
+        display: flex;
+        justify-content: center;
+    }
 }

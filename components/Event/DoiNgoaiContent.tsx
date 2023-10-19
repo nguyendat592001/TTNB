@@ -13,7 +13,7 @@ const DoiNgoaiContent: React.FC = () => {
         <div className={styles.sukiendoingoai__content}>
           <div className={styles.sukiendoingoai__content__header}>
             <div className={styles.sukiendoingoai__content__header__left}>
-              <Link href="/sukien">
+              <Link href="/truyenthongnoibo/sukien">
                 <LeftOutlined rev={undefined} />
                 <span
                   className={styles.sukiendoingoai__content__header__left__text}
