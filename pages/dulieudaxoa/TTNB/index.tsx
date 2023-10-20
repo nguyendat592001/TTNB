@@ -8,6 +8,7 @@ import ContentTab1 from "@/components/dat/dulieudaxoa/ContentTab1";
 import ContentTab2 from "@/components/dat/dulieudaxoa/ContentTab2";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import SideBarNew from "@/components/header/sidebarNew/sidebarNew";
 
 export default function TTNB() {
   const router = useRouter();
@@ -94,7 +95,7 @@ export default function TTNB() {
       </Head>
       <div className="flex containerTTNB">
         <div className={`${styles.sidebar}`}>
-          <SideBar closePopover={closePopover} />
+          <SideBarNew closePopover={closePopover} />
         </div>
         <div className={`${styles.sidebarContent}`}></div>
         <div

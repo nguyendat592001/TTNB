@@ -10,6 +10,7 @@ import React, { useState } from "react";
 
 import styles from "./index.module.scss";
 import Head from "next/head";
+import SideBarNew from "@/components/header/sidebarNew/sidebarNew";
 const SelectOptions = [
   {
     key: "1",
@@ -156,7 +157,11 @@ export default function QTTT() {
       </div>
     </div>
   );
+  const [showPopover, setShowPopover] = useState(false);
 
+  const closePopover = () => {
+    setShowPopover(false);
+  };
   return (
     <div>
       <Head>
@@ -164,11 +169,7 @@ export default function QTTT() {
       </Head>
       <div className={`${styles.QTTTContainer} QTTTContainer flex`}>
         <div className={`${styles.sidebar}`}>
-          <SideBar
-            closePopover={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          <SideBarNew closePopover={closePopover} />
         </div>
         <div className={`${styles.subSidebar}`}></div>
         <div className={`${styles.QTTTContent} QTTTContent`}>

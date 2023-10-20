@@ -9,6 +9,7 @@ import ContentTab2 from "@/components/dat/dulieudaxoa/ContentTab2";
 import { useRouter } from "next/router";
 import { SelectedItemsProvider } from "@/components/dat/dulieudaxoa/Context";
 import Head from "next/head";
+import SideBarNew from "@/components/header/sidebarNew/sidebarNew";
 
 export default function TTNB() {
   const router = useRouter();
@@ -86,7 +87,11 @@ export default function TTNB() {
       />
     );
   };
+  const [showPopover, setShowPopover] = useState(false);
 
+  const closePopover = () => {
+    setShowPopover(false);
+  };
   return (
     <div>
       <Head>
@@ -96,11 +101,7 @@ export default function TTNB() {
 
       <div className="flex containerTTNB">
         <div className={`${styles.sidebar}`}>
-          <SideBar
-            closePopover={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          <SideBarNew closePopover={closePopover} />
         </div>
 
         <div className={`${styles.sidebarContent}`}></div>
