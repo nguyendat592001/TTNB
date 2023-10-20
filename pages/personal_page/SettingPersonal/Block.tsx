@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Divider } from "antd";
 import styles from "./SettingPersonal.module.scss";
 import ModalRegime from "@/components/common/Modal/Regime/ModalRegime";
-import UnBlocks from "../../../components/viet_components/Modal/UnBlocks";
+import UnBlocks from "@/components/viet_components/Modal/UnBlocks";
 
 const Block = () => {
   const blocks = [
@@ -82,7 +82,7 @@ const Block = () => {
                         .map((name, idx) => (
                           <div className={styles.list_name} key={idx}>
                             <span>{name.name}</span>
-                            <UnBlocks name={name.name} />
+                            <UnBlocks />
                           </div>
                         ))}
                     </div>
