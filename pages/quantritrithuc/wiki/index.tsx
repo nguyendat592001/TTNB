@@ -4,7 +4,7 @@ import EditDocumentModal from "@/components/dat/Modal/quantritrithuc/EditDocumen
 import ExchangeQuestionModal from "@/components/dat/Modal/quantritrithuc/ExchangeQuestionModal/ModalExchangeQuestion";
 import SideBar from "@/components/header/sidebar/sidebar";
 import { SearchOutlined } from "@ant-design/icons";
-import { Input, Menu, Image, Button, Popover } from "antd";
+import { Input, Menu, Image, Button, Popover, Dropdown, MenuProps } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -125,38 +125,58 @@ export default function QTTT() {
   const handleDownloadFile = (fileUrl: string) => {
     window.open(fileUrl, "_blank");
   };
-  const content = (
-    <div className={`${styles.popoverListItem} popoverListItem`}>
-      <div
-        className={`${styles.popoverItem} popoverItem flex`}
-        onClick={() => handleDownloadFile("/path/to/your/file.pdf")} //đường dẫn file pdf để tải xuống
-      >
-        <Image src="/img/QTTT/option1.png" alt="anh1" preview={false} />
-        <p className={styles.popoverItemText}>Tải xuống</p>
-      </div>
-      <div
-        className={`${styles.popoverItem} popoverItem flex`}
-        onClick={handleOpenEditDocumentModal}
-      >
-        <Image src="/img/QTTT/option2.png" alt="anh1" preview={false} />
-        <p className={styles.popoverItemText}>Chỉnh sửa thông tin tài liệu</p>
-      </div>
-      <div
-        className={`${styles.popoverItem} popoverItem flex`}
-        onClick={handleOpenExchangeQuestionModal}
-      >
-        <Image src="/img/QTTT/option3.png" alt="anh1" preview={false} />
-        <p className={styles.popoverItemText}>Trao đổi - đặt câu hỏi</p>
-      </div>
-      <div
-        className={`${styles.popoverItem} popoverItem flex`}
-        onClick={handleOpenDeleteDocumentModal}
-      >
-        <Image src="/img/QTTT/option4.png" alt="anh1" preview={false} />
-        <p className={styles.popoverItemText}>Xóa thông tin tài liệu</p>
-      </div>
-    </div>
-  );
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: (
+        <div
+          className={`${styles.popoverItem} popoverItem flex`}
+          onClick={() => handleDownloadFile("/path/to/your/file.pdf")} //đường dẫn file pdf để tải xuống
+        >
+          <Image src="/img/QTTT/option1.png" alt="anh1" preview={false} />
+          <p className={styles.popoverItemText}>Tải xuống</p>
+        </div>
+      ),
+    },
+
+    {
+      key: '2',
+      label: (
+        <div
+          className={`${styles.popoverItem} popoverItem flex`}
+          onClick={handleOpenEditDocumentModal}
+        >
+          <Image src="/img/QTTT/option2.png" alt="anh1" preview={false} />
+          <p className={styles.popoverItemText}>Chỉnh sửa thông tin tài liệu</p>
+        </div>
+      ),
+    },
+    {
+      key: '3',
+      label: (
+        <div
+          className={`${styles.popoverItem} popoverItem flex`}
+          onClick={handleOpenExchangeQuestionModal}
+        >
+          <Image src="/img/QTTT/option3.png" alt="anh1" preview={false} />
+          <p className={styles.popoverItemText}>Trao đổi - đặt câu hỏi</p>
+        </div>
+      ),
+    },
+
+    {
+      key: '4',
+      label: (
+        <div
+          className={`${styles.popoverItem} popoverItem flex`}
+          onClick={handleOpenDeleteDocumentModal}
+        >
+          <Image src="/img/QTTT/option4.png" alt="anh1" preview={false} />
+          <p className={styles.popoverItemText}>Xóa thông tin tài liệu</p>
+        </div>
+      ),
+    },
+  ];
   const [showPopover, setShowPopover] = useState(false);
 
   const closePopover = () => {
@@ -285,11 +305,11 @@ export default function QTTT() {
                           {document.name}
                         </span>
                       </p>
-                      <Popover
-                        content={content}
+
+                      <Dropdown
+                        menu={{ items }}
                         placement="bottomRight"
-                        trigger="click"
-                        arrow={false}
+                        trigger={["click"]}
                       >
                         <Image
                           src="/img/QTTT/3cham.png"
@@ -298,7 +318,7 @@ export default function QTTT() {
                           className="cursor-pointer"
                           onClick={() => { }}
                         />
-                      </Popover>
+                      </Dropdown>
                     </div>
                     <p>
                       Tác giả :
