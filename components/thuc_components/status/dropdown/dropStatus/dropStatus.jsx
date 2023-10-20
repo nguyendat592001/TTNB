@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./dropStatus.module.css";
 import { Menu, Image, Dropdown, Button, Modal, Switch, Select } from "antd";
 import EditPost from "../../../shareGroup/shareNewfeed/editModalPost";
+import ModalSave from "@/components/common/Modal/OptionPost/Save/ModalSave";
 const DropStatus = () => {
    const [isModalEdit, setIsModalEdit] = useState(false);
    const showEdit = () => {
@@ -10,6 +11,23 @@ const DropStatus = () => {
    const handleEditCancel = () => {
       setIsModalEdit(false);
    };
+   const [selectedModal, setSelectedModal] = useState();
+   const MODAL_OPTION_POST_SAVE = "save";
+   const closeSelectedModal = () => {
+      setSelectedModal(null);
+   };
+   const openModalSave = () => {
+      setSelectedModal(MODAL_OPTION_POST_SAVE);
+   };
+   const renderModal = () => {
+      switch (selectedModal) {
+         case MODAL_OPTION_POST_SAVE:
+            return <ModalSave selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
+         default:
+            return null;
+      }
+   };
+
    const [pinGroup, setPinGroup] = useState("on");
    const [notificationStatus, setNotificationStatus] = useState("on");
    const [comment, setComment] = useState("on");
@@ -104,7 +122,7 @@ const DropStatus = () => {
          }
       }
       if (key === "2") {
-         showModalApprove();
+         openModalSave();
       }
       if (key === "3") {
          if (notificationStatus === "on") {
@@ -232,6 +250,7 @@ const DropStatus = () => {
                </div>
             </Modal>
             <EditPost isOpen={isModalEdit} isClose={handleEditCancel} />
+            {renderModal()}
          </div>
       </>
    );

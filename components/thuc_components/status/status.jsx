@@ -21,6 +21,8 @@ import DropStatus from "./dropdown/dropStatus/dropStatus";
 import DropAdmin from "./dropdown/dropAdmin/dropAdmin";
 import DropReport from "./dropdown/dropAdmin/dropReport";
 import DropUser from "./dropdown/dropAdmin/dropUser";
+import DropPostUser from "./dropdown/dropStatus/dropPostUser";
+import DropUserSeen from "./dropdown/dropStatus/dropUserSeen";
 const menu = (
    <Menu className={`${styles.menu__sort_popover} menuSortPopover `}>
       <Menu.Item key="1">Mới nhất</Menu.Item>
@@ -284,7 +286,9 @@ const Status = () => {
                               </div>
                               <div className={styles.post__header__right}>
                                  <div className={styles.post__header__right__icon}>
-                                    <DropStatus />
+                                    {/* <DropStatus /> */}
+                                    {/* <DropPostUser /> */}
+                                    <DropUserSeen />
                                  </div>
                               </div>
                               <div className={styles.closePost}>
@@ -313,7 +317,7 @@ const Status = () => {
                            <div className={styles.post__count_reaction}>
                               <div className={styles.post__reaction__count_like}>
                                  <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
-                                    <Image src={selectedImage} alt="icon" width={25} height={25} preview={false} />
+                                    <Image src={selectedImage} alt="icon" width={25} height={25} preview={false} className={styles.img_none} />
                                  </Popover>
                                  <Popover placement="bottomLeft" content={content} trigger="hover" arrow={false}>
                                     <p className={styles.post__reaction__count_like__text}>{likeCount} Người</p>
@@ -398,8 +402,8 @@ const Status = () => {
                                              </div>
                                              <div>
                                                 {/* <DropAdmin /> */}
-                                                {/* <DropReport /> */}
-                                                <DropUser />
+                                                <DropReport />
+                                                {/* <DropUser /> */}
                                              </div>
                                           </div>
                                           <div className={styles.comment__content_reaction}>
