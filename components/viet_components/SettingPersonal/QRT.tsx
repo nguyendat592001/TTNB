@@ -13,7 +13,16 @@ const QRT = () => {
   const handleCloseModal = () => {
     setEditingId(null);
   };
-
+  const [selectedRegimeData, setSelectedRegimeData] = useState(null);
+  const [selectedRegimeTitle, setSelectedRegimeTitle] = useState<string | null>(null);
+  const [selectedRegimeImage, setSelectedRegimeImage] = useState<string | null>(null);
+  const handleRegimeSelect = (selectedRegimeData: any) => {
+    setSelectedRegimeData(selectedRegimeData);
+    const { title } = selectedRegimeData;
+    const { imageSrc } = selectedRegimeData;
+    setSelectedRegimeTitle(title);
+    setSelectedRegimeImage(imageSrc);
+  };
   return (
     <>
       <main className={styles.qrt}>
@@ -99,9 +108,7 @@ const QRT = () => {
           </div>
         </div>
         {editingId !== null && (
-          <ModalRegime isOpen={true} onClose={handleCloseModal} onRegimeSelect={function (selectedRegimeData: any): void {
-            throw new Error("Function not implemented.");
-          }} />
+          <ModalRegime isOpen={true} onClose={handleCloseModal} onRegimeSelect={handleRegimeSelect} />
         )}
       </main>
     </>

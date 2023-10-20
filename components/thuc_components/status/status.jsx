@@ -52,6 +52,18 @@ const Status = () => {
    const { dataStatusContext, setDataStatusContext } = useContext(StatusCOntext);
    const [isPostClosed, setIsPostClosed] = useState(false);
    const [isPostRestored, setIsPostRestored] = useState(false);
+   
+   const [selectedRegimeData, setSelectedRegimeData] = useState(null);
+  const [selectedRegimeTitle, setSelectedRegimeTitle] = useState(null);
+  const [selectedRegimeImage, setSelectedRegimeImage] = useState(null);
+
+  const handleRegimeSelect = (selectedRegimeData) => {
+    setSelectedRegimeData(selectedRegimeData);
+    const { title, imageSrc } = selectedRegimeData;
+    setSelectedRegimeTitle(title);
+    setSelectedRegimeImage(imageSrc);
+  };
+  
    function handleReplyClick(index) {
       setSelectedReplyIndex(index === selectedReplyIndex ? -1 : index);
    }
@@ -174,7 +186,7 @@ const Status = () => {
          case MODAL_OPTION_POST_EDIT:
             return <ModalEditPost selectedModal={selectedModal} closeSelectedModal={closeSelectedModal} />;
          case MODAL_OPTION_POST_EDIT_VIEW:
-            return <ModalRegime isOpen={true} onClose={closeSelectedModal} />;
+            return <ModalRegime isOpen={true} onClose={closeSelectedModal} onRegimeSelect={handleRegimeSelect} />;
          default:
             return null;
       }
