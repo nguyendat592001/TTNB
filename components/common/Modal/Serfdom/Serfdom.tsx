@@ -6,7 +6,7 @@ import ModalFriendExcept from "../Regime/ModalFriendExcept";
 import ModalFriendSpecific from "../Regime/ModalFriendSpecific";
 import { Friend } from "../Regime/ModalRegime";
 
-const Serfdom: React.FC = () => {
+const Serfdom = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("congkhai");
   const [showFriendExceptModal, setShowFriendExceptModal] = useState(false);
@@ -36,14 +36,14 @@ const Serfdom: React.FC = () => {
         {selectedOption === "congkhai"
           ? "Công khai"
           : selectedOption === "friend"
-            ? "Bạn bè"
-            : selectedOption === "except"
-              ? "Bại bè ngoại trừ"
-              : selectedOption === "onlyme"
-                ? "Chỉ mình tôi"
-                : selectedOption === "except_only"
-                  ? "Bạn bè ngoại trừ"
-                  : ""}
+          ? "Bạn bè"
+          : selectedOption === "except"
+          ? "Bại bè ngoại trừ"
+          : selectedOption === "onlyme"
+          ? "Chỉ mình tôi"
+          : selectedOption === "except_only"
+          ? "Bạn bè ngoại trừ"
+          : ""}
 
         <Image
           width={12}
@@ -177,16 +177,22 @@ const Serfdom: React.FC = () => {
           {showFriendExceptModal && (
             <ModalFriendExcept
               isOpen={showFriendExceptModal}
-              onClose={() => setShowFriendExceptModal(false)} onSave={function (selectedFriends: Friend[]): void {
+              onClose={() => setShowFriendExceptModal(false)}
+              onSave={function (selectedFriends: Friend[]): void {
                 throw new Error("Function not implemented.");
-              }} selectedFriendsExcept={[]} />
+              }}
+              selectedFriendsExcept={[]}
+            />
           )}
           {showFriendSpecificModal && (
             <ModalFriendSpecific
               isOpen={showFriendSpecificModal}
-              onClose={() => setShowFriendSpecificModal(false)} onSave={function (selectedFriends: Friend[]): void {
+              onClose={() => setShowFriendSpecificModal(false)}
+              onSave={function (selectedFriends: Friend[]): void {
                 throw new Error("Function not implemented.");
-              }} selectedFriendsSpecific={[]} />
+              }}
+              selectedFriendsSpecific={[]}
+            />
           )}
         </div>
       </Modal>

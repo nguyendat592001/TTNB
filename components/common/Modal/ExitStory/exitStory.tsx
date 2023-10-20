@@ -34,6 +34,7 @@ const App: React.FC = () => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}
+        className="addressbacham"
       >
         <div className={styles.content_modal}>
           <p>Bạn có chắc chắn bỏ tin này không?</p>

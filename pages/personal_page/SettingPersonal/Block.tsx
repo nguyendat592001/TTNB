@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Divider } from "antd";
 import styles from "./SettingPersonal.module.scss";
 import ModalRegime from "@/components/common/Modal/Regime/ModalRegime";
-import UnBlocks from "../Modal/UnBlocks";
+import UnBlocks from "../../../components/viet_components/Modal/UnBlocks";
 
 const Block = () => {
   const blocks = [

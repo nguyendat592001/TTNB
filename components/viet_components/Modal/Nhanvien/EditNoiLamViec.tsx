@@ -3,10 +3,7 @@ import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import Serfdom from "@/components/common/Modal/Serfdom/Serfdom";
 import styles from "./nhanvien.module.scss";
-interface AddressProps {
-  nhanvien: boolean;
-  setNhanvien: () => void;
-}
+
 const Editnoilamviec = (props: any) => {
   const { edit, setEdit } = props;
 
@@ -30,15 +27,21 @@ const Editnoilamviec = (props: any) => {
       >
         <div className={styles.container}>
           <div className={styles.item}>
-            <span>Công Ty *</span>
+            <p>
+              Công Ty <span style={{ color: "red" }}>*</span>
+            </p>
             <input type="text" placeholder="Nhập tên công ty" />
           </div>
           <div className={styles.item}>
-            <span>Chức vụ *</span>
+            <p>
+              Chức vụ <span style={{ color: "red" }}>*</span>
+            </p>
             <input type="text" placeholder="Nhập chức vụ" />
           </div>
           <div className={styles.item}>
-            <span>Thành phố / Thị xã *</span>
+            <p>
+              Thành phố / Thị xã <span style={{ color: "red" }}>*</span>
+            </p>
             <input type="text" placeholder="Nhập thành phố thị xã " />
           </div>
           <div className={styles.chedo}>
