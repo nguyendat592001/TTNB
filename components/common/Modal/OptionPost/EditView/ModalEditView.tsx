@@ -26,13 +26,20 @@ function ModalEditView({ selectedModal, closeSelectedModal, toggleModal }: Modal
         setIsRegimeModalOpen(false);
         toggleModal(); // You can also close the parent modal if needed
     }
-
+    const [selectedRegimeData, setSelectedRegimeData] = useState(null);
+    const [selectedRegimeTitle, setSelectedRegimeTitle] = useState<string | null>(null);
+    const [selectedRegimeImage, setSelectedRegimeImage] = useState<string | null>(null);
+    const handleRegimeSelect = (selectedRegimeData: any) => {
+        setSelectedRegimeData(selectedRegimeData);
+        const { title } = selectedRegimeData;
+        const { imageSrc } = selectedRegimeData;
+        setSelectedRegimeTitle(title);
+        setSelectedRegimeImage(imageSrc);
+    };
     return (
         <div>
             {/* Conditionally render ModalRegime based on isRegimeModalOpen */}
-            <ModalRegime isOpen={isRegimeModalOpen} onClose={closeRegimeModal} onRegimeSelect={function (selectedRegimeData: any): void {
-                throw new Error("Function not implemented.");
-            }} />
+            <ModalRegime isOpen={isRegimeModalOpen} onClose={closeRegimeModal} onRegimeSelect={handleRegimeSelect} />
         </div>
     );
 }

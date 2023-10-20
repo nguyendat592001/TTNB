@@ -13,6 +13,16 @@ const ShareGroup = ({share, setShare}) => {
    const [isTagOpen, setIsTagOpen] = useState(false);
    const [isRegimeModalOpen, setIsRegimeModalOpen] = useState(false);
    const [isEmotionsOpen, setIsEmotionsOpen] = useState(false);
+   const [selectedRegimeData, setSelectedRegimeData] = useState(null);
+  const [selectedRegimeTitle, setSelectedRegimeTitle] = useState(null);
+  const [selectedRegimeImage, setSelectedRegimeImage] = useState(null);
+
+  const handleRegimeSelect = (selectedRegimeData) => {
+    setSelectedRegimeData(selectedRegimeData);
+    const { title, imageSrc } = selectedRegimeData;
+    setSelectedRegimeTitle(title);
+    setSelectedRegimeImage(imageSrc);
+  };
    return (
       <Modal title="Chia sẻ nhóm" footer={null} className={`${styles.ModalShareOnTime} ModalShare`} onOk={setShare} open={share} onCancel={setShare}>
          <div className={styles.modal__container}>
@@ -87,7 +97,7 @@ const ShareGroup = ({share, setShare}) => {
                </div>
             </div>
             {isLocationModalOpen && <ModalLocation isOpen={isLocationModalOpen} onClose={() => setIsLocationModalOpen(false)} />}
-            {isRegimeModalOpen && <ModalRegime isOpen={isRegimeModalOpen} onClose={() => setIsRegimeModalOpen(false)} />}
+            {isRegimeModalOpen && <ModalRegime isOpen={isRegimeModalOpen} onClose={() => setIsRegimeModalOpen(false)} onRegimeSelect={handleRegimeSelect} />}
             <div className={styles.modal__footer__right__btn}>
                <Button className={styles.modal__btn} onClick={()=>{
                 setShare(false)

@@ -60,7 +60,10 @@ const PrivateStory: React.FC<RegimeProps> = ({ isOpen, onClose }) => {
   const [selectedRegime, setSelectedRegime] = useState<number | null>(null);
   const [showFriendExceptModal, setShowFriendExceptModal] = useState(false);
   const [showFriendSpecificModal, setShowFriendSpecificModal] = useState(false);
-
+  const [selectedFriendsExcept, setSelectedFriendsExcept] = useState<Friend[]>([]);
+  const [selectedFriendsSpecific, setSelectedFriendsSpecific] = useState<Friend[]>([]);
+  const [tempSelectedFriendsExcept, setTempSelectedFriendsExcept] = useState<Friend[]>([]);
+  const [tempSelectedFriendsSpecific, setTempSelectedFriendsSpecific] = useState<Friend[]>([]);
   const toggleSecondaryModal = () => {
     setShowFriendExceptModal(!showFriendExceptModal);
   };
@@ -136,16 +139,22 @@ const PrivateStory: React.FC<RegimeProps> = ({ isOpen, onClose }) => {
       {showFriendExceptModal && (
         <ModalFriendExcept
           isOpen={showFriendExceptModal}
-          onClose={() => setShowFriendExceptModal(false)} onSave={function (selectedFriends: Friend[]): void {
-            throw new Error("Function not implemented.");
-          }} selectedFriendsExcept={[]} />
+          onClose={() => setShowFriendExceptModal(false)}
+          onSave={(selectedFriends) => {
+            setSelectedFriendsExcept(selectedFriends);
+          }}
+          selectedFriendsExcept={tempSelectedFriendsExcept}
+        />
       )}
       {showFriendSpecificModal && (
         <ModalFriendSpecific
           isOpen={showFriendSpecificModal}
-          onClose={() => setShowFriendSpecificModal(false)} onSave={function (selectedFriends: Friend[]): void {
-            throw new Error("Function not implemented.");
-          }} selectedFriendsSpecific={[]} />
+          onClose={() => setShowFriendSpecificModal(false)}
+          onSave={(selectedFriends) => {
+            setSelectedFriendsSpecific(selectedFriends);
+          }}
+          selectedFriendsSpecific={tempSelectedFriendsSpecific}
+        />
       )}
     </>
   );
