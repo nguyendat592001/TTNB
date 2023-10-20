@@ -19,6 +19,16 @@ function ModalShareOnTime({
   const [isUploadFileOpen, setIsUploadFileOpen] = useState(false);
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [isRegimeModalOpen, setIsRegimeModalOpen] = useState(false);
+  const [selectedRegimeData, setSelectedRegimeData] = useState(null);
+  const [selectedRegimeTitle, setSelectedRegimeTitle] = useState<string | null>(null);
+  const [selectedRegimeImage, setSelectedRegimeImage] = useState<string | null>(null);
+  const handleRegimeSelect = (selectedRegimeData: any) => {
+    setSelectedRegimeData(selectedRegimeData);
+    const { title } = selectedRegimeData;
+    const { imageSrc } = selectedRegimeData;
+    setSelectedRegimeTitle(title);
+    setSelectedRegimeImage(imageSrc);
+  };
   return (
     <Modal
       title="Chia sẻ bài viết"
@@ -119,9 +129,9 @@ function ModalShareOnTime({
         {isRegimeModalOpen && (
           <ModalRegime
             isOpen={isRegimeModalOpen}
-            onClose={() => setIsRegimeModalOpen(false)} onRegimeSelect={function (selectedRegimeData: any): void {
-              throw new Error("Function not implemented.");
-            }} />
+            onClose={() => setIsRegimeModalOpen(false)}
+            onRegimeSelect={handleRegimeSelect}
+          />
         )}
         <div className={styles.modal__footer__right__btn}>
           <Button className={styles.modal__btn}>Đăng</Button>

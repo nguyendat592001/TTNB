@@ -18,7 +18,16 @@ function ModalEditPost({
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [isRegimeModalOpen, setIsRegimeModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
-
+  const [selectedRegimeData, setSelectedRegimeData] = useState(null);
+  const [selectedRegimeTitle, setSelectedRegimeTitle] = useState<string | null>(null);
+  const [selectedRegimeImage, setSelectedRegimeImage] = useState<string | null>(null);
+  const handleRegimeSelect = (selectedRegimeData: any) => {
+    setSelectedRegimeData(selectedRegimeData);
+    const { title } = selectedRegimeData;
+    const { imageSrc } = selectedRegimeData;
+    setSelectedRegimeTitle(title);
+    setSelectedRegimeImage(imageSrc);
+  };
   return (
     <Modal
       title="Chỉnh sửa bài viết"
@@ -122,9 +131,9 @@ function ModalEditPost({
         {isRegimeModalOpen && (
           <ModalRegime
             isOpen={isRegimeModalOpen}
-            onClose={() => setIsRegimeModalOpen(false)} onRegimeSelect={function (selectedRegimeData: any): void {
-              throw new Error("Function not implemented.");
-            }} />
+            onClose={() => setIsRegimeModalOpen(false)}
+            onRegimeSelect={handleRegimeSelect}
+          />
         )}
         <div className={styles.modal__footer__right__btn}>
           <Button

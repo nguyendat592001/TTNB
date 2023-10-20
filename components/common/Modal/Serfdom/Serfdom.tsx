@@ -29,6 +29,18 @@ const Serfdom = () => {
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.id);
   };
+
+  const [selectedFriendsExcept, setSelectedFriendsExcept] = useState<Friend[]>(
+    []
+  );
+  const [selectedFriendsSpecific, setSelectedFriendsSpecific] = useState<
+    Friend[]
+  >([]);
+  const [tempSelectedFriendsExcept, setTempSelectedFriendsExcept] = useState<
+    Friend[]
+  >([]);
+  const [tempSelectedFriendsSpecific, setTempSelectedFriendsSpecific] =
+    useState<Friend[]>([]);
   return (
     <>
       <button onClick={showModal} className={styles.modal__serfdom}>
@@ -174,24 +186,25 @@ const Serfdom = () => {
             </div>
             <Image width={22} height={22} alt="che-do" src={"/img/next.svg"} />
           </label>
+
           {showFriendExceptModal && (
             <ModalFriendExcept
               isOpen={showFriendExceptModal}
               onClose={() => setShowFriendExceptModal(false)}
-              onSave={function (selectedFriends: Friend[]): void {
-                throw new Error("Function not implemented.");
+              onSave={(selectedFriends) => {
+                setSelectedFriendsExcept(selectedFriends);
               }}
-              selectedFriendsExcept={[]}
+              selectedFriendsExcept={tempSelectedFriendsExcept}
             />
           )}
           {showFriendSpecificModal && (
             <ModalFriendSpecific
               isOpen={showFriendSpecificModal}
               onClose={() => setShowFriendSpecificModal(false)}
-              onSave={function (selectedFriends: Friend[]): void {
-                throw new Error("Function not implemented.");
+              onSave={(selectedFriends) => {
+                setSelectedFriendsSpecific(selectedFriends);
               }}
-              selectedFriendsSpecific={[]}
+              selectedFriendsSpecific={tempSelectedFriendsSpecific}
             />
           )}
         </div>

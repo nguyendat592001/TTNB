@@ -177,7 +177,16 @@ function Post() {
   const closeSelectedModal = () => {
     setSelectedModal(null);
   };
-
+  const [selectedRegimeData, setSelectedRegimeData] = useState(null);
+  const [selectedRegimeTitle, setSelectedRegimeTitle] = useState<string | null>(null);
+  const [selectedRegimeImage, setSelectedRegimeImage] = useState<string | null>(null);
+  const handleRegimeSelect = (selectedRegimeData: any) => {
+    setSelectedRegimeData(selectedRegimeData);
+    const { title } = selectedRegimeData;
+    const { imageSrc } = selectedRegimeData;
+    setSelectedRegimeTitle(title);
+    setSelectedRegimeImage(imageSrc);
+  };
   const renderModal = () => {
     switch (selectedModal) {
       case MODAL_SHARE_ON_TIME:
@@ -238,9 +247,9 @@ function Post() {
           />
         );
       case MODAL_OPTION_POST_EDIT_VIEW:
-        return <ModalRegime isOpen={true} onClose={closeSelectedModal} onRegimeSelect={function (selectedRegimeData: any): void {
-          throw new Error("Function not implemented.");
-        }} />;
+        return <ModalRegime isOpen={true} onClose={closeSelectedModal}
+          onRegimeSelect={handleRegimeSelect}
+        />;
       default:
         return null;
     }
