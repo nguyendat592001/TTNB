@@ -29,7 +29,7 @@ export default function Intro() {
 
           <div className={styles.follow}>
             {add && (
-              <div>
+              <div style={{ display: "flex", gap: 10 }}>
                 <Image
                   alt=""
                   src={"img/noi-lam-viec-icon.svg"}
@@ -39,7 +39,10 @@ export default function Intro() {
               </div>
             )}
 
-            <div className={styles.follow_list}>
+            <div
+              className={styles.follow_list}
+              style={{ display: "flex", gap: 10 }}
+            >
               <Image
                 width={24}
                 height={24}
