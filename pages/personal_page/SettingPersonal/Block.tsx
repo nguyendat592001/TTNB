@@ -82,7 +82,7 @@ const Block = () => {
                         .map((name, idx) => (
                           <div className={styles.list_name} key={idx}>
                             <span>{name.name}</span>
-                            <UnBlocks />
+                            <UnBlocks name={name.name} />
                           </div>
                         ))}
                     </div>

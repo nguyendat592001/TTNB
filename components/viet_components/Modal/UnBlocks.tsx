@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import styles from "./Modal.module.scss";
-
-const UnBlocks: React.FC = () => {
+interface NameProps {
+  name: string;
+}
+const UnBlocks: React.FC<NameProps> = ({ name }: NameProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [block, setBlock] = useState(true);
 
@@ -22,7 +24,7 @@ const UnBlocks: React.FC = () => {
   return (
     <>
       <span className={styles.btn_blocks} onClick={showModal}>
-        {block ? "Bỏ chặn" : "Chặn"}
+        {!block ? "Bỏ chặn" : "Chặn"}
       </span>
       <Modal
         title="Bỏ chặn"
@@ -30,18 +32,17 @@ const UnBlocks: React.FC = () => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}
+        className="addressbacham"
       >
-        <p className={styles.p1}>
-          Bạn có chắc chắn muốn bỏ chặn Thu Phương không?
-        </p>
+        <p className={styles.p1}>Bạn có chắc chắn muốn bỏ chặn {name} không?</p>
         <p className={styles.p}>
-          Phương có thể xem dòng thời gian của bạn hoặc liên hệ với bạn, tùy
+          {name} có thể xem dòng thời gian của bạn hoặc liên hệ với bạn, tùy
           thuộc vào cách bạn cài đặt quyền riêng tư Có thể khôi phục các thẻ mà
-          trước đó bạn và Phương đã thêm cho nhau Bạn có thể gỡ thẻ của chính
+          trước đó bạn và {name} đã thêm cho nhau Bạn có thể gỡ thẻ của chính
           mình trên nhật ký hoạt động.
         </p>
         <p className={styles.p1}>
-          Hãy nhớ rằng bạn sẽ phải đợi 48 giờ thì mới có thể chặn lại Phương.
+          Hãy nhớ rằng bạn sẽ phải đợi 48 giờ thì mới có thể chặn lại {name}.
         </p>
         <div className={styles.btn_Name}>
           <button className={styles.huy} onClick={handleCancel}>
