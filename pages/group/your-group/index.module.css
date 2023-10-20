@@ -150,7 +150,6 @@
    align-items: center;
    background: #cccccc;
    padding: 5px;
-   width: 40%;
 }
 .menu_drop {
    display: flex;
@@ -245,7 +244,6 @@
 
 .right_none {
    display: none;
-  
 }
 .right_menu_content {
    position: fixed;
@@ -256,7 +254,7 @@
    background: white;
    box-shadow: 2px 2px 12px 0px #00000026;
    overflow: scroll;
-   height: calc(100vh - 78px);
+   height: calc(100vh - 100px);
 }
 .menu {
    width: 40%;
