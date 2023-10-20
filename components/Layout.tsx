@@ -25,7 +25,15 @@ export default function Layout({ children }: LayoutProps) {
       setIsCompanyUrl(false);
     }
   }, [router.pathname]);
+  const [showPopover, setShowPopover] = useState(false);
 
+  const togglePopover = () => {
+    setShowPopover(!showPopover);
+  };
+
+  const closePopover = () => {
+    setShowPopover(false);
+  };
   const renderHeader = () => {
     if (isCompanyUrl) {
       return null;
@@ -49,9 +57,7 @@ export default function Layout({ children }: LayoutProps) {
     ];
 
     if (pagesWithNewSidebar.includes(router.pathname)) {
-      return <Sidebar closePopover={function (): void {
-        throw new Error("Function not implemented.");
-      }} />;
+      return <Sidebar closePopover={closePopover} />;
     } else {
       return null;
     }

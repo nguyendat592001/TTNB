@@ -288,8 +288,13 @@ export default function TraoDoiCauHoi() {
                             }}
                           >
                             Nguyễn Thế Đạt
+                            <span
+                              style={{
+                                fontWeight: "normal",
+                                marginLeft: "5px",
+                              }}
+                            >đã đăng một câu hỏi</span>
                           </p>
-                          <p> đã đăng một câu hỏi</p>
                         </div>
                         <div
                           className={`${styles.TDCHContentBodyLeftContentInfoUserTextTime} flex `}
