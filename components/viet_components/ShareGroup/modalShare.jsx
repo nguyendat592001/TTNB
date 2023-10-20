@@ -1,4 +1,4 @@
-import { Button, Input, Modal, Image, Tooltip } from "antd";
+import { Button, Input, Modal, Image } from "antd";
 import { useState } from "react";
 import ModalLocation from "@/components/common/Modal/Location/ModalLocation";
 import styles from "./shareGroup.module.css";
@@ -16,6 +16,8 @@ const ShareGroup = ({share, setShare}) => {
    const [selectedRegimeData, setSelectedRegimeData] = useState(null);
   const [selectedRegimeTitle, setSelectedRegimeTitle] = useState(null);
   const [selectedRegimeImage, setSelectedRegimeImage] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [selectedEmotion, setSelectedEmotion] = useState(null);
 
   const handleRegimeSelect = (selectedRegimeData) => {
     setSelectedRegimeData(selectedRegimeData);
@@ -23,15 +25,28 @@ const ShareGroup = ({share, setShare}) => {
     setSelectedRegimeTitle(title);
     setSelectedRegimeImage(imageSrc);
   };
+
+  const handleLocationSelect = (location) => {
+   setSelectedLocation(location);
+ };
+ const handleEmotionSelect = (selectedEmotion) => {
+   setSelectedEmotion(selectedEmotion);
+ };
+
+ const handleActivitySelect = (selectedActivity) => {
+   setSelectedActivity(selectedActivity);
+ };
    return (
-      <Modal title="Chia sẻ nhóm" footer={null} className={`${styles.ModalShareOnTime} ModalShare`} onOk={setShare} open={share} onCancel={setShare}>
+      <Modal title="Chia sẻ nhóm" footer={null} className={`${styles.ModalShareOnTime} ModalShare`} onOk={()=>{setShare(false)}} open={share} onCancel={()=>{setShare(false)}}>
          <div className={styles.modal__container}>
             <div className={styles.modal__body}>
                <div className={styles.modal__body__left}>
                   <Image src="/img/c.png" alt="avatar" width={50} height={50} preview={false} className={styles.modalAvatar} />
                </div>
                <div className={styles.modal__body__right}>
-                  <Link href="/">Thức Đẹp Trai</Link>
+                  <Link href="#">Thức Đẹp Trai</Link>
+                  {selectedEmotion ?  <> đang cảm thấy <Image  src="/img/img-home/nv_icon_post_footer_active.svg" alt="phanh" width={20} height={20} preview={false} /></> : ''}
+                  {selectedLocation ? <span> tại <p style={{ display: 'inline' }}>{selectedLocation}</p></span> : null}
                   <div
                      className={styles.modal__body__right_regime}
                      onClick={() => {
@@ -96,7 +111,7 @@ const ShareGroup = ({share, setShare}) => {
                   />
                </div>
             </div>
-            {isLocationModalOpen && <ModalLocation isOpen={isLocationModalOpen} onClose={() => setIsLocationModalOpen(false)} />}
+            {isLocationModalOpen && <ModalLocation isOpen={isLocationModalOpen} onClose={() => setIsLocationModalOpen(false)} onLocationSelect={handleLocationSelect} />}
             {isRegimeModalOpen && <ModalRegime isOpen={isRegimeModalOpen} onClose={() => setIsRegimeModalOpen(false)} onRegimeSelect={handleRegimeSelect} />}
             <div className={styles.modal__footer__right__btn}>
                <Button className={styles.modal__btn} onClick={()=>{
@@ -105,7 +120,8 @@ const ShareGroup = ({share, setShare}) => {
             </div>
             {isTagOpen && <Tags isOpen={isTagOpen} onClose={() => setIsTagOpen(false)} />}
 
-            {isEmotionsOpen && <Emotions isOpen={isEmotionsOpen} onClose={() => setIsEmotionsOpen(false)} />}
+            {isEmotionsOpen && <Emotions isOpen={isEmotionsOpen} onClose={() => setIsEmotionsOpen(false)}  onEmotionSelect={handleEmotionSelect}
+            onActivitySelect={handleActivitySelect} />}
          </div>
       </Modal>
    );

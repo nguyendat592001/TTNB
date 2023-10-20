@@ -1,12 +1,11 @@
 import React from "react";
-// import Image from "next/image";
 import { Image } from "antd";
 import styles from "../TabsImage.module.scss";
 import { Dropdown, MenuProps } from "antd";
 import { useRouter } from "next/router";
-import create_album from "@/pages/create_album";
 
-export default function Edit_album() {
+export default function Edit_album(props: any) {
+  const { setDetail, detail } = props;
   const router = useRouter();
   const handleDownloadAlbum = () => {
     // Tạo URL tải xuống album
@@ -112,25 +111,15 @@ export default function Edit_album() {
         <div className={styles.album_add}>
           {/*  */}
           <div className={styles.album_new}>
-            <div
-              className={styles.album_add__new}
-              onClick={() => {
-                router.push("/create_album");
-              }}
-            >
-              <Image
-                width={24}
-                height={25}
-                alt="alicu"
-                src={"/img/nv_add-circle_blue.svg"}
-                preview={false}
-              />
-              <p>Tạo album</p>
-            </div>
             {album.map((albums, index) => (
               <div key={index} className={styles.img486}>
                 <div className={styles.img486_child}>
-                  <div className={styles.album_new_img}>
+                  <div
+                    className={styles.album_new_img}
+                    onClick={() => {
+                      router.push("/personal_page/DetailAlbum");
+                    }}
+                  >
                     <Image
                       width={218}
                       height={215}
@@ -150,11 +139,6 @@ export default function Edit_album() {
                         src={"/img/edit_album.svg"}
                       />
                     </Dropdown>
-                  </div>
-
-                  <div className={styles.data}>
-                    <p>{albums.des}</p>
-                    <span>{albums.length} mục</span>
                   </div>
                 </div>
               </div>
