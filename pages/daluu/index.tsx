@@ -1,5 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Image, Input, Popover } from 'antd';
+import { Button, Dropdown, Image, Input, MenuProps, Popover } from 'antd';
 import { useState } from 'react';
 import styles from './daluu.module.css';
 
@@ -102,6 +102,38 @@ const App: React.FC = () => {
             </div>
         </div>
     );
+
+    const items: MenuProps['items'] = [
+        {
+            key: '1',
+            label: (
+                <div className='flex mt-6 mb-6 pr-60'>
+                    <Image
+                        src='/img/img-OptionPost/bo-luu-bai-viet.svg'
+                        alt='c'
+                        preview={false}
+                    />
+                    <p className='ml-8'>Bỏ lưu bài viết</p>
+                </div>
+            ),
+        },
+        {
+            key: '2',
+            label: (
+                <div className='flex mt-6 mb-6 pr-60'>
+                    <Image
+                        src='/img/img-OptionPost/chia-se.svg'
+                        alt='c'
+                        width={22}
+                        height={22}
+                        preview={false}
+                    />
+                    <p className='ml-8'>Chia sẻ bài viết</p>
+                </div>
+            ),
+        },
+    ];
+
     return (
         <>
             <div className={styles.daluu_container}>
@@ -112,7 +144,11 @@ const App: React.FC = () => {
                         <div className={styles.daluu_sidebar_saved}>
                             <div className={styles.daluu_sidebar_saved_header}>
                                 <p className={styles.daluu_sidebar_saved_header_title} >Đã lưu</p>
-                                <p className={styles.daluu_sidebar_saved_header_setting}>Cài đặt</p>
+                                <p
+                                    className={styles.daluu_sidebar_saved_header_setting}
+                                >
+                                    Cài đặt
+                                </p>
                             </div>
                             <div
                                 className={styles.daluu_sidebar_saved_content}
@@ -236,6 +272,166 @@ const App: React.FC = () => {
                                 </div>
                             </Popover>
                         )}
+                    </div>
+                    <div className={styles.daluu_main_content}>
+                        <div className={styles.daluuListItem}>
+                            <div className={`${styles.daluuItem} flex`}>
+                                <div className={`${styles.header} flex flex-space-between flex-align-center`}>
+                                    <div className={`${styles.headerLeft} flex`}>
+                                        <Image
+                                            src="/img/c.png"
+                                            alt="avatar"
+                                            width={50}
+                                            height={50}
+                                            preview={false}
+                                            className={styles.headerLeft__avatar}
+                                        />
+                                        <div className='pl-12'>
+                                            <p
+                                                className={styles.headerLeft__name}
+                                            >Nguyễn Thế Đạt</p>
+                                            <div className='flex '>
+                                                <p className='mr-4'>09:44 20/10/2023</p>
+                                                <Image
+                                                    src='/img/img-home/regime/regime1.svg'
+                                                    alt='icon'
+                                                    width={20}
+                                                    height={20}
+                                                    className='cursor-pointer'
+                                                    preview={false}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <Dropdown
+                                        menu={{ items }}
+                                        placement="bottomRight"
+                                        arrow={false}
+                                        trigger={['click']}
+                                    >
+                                        <Image
+                                            src='/img/QTTT/3cham.png'
+                                            alt='icon'
+                                            preview={false}
+                                            className='cursor-pointer'
+                                        />
+                                    </Dropdown>
+                                </div>
+                                <div className={styles.content}>
+                                    <p>hmmmm..............</p>
+                                </div>
+                                <div className={`${styles.footer} flex`}>
+                                    <p className='mr-4'>Đã lưu vào</p>
+                                    <p
+                                        className={styles.footer__collection}
+                                    >nhumotconcho</p>
+                                </div>
+                            </div>
+                            <div className={`${styles.daluuItem} flex`}>
+                                <div className={`${styles.header} flex flex-space-between flex-align-center`}>
+                                    <div className={`${styles.headerLeft} flex`}>
+                                        <Image
+                                            src="/img/c.png"
+                                            alt="avatar"
+                                            width={50}
+                                            height={50}
+                                            preview={false}
+                                            className={styles.headerLeft__avatar}
+                                        />
+                                        <div className='pl-12'>
+                                            <p
+                                                className={styles.headerLeft__name}
+                                            >Nguyễn Thế Đạt</p>
+                                            <div className='flex '>
+                                                <p className='mr-4'>09:44 20/10/2023</p>
+                                                <Image
+                                                    src='/img/img-home/regime/regime1.svg'
+                                                    alt='icon'
+                                                    width={20}
+                                                    height={20}
+                                                    className='cursor-pointer'
+                                                    preview={false}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <Dropdown
+                                        menu={{ items }}
+                                        placement="bottomRight"
+                                        arrow={false}
+                                        trigger={['click']}
+                                    >
+                                        <Image
+                                            src='/img/QTTT/3cham.png'
+                                            alt='icon'
+                                            preview={false}
+                                            className='cursor-pointer'
+                                        />
+                                    </Dropdown>
+                                </div>
+                                <div className={styles.content}>
+                                    <p>hmmmm..............</p>
+                                </div>
+                                <div className={`${styles.footer} flex`}>
+                                    <p className='mr-4'>Đã lưu vào</p>
+                                    <p
+                                        className={styles.footer__collection}
+                                    >nhumotconcho</p>
+                                </div>
+                            </div>
+                            <div className={`${styles.daluuItem} flex`}>
+                                <div className={`${styles.header} flex flex-space-between flex-align-center`}>
+                                    <div className={`${styles.headerLeft} flex`}>
+                                        <Image
+                                            src="/img/c.png"
+                                            alt="avatar"
+                                            width={50}
+                                            height={50}
+                                            preview={false}
+                                            className={styles.headerLeft__avatar}
+                                        />
+                                        <div className='pl-12'>
+                                            <p
+                                                className={styles.headerLeft__name}
+                                            >Nguyễn Thế Đạt</p>
+                                            <div className='flex '>
+                                                <p className='mr-4'>09:44 20/10/2023</p>
+                                                <Image
+                                                    src='/img/img-home/regime/regime1.svg'
+                                                    alt='icon'
+                                                    width={20}
+                                                    height={20}
+                                                    className='cursor-pointer'
+                                                    preview={false}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <Dropdown
+                                        menu={{ items }}
+                                        placement="bottomRight"
+                                        arrow={false}
+                                        trigger={['click']}
+                                    >
+                                        <Image
+                                            src='/img/QTTT/3cham.png'
+                                            alt='icon'
+                                            preview={false}
+                                            className='cursor-pointer'
+                                        />
+                                    </Dropdown>
+                                </div>
+                                <div className={styles.content}>
+                                    <p>hmmmm..............</p>
+                                </div>
+                                <div className={`${styles.footer} flex`}>
+                                    <p className='mr-4'>Đã lưu vào</p>
+                                    <p
+                                        className={styles.footer__collection}
+                                    >nhumotconcho</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

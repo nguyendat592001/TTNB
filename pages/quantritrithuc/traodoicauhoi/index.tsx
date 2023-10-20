@@ -29,6 +29,7 @@ import DeleteQuestionModal from "@/components/dat/Modal/traodoicauhoi/DeleteQues
 import TurnOnNotificationModal from "@/components/dat/Modal/traodoicauhoi/TurnOnNotification/TurnOnNotificationModal";
 import DeleteCommentModal from "@/components/dat/Modal/traodoicauhoi/DeleteComment/DeleteCommentModal";
 import Head from "next/head";
+import SideBarNew from "@/components/header/sidebarNew/sidebarNew";
 
 interface DataType {
   key: string;
@@ -227,6 +228,11 @@ export default function TraoDoiCauHoi() {
   const onClose = () => {
     setOpenDrawer(false);
   };
+  const [showPopover, setShowPopover] = useState(false);
+
+  const closePopover = () => {
+    setShowPopover(false);
+  };
   return (
     <div>
       <Head>
@@ -234,11 +240,7 @@ export default function TraoDoiCauHoi() {
       </Head>
       <div className={`${styles.TDCHContainer} QTTTContainer flex`}>
         <div className={`${styles.sidebar}`}>
-          <SideBar
-            closePopover={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          <SideBarNew closePopover={closePopover} />
         </div>
         <div className={`${styles.subSidebar}`}></div>
         <div className={`${styles.TDCHContent} `}>

@@ -6,6 +6,7 @@ import React, { useState } from "react";
 
 import styles from "./index.module.scss";
 import Head from "next/head";
+import SideBarNew from "@/components/header/sidebarNew/sidebarNew";
 const SelectOptions = [
   {
     key: "1",
@@ -102,7 +103,7 @@ export default function TruyenThongNoiBo({
     <>
       <div className={`${styles.VHDNContainer} VHDNContainer flex`}>
         <div className={`${styles.sidebar}`}>
-          <SideBar closePopover={closePopover} />
+          <SideBarNew closePopover={closePopover} />
         </div>
         <div className={`${styles.subSidebar}`}></div>
         <div className={`${styles.VHDNContent} VHDNContent`}>

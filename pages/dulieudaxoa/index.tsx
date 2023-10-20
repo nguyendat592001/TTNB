@@ -4,6 +4,7 @@ import styles from "./dulieudaxoa.module.scss";
 import { Image } from "antd";
 import SideBar from "@/components/header/sidebar/sidebar";
 import Head from "next/head";
+import SideBarNew from "@/components/header/sidebarNew/sidebarNew";
 
 const App: React.FC = () => {
   const router = useRouter();
@@ -24,7 +25,7 @@ const App: React.FC = () => {
       </Head>
       <div className="flex">
         <div className={`${styles.sidebar}`}>
-          <SideBar closePopover={closePopover} />
+          <SideBarNew closePopover={closePopover} />
         </div>
         <div className={`${styles.sidebarContent}`}></div>
         <div
