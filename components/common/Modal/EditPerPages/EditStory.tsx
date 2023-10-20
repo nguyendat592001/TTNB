@@ -31,10 +31,14 @@ export default function EditStory() {
         <p>Tiểu sử</p>
         {isEditingBio ? (
           <>
-            <span onClick={cancelEditingBio}>Lưu</span>
+            <span onClick={cancelEditingBio} style={{ cursor: "pointer" }}>
+              Lưu
+            </span>
           </>
         ) : (
-          <span onClick={startEditingBio}>Chỉnh sửa</span>
+          <span onClick={startEditingBio} style={{ cursor: "pointer" }}>
+            Chỉnh sửa
+          </span>
         )}
       </div>
       {isEditingBio ? (
