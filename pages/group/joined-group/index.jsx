@@ -504,9 +504,6 @@ const App = () => {
                            Width: "100%",
                         }}
                      />
-                     <div className={styles.cam_header}>
-                        <CameraOutlined />
-                     </div>
                   </div>
 
                   <div className={styles.banner}>

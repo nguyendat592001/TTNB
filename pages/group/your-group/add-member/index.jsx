@@ -3,7 +3,9 @@ import styles from "./index.module.css";
 import { Modal, Image, Dropdown, Button, Menu, Input } from "antd";
 import LeftNav from "../../../../components/thuc_components/left-nav-group/leftNav";
 import Head from "next/head";
+import { useRouter } from "next/router";
 const AddMember = () => {
+   const router = useRouter();
    //modal từ chối
    const [isModalRefuseOpen, setIsModalRefuseOpen] = useState(false);
    const showModalRefuse = () => {
@@ -21,6 +23,9 @@ const AddMember = () => {
       setIsModalAskOpen(false);
    };
    const handleDropdownClick = (key) => {
+      if (key === "2") {
+         router.push("/personal_page");
+      }
       if (key === "3") {
          showModalAsk();
       }

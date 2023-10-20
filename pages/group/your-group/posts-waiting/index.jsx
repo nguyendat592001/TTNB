@@ -33,7 +33,12 @@ const PostWaiting = () => {
          key: "2",
          name: "Từ chối kèm theo ý kiến đóng góp",
          img: "/img/group/no.svg",
-         subtitle: "Không cho đăng bài viết này trên nhóm và đóng góp ý kiến cho thành viên này",
+         subtitle: (
+            <p>
+               Không cho đăng bài viết này trên nhóm
+               <br /> và đóng góp ý kiến cho thành viên này
+            </p>
+         ),
       },
       {
          key: "3",
@@ -279,7 +284,7 @@ const PostWaiting = () => {
                         <div className={styles.content_btn}>
                            <button className={styles.content_btn_ok}>Phê duyệt</button>
                            <button className={styles.content_btn_cancer}>Từ chối</button>
-                           <Dropdown overlay={menuDrop} placement="bottomLeft" trigger="click">
+                           <Dropdown overlay={menuDrop} placement="bottomLeft" trigger="click" className={`thuc_drop`}>
                               <div>
                                  <Image alt="" src="/img/group/dot12.svg" preview={false} />
                               </div>

@@ -9,7 +9,7 @@
    position: fixed;
    height: calc(100vh - 78px);
    width: 25%;
-   top: 12%;
+   top: 10%;
    padding-left: 5px;
    padding-right: 10px;
    overflow: auto;
@@ -124,7 +124,7 @@
    background: white;
    box-shadow: 2px 2px 12px 0px #00000026;
    overflow: scroll;
-   height: calc(100vh - 78px);
+   height: calc(100vh - 100px);
 }
 .menu {
    width: 40%;
