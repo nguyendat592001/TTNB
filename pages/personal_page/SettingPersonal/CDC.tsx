@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import styles from "./SettingPersonal.module.scss";
-import SetName from "../Modal/SetName";
-import SetEmail from "../Modal/SetEmail";
+import SetName from "../../../components/viet_components/Modal/SetName";
+import SetEmail from "../../../components/viet_components/Modal/SetEmail";
 
 export default function CDC() {
   return (

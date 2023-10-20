@@ -45,11 +45,10 @@ function Interest() {
     setInputLengths(updatedLengths);
   };
 
-  const [sothich, setSothich] = useState(["A"]);
   return (
     <>
       <div className={styles.st_sothich}>
-        {sothich.map((item, index) => (
+        {interests.map((item, index) => (
           <p key={index} className={styles.sothich}>
             {item}
           </p>
@@ -61,7 +60,6 @@ function Interest() {
 
       <Modal
         className="modal_sothich"
-        // title="Thêm sở thích"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}

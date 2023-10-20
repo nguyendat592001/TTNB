@@ -18,29 +18,29 @@ const DropNoiLamViec = (props: any) => {
   const items: MenuProps["items"] = [
     {
       label: (
-        <p className={styles.item} onClick={() => setNhanvien(true)}>
+        <div className={styles.item} onClick={() => setNhanvien(true)}>
           <Image
             alt="anh-loi"
             src={"/img/nv_add-circle_blue.svg"}
             preview={false}
           />
           Thêm nơi làm việc
-        </p>
+        </div>
       ),
       key: "0",
     },
     {
       label: (
-        <p className={styles.item} onClick={() => setEdit(true)}>
+        <div className={styles.item} onClick={() => setEdit(true)}>
           <Image alt="anh-loi" src={"/img/nv_pen.svg"} preview={false} />
           Chỉnh sửa
-        </p>
+        </div>
       ),
       key: "1",
     },
     {
       label: (
-        <p
+        <div
           className={styles.item}
           onClick={() => {
             setDel(true);
@@ -48,7 +48,7 @@ const DropNoiLamViec = (props: any) => {
         >
           <Image alt="anh-loi" src={"/img/public_del.svg"} preview={false} />
           Xóa nơi làm việc
-        </p>
+        </div>
       ),
       key: "2",
     },
@@ -69,7 +69,7 @@ const DropNoiLamViec = (props: any) => {
         {edit && <Editnoilamviec edit={edit} setEdit={setEdit} />}
         <Modal
           className="addressbacham"
-          title={"Xóa nơi làm việc"}
+          title="Xóa nơi làm việc"
           open={del}
           onOk={okdel}
           onCancel={canceldel}

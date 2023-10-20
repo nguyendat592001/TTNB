@@ -6,7 +6,7 @@ import ModalFriendExcept from "../Regime/ModalFriendExcept";
 import ModalFriendSpecific from "../Regime/ModalFriendSpecific";
 import { Friend } from "../Regime/ModalRegime";
 
-const Serfdom: React.FC = () => {
+const Serfdom = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("congkhai");
   const [showFriendExceptModal, setShowFriendExceptModal] = useState(false);
@@ -30,10 +30,17 @@ const Serfdom: React.FC = () => {
     setSelectedOption(event.target.id);
   };
 
-  const [selectedFriendsExcept, setSelectedFriendsExcept] = useState<Friend[]>([]);
-  const [selectedFriendsSpecific, setSelectedFriendsSpecific] = useState<Friend[]>([]);
-  const [tempSelectedFriendsExcept, setTempSelectedFriendsExcept] = useState<Friend[]>([]);
-  const [tempSelectedFriendsSpecific, setTempSelectedFriendsSpecific] = useState<Friend[]>([]);
+  const [selectedFriendsExcept, setSelectedFriendsExcept] = useState<Friend[]>(
+    []
+  );
+  const [selectedFriendsSpecific, setSelectedFriendsSpecific] = useState<
+    Friend[]
+  >([]);
+  const [tempSelectedFriendsExcept, setTempSelectedFriendsExcept] = useState<
+    Friend[]
+  >([]);
+  const [tempSelectedFriendsSpecific, setTempSelectedFriendsSpecific] =
+    useState<Friend[]>([]);
   return (
     <>
       <button onClick={showModal} className={styles.modal__serfdom}>
@@ -41,14 +48,14 @@ const Serfdom: React.FC = () => {
         {selectedOption === "congkhai"
           ? "Công khai"
           : selectedOption === "friend"
-            ? "Bạn bè"
-            : selectedOption === "except"
-              ? "Bại bè ngoại trừ"
-              : selectedOption === "onlyme"
-                ? "Chỉ mình tôi"
-                : selectedOption === "except_only"
-                  ? "Bạn bè ngoại trừ"
-                  : ""}
+          ? "Bạn bè"
+          : selectedOption === "except"
+          ? "Bại bè ngoại trừ"
+          : selectedOption === "onlyme"
+          ? "Chỉ mình tôi"
+          : selectedOption === "except_only"
+          ? "Bạn bè ngoại trừ"
+          : ""}
 
         <Image
           width={12}

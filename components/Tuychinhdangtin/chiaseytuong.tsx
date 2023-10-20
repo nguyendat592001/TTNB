@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Input, Modal, Select } from "antd";
+import React from "react";
+import { Input, Modal, Select } from "antd";
 import styles from "./tuychinh.module.scss";
 const Chiaseytuong = (props: any) => {
   const { shareIdea, setShareIdea } = props;

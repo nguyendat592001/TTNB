@@ -1,5 +1,5 @@
 import React from "react";
-import SidebarSetting from "@/components/viet_components/SettingPersonal/SidebarSetting";
+import SidebarSetting from "@/pages/personal_page/SettingPersonal/SidebarSetting";
 export default function SettingPer() {
   return (
     <div>
