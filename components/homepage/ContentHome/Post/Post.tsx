@@ -10,7 +10,13 @@ import {
   Tooltip,
 } from "antd";
 import { SetStateAction, useRef, useState } from "react";
-import { CommentOutlined, DeleteOutlined, DownOutlined, EditOutlined, StopOutlined } from "@ant-design/icons";
+import {
+  CommentOutlined,
+  DeleteOutlined,
+  DownOutlined,
+  EditOutlined,
+  StopOutlined,
+} from "@ant-design/icons";
 
 import styles from "./Post.module.css";
 import PostComment from "./PostComment/PostComment";
@@ -178,8 +184,12 @@ function Post() {
     setSelectedModal(null);
   };
   const [selectedRegimeData, setSelectedRegimeData] = useState(null);
-  const [selectedRegimeTitle, setSelectedRegimeTitle] = useState<string | null>(null);
-  const [selectedRegimeImage, setSelectedRegimeImage] = useState<string | null>(null);
+  const [selectedRegimeTitle, setSelectedRegimeTitle] = useState<string | null>(
+    null
+  );
+  const [selectedRegimeImage, setSelectedRegimeImage] = useState<string | null>(
+    null
+  );
   const handleRegimeSelect = (selectedRegimeData: any) => {
     setSelectedRegimeData(selectedRegimeData);
     const { title } = selectedRegimeData;
@@ -247,9 +257,13 @@ function Post() {
           />
         );
       case MODAL_OPTION_POST_EDIT_VIEW:
-        return <ModalRegime isOpen={true} onClose={closeSelectedModal}
-          onRegimeSelect={handleRegimeSelect}
-        />;
+        return (
+          <ModalRegime
+            isOpen={true}
+            onClose={closeSelectedModal}
+            onRegimeSelect={handleRegimeSelect}
+          />
+        );
       default:
         return null;
     }
@@ -275,7 +289,9 @@ function Post() {
     }
   }
   function handleDeleteComment(commentId: number) {
-    const confirmDelete = window.confirm("Are you sure you want to delete this comment?");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this comment?"
+    );
     if (confirmDelete) {
       deleteComment(commentId);
     }
@@ -465,9 +481,11 @@ function Post() {
                   trigger="hover"
                   arrow={false}
                 >
-                  <div className={`${styles.post__reaction__count_comment} flex flex-align-center`}>
+                  <div
+                    className={`${styles.post__reaction__count_comment} flex flex-align-center`}
+                  >
                     1.000
-                    <div className={styles.iconCmt} >
+                    <div className={styles.iconCmt}>
                       <Image
                         src="/img/img-home/ep_post_cmt.svg"
                         alt="icon"
@@ -477,7 +495,7 @@ function Post() {
                         className={styles.iconCmt}
                       />
                     </div>
-                    <div className={styles.cmt} >Bình luận </div>
+                    <div className={styles.cmt}>Bình luận </div>
                   </div>
                 </Popover>
               </div>
@@ -489,9 +507,11 @@ function Post() {
                   trigger="hover"
                   arrow={false}
                 >
-                  <div className={`${styles.post__reaction__count_share__text} flex flex-align-center`}>
+                  <div
+                    className={`${styles.post__reaction__count_share__text} flex flex-align-center`}
+                  >
                     1.000
-                    <div className={styles.iconShare} >
+                    <div className={styles.iconShare}>
                       <Image
                         src="/img/img-home/ep_post_share.svg"
                         alt="icon"
@@ -529,9 +549,7 @@ function Post() {
                 />
               </div>
               <div className={styles.post__footer__middle__text}>
-                <p
-                  className={styles.footer_cmt}
-                >Bình luận</p>
+                <p className={styles.footer_cmt}>Bình luận</p>
               </div>
             </div>
 
@@ -600,72 +618,79 @@ function Post() {
                     />
                   </div>
                   <div className={`${styles.comment__content} `}>
-                    <div className={`${styles.comment__content_info} ${areCommentsHidden ? styles.commentHidden : ''
-                      } flex flex-space-between flex-align-center`}>
+                    <div
+                      className={`${styles.comment__content_info} ${
+                        areCommentsHidden ? styles.commentHidden : ""
+                      } flex flex-space-between flex-align-center`}
+                    >
                       <div>
                         <p className={styles.comment__name}>{comment.name}</p>
                         <p className={styles.comment__text}>
-                          {areCommentsHidden ? "Bình luận đã ẩn" : comment.content}
+                          {areCommentsHidden
+                            ? "Bình luận đã ẩn"
+                            : comment.content}
                         </p>
                       </div>
                       <Dropdown
-                        overlay=
-                        {<Menu>
-                          <Menu.Item key="1">
-                            <div
-                              className={`${styles.itemDropdown} flex`}
-                              onClick={() => handleEditComment(comment.id)}
-                            >
-                              <EditOutlined rev={undefined} />
-                              <p>Chỉnh sửa bình luận</p>
-                            </div>
-                          </Menu.Item>
-                          <Menu.Item key="2">
-                            <div
-                              className={`${styles.itemDropdown} flex`}
-                              onClick={() => handleHideShowComments(comment.id)}
-                            >
-                              {areCommentsHidden ?
-                                <>
-                                  <CommentOutlined rev={undefined} />
-                                  <p>Hiện bình luận</p>
-                                </>
-                                :
-                                <>
-                                  <StopOutlined rev={undefined} />
-                                  <p>Ẩn bình luận</p>
-                                </>
-                              }
-                            </div>
-                          </Menu.Item>
-                          <Menu.Item key="3">
-                            <div
-                              className={`${styles.itemDropdown} flex`}
-                              onClick={() => handleDeleteComment(comment.id)}
-                            >
-                              <DeleteOutlined rev={undefined} />
-                              <p>Xóa bình luận</p>
-                            </div>
-                          </Menu.Item>
-                        </Menu>
+                        overlay={
+                          <Menu>
+                            <Menu.Item key="1">
+                              <div
+                                className={`${styles.itemDropdown} flex`}
+                                onClick={() => handleEditComment(comment.id)}
+                              >
+                                <EditOutlined rev={undefined} />
+                                <p>Chỉnh sửa bình luận</p>
+                              </div>
+                            </Menu.Item>
+                            <Menu.Item key="2">
+                              <div
+                                className={`${styles.itemDropdown} flex`}
+                                onClick={() =>
+                                  handleHideShowComments(comment.id)
+                                }
+                              >
+                                {areCommentsHidden ? (
+                                  <>
+                                    <CommentOutlined rev={undefined} />
+                                    <p>Hiện bình luận</p>
+                                  </>
+                                ) : (
+                                  <>
+                                    <StopOutlined rev={undefined} />
+                                    <p>Ẩn bình luận</p>
+                                  </>
+                                )}
+                              </div>
+                            </Menu.Item>
+                            <Menu.Item key="3">
+                              <div
+                                className={`${styles.itemDropdown} flex`}
+                                onClick={() => handleDeleteComment(comment.id)}
+                              >
+                                <DeleteOutlined rev={undefined} />
+                                <p>Xóa bình luận</p>
+                              </div>
+                            </Menu.Item>
+                          </Menu>
                         }
                         trigger={["click"]}
                         placement="bottomRight"
                       >
-                        <div
-                          className={styles.comment__option}
-                        >
+                        <div className={styles.comment__option}>
                           <Image
                             src="/img/VHDN/bacham.png"
                             alt="icon"
                             preview={false}
-                            className='cursor-pointer'
+                            className="cursor-pointer"
                           />
                         </div>
                       </Dropdown>
                     </div>
                     <div className={styles.comment__content_reaction}>
-                      <p className={`${styles.comment__cxuc} cursor-pointer`}>Thích</p>
+                      <p className={`${styles.comment__cxuc} cursor-pointer`}>
+                        Thích
+                      </p>
                       <p
                         className={`${styles.comment__reply} cursor-pointer`}
                         onClick={() => handleReplyClick(index)}

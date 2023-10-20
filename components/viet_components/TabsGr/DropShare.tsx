@@ -8,7 +8,7 @@ import ShareGroup from "@/components/viet_components/ShareGroup/modalShare";
 import ShareFr from "./ShareFriend";
 interface ShareGroupProps {
   share: boolean;
-  setShare: React.Dispatch<React.SetStateAction<boolean>>;
+  setShare: () => void;
 }
 const DropShare = () => {
   const [share, setShare] = useState(false);
