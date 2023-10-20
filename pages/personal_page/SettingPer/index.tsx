@@ -1,5 +1,5 @@
 import React from "react";
-import SidebarSetting from "@/pages/personal_page/SettingPersonal/SidebarSetting";
+import SidebarSetting from "../SettingPersonal/SidebarSetting";
 export default function SettingPer() {
   return (
     <div>

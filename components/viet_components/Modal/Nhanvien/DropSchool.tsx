@@ -7,7 +7,6 @@ import EditSchool from "./EditSchool";
 
 const DropSchool = (props: any) => {
   const { school, setSchool } = props;
-  // const [school, setSchool] = useState(false);
   const [edit, setEdit] = useState(false);
   const [del, setDel] = useState(false);
   const okdel = () => {
