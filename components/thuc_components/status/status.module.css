@@ -77,6 +77,7 @@
    margin-top: 15px;
    padding-top: 15px;
    cursor: pointer;
+   align-items: baseline;
 }
 
 .post__reaction__count_like {
@@ -270,5 +271,21 @@
 @media (max-width: 426px) {
    .post {
       padding: 12px;
+   }
+}
+
+@media (max-width: 376px) {
+   .post__reaction__count_comment,
+   .post__reaction__count_share__text,
+   .post__reaction__count_like__text {
+      font-size: 13px;
+   }
+   .img_none,
+   .post__footer__middle__text,
+   .post__footer__right__text {
+      display: none;
+   }
+   .post__reaction__count_like {
+      flex-direction: row-reverse;
    }
 }

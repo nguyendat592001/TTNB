@@ -182,8 +182,8 @@ const App = () => {
       },
    ];
 
-   //datapopover
-   const dataPopover = [
+   //datadropdown
+   const dataDrop = [
       {
          key: "1",
          img: "/img/group/share.svg",
@@ -211,8 +211,8 @@ const App = () => {
       },
    ];
    const content = (
-      <Menu onClick={({ key }) => handlePopoverClick(key)}>
-         {dataPopover.map((item) => (
+      <Menu onClick={({ key }) => handleDropdownClick(key)}>
+         {dataDrop.map((item) => (
             <>
                <Menu.Item key={item.key}>
                   <>
@@ -228,7 +228,7 @@ const App = () => {
          ))}
       </Menu>
    );
-   const handlePopoverClick = (key) => {
+   const handleDropdownClick = (key) => {
       if (key === "1") {
          alert("Chia sẻ nhóm thành công");
       }
@@ -246,6 +246,7 @@ const App = () => {
       }
    };
    //data chi tiết
+   const [isOpenSharePopover, setIsOpenSharePopover] = useState(false);
    const [pinGroup, setPinGroup] = useState("on");
    const [follow, setFollow] = useState("on");
    const menuOption = [
@@ -263,9 +264,9 @@ const App = () => {
          key: "3",
          icon: "/img/group/dot3.svg",
          text: (
-            <Popover placement="bottomRight" content={content} trigger="click" arrow={false}>
-               Chia sẻ
-            </Popover>
+            <Dropdown placement="bottomRight" overlay={content} trigger="click" arrow={false}>
+               <div> Chia sẻ</div>
+            </Dropdown>
          ),
       },
       {
@@ -295,7 +296,7 @@ const App = () => {
       },
    ];
    const menuDrop = (
-      <Menu onClick={({ key }) => handleDropdownClick(key)}>
+      <Menu onClick={({ key }) => handlePopoverClick(key)}>
          {menuOption.map((item) => (
             <>
                <Menu.Item key={item.key}>
@@ -312,7 +313,8 @@ const App = () => {
          ))}
       </Menu>
    );
-   const handleDropdownClick = (key) => {
+   const handlePopoverClick = (key) => {
+      setIsOpenSharePopover(false);
       if (key === "1") {
          router.push("/group/content-group/posted");
       }
@@ -343,8 +345,29 @@ const App = () => {
          showModalDelete();
       }
    };
-   const [openPopover, setOpenPopover] = useState(false);
-   const showPopover = () => {};
+   const operations = (
+      <Popover
+         content={menuDrop}
+         placement="bottomLeft"
+         trigger="click"
+         open={isOpenSharePopover}
+         onOpenChange={() => {
+            setIsOpenSharePopover(!isOpenSharePopover);
+         }}>
+         <Image
+            src="/img/group/dot.png"
+            alt="icon"
+            width={40}
+            height={40}
+            preview={false}
+            style={{
+               cursor: "pointer",
+               marginRight: "10px",
+               transform: "rotate(90deg)",
+            }}
+         />
+      </Popover>
+   );
    //data invited
    const data = [
       {
@@ -381,22 +404,7 @@ const App = () => {
    const showModalInvite = () => {
       setIsModalInviteOpen(true);
    };
-   const operations = (
-      <Dropdown overlay={menuDrop} placement="bottomRight" trigger="click">
-         <Image
-            src="/img/group/dot.png"
-            alt="icon"
-            width={40}
-            height={40}
-            preview={false}
-            style={{
-               cursor: "pointer",
-               marginRight: "10px",
-               transform: "rotate(90deg)",
-            }}
-         />
-      </Dropdown>
-   );
+
    const dataListGroup = [
       {
          key: 1,
