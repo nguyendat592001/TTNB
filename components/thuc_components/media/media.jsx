@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import styles from "./media.module.css";
 import { Image, Button } from "antd";
 import { useRouter } from "next/router";
-const Media = () => {
+const Media = ({ onTabChange }) => {
+   const handleNavigateToTab5 = () => {
+      onTabChange("5");
+   };
+   {
+      onTabChange;
+   }
    const router = useRouter();
    const dataImg = [
       {
@@ -31,7 +37,7 @@ const Media = () => {
                   );
                })}
             </div>
-            <Button className={`thuc_btn_full`} onClick={() => router.push("/group/your-group/home/colection")}>
+            <Button className={`thuc_btn_full`} onClick={handleNavigateToTab5}>
                Xem tất cả
             </Button>
          </div>

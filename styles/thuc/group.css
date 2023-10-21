@@ -114,6 +114,10 @@
    width: 25px !important;
    height: 25px !important;
 }
+.more_img {
+   width: 22px !important;
+   height: 22px !important;
+}
 .thuc_btn_green {
    background: #4c5bd4;
    color: #fff;

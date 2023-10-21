@@ -13,6 +13,7 @@ import File from "./home/file";
 import ShareNewFeed from "../../../components/thuc_components/shareGroup/shareNewfeed/shareNewFeed";
 import ShareFriend from "../../../components/thuc_components/shareGroup/shareNewfeed/shareFriend";
 import Head from "next/head";
+import MoreIntroduce from "../../../components/thuc_components/more/more";
 const App = () => {
    //modal chia sẻ bảng tin
    const [isModalShareNewFeed, setIsModalShareNewFeed] = useState(false);
@@ -148,39 +149,6 @@ const App = () => {
    };
    const router = useRouter();
    //tabs
-
-   const itemstabs = [
-      {
-         key: "1",
-         label: "Thảo luận",
-         children: <Discuss />,
-      },
-      {
-         key: "2",
-         label: "Bài viết đã ghim",
-         children: <PinStatus />,
-      },
-      {
-         key: "3",
-         label: "Video",
-         children: <VideoHd />,
-      },
-      {
-         key: "4",
-         label: "Thành viên",
-         children: <Member />,
-      },
-      {
-         key: "5",
-         label: "File phương tiện",
-         children: <Colection />,
-      },
-      {
-         key: "6",
-         label: "File",
-         children: <File />,
-      },
-   ];
 
    //datadropdown
    const dataDrop = [
@@ -480,6 +448,11 @@ const App = () => {
          ),
       },
    ];
+   const [activeTab, setActiveTab] = useState("1");
+
+   const handleTabChange = (key) => {
+      setActiveTab(key);
+   };
    return (
       <>
          <div className={styles.container}>
@@ -539,7 +512,29 @@ const App = () => {
                         </div>
                      </div>
                      <div className={styles.tabs}>
-                        <Tabs tabBarExtraContent={operations} items={itemstabs} />
+                        <Tabs tabBarExtraContent={operations} activeKey={activeTab} onChange={handleTabChange}>
+                           <Tabs.TabPane key="1" tab="Thảo luận">
+                              <Discuss onTabChange={handleTabChange} />
+                           </Tabs.TabPane>
+                           <Tabs.TabPane key="2" tab="Bài viết đã ghim">
+                              <PinStatus onTabChange={handleTabChange} />
+                           </Tabs.TabPane>
+                           <Tabs.TabPane key="3" tab="Video">
+                              <VideoHd onTabChange={handleTabChange} />
+                           </Tabs.TabPane>
+                           <Tabs.TabPane key="4" tab="Thành viên">
+                              <Member onTabChange={handleTabChange} />
+                           </Tabs.TabPane>
+                           <Tabs.TabPane key="5" tab="File phương tiện">
+                              <Colection onTabChange={handleTabChange} />
+                           </Tabs.TabPane>
+                           <Tabs.TabPane key="6" tab="File">
+                              <File onTabChange={handleTabChange} />
+                           </Tabs.TabPane>
+                           <Tabs.TabPane key="7" tab="">
+                              <MoreIntroduce onTabChange={handleTabChange} />
+                           </Tabs.TabPane>
+                        </Tabs>
                      </div>
                   </div>
                </div>

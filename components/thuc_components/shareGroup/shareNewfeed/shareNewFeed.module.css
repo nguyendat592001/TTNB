@@ -7,7 +7,6 @@
 }
 
 .modal__body__right {
-   margin-left: 10px;
    width: 100%;
    padding-left: 10px;
    line-height: 24px;
@@ -120,6 +119,8 @@
    display: flex;
    gap: 5px;
    align-items: center;
+   flex-wrap: wrap;
+   padding-bottom: 5px;
 }
 .modal_fl {
    cursor: no-drop;

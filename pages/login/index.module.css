@@ -7,11 +7,12 @@
 .header_content {
    background: #4c5bd4;
    width: 100%;
-   padding: 13px 68px 13px 68px;
    display: flex;
    align-items: center;
    justify-content: space-between;
    box-shadow: 0px 2px 5px 3px rgba(0, 0, 0, 0.2);
+   height: 50px;
+   padding: 10px;
 }
 .login {
    display: flex;
@@ -385,7 +386,7 @@
    background: var(--colorTheme);
    color: #fff;
    margin: 0 30px 0 0;
-   top: 58px;
+   top: 49px;
    left: 0px;
 }
 .popover {
@@ -452,11 +453,11 @@
    }
    .config {
       display: block;
-      width: 50%;
    }
    .header_respon {
       display: flex;
       width: 100%;
+      justify-content: space-between;
    }
    .children_h1 {
       font-weight: bold;
