@@ -43,6 +43,7 @@ export default function HeaderLogin() {
               src={"/img/before_login/log_hdnav.png"}
               preview={false}
             />
+            <div></div>
           </div>
           <div className={styles.login}>
             <ul className={styles.ul}>

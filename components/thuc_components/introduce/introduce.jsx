@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import styles from "./introduce.module.css";
 import { Image, Button } from "antd";
-const Introduce = () => {
+const Introduce = ({ onTabChange }) => {
+   const handleNavigateToTab7 = () => {
+      onTabChange("7");
+   };
+
    return (
       <>
          <div className={styles.introducee}>
@@ -22,7 +26,9 @@ const Introduce = () => {
                      <p>Ai cũng có thể tìm nhóm này.</p>
                   </div>
                </div>
-               <Button className={`thuc_btn_full`}>Tìm hiểu thêm</Button>
+               <Button className={`thuc_btn_full`} onClick={handleNavigateToTab7}>
+                  Tìm hiểu thêm
+               </Button>
             </div>
          </div>
       </>

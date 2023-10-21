@@ -20,7 +20,7 @@ const ShareFriend = ({ isOpen, isClose }) => {
                </div>
                <div className={styles.modal__body__right}>
                   <div className={styles.modal_flex}>
-                     <Link href="/">Thức Đẹp Trai</Link>
+                     <Link href="/">Nguyễn Văn Thức</Link>
                      <Image src="/img/group/right.svg" alt="" preview={false} />
                      <Link href="/">Nguyễn Hoàng Việt</Link>
                   </div>

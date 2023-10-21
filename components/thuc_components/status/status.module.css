@@ -94,7 +94,7 @@
 
 .sum__comment {
    display: flex;
-   align-items: center;
+   align-items: baseline;
 }
 
 .post__footer {
@@ -272,9 +272,6 @@
    .post {
       padding: 12px;
    }
-}
-
-@media (max-width: 376px) {
    .post__reaction__count_comment,
    .post__reaction__count_share__text,
    .post__reaction__count_like__text {

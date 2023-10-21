@@ -335,9 +335,13 @@
    .right_menu_content {
       top: 8.5%;
       left: 0;
+      width: 85%;
    }
    .right_img {
       height: 240px;
+   }
+   .content_fl {
+      font-size: 10px;
    }
 }
 @media (max-width: 390px) {

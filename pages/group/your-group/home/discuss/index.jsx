@@ -6,7 +6,7 @@ import Pin from "../../../../../components/thuc_components/pin/pin";
 import Introduce from "../../../../../components/thuc_components/introduce/introduce";
 import Media from "../../../../../components/thuc_components/media/media";
 
-const Discuss = () => {
+const Discuss = ({ onTabChange }) => {
    return (
       <>
          <div className={styles.container}>
@@ -26,10 +26,10 @@ const Discuss = () => {
                <div className={styles.content_bot}>
                   <div className={styles.content_bot_cl}>
                      <div className={styles.introduce}>
-                        <Introduce />
+                        <Introduce onTabChange={onTabChange} />
                      </div>
                      <div className={styles.introduce}>
-                        <Media />
+                        <Media onTabChange={onTabChange} />
                      </div>
                   </div>
                </div>
