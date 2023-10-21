@@ -1,10 +1,29 @@
+import ModalLogOut from "@/components/common/Modal/common/LogOut/ModalLogOut";
 import { CaretDownOutlined, RightOutlined } from "@ant-design/icons";
 import { Dropdown, Image, Menu, Popover } from "antd";
+import Link from "next/link";
+import router from "next/router";
 import { relative } from "path";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./user.module.css";
 
 export default function User(): JSX.Element {
+  const [openModalLogOut, setOpenModalLogOut] = useState(false);
+
+  const handleOpenModalLogOut = () => {
+    setOpenModalLogOut(true);
+    console.log("open");
+  }
+
+  const handleOkModalLogOut = () => {
+    setOpenModalLogOut(false);
+    router.push("/login");
+  }
+
+  const handleCancelModalLogOut = () => {
+    setOpenModalLogOut(false);
+  }
+
   const menuItems = [
     {
       key: "1",
@@ -17,25 +36,25 @@ export default function User(): JSX.Element {
       key: "2",
       icon: "/img/img-header/user/ep_icon_friend.svg",
       label: "Bạn bè",
-      link: "/",
+      link: "/friend",
     },
     {
       key: "3",
       icon: "/img/img-header/user/ep_icon_group.svg",
       label: "Nhóm",
-      link: "/",
+      link: "/group",
     },
     {
       key: "4",
       icon: "/img/img-header/user/ep_icon_save.svg",
       label: "Đã lưu",
-      link: "/",
+      link: "/daluu",
     },
     {
       key: "5",
       icon: "/img/img-header/user/ep_info_event.svg",
       label: "Sự kiện",
-      link: "/",
+      link: "/truyenthongnoibo/sukien",
     },
     {
       key: "6",
@@ -46,8 +65,8 @@ export default function User(): JSX.Element {
     {
       key: "7",
       icon: "/img/img-header/user/ep_info_kn.svg",
-      label: "Sự kiện",
-      link: "/",
+      label: "Kỷ niệm",
+      link: "/kyniem",
     },
     {
       key: "8",
@@ -78,8 +97,13 @@ export default function User(): JSX.Element {
       icon: "/img/img-header/user/v_header_menu_logout.svg",
       label: "Đăng xuất",
       link: "/",
-    },
+      onClick: (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault(); // Prevent the default behavior (page reload)
+        handleOpenModalLogOut(); // Open the logout modal
+      },
+    }
   ];
+
   const userMenu = (
     <div>
       <Menu className={`${styles.MenuUser} MenuUser`}>
@@ -89,7 +113,11 @@ export default function User(): JSX.Element {
               className={`${styles.menuItem} ${index >= 7 ? styles.itemWithSpacing : ""
                 }`}
             >
-              <a href={item.link} className={styles.menuLink}>
+              <Link
+                href={item.link}
+                className={styles.menuLink}
+                onClick={item.onClick}
+              >
                 <Image
                   width={index >= 7 ? 25 : 40}
                   height={index >= 7 ? 25 : 40}
@@ -106,7 +134,7 @@ export default function User(): JSX.Element {
                 >
                   {item.label}
                 </span>
-              </a>
+              </Link>
               {index >= 7 && (
                 <RightOutlined
                   rev={undefined}
@@ -134,33 +162,42 @@ export default function User(): JSX.Element {
     </div>
   );
   return (
-    <Dropdown
-      overlay={userMenu}
-      placement="bottomRight"
-      trigger={["click"]}
-      className={`${styles.userDropdown} userDropdown`}
-    >
-      <div className={styles.userDropdownTrigger}>
-        <Image
-          src="/img/c.png"
-          alt=""
-          className={styles.avatar}
-          width={40}
-          height={40}
-          preview={false}
-        />
-        <CaretDownOutlined
-          style={{
-            fontSize: "25px",
-            color: "#999999",
-            position: "relative",
-            top: "8px",
-            left: "2px",
-          }}
-          rev={undefined}
-          className={styles.caretDown}
-        />
-      </div>
-    </Dropdown>
+    <>
+      <Dropdown
+        overlay={userMenu}
+        placement="bottomRight"
+        trigger={["click"]}
+        className={`${styles.userDropdown} userDropdown`}
+      >
+        <div className={styles.userDropdownTrigger}>
+          <Image
+            src="/img/c.png"
+            alt=""
+            className={styles.avatar}
+            width={40}
+            height={40}
+            preview={false}
+          />
+          <CaretDownOutlined
+            style={{
+              fontSize: "25px",
+              color: "#999999",
+              position: "relative",
+              top: "8px",
+              left: "2px",
+            }}
+            rev={undefined}
+            className={styles.caretDown}
+          />
+        </div>
+      </Dropdown>
+      <ModalLogOut
+        open={openModalLogOut}
+        onCancel={handleCancelModalLogOut}
+        onConfirm={handleOkModalLogOut}
+        message="Bạn chắc chắn muốn đăng xuất?"
+      />
+    </>
+
   );
 }

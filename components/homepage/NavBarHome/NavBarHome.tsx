@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu, Image } from 'antd';
 import { menuItemsHome } from '../menuDataHome';
 import styles from './navbarHome.module.css';
+import Link from 'next/link';
 
 
 export default function NavbarHome(): JSX.Element {
@@ -13,7 +14,7 @@ export default function NavbarHome(): JSX.Element {
                         <Menu.Item
                             className={`${styles.menuItem} ${index >= 7 ? styles.itemWithSpacing : ''}`}
                         >
-                            <a href={item.link} className={styles.menuLink}>
+                            <Link href={item.link} className={styles.menuLink}>
                                 <Image
                                     width={index >= 7 ? 25 : 40}
                                     height={index >= 7 ? 25 : 40}
@@ -26,7 +27,7 @@ export default function NavbarHome(): JSX.Element {
                                 <span className={index >= 7 ? styles.menuLabelAfter : styles.menuLabel}>
                                     {item.label}
                                 </span>
-                            </a>
+                            </Link>
                         </Menu.Item>
                     </React.Fragment>
                 ))}
