@@ -4,8 +4,10 @@ import { Carousel, Image, Modal, Tabs } from "antd";
 import type { MenuProps, RadioChangeEvent } from "antd";
 import { Dropdown } from "antd";
 import FooterStory from "./footerStory";
+import { useRouter } from "next/router";
 import type { DotPosition } from "antd/es/carousel";
 function Story() {
+  const router = useRouter();
   const [play, setPlay] = useState(true);
   const handleOnClickPlay = () => {
     setPlay(!play);
@@ -167,6 +169,14 @@ function Story() {
         <div className={styles.story_footer}>
           <FooterStory />
         </div>
+      </div>
+      <div
+        className={styles.exit}
+        onClick={() => {
+          router.push("/");
+        }}
+      >
+        X
       </div>
 
       <Modal
